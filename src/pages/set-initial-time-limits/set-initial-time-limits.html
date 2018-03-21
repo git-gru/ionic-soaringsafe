@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Set Initial Time Limits
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (tap)="goToStartPairing()">
+        Next
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/vEpWK3qFQyWoay94IbJz_girlicon1.png" />
+      </ion-avatar>
+      <h2>
+        Halle
+      </h2>
+    </ion-item>
+  </ion-list>
+  <div class="setInitialTimeLimits-spacer-5"></div>
+  <h3 class="setInitialTimeLimits-heading">
+    Would you like to set time limits for Halle?
+  </h3>
+  <form>
+    <div>
+      <p class="setInitialTimeLimits-p">
+        You can always do this later
+      </p>
+    </div>
+    <ion-item>
+      <ion-label>
+        Enable Time Limits
+      </ion-label>
+      <ion-toggle color="calm" checked="false"></ion-toggle>
+    </ion-item>
+  </form>
+  <div>
+    <p class="setInitialTimeLimits-p">
+      [IF ENABLED, SHOW BEDTIME OPTIONS - SAME AS JOSH FILTER PAGE]
+    </p>
+  </div>
+  <div class="setInitialTimeLimits-spacer-15"></div>
+  <button ion-button color="calm" block (tap)="goToStartPairing()">
+    Next
+  </button>
+</ion-content>

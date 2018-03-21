@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ready Pairing - Off Device
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/vEpWK3qFQyWoay94IbJz_girlicon1.png" />
+      </ion-avatar>
+      <h2>
+        Halle
+      </h2>
+    </ion-item>
+  </ion-list>
+  <h3 class="readyPairingOffDevice-heading">
+    Let's pair this profile with Halle's iPad
+  </h3>
+  <div>
+    <p class="readyPairingOffDevice-heading">
+      Things you will need to get started:
+    </p>
+    <ol>
+      <li>
+        Halle&#39;s iPad
+      </li>
+      <li>
+        Halle&#39;s passcode
+      </li>
+      <li>
+        Safari enabled on Halle&#39;s iPad
+      </li>
+    </ol>
+  </div>
+  <div class="readyPairingOffDevice-spacer"></div>
+  <div>
+    <p class="readyPairingOffDevice-heading">
+      <strong>
+        Are you ready to pair with Halle&#39;s iPad?
+      </strong>
+    </p>
+  </div>
+  <button ion-button color="calm" block (tap)="goToStartPairingOffDevice()">
+    Yes, start pairing
+  </button>
+  <button ion-button outline color="calm" block (tap)="goToPairLater()">
+    No, I will do it later from dashboard
+  </button>
+</ion-content>

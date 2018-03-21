@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Reward Josh
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <img src="assets/img/0jzA8XSRGOQjYL3Kk2Hw_star-cartoon-md.png" class="rewardJosh-img" />
+  <h3 class="rewardJosh-heading">
+    Select a reward:
+  </h3>
+  <ion-list>
+    <ion-item (tap)="goToRewardLateBedtime()">
+      <ion-icon name="flag" item-left></ion-icon>
+      Late Bedtime Tonight
+      <ion-note item-right></ion-note>
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="clock" item-left></ion-icon>
+      No Time Limits Today
+      <ion-icon name="checkmark-circle" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="eye-off" item-left></ion-icon>
+      No Offtime Today
+    </ion-item>
+  </ion-list>
+</ion-content>

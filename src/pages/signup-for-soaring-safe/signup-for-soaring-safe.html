@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Signup for SoaringSafe
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form>
+    <div text-center>
+      <p class="signupForSoaringSafe-p">
+        <strong>
+          You can sign up with the parent&#39;s or the child&#39;s phone
+        </strong>
+      </p>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-label></ion-label>
+        <ion-input type="text" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input type="email" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input type="text" placeholder="8 characters"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div text-center>
+      <p class="signupForSoaringSafe-error">
+        <strong>
+          Error messages go here
+        </strong>
+      </p>
+    </div>
+    <button ion-button color="stable" block (tap)="goToCreateChildProfile()">
+      Sign up
+    </button>
+  </form>
+  <button ion-button clear color="calm" block (tap)="goToLoginToSoaringSafe()">
+    Login to existing account ...
+  </button>
+  <img src="assets/img/0qUTxOjRd62bJEvolJ1r_ScreenShot2018-03-15at8.51.01AM.png" class="signupForSoaringSafe-img" />
+  <div class="signupForSoaringSafe-spacer"></div>
+  <img src="assets/img/pe73uSTKRxOhCEepI6yR_ScreenShot2018-03-15at8.53.11AM.png" class="signupForSoaringSafe-img" />
+  <div class="signupForSoaringSafe-spacer"></div>
+  <img src="assets/img/Ilaa2X9S7aJUcGethxIh_ScreenShot2018-03-15at8.53.52AM.png" class="signupForSoaringSafe-img" />
+</ion-content>

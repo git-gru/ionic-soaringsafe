@@ -1,0 +1,21 @@
+page-set-initial-filters {
+    $black: #000000;
+
+    .setInitialFilters-heading {
+        color: $black;
+    }
+
+    .setInitialFilters-p {
+        color: $black;
+    }
+
+    .setInitialFilters-spacer {
+        width: 300px;
+        height: 15px;
+    }
+
+    .setInitialFilters-spacer-2 {
+        width: 300px;
+        height: 2px;
+    }
+}

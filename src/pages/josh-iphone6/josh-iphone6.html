@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Josh iPhone 6
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="phone-portrait" item-left></ion-icon>
+      Josh's iPhone 6
+      <ion-note item-right></ion-note>
+      <ion-icon name="checkmark-circle-outline" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div class="joshIPhone6-spacer"></div>
+  <form>
+    <ion-item>
+      <ion-label>
+        Rename Device
+      </ion-label>
+      <ion-input type="text" placeholder="Josh&#039;s Iphone6"></ion-input>
+    </ion-item>
+  </form>
+  <button ion-button color="calm" block (tap)="goToJoshDevices()">
+    Save
+  </button>
+  <div class="joshIPhone6-spacer"></div>
+  <button ion-button clear color="calm" block>
+    Delete Device
+  </button>
+</ion-content>

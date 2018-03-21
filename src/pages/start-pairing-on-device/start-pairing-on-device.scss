@@ -1,0 +1,19 @@
+page-start-pairing-on-device {
+    $black: #000000;
+
+    .startPairingOnDevice-heading {
+        color: $black;
+    }
+
+    .startPairingOnDevice-spacer {
+        width: 300px;
+        height: 22px;
+    }
+
+    .startPairingOnDevice-video {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        height: 0;
+    }
+}

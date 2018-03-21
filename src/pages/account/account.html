@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Account
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h3 class="account-heading"> Plan: </h3>
+  <ion-list>
+    <ion-item color="none">
+      SoaringSafe Premium
+      <ion-note item-right></ion-note>
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div class="spacer"></div>
+  <ion-list>
+    <ion-item color="none">
+      Account Owner
+      <ion-note item-right></ion-note>
+      <ion-icon name="open" item-right></ion-icon>
+    </ion-item>
+    <ion-item color="none">
+      Email
+      <ion-note item-right></ion-note>
+      <ion-icon name="open" item-right></ion-icon>
+    </ion-item>
+    <ion-item color="none">
+      Password
+      <ion-note item-right></ion-note>
+      <ion-icon name="open" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="calm" block (tap)="goToLoginToSoaringSafe()">
+    Sign Out
+  </button>
+</ion-content>

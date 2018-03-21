@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Reward - Late Bedtime
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h3 class="rewardLateBedtime-heading">
+    Select bedtime for tonight:
+  </h3>
+  <form>
+    <ion-item>
+      <ion-label>
+        Late bedtime:
+      </ion-label>
+      <ion-select name="">
+        <ion-option>
+          9:00 PM
+        </ion-option>
+        <ion-option>
+          9:30 PM
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </form>
+  <button ion-button color="calm" block (tap)="goToRewardJosh()">
+    Save
+  </button>
+</ion-content>

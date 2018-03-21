@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Set Initial Bedtime
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (tap)="goToSetInitialTimeLimits()">
+        Next
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/vEpWK3qFQyWoay94IbJz_girlicon1.png" />
+      </ion-avatar>
+      <h2>
+        Halle
+      </h2>
+    </ion-item>
+  </ion-list>
+  <div class="setInitialBedtime-spacer"></div>
+  <h3 class="setInitialBedtime-heading">
+    Would you like to set a bedtime for Halle?
+  </h3>
+  <form>
+    <div>
+      <p class="setInitialBedtime-heading">
+        The internet will shut off at bedtime. You can always do this later.
+      </p>
+    </div>
+    <ion-item>
+      <ion-label>
+        Enable Bedtime
+      </ion-label>
+      <ion-toggle color="calm" checked="false"></ion-toggle>
+    </ion-item>
+  </form>
+  <div>
+    <p class="setInitialBedtime-heading">
+      [IF ENABLED, SHOW BEDTIME OPTIONS - SAME AS JOSH FILTER PAGE]
+    </p>
+  </div>
+  <div class="setInitialBedtime-spacer-15"></div>
+  <button ion-button color="calm" block (tap)="goToSetInitialTimeLimits()">
+    Next
+  </button>
+</ion-content>

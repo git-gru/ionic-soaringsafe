@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Installation Check
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/vEpWK3qFQyWoay94IbJz_girlicon1.png" />
+      </ion-avatar>
+      <h2>
+        Halle
+      </h2>
+    </ion-item>
+  </ion-list>
+  <h3 class="installationCheck-heading"></h3>
+  <div>
+    <p class="installationCheck-heading">
+      Look in the very upper left of Halle&#39;s device.
+    </p>
+    <p class="installationCheck-heading">
+      Does it look like this? Do you see the VPN Symbol?
+    </p>
+  </div>
+  <img src="assets/img/S4rqQRTsSjWETlavXSQm_IMG_E3D5BE9CBED2-1.jpg" class="installationCheck-img">
+  <div class="installationCheck-spacer"></div>
+  <div text-center>
+    <p class="installationCheck-heading">
+      <strong>
+        Do you see the VPN Symbol?
+      </strong>
+    </p>
+  </div>
+  <button ion-button outline color="calm" block (tap)="goToInstallationSuccessful()">
+    Yes
+  </button>
+  <button ion-button outline color="calm" block (tap)="goToInstallationTryAgain()">
+    No
+  </button>
+</ion-content>

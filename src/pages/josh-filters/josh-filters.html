@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Josh Filters
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h3 class="joshFilters-heading">
+    Safety and Security
+  </h3>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="information-circle" item-left></ion-icon>
+      Enforce Safesearch
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="information-circle" item-left></ion-icon>
+      YouTube Restricted
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-off" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="information-circle" item-left></ion-icon>
+      Block Viruses & Scams
+      <ion-note item-right></ion-note>
+    </ion-item>
+  </ion-list>
+  <div class="joshFilters-spacer"></div>
+  <h3 class="joshFilters-heading">
+    Apps and Websites
+  </h3>
+  <div>
+    <p class="joshFilters-heading">
+      some help text that is triggered when someone precces an info button above.
+    </p>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="pinterest" item-left></ion-icon>
+      Amazon
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="pinterest" item-left></ion-icon>
+      Pinterest
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-off" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="facebook" item-left></ion-icon>
+      Facebook
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      Show More
+      <ion-note item-right></ion-note>
+      <ion-icon name="arrow-dropdown" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div class="joshFilters-spacer"></div>
+  <h3 class="joshFilters-heading">
+    Website Categories
+  </h3>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="information-circle" item-left></ion-icon>
+      App Stores & Downloads
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="information-circle" item-left></ion-icon>
+      Arts & Entertainment
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-off" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      Expansion area
+    </ion-item>
+    <ion-item>
+      <ion-icon name="information-circle" item-left></ion-icon>
+      Business
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      Show More
+      <ion-note item-right></ion-note>
+      <ion-icon name="arrow-dropdown" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div class="joshFilters-spacer"></div>
+  <h3 class="joshFilters-heading">
+    Custom Filters
+  </h3>
+  <div>
+    <p class="joshFilters-heading">
+      Allows you to block (or allow) any website. These settings override any of the above settings.
+      <strong>
+        More info
+      </strong>
+    </p>
+  </div>
+  <ion-list>
+    <ion-item>
+      dmtio.net
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      turner.net
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      groupme.com
+      <ion-note item-right></ion-note>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <button ion-button outline color="calm" (tap)="goToAddCustomFilter()">
+    Add Custom Filter
+  </button>
+  <div class="joshFilters-spacer"></div>
+  <h3 class="joshFilters-heading">
+    Load Defaults
+  </h3>
+  <div>
+    <p class="joshFilters-heading">
+      Platform and Website Categories will be set to defaults. Custom filters will not be affected.
+    </p>
+  </div>
+  <button ion-button outline color="calm">
+    Child
+  </button>
+  <button ion-button outline color="calm">
+    Teen
+  </button>
+  <button ion-button outline color="calm">
+    Young Adult
+  </button>
+</ion-content>

@@ -1,0 +1,17 @@
+page-set-initial-bedtime {
+    $black: #000000;
+
+    .setInitialBedtime-heading {
+        color: $black;
+    }
+
+    .setInitialBedtime-spacer {
+        width: 300px;
+        height: 5px;
+    }
+
+    .setInitialBedtime-spacer-15 {
+        width: 300px;
+        height: 15px;
+    }
+}

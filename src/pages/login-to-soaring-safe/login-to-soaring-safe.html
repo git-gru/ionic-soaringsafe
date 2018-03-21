@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login to SoaringSafe
+    </ion-title>
+  </ion-navbar>
+</ion-header> 
+<ion-content padding>
+  <form class="login-form">
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input type="email" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input type="password" placeholder=""></ion-input>
+      </ion-item> 
+    </ion-list>
+    <div text-center>
+      <p class="error-text">
+        <strong>
+          Error messages go here 
+        </strong>
+      </p>
+    </div>
+    <button ion-button color="stable" block (tap)="goToTabs()">
+      Log In
+    </button>
+    <div class="spacer"></div>
+    <button ion-button clear color="calm" block (tap)="signupForSoaringSafe()">
+      Or create an account
+    </button>
+    <img src="assets/img/0qUTxOjRd62bJEvolJ1r_ScreenShot2018-03-15at8.51.01AM.png" />
+    <div class="soaring-safe-spacer"></div>
+    <img src="assets/img/pe73uSTKRxOhCEepI6yR_ScreenShot2018-03-15at8.53.11AM.png" />
+    <div class="soaring-safe-spacer"></div>
+    <img src="assets/img/Ilaa2X9S7aJUcGethxIh_ScreenShot2018-03-15at8.53.52AM.png" />
+  </form>
+</ion-content>

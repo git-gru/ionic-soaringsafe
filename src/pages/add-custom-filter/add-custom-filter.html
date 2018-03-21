@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Add Custom Filter 
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="custom-filter-spacer-32"></div>
+  <button ion-button color="calm">
+    Block
+  </button>
+  <button ion-button outline color="calm">
+    Allow
+  </button>
+  <div class="custom-filter-spacer-11"></div>
+  <form>
+    <ion-item>
+      <ion-label>
+        Address (URL)
+      </ion-label>
+      <ion-input type="text" placeholder="eg google.com"></ion-input>
+    </ion-item>
+  </form>
+  <button ion-button color="calm" block (tap)="goToJoshFilters()">
+    Save
+  </button>
+  <div class="custom-filter-spacer-49"></div>
+  <button ion-button clear color="calm" block (tap)="goToJoshFilters()">
+    Delete Custom Filter
+  </button>
+</ion-content>

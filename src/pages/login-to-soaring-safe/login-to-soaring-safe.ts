@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @IonicPage()
@@ -9,12 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginToSoaringSafePage {
 
+  userValid: FormGroup;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginToSoaringSafePage');
+  ngOnInit() {
+    this.userValid = new FormGroup({
+      parentName: new FormControl(''),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(7)]),
+    });
   }
+  
   signupForSoaringSafe() {
     //Navigate to Signup page
     this.navCtrl.setRoot('SignupForSoaringSafePage');
@@ -23,5 +31,4 @@ export class LoginToSoaringSafePage {
     //Navigate to TabsPage
     this.navCtrl.setRoot('TabsControllerPage');
   }
-
 }

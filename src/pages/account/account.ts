@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-
+import { IonicPage, NavController, App } from 'ionic-angular';
+import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -8,13 +8,17 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl: 'account.html',
 })
 export class AccountPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
-  constructor(public navCtrl: NavController) {
+  
+  constructor(public navCtrl: NavController, public app: App, public userService: UserProvider) {
+
   }
 
   goToLoginToSoaringSafe() {
-    // Navigate to the LoginToSoaringSafePage
-    this.navCtrl.setRoot('LoginToSoaringSafePage');
+    this.userService.logOut().then(res=>{
+      if(res){
+        // Navigate to the LoginToSoaringSafePage
+        this.app.getRootNav().setRoot('LoginToSoaringSafePage');
+      } 
+    });
   }
 }

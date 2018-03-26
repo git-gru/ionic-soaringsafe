@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "155233054235",
+    "firebase_url": "https://soaringsafe.firebaseio.com",
+    "project_id": "soaringsafe",
+    "storage_bucket": "soaringsafe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155233054235:android:7b56e069c0da02c5",
+        "android_client_info": {
+          "package_name": "com.ionic.soaringsafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155233054235-u8puuag5fhqupca7lu3jv0bo0siihmqe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ionic.soaringsafe",
+            "certificate_hash": "22a0ace7e0c534bb5acbe7350311bcd90aeda303"
+          }
+        },
+        {
+          "client_id": "155233054235-likk4sqfgglcqr08ulnj0b9cfqlfi95l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDINAw6-W8-KhrVS8wscJg5OVbpwdOnX0Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "155233054235-likk4sqfgglcqr08ulnj0b9cfqlfi95l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "155233054235-7v9bvt4oij6806vnh1id9bltd70enchf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ionic.soaringsafe"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

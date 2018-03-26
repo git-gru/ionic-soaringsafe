@@ -9,27 +9,31 @@
   <ion-list>
     <ion-item>
       <ion-avatar item-left>
-        <img src="assets/img/vEpWK3qFQyWoay94IbJz_girlicon1.png" />
+        <img [src]="profileData.ImageURL" />
       </ion-avatar>
       <h2>
-        Halle
+        {{profileData.profileName}}
       </h2>
     </ion-item>
   </ion-list>
   <div class="setUpProfile-spacer"></div>
   <h3 class="setUpProfile-heading">
-    Halle is a:
+    {{profileData.profileName}} is a:
   </h3>
   <div>
-    <button ion-button color="calm">
-      Kid
-    </button>
-    <button ion-button outline color="calm">
-      Teen
-    </button>
-    <button ion-button outline color="calm">
-      Young Adult
-    </button>
+    <ion-toolbar>
+      <ion-segment color="primary" [(ngModel)]="ageGroup" (ionChange)="onAgeChanged($event)">
+        <ion-segment-button value="KID">
+          KID
+        </ion-segment-button>
+        <ion-segment-button value="TEEN">
+          TEEN
+        </ion-segment-button>
+        <ion-segment-button value="YOUNG ADULT">
+          YOUNG ADULT
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
   </div>
   <div class="setUpProfile-spacer"></div>
   <div>

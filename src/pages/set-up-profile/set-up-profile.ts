@@ -8,8 +8,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'set-up-profile.html',
 })
 export class SetUpProfilePage {
-
+  profileData = {};
+  ageGroup = 'KID';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.profileData = this.navParams.get('profileData');
   }
 
   ionViewDidLoad() {
@@ -17,6 +19,10 @@ export class SetUpProfilePage {
   }
   goToSetInitialFilters() {
     // Navigate to the SetInitialFiltersPage
-    this.navCtrl.push('SetInitialFiltersPage');
+    this.navCtrl.push('SetInitialFiltersPage', { profileData: this.profileData});
+  }
+  onAgeChanged(selectedAge) {
+    //Get Selected Age Group and add to profile Data
+    this.profileData["ageGroup"] = selectedAge.value;
   }
 }

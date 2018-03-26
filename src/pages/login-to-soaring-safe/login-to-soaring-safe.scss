@@ -1,10 +1,15 @@
 page-login-to-soaring-safe {
+    $red: #ff0000;
+
     .error-text {
-        color: #FF0000;
+        color:$red;
     }
     .spacer {
         width: 300px;
         height: 23px;
+    }
+    .loginForSoaringSafe-error {
+        color: $red;
     }
     .login-form {
         img {

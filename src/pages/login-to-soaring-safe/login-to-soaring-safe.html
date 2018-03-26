@@ -4,41 +4,53 @@
       Login to SoaringSafe
     </ion-title>
   </ion-navbar>
-</ion-header> 
+</ion-header>
 <ion-content padding>
-  <form class="login-form">
+  <form class="login-form" novalidate  [formGroup]="userValid">
     <ion-list>
       <ion-item>
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="email" placeholder="" formControlName="email"></ion-input>
       </ion-item>
+      <!-- Email Validation Code Start  -->
+      <ion-item no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
+        <div class="loginForSoaringSafe-error" *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
+          email is required
+        </div>
+        <div class="loginForSoaringSafe-error" *ngIf="userValid.get('email').hasError('email') && userValid.get('email').touched">
+          Please enter valid email
+        </div>
+      </ion-item> 
+      <!-- Email Validation Code Ends -->
       <ion-item>
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
-      </ion-item> 
+        <ion-input type="password" placeholder="" formControlName="password"></ion-input>
+      </ion-item>
+      <!-- Password validation code start -->
+      <ion-item no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
+        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
+          password is required
+        </div>
+        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
+          Minimum of 7 characters
+        </div>
+      </ion-item>
+      <!-- Password validation code Ends -->
     </ion-list>
-    <div text-center>
-      <p class="error-text">
-        <strong>
-          Error messages go here 
-        </strong>
-      </p>
-    </div>
-    <button ion-button color="stable" block (tap)="goToTabs()">
+    <button ion-button color="stable" block (tap)="goToTabs()" [disabled]="userValid.invalid">
       Log In
     </button>
     <div class="spacer"></div>
     <button ion-button clear color="calm" block (tap)="signupForSoaringSafe()">
       Or create an account
     </button>
-    <img src="assets/img/0qUTxOjRd62bJEvolJ1r_ScreenShot2018-03-15at8.51.01AM.png" />
-    <div class="soaring-safe-spacer"></div>
-    <img src="assets/img/pe73uSTKRxOhCEepI6yR_ScreenShot2018-03-15at8.53.11AM.png" />
-    <div class="soaring-safe-spacer"></div>
-    <img src="assets/img/Ilaa2X9S7aJUcGethxIh_ScreenShot2018-03-15at8.53.52AM.png" />
   </form>
+  <button ion-button icon-start block large color="danger" (click)="loginWithGoogle()">
+    <ion-icon name="logo-googleplus"></ion-icon>
+    Login with Google
+  </button>
 </ion-content>

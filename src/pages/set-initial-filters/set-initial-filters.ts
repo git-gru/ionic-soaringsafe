@@ -8,8 +8,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'set-initial-filters.html',
 })
 export class SetInitialFiltersPage {
-
+  profileData = {};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.profileData = this.navParams.get('profileData');
   }
 
   ionViewDidLoad() {

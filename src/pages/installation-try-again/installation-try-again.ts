@@ -18,7 +18,7 @@ export class InstallationTryAgainPage {
 
   goToIsThisHalleIPad() {
     // Navigate to the IsThisHalleIPadPage
-    this.navCtrl.push('IsThisHalleIPadPage');
+    this.navCtrl.push('IsThisHalleIpadPage');
   }
 
   goToHelpAndSupport() {

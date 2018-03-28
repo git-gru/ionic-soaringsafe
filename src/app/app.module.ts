@@ -14,6 +14,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { UserProvider } from '../providers/user/user';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { DataProvider } from '../providers/data/data';
+import { FiltersProvider } from '../providers/filters/filters';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DataProvider } from '../providers/data/data';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     GooglePlus,
-    DataProvider
+    DataProvider,
+    FiltersProvider
   ]
 })
 export class AppModule {}

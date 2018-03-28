@@ -18,6 +18,7 @@ export class SetUpProfilePage {
     console.log('ionViewDidLoad SetUpProfilePage');
   }
   goToSetInitialFilters() {
+    this.profileData["ageGroup"] = this.ageGroup;
     // Navigate to the SetInitialFiltersPage
     this.navCtrl.push('SetInitialFiltersPage', { profileData: this.profileData});
   }

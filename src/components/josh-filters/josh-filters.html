@@ -36,7 +36,7 @@
     </ion-avatar>
     <ion-label>{{appf.appName}}</ion-label>
     <!-- <button ion-button item-right  [ngStyle]="{'background-color': buttonColor}" (tap)="toggleAllowBlock(i)">{{appf.status}}</button> -->
-    <button ion-button item-right  (tap)="toggleAppFilters(i)">{{appf.status}}</button>
+    <button ion-button item-right [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">{{appf.status}}</button>
   </ion-item>
 </ion-list>
 <div class="joshFilters-spacer"></div>
@@ -49,7 +49,7 @@
   <ion-item>
     <ion-icon name="information-circle" item-left></ion-icon>
     {{cat.CategoryName}}
-    <button ion-button item-right  (tap)="toggleCategoryFilters(i)">{{cat.status}}</button>
+    <button ion-button item-right [ngStyle]="{'background-color': cat.buttonColor}" (tap)="toggleCategoryFilters(i)">{{cat.status}}</button>
   </ion-item>
 </ion-list>
 <div class="joshFilters-spacer"></div>

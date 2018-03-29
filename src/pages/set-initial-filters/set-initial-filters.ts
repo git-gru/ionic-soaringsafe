@@ -7,7 +7,7 @@ import { FiltersProvider } from '../../providers/filters/filters';
   selector: 'page-set-initial-filters',
   templateUrl: 'set-initial-filters.html',
 })  
-export class SetInitialFiltersPage {
+export class SetInitialFiltersPage { 
   profileData = {};
   customize: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public filterProvider: FiltersProvider) {
@@ -16,6 +16,7 @@ export class SetInitialFiltersPage {
 
     console.log('profile Data', this.profileData);
     const ageGroup = JSON.parse(JSON.stringify(this.profileData)).ageGroup;
+    console.log('Agee', ageGroup);
 
     this.getFilters(ageGroup);
   }

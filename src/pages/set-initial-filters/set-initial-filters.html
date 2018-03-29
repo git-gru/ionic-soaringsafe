@@ -37,8 +37,8 @@
       <ion-toggle color="positive" [checked]="customize" [(ngModel)]="customize"></ion-toggle>
     </ion-item>
   <div>
-    <josh-filters *ngIf="customize"></josh-filters>
-    <p class="setInitialFilters-p">
+    <josh-filters [age]="ageGroup" *ngIf="customize"></josh-filters>
+    <p class="setInitialFilters-p"> 
       [IF ENABLED, SHOW FILTER OPTIONS - SAME AS JOSH FILTER PAGE]
     </p>
   </div>

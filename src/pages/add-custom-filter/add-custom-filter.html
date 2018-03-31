@@ -1,32 +1,36 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       Add Custom Filter 
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <div class="custom-filter-spacer-32"></div>
-  <button ion-button color="calm">
-    Block
-  </button>
-  <button ion-button outline color="calm">
-    Allow
-  </button>
+  <div>
+    <ion-toolbar>
+      <ion-segment color="primary" [(ngModel)]="customFilter.status">
+        <ion-segment-button color="primary" value="ALLOWED">
+          ALLOW
+        </ion-segment-button>
+        <ion-segment-button color="primary" value="BLOCKED">
+          BLOCK
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </div>
   <div class="custom-filter-spacer-11"></div>
-  <form>
     <ion-item>
       <ion-label>
         Address (URL)
       </ion-label>
-      <ion-input type="text" placeholder="eg google.com"></ion-input>
+      <ion-input type="text" placeholder="eg google.com" [(ngModel)]= "customFilter.url"></ion-input>
     </ion-item>
-  </form>
-  <button ion-button color="calm" block (tap)="goToJoshFilters()">
+  <button ion-button color="calm" block (tap)="addCustomFilter()">
     Save
   </button>
   <div class="custom-filter-spacer-49"></div>
-  <button ion-button clear color="calm" block (tap)="goToJoshFilters()">
+  <button ion-button clear color="calm" block (tap)="cancelFilter()">
     Delete Custom Filter
   </button>
 </ion-content>

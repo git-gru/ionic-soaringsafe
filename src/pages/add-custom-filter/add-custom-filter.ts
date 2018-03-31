@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -8,11 +8,19 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl: 'add-custom-filter.html',
 })
 export class AddCustomFilterPage {
-  
-  constructor(public navCtrl: NavController) {
+  // state: string = '';
+  customFilter = {
+    status: '',
+    url: ''
   }
-  goToJoshFilters() {
-    // Navigate to the JoshFiltersPage
-    this.navCtrl.push('JoshFiltersPage');
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
+  }
+  addCustomFilter() {
+    console.log('Selected Acess Value ', this.customFilter);
+    this.viewCtrl.dismiss(this.customFilter);
+  }
+
+  cancelFilter() {
+    this.viewCtrl.dismiss();
   }
 }

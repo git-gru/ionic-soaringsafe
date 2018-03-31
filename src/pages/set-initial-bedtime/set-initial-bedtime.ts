@@ -9,7 +9,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SetInitialBedtimePage {
 
+  profileData = {};
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.profileData = this.navParams.get('profileData');
+
+    console.log('profile Data', this.profileData);
   }
 
   ionViewDidLoad() {

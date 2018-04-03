@@ -54,7 +54,9 @@ export class SignupForSoaringSafePage implements OnInit {
       } else {
         alert("Error" + res);
       }
-    })
+    }).catch(error=> {
+      console.log('Error While SigningUp user', error);
+    });
   }
 
   goToLoginToSoaringSafe() {

@@ -19,6 +19,21 @@ export class UserProvider {
     return currentTimeStamp;
   }
 
+  loginUser(email, password) {
+    var promise = new Promise((resolve, reject) => {
+      this.afAuth.auth.signInWithEmailAndPassword(email, password).then(res=>{
+        if(res) {
+          console.log('Successfully Logged In', res);
+          resolve({success: true});
+        }
+      }).catch(error => {
+        console.log('Errors While Logging In User', error);
+        reject(error);
+      });
+    });
+    return promise;
+  }
+
   signUpUser(user) {
     console.log('information of user', user);
     var promise = new Promise((resolve, reject) => {

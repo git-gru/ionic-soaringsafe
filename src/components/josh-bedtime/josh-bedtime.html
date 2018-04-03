@@ -42,29 +42,17 @@
   </div>
   
     <ion-item>
-      <ion-label>
-        Bedtime
-      </ion-label>
-      <ion-select [(ngModel)]="weeknightBedtime" (ngModelChange)="weekNightBedtime()">
-        <ion-option value = "weeknight">
-          9 PM
-        </ion-option>
-        <ion-option>
-          10 PM
-        </ion-option>
+      <ion-label>Bedtime</ion-label>
+      <ion-select [(ngModel)]="weeknightBedtime" >
+        <ion-option>9 PM</ion-option>
+        <ion-option>10 PM</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>
-        Awake
-      </ion-label>
+      <ion-label>Awake</ion-label>
       <ion-select [(ngModel)]="weeknightAwaketime">
-        <ion-option>
-          6 AM
-        </ion-option>
-        <ion-option>
-          7 AM
-        </ion-option>
+        <ion-option>6 AM</ion-option>
+        <ion-option>7 AM</ion-option>
       </ion-select>
     </ion-item>
     
@@ -101,33 +89,20 @@
       </p>
     </div>
     <ion-item>
-      <ion-label>
-        Bedtime
-      </ion-label>
+      <ion-label>Bedtime</ion-label>
       <ion-select [(ngModel)]="weekendBedtime">
-        <ion-option>
-          9 PM
-        </ion-option>
-        <ion-option>
-          10 PM
-        </ion-option>
+        <ion-option>9 PM</ion-option>
+        <ion-option>10 PM</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>
-        Awake
-      </ion-label>
+      <ion-label>Awake</ion-label>
       <ion-select [(ngModel)]="weekendAwaketime">
-        <ion-option>
-          6 AM
-        </ion-option>
-        <ion-option>
-          7 AM
-        </ion-option>
+        <ion-option>6 AM</ion-option>
+        <ion-option>7 AM</ion-option>
       </ion-select>
     </ion-item>
-
 </div>
 <button ion-button color="calm" block (tap)="createProfile()">
   Next
-</button>
+</button> 

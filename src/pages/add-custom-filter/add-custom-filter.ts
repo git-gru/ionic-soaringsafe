@@ -10,7 +10,7 @@ import { IonicPage, NavController, ViewController } from 'ionic-angular';
 export class AddCustomFilterPage {
   // state: string = '';
   customFilter = {
-    status: '',
+    status: 'ALLOWED',
     url: ''
   }
   constructor(public navCtrl: NavController, public viewCtrl: ViewController) {

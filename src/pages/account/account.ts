@@ -15,10 +15,8 @@ export class AccountPage {
 
   goToLoginToSoaringSafe() {
     this.userService.logOut().then(res=>{
-      if(res){
-        // Navigate to the LoginToSoaringSafePage
+         // Navigate to the LoginToSoaringSafePage
         this.app.getRootNav().setRoot('LoginToSoaringSafePage');
-      } 
     });
   }
 }

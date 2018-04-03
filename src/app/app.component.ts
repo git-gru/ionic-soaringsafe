@@ -8,8 +8,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any;
-  rootPage: string = 'LoginToSoaringSafePage';
+  rootPage:any;
+  // rootPage: string = 'LoginToSoaringSafePage';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     public afAuth: AngularFireAuth) {
@@ -20,13 +20,13 @@ export class MyApp {
       splashScreen.hide();
 
       // Check If User is logged in or not
-      // this.afAuth.authState.subscribe(user=>{
-      //   if(user) {
-      //     this.rootPage = 'TabsControllerPage';
-      //   } else {
-      //     this.rootPage = 'LoginToSoaringSafePage'
-      //   }
-      // });
+      this.afAuth.authState.subscribe(user=>{
+        if(user) {
+          this.rootPage = 'TabsControllerPage';
+        } else {
+          this.rootPage = 'LoginToSoaringSafePage'
+        }
+      });
     });
   }
 }

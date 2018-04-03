@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage';
 export class JoshFiltersComponent {
 
   // @Input('defaults') defaultFilters;
-  @Input('age') age;
+  @Input('age') ageGroup;
   customize: boolean = false;
 
   appFilters = [];
@@ -22,13 +22,11 @@ export class JoshFiltersComponent {
     { name: 'YouTube Restricted', status: 'OFF', buttonColor: '#ff0000' }
   ];
   // buttonColor: string = '#488aff';
-  ageGroup = 'KID';
 
   constructor(public filterProvider: FiltersProvider, public navCtrl: NavController,
     public modalCtrl: ModalController, public storage: Storage) {
 
     // console.log('default filters', this.defaultFilters);
-    console.log('Age', this.ageGroup);
 
     console.log('Safety And Security Array', this.safetySecurity);
 
@@ -36,7 +34,7 @@ export class JoshFiltersComponent {
     this.getFilters();
   }
 
-  // Get All Filters
+  // Get All Filters 
   getFilters() {
     //Get Filters from Filter Provider
     this.filterProvider.getAppFilters().subscribe((res: any) => {
@@ -203,11 +201,11 @@ export class JoshFiltersComponent {
 
   goToSetInitialBedtime() {
     let profile = {
-      appFilter: [],
+      appFilters: [],
       categoryFilters: [],
       safeSearch: '',
-      youtubeRestrcited: '',
-      customeFilter: []
+      youtubeRestricted: '',
+      customFilters: []
     }
     if (this.customize) {
       //User have Enabled Custome Filters
@@ -216,7 +214,7 @@ export class JoshFiltersComponent {
           filterId: res.filterId,
           status: res.status
         };
-        profile.appFilter.push(temp);
+        profile.appFilters.push(temp);
       });
 
       //fetch the category filter
@@ -235,10 +233,10 @@ export class JoshFiltersComponent {
         if (res.name == "Enforce Safesearch") {
           profile.safeSearch = res.status;
         } else {
-          profile.youtubeRestrcited = res.status;
+          profile.youtubeRestricted = res.status;
         }
       });
-      
+
       //get the Custom Filters
       this.customFilters.forEach(res => {
         console.log('custome filter', res);
@@ -246,11 +244,13 @@ export class JoshFiltersComponent {
           url: res.url,
           status: res.status
         };
-        profile.customeFilter.push(temp);
+        profile.customFilters.push(temp);
       });
 
       console.log('profile', profile);
-      this.storage.set('profileFilter', profile).then(res=>{
+
+      // Set Profile Filter in Local Stoarge with Custome Filters
+      this.storage.set('profileFilter', profile).then(res => {
         this.navCtrl.push('SetInitialBedtimePage');
       });
 
@@ -261,7 +261,7 @@ export class JoshFiltersComponent {
           filterId: res.filterId,
           status: res.status
         };
-        profile.appFilter.push(temp);
+        profile.appFilters.push(temp);
       });
 
       //fetch the category filter
@@ -272,18 +272,19 @@ export class JoshFiltersComponent {
         };
         profile.categoryFilters.push(temp);
       });
-
+      
+      //Fetch safety and Security
       this.safetySecurity.forEach(res => {
         console.log('safeSearch', res);
         if (res.name == "Enforce Safesearch") {
           profile.safeSearch = res.status;
         } else {
-          profile.youtubeRestrcited = res.status;
+          profile.youtubeRestricted = res.status;
         }
       });
       console.log('profile', profile);
-
-      this.storage.set('profileFilter', profile).then(res=>{
+      //Set Profile Filter in Local Storage with Default Filters
+      this.storage.set('profileFilter', profile).then(res => {
         this.navCtrl.push('SetInitialBedtimePage');
       });
     }

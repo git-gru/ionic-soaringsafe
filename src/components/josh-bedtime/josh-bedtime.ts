@@ -42,7 +42,10 @@ export class JoshBedtimeComponent {
     ];  
     console.log('Value of Josh page', this.offtimes);
 
-    this.profileService.createProfile(this.offtimes);
+    this.profileService.createProfile(this.offtimes).then(res=>{
+        const temp = JSON.parse(JSON.stringify(res)).profileId;
+          console.log('profileId from Profile Provider', temp);
+    })
   }
    
   

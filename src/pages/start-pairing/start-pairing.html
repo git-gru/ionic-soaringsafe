@@ -9,23 +9,21 @@
   <ion-list>
     <ion-item>
       <ion-avatar item-left>
-        <img src="assets/img/vEpWK3qFQyWoay94IbJz_girlicon1.png" />
+        <img [src]="profileData?.ImageURL" />
       </ion-avatar>
       <h2>
-        Halle
+        {{profileData?.profileName}}
       </h2>
-    </ion-item>
+    </ion-item> 
   </ion-list>
   <div class="startPairing-spacer"></div>
   <h3 class="startPairing-heading"></h3>
-  <form>
     <ion-item>
       <ion-label>
         Device Nickname
       </ion-label>
-      <ion-input type="text" placeholder="Halle&#039;s iPhone"></ion-input>
+      <ion-input type="text" placeholder="Halle&#039;s iPhone" [(ngModel)]="deviceName"></ion-input>
     </ion-item>
-  </form>
   <button ion-button color="stable" block (tap)="goToIsThisHalleIPad()">
     Next
   </button>

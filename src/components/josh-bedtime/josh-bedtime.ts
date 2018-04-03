@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ProfileProvider } from '../../providers/profile/profile';
+import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -16,7 +18,8 @@ export class JoshBedtimeComponent {
 
   offtimes = [];
 
-  constructor(public profileService: ProfileProvider) {
+  constructor(public profileService: ProfileProvider, public navCtrl: NavController,
+    public storage: Storage) {
     console.log('Hello JoshBedtimeComponent Component');
 
     
@@ -45,7 +48,11 @@ export class JoshBedtimeComponent {
     this.profileService.createProfile(this.offtimes).then(res=>{
         const temp = JSON.parse(JSON.stringify(res)).profileId;
           console.log('profileId from Profile Provider', temp);
-    })
+          this.storage.set('profileId',temp);
+          this.navCtrl.setRoot('StartPairingPage', {profileId: temp});
+    }).catch(error => {
+      console.log('Josh-bedtimes: Error While Creating Profile ', error);
+    });
   }
    
   

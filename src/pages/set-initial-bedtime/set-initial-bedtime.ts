@@ -25,9 +25,4 @@ export class SetInitialBedtimePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SetInitialBedtimePage');
   }
-
-  goToSetInitialTimeLimits() {
-    // Navigate to the SetInitialTimeLimitsPage
-    this.navCtrl.push('SetInitialTimeLimitsPage');
-  }
 }

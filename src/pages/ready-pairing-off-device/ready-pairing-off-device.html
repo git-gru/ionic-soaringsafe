@@ -9,15 +9,15 @@
   <ion-list>
     <ion-item>
       <ion-avatar item-left>
-        <img src="assets/img/vEpWK3qFQyWoay94IbJz_girlicon1.png" />
+        <img [src]="profileData?.ImageURL" />
       </ion-avatar>
       <h2>
-        Halle
+        {{profileData?.profileName}}
       </h2>
     </ion-item>
   </ion-list>
   <h3 class="readyPairingOffDevice-heading">
-    Let's pair this profile with Halle's iPad
+    Let's pair this profile with {{deviceName}}
   </h3>
   <div>
     <p class="readyPairingOffDevice-heading">
@@ -25,13 +25,13 @@
     </p>
     <ol>
       <li>
-        Halle&#39;s iPad
+        {{deviceName}}
       </li>
       <li>
-        Halle&#39;s passcode
+        {{deviceName}} passcode
       </li>
       <li>
-        Safari enabled on Halle&#39;s iPad
+        Safari enabled on {{deviceName}}
       </li>
     </ol>
   </div>
@@ -39,7 +39,7 @@
   <div>
     <p class="readyPairingOffDevice-heading">
       <strong>
-        Are you ready to pair with Halle&#39;s iPad?
+        Are you ready to pair with {{deviceName}}?
       </strong>
     </p>
   </div>

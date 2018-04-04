@@ -36,11 +36,11 @@
       </strong>
     </p>
   </div>
-  <button ion-button color="calm" block href-inappbrowser="http://pair.soaringsafe.com/1">
+  <button ion-button [ngStyle]="{'background-color': pairColor}" block (tap)='startPairing()'>
     <ion-icon name="navigate"></ion-icon>
-    Start 1-click Pairing
+    {{buttonTxt}}
   </button>
-  <button ion-button outline color="calm" block (tap)="goToInstallationCheck()">
+  <button ion-button [ngStyle]="{'background-color': nextColor}" block (tap)="goToInstallationCheck()">
     Next: Check if Pairing Successful
   </button>
 </ion-content>

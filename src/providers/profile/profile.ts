@@ -55,12 +55,16 @@ export class ProfileProvider {
         console.log('Profile Data in Profle Provider: ', this.profileData)
         console.log('Offtimes Data: ', offtimes);
 
-        this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
+        // this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
         this.profileData["profileNumber"] = 0;
 
         this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').add(this.profileData).then(res => {
           this.profileUid = res.id;
-
+          this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(res.id).update({
+            profileId: res.id
+          }).catch(error=>{
+            console.log("Errors while Updating the profile", error);
+          });
           this.appFilter.forEach(appF => {
             appF["profileId"] = res.id;
             this.afs.collection('profileSettings').doc(res.id).collection('appFilters').add(appF).then(ar => {
@@ -74,11 +78,11 @@ export class ProfileProvider {
 
           this.categoryFilter.forEach(catF => {
             catF["profileId"] = res.id;
-           this.afs.collection('profileSettings').doc(res.id).collection('categoryFilters').add(catF).then(ar => {
+            this.afs.collection('profileSettings').doc(res.id).collection('categoryFilters').add(catF).then(ar => {
               console.log('successfully updated Category Filter');
             }).catch(error => {
               console.log('Error inside Category Filter upload', error);
-            }); 
+            });
           });
 
           //Store Custome Filters in Firestore Database
@@ -131,6 +135,52 @@ export class ProfileProvider {
     console.log('Profile Id inside Profile Provider', profileId);
 
     //update the Device Info in Profile Settings Collection of Firestore
-   return this.afs.collection('profileSettings').doc(profileId).collection('devices').add(deviceInfo);
+    return this.afs.collection('profileSettings').doc(profileId).collection('devices').add(deviceInfo);
+  }
+  getProfileNumber(profileId) {
+    return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).valueChanges();
+  }
+  updateDeviceStatus(profileId, status, deviceName) {
+    console.log('deviceName Inside update Device Status', deviceName);
+    this.afs.collection('profileSettings').doc(profileId).collection('devices').ref.where('deviceName', '==', deviceName)
+      .get().then(snap => {
+        snap.forEach(result => {
+          console.log('Document Id with Device Name', result.id);
+          this.afs.collection('profileSettings').doc(profileId).collection('devices').doc(result.id).update({
+            deviceStatus: status
+          }).then(res => {
+            console.log('Device Status Updated Successfully');
+          }).catch(error => {
+            console.log('Error while updating device status', error);
+          });
+        });
+      });
+  }
+
+
+  //Update Device Name
+
+  updateDeviceName(newDeviceName, profileId, deviceName) {
+    const promise = new Promise((resolve, reject) => {
+      this.afs.collection('profileSettings').doc(profileId).collection('devices').ref.where('deviceName', '==', deviceName)
+      .get().then(snap => {
+        snap.forEach(result => {
+          console.log('Document Id with Device Name', result.id);
+          this.afs.collection('profileSettings').doc(profileId).collection('devices').doc(result.id).update({
+            deviceName: newDeviceName
+          }).then(res => {
+            console.log('Device Status Updated Successfully');
+            resolve(true);
+          }).catch(error => {
+            console.log('Error while updating device status', error);
+            reject(error);
+          });
+        });
+      }).catch(error => {
+        console.log('Error while querying the database according to deviceName', error);
+        reject(error);
+      });
+    });
+    return promise;
   }
 }

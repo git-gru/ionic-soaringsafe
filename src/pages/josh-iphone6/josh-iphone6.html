@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Josh iPhone 6
+      {{deviceInfo?.deviceName}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,20 +9,18 @@
   <ion-list>
     <ion-item>
       <ion-icon name="phone-portrait" item-left></ion-icon>
-      Josh's iPhone 6
+      {{deviceInfo?.deviceName}}
       <ion-note item-right></ion-note>
       <ion-icon name="checkmark-circle-outline" item-right></ion-icon>
     </ion-item>
   </ion-list>
   <div class="joshIPhone6-spacer"></div>
-  <form>
     <ion-item>
       <ion-label>
         Rename Device
       </ion-label>
-      <ion-input type="text" placeholder="Josh&#039;s Iphone6"></ion-input>
+      <ion-input type="text" [placeholder]="deviceInfo?.deviceName" [(ngModel)] = "newDeviceName"></ion-input>
     </ion-item>
-  </form>
   <button ion-button color="calm" block (tap)="goToJoshDevices()">
     Save
   </button>

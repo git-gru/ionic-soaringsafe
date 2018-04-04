@@ -1,26 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Josh Devices
+      {{profileName}} Devices
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-list>
-    <ion-item (tap)="goToJoshIPhone6()">
+  <ion-list *ngFor="let device of devices">
+    <ion-item (tap)="goToJoshIPhone6(device)">
       <ion-icon name="phone-portrait" item-left></ion-icon>
-      Josh's iPhone 6
-      <ion-note item-right></ion-note>
-      <ion-icon name="checkmark-circle-outline" item-right></ion-icon>
-    </ion-item>
-    <ion-item (tap)="goToIsThisHalleIPad()">
-      <ion-icon name="tablet-portrait" item-left></ion-icon>
-      Josh's iPad
+      {{device?.deviceName}}
       <ion-note item-right></ion-note>
       <ion-icon name="checkmark-circle-outline" item-right></ion-icon>
     </ion-item>
   </ion-list>
   <button ion-button color="calm" block (tap)="goToStartPairing()">
-    Add Device for Josh
+    Add Device for {{profileName}}
   </button>
 </ion-content>

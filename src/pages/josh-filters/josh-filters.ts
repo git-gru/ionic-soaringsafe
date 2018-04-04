@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -9,7 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class JoshFiltersPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  profileName: any;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public storage: Storage) {
+
+    this.storage.get('pName').then(res=>{
+      this.profileName = res;
+    }).catch(error=>{
+      console.log('JoshDevices: Error while getting profileName', error);
+    });
   }
 
   ionViewDidLoad() {

@@ -16,6 +16,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { DataProvider } from '../providers/data/data';
 import { FiltersProvider } from '../providers/filters/filters';
 import { ProfileProvider } from '../providers/profile/profile';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProfileProvider } from '../providers/profile/profile';
     GooglePlus,
     DataProvider,
     FiltersProvider,
-    ProfileProvider
+    ProfileProvider,
+    InAppBrowser,
   ]
 })
 export class AppModule {}

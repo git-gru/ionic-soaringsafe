@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Josh
+      {{profileInfo?.profileName}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <img src="assets/img/Khn9VTwTzedzMXT3bQ1K_boyavatar1.png" class="josh-img" />
+  <img [src]="profileInfo?.ImageURL" class="josh-img" />
   <div class="josh-spacer"></div>
   <div>
     <button ion-button outline color="calm" class="josh-button">
@@ -28,7 +28,7 @@
     </div>
   </div>
   <ion-list>
-    <ion-item (tap)="goToJoshDevices()">
+    <ion-item (tap)="goToJoshDevices(profileInfo.profileId)">
       <ion-icon name="phone-portrait" item-left></ion-icon>
       Devices
       <ion-note item-right></ion-note>

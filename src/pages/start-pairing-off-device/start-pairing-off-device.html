@@ -9,7 +9,7 @@
   <ion-list>
     <ion-item>
       <ion-avatar item-left>
-        <img src="profileData?.ImageURL" />
+        <img [src]="profileData?.ImageURL" />
       </ion-avatar>
       <h2>
         {{profileData?.profileName}}
@@ -34,9 +34,9 @@
     </p>
     <p class="startPairingOffDevice-heading">
       <strong>
-        pair.soaringsafe.com/1
+       {{url}}
       </strong>
     </p>
   </div>
-  <button ion-button outline color="calm" block (tap)="goToInstallationCheck()"></button>
+  <button ion-button outline color="calm" block (tap)="goToInstallationCheck()">I finished on {{deviceName}}</button>
 </ion-content>

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ProfileProvider } from '../../providers/profile/profile';
 import { UserProvider } from '../../providers/user/user';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 @IonicPage()

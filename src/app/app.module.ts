@@ -15,6 +15,7 @@ import { UserProvider } from '../providers/user/user';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { DataProvider } from '../providers/data/data';
 import { FiltersProvider } from '../providers/filters/filters';
+import { HelpProvider } from '../providers/help/help';
 import { ProfileProvider } from '../providers/profile/profile';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
@@ -46,6 +47,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     FiltersProvider,
     ProfileProvider,
     InAppBrowser,
+    HelpProvider,
   ]
 })
 export class AppModule {}

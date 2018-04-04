@@ -32,4 +32,8 @@ export class HelpAndSupportPage {
     });
   }
 
+  goToURL(help){
+    window.open(help.URL, '_blank');
+    return false;
+  }
 }

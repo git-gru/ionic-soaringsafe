@@ -28,7 +28,7 @@
     Videos:
   </h3>
   <ion-list>
-    <ion-item *ngFor="let video of videoList">
+    <ion-item *ngFor="let video of videoList" (tap)="goToURL(video)">
       {{video.Title}}
       <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-item>
@@ -37,7 +37,7 @@
     FAQs:
   </h3>
   <ion-list>
-    <ion-item *ngFor="let faq of faqList">
+    <ion-item *ngFor="let faq of faqList" (tap)="goToURL(faq)">
       {{faq.Title}}
       <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-item>

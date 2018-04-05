@@ -6,5 +6,103 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <josh-filters></josh-filters>   
+   <div>
+  
+    <h3 class="joshFilters-heading">
+      Safety and Security
+    </h3>
+    <ion-list *ngFor= "let sns of safetySecurity; let i = index" no-lines>
+      <ion-item>
+        <ion-icon name="information-circle" item-left></ion-icon>
+        {{sns.name}}
+        <button ion-button item-right [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">{{sns.status}}</button>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+        <ion-icon name="information-circle" item-left></ion-icon>
+        Block Viruses & Scams
+        <ion-note item-right></ion-note>
+      </ion-item>
+    <div class="joshFilters-spacer"></div> 
+    
+    <!-- Show the App Filters -->
+    <h3 class="joshFilters-heading">
+      Apps and Websites
+    </h3>
+    <div>
+      <p class="joshFilters-heading">
+        some help text that is triggered when someone precces an info button above.
+      </p>
+    </div>
+    <ion-list *ngFor="let appf of appFilters; let i = index">
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="appf.squareIcon" /> 
+        </ion-avatar>
+        <ion-label>{{appf.appName}}</ion-label>
+        <!-- <button ion-button item-right  [ngStyle]="{'background-color': buttonColor}" (tap)="toggleAllowBlock(i)">{{appf.status}}</button> -->
+        <button ion-button item-right [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">{{appf.status}}</button>
+      </ion-item>
+    </ion-list>
+    <div class="joshFilters-spacer"></div>
+    
+    <!-- Show the Category Filters -->
+    <h3 class="joshFilters-heading">
+      Website Categories
+    </h3>
+    <ion-list *ngFor = "let cat of categoryFilters; let i = index">
+      <ion-item>
+        <ion-icon name="information-circle" item-left></ion-icon>
+        {{cat.CategoryName}}
+        <button ion-button item-right [ngStyle]="{'background-color': cat.buttonColor}" (tap)="toggleCategoryFilters(i)">{{cat.status}}</button>
+      </ion-item>
+    </ion-list>
+    <div class="joshFilters-spacer"></div>
+    
+    <!-- Show the Custome Filters -->
+    <h3 class="joshFilters-heading">
+      Custom Filters
+    </h3>
+    <div>
+      <p class="joshFilters-heading">
+        Allows you to block (or allow) any website. These settings override any of the above settings.
+        <strong>
+          More info
+        </strong>
+      </p>
+    </div>
+    <ion-list *ngFor="let cf of customFilters; let i = index" no-lines>
+      <ion-item>
+        <ion-icon name="information-circle" item-left></ion-icon>
+        {{cf.url}}
+        <button ion-button item-right [ngStyle]="{'background-color': cf.buttonColor}" (tap)="toggleCustomFilters(i)">{{cf.status}}</button>
+      </ion-item> 
+    </ion-list>
+    <button ion-button outline color="calm" (tap)="goToAddCustomFilter()">
+      Add Custom Filter
+    </button>
+    <div class="joshFilters-spacer"></div>
+    
+    <!-- Load the Default Filters -->
+    <!-- <h3 class="joshFilters-heading">
+      Load Defaults 
+    </h3>
+    <div>
+      <p class="joshFilters-heading">
+        Platform and Website Categories will be set to defaults. Custom filters will not be affected.
+      </p>
+    </div>
+    <button ion-button outline color="calm">
+      Child
+    </button>
+    <button ion-button outline color="calm">
+      Teen
+    </button>
+    <button ion-button outline color="calm">
+      Young Adult
+    </button> -->
+  </div>
+    <button ion-button color="calm" block (tap)="goToSetInitialBedtime()">
+      Save
+    </button>
 </ion-content> 

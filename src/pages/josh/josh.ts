@@ -62,4 +62,9 @@ export class JoshPage {
     // Navigate to the StartPairingPage
     this.navCtrl.push('StartPairingPage');
   }
+
+  goToLateBedtime() {
+    // Navigate to the StartPairingPage
+    this.navCtrl.push('RewardLateBedtimePage');
+  }
 }

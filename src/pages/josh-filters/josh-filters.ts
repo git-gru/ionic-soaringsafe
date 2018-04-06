@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/take';
 import { FiltersProvider } from '../../providers/filters/filters';
+import { ProfileProvider } from '../../providers/profile/profile';
 
 
 @IonicPage()
@@ -22,7 +23,8 @@ export class JoshFiltersPage {
   ageGroup: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public storage: Storage, public filterProvider: FiltersProvider, public modalCtrl: ModalController) {
+    public storage: Storage, public filterProvider: FiltersProvider, public modalCtrl: ModalController,
+    public profileService: ProfileProvider) {
 
     this.storage.get('pName').then(res => {
       this.profileName = res;
@@ -122,7 +124,7 @@ export class JoshFiltersPage {
     console.log('Selected Index ', index);
 
     if (index > -1) {
-      console.log('clicked Item', this.customFilters);
+      console.log('clicked Item', this.safetySecurity[index]);
 
       // Check the Current Status of App and Change Accordingly
       if (this.safetySecurity[index].status == 'OFF' && this.safetySecurity[index].buttonColor == '#ff0000') {
@@ -148,10 +150,7 @@ export class JoshFiltersPage {
                 } else {
                   res.buttonColor = '#488aff';
                 }
-              } else {
-                res["status"] = 'ALLOWED';
-                res.buttonColor = '#488aff';
-              }
+              } 
             });
           });
           console.log('App Filters', filters);
@@ -204,10 +203,11 @@ export class JoshFiltersPage {
       res.forEach(output=> {
       this.safetySecurity = output;  
       this.safetySecurity.forEach(res=>{
+        console.log('inside Safety and security', res.status);
         if (res.status == 'ON') {
-          res.buttonColor = '#ff0000';
-        } else {
           res.buttonColor = '#488aff';
+        } else {
+          res.buttonColor = '#ff0000';
         }
       });
       });
@@ -268,11 +268,13 @@ export class JoshFiltersPage {
     //get the Safe and Security Filter
 
     this.safetySecurity.forEach(res => {
-      console.log('safeSearch', res);
-      if (res.name == "Enforce Safesearch") {
+      // console.log('safeSearch', res);
+      if (res.name == "safeSearch") {
         profile.safeSearch = res.status;
+        console.log('profile status of ssf in if', profile.safeSearch);
       } else {
         profile.youtubeRestricted = res.status;
+        console.log('profile status of ssf in else', profile.youtubeRestricted);
       }
     });
 
@@ -290,7 +292,9 @@ export class JoshFiltersPage {
 
     // Set Profile Filter in Local Stoarge with Custome Filters
     this.storage.set('profileFilter', profile).then(res => {
-      this.navCtrl.push('SetInitialBedtimePage');
+      // this.navCtrl.push('SetInitialBedtimePage');
+      console.log('Safety and Security Filters in JOsh Filter', this.safetySecurity);
+      this.profileService.updateProfile(this.profileId);
     });
   }
 }

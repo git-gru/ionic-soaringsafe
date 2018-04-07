@@ -10,7 +10,7 @@
     <ion-item (tap)="goToJoshIPhone6(device)">
       <ion-icon name="phone-portrait" item-left></ion-icon>
       {{device?.deviceName}}
-      <ion-note item-right></ion-note>
+      <ion-note item-right>{{device?.deviceStatus}}</ion-note>
       <ion-icon name="checkmark-circle-outline" item-right></ion-icon>
     </ion-item>
   </ion-list>

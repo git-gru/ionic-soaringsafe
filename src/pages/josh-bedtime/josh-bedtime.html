@@ -14,18 +14,10 @@
       shuts off all Internet access at bedtime
     </p>
   </div>
-  <form>
-    <ion-item>
-      <ion-label>
-        Enable Bedtime
-      </ion-label>
-      <ion-toggle color="calm" checked="true"></ion-toggle>
-    </ion-item>
-  </form>
   <h3 class="joshBedtime-heading">
     Weeknights
   </h3>
-  <div>
+  <!-- <div>
     <button ion-button color="calm" small>
       Su
     </button>
@@ -47,44 +39,33 @@
     <button ion-button outline color="calm" small>
       Sa
     </button>
-  </div>
+  </div> -->
+
   <div text-center>
     <p class="joshBedtime-heading">
       Awake time applies to the day following the bedtime.
     </p>
   </div>
-  <form>
     <ion-item>
-      <ion-label>
-        Bedtime
-      </ion-label>
-      <ion-select name="">
-        <ion-option>
-          9 PM
-        </ion-option>
-        <ion-option>
-          10 PM
-        </ion-option>
+      <ion-label>Bedtime</ion-label>
+      <ion-select [(ngModel)]="weeknightBedtime" >
+        <ion-option >9 PM</ion-option>
+        <ion-option>10 PM</ion-option> 
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>
-        Awake
-      </ion-label>
-      <ion-select name="">
-        <ion-option>
-          6 AM
-        </ion-option>
-        <ion-option>
-          7 AM
-        </ion-option>
+      <ion-label>Awake</ion-label>
+      <ion-select [(ngModel)]="weeknightAwaketime">
+        <ion-option>6 AM</ion-option>
+        <ion-option>7 AM</ion-option>
       </ion-select>
     </ion-item>
+    
     <div class="joshBedtime-spacer"></div>
     <h3 class="joshBedtime-heading">
       Weekends
     </h3>
-    <div>
+    <!-- <div>
       <button ion-button outline color="calm" small>
         Su
       </button>
@@ -106,37 +87,28 @@
       <button ion-button color="calm" small>
         Sa
       </button>
-    </div>
+    </div> -->
     <div text-center>
       <p class="joshBedtime-heading">
         Awake time applies to the day following the bedtime.
       </p>
     </div>
     <ion-item>
-      <ion-label>
-        Bedtime
-      </ion-label>
-      <ion-select name="">
-        <ion-option>
-          9 PM
-        </ion-option>
-        <ion-option>
-          10 PM
-        </ion-option>
+      <ion-label>Bedtime</ion-label>
+      <ion-select [(ngModel)]="weekendBedtime">
+        <ion-option>9 PM</ion-option>
+        <ion-option>10 PM</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>
-        Awake
-      </ion-label>
-      <ion-select name="">
-        <ion-option>
-          6 AM
-        </ion-option>
-        <ion-option>
-          7 AM
-        </ion-option>
+      <ion-label>Awake</ion-label>
+      <ion-select [(ngModel)]="weekendAwaketime">
+        <ion-option>6 AM</ion-option>
+        <ion-option>7 AM</ion-option>
       </ion-select>
     </ion-item>
-  </form>
+<button ion-button color="calm" block (tap)="updateBedtimes()">
+  Next
+</button> 
+
 </ion-content>

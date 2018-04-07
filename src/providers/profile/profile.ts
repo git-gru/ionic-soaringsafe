@@ -12,6 +12,7 @@ export class ProfileProvider {
   appFilter = [];
   categoryFilter = [];
   customFilter = [];
+  newCustomFilter = [];
   safetySecurity = [];
   safeSearch: string = '';
   youtubeRestricted: string = '';
@@ -138,6 +139,7 @@ export class ProfileProvider {
       this.appFilter = JSON.parse(JSON.stringify(res)).appFilters;
       this.categoryFilter = JSON.parse(JSON.stringify(res)).categoryFilters;
       this.customFilter = JSON.parse(JSON.stringify(res)).customFilters;
+      this.newCustomFilter = JSON.parse(JSON.stringify(res)).newCustomFilters;
       this.safeSearch = JSON.parse(JSON.stringify(res)).safeSearch;
       this.youtubeRestricted = JSON.parse(JSON.stringify(res)).youtubeRestricted;
 
@@ -149,6 +151,7 @@ export class ProfileProvider {
       console.log('App Filter Inside the Profile Provider', this.appFilter);
       console.log('Category Filter Inside the Profile Provider', this.categoryFilter);
       console.log('Custom Filter Inside the Profile Provider', this.customFilter);
+      console.log('New Custom Filter Inside the Profile Provider', this.newCustomFilter);
       console.log('Safety and Security Filter Inside the Profile Provider', this.safetySecurity);
 
     }).catch(error => {
@@ -209,6 +212,18 @@ export class ProfileProvider {
               console.log('Error While Querying Custom Filters', error);
             });
         });
+
+        //Store New Custome Filters in Firestore Database
+        if (this.newCustomFilter != undefined && this.newCustomFilter != null) {
+          this.newCustomFilter.forEach(custF => {
+            custF["profileId"] = profileId;
+            this.afs.collection('profileSettings').doc(profileId).collection('customFilters').add(custF).then(ar => {
+              console.log('successfully updated New Custom Filter');
+            }).catch(error => {
+              console.log('Error inside New Custom Filter upload', error);
+            });
+          });
+        }
 
         // Update the Safety and Security Filter in profile Settings in firestore
         this.safetySecurity.forEach(ssF => {
@@ -286,6 +301,33 @@ export class ProfileProvider {
           console.log('Error while querying the database according to deviceName', error);
           reject(error);
         });
+    });
+    return promise;
+  }
+
+  //Update Bedtimes into profileSettings of Firestore
+  updateBedtimes(bedTimes, profileId) {
+    const promise = new Promise((resolve, reject) => {
+      bedTimes.forEach(bt => {
+        this.afs.collection('profileSettings').doc(profileId).collection('offtimes').ref.where('offtime', '==', bt.offtime)
+          .get().then(snap => {
+            snap.forEach(result => {
+              this.afs.collection('profileSettings').doc(profileId).collection('offtimes').doc(result.id).update({
+                awake: bt.awake,
+                bedtime: bt.bedtime
+              }).then(ar => {
+                console.log('successfully updated Offtimes');
+                resolve(true);
+              }).catch(error => {
+                console.log('Error while Updating Offtime', error);
+                reject(error);
+              });
+            });
+          }).catch(error => {
+            console.log('Error While Querying offtimes', error);
+            reject(error);
+          });
+      });
     });
     return promise;
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
 
 
 @IonicPage()
@@ -13,7 +13,8 @@ export class AddCustomFilterPage {
     status: 'ALLOWED',
     url: ''
   }
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
+  
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public params: NavParams) {
   }
   addCustomFilter() {
     console.log('Selected Acess Value ', this.customFilter);

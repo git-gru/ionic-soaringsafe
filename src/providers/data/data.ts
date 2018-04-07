@@ -7,7 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable()
 export class DataProvider {
 
-  constructor(public afs: AngularFirestore, public aAuth: AngularFireAuth ) {
+  constructor(public afs: AngularFirestore, public aAuth: AngularFireAuth) {
     console.log('Hello DataProvider Provider');
   }
   getAvatars() {
@@ -17,11 +17,14 @@ export class DataProvider {
   async getProfiles() {
     try {
       return await this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').valueChanges();
-    } catch(error) {
+    } catch (error) {
       console.log('DataProvider: Errors', error);
     }
   }
   async getDevices(profileId) {
-   return await this.afs.collection('profileSettings').doc(profileId).collection('devices').valueChanges();
+    return await this.afs.collection('profileSettings').doc(profileId).collection('devices').valueChanges();
+  }
+  getBedtimes(profileId) {
+    return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').valueChanges();
   }
 }

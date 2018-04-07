@@ -15,7 +15,7 @@ export class JoshPage {
     public storage: Storage) {
     this.profileInfo = navParams.get('profileInfo');
     const pName = this.profileInfo.profileName;
-    this.storage.set('pName', pName );
+    this.storage.set('pName', pName);
   }
 
   ionViewDidLoad() {
@@ -30,7 +30,7 @@ export class JoshPage {
   goToJoshDevices(profileId) {
     console.log('Profile Id', profileId);
     // Navigate to the JoshDevicesPage
-    this.navCtrl.push('JoshDevicesPage', {profileId: profileId});
+    this.navCtrl.push('JoshDevicesPage', { profileId: profileId });
   }
 
   goToJoshReports() {
@@ -40,12 +40,12 @@ export class JoshPage {
 
   goToJoshFilters(profileId) {
     // Navigate to the JoshFiltersPage
-    this.navCtrl.push('JoshFiltersPage', {profileId: profileId});
+    this.navCtrl.push('JoshFiltersPage', { profileId: profileId });
   }
 
-  goToJoshBedtime() {
+  goToJoshBedtime(profileId) {
     // Navigate to the JoshBedtimePage
-    this.navCtrl.push('JoshBedtimePage');
+    this.navCtrl.push('JoshBedtimePage', { profileId: profileId });
   }
 
   goToJoshOfftime() {

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController, Navbar } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/take';
 import { FiltersProvider } from '../../providers/filters/filters';
 import { ProfileProvider } from '../../providers/profile/profile';
+
 
 
 @IonicPage()
@@ -12,6 +13,7 @@ import { ProfileProvider } from '../../providers/profile/profile';
   templateUrl: 'josh-filters.html',
 })
 export class JoshFiltersPage {
+  @ViewChild(Navbar) navBar: Navbar;
 
   profileName: any;
   profileId: string;
@@ -19,8 +21,9 @@ export class JoshFiltersPage {
   categoryFilters = [];
   blockedAppFilters = [];
   customFilters = [];
-  safetySecurity = [ ];
+  safetySecurity = [];
   ageGroup: any;
+  newCustomFilter = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public filterProvider: FiltersProvider, public modalCtrl: ModalController,
@@ -39,6 +42,9 @@ export class JoshFiltersPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoshFiltersPage');
+    this.navBar.backButtonClick = (e: UIEvent) => {
+      this.goToSetInitialBedtime();
+    }
   }
 
   // Get All Filters 
@@ -150,7 +156,7 @@ export class JoshFiltersPage {
                 } else {
                   res.buttonColor = '#488aff';
                 }
-              } 
+              }
             });
           });
           console.log('App Filters', filters);
@@ -170,23 +176,23 @@ export class JoshFiltersPage {
                 } else {
                   res.buttonColor = '#488aff';
                 }
-              } 
+              }
             });
           });
-            console.log('Profile Category filter', filters);
+          console.log('Profile Category filter', filters);
         }, error => {
           console.log('Errors While getting ProfileAppFilter ', error);
         });
         break;
       }
-    } 
-    
+    }
+
     // Fetch Custome filters from ProfileSettings
-      this.filterProvider.getProfileCutomFilters(this.profileId).then(res=>{
-      res.forEach(output=> {
+    this.filterProvider.getProfileCutomFilters(this.profileId).then(res => {
+      res.forEach(output => {
         this.customFilters = output;
         console.log('Custome Filters', output);
-        this.customFilters.forEach(res=>{
+        this.customFilters.forEach(res => {
           if (res.status == 'BLOCKED') {
             res.buttonColor = '#ff0000';
           } else {
@@ -194,24 +200,24 @@ export class JoshFiltersPage {
           }
         });
       });
-    }, error=>{
+    }, error => {
       console.log('Errors while Profile Custom Filters', error);
     });
 
     //Fetch Security and Safety from Profile Settings
-    this.filterProvider.getProfileSafetySecurityFilters(this.profileId).then(res=>{
-      res.forEach(output=> {
-      this.safetySecurity = output;  
-      this.safetySecurity.forEach(res=>{
-        console.log('inside Safety and security', res.status);
-        if (res.status == 'ON') {
-          res.buttonColor = '#488aff';
-        } else {
-          res.buttonColor = '#ff0000';
-        }
+    this.filterProvider.getProfileSafetySecurityFilters(this.profileId).then(res => {
+      res.forEach(output => {
+        this.safetySecurity = output;
+        this.safetySecurity.forEach(res => {
+          console.log('inside Safety and security', res.status);
+          if (res.status == 'ON') {
+            res.buttonColor = '#488aff';
+          } else {
+            res.buttonColor = '#ff0000';
+          }
+        });
       });
-      });
-    }, error=>{
+    }, error => {
       console.log('Errors while Profile Custom Filters', error);
     });
   }
@@ -223,13 +229,14 @@ export class JoshFiltersPage {
 
     modal.onDidDismiss(data => {
       if (data) {
-
         if (data.status == 'BLOCKED') {
           data["buttonColor"] = '#ff0000';
         } else {
           data["buttonColor"] = '#488aff';
         }
         this.customFilters.push(data);
+        this.newCustomFilter.push(data);
+
         console.log('Data coming from customeFilter in If', this.customFilters);
       } else {
         console.log('Data coming from customeFilter', this.customFilters);
@@ -245,7 +252,8 @@ export class JoshFiltersPage {
       categoryFilters: [],
       safeSearch: '',
       youtubeRestricted: '',
-      customFilters: []
+      customFilters: [],
+      newCustomFilters: []
     }
     //User have Enabled Custome Filters
     this.appFilters.forEach(res => {
@@ -280,12 +288,22 @@ export class JoshFiltersPage {
 
     //get the Custom Filters
     this.customFilters.forEach(res => {
-      console.log('custome filter', res);
+      console.log('custom filter', res);
       let temp = {
         url: res.url,
         status: res.status
       };
       profile.customFilters.push(temp);
+    });
+
+    //get the New Custom Filters
+    this.newCustomFilter.forEach(res => {
+      console.log('New Custom filter', res);
+      let temp = {
+        url: res.url,
+        status: res.status
+      };
+      profile.newCustomFilters.push(temp);
     });
 
     console.log('profile', profile);
@@ -294,7 +312,12 @@ export class JoshFiltersPage {
     this.storage.set('profileFilter', profile).then(res => {
       // this.navCtrl.push('SetInitialBedtimePage');
       console.log('Safety and Security Filters in JOsh Filter', this.safetySecurity);
-      this.profileService.updateProfile(this.profileId);
+
+      this.profileService.updateProfile(this.profileId).then(res => {
+        this.navCtrl.pop();
+      }).catch(error => {
+        console.log('Error While Updating the Profile Filters', error);
+      });
     });
   }
 }

@@ -30,7 +30,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     IonicStorageModule.forRoot(),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    IonicModule.forRoot(MyApp, {swipeBackEnabled:false}),
+    IonicModule.forRoot(MyApp, { swipeBackEnabled: false }),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
@@ -40,7 +40,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserProvider,
     GooglePlus,
     DataProvider,
@@ -50,4 +50,4 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     HelpProvider,
   ]
 })
-export class AppModule {}
+export class AppModule { }

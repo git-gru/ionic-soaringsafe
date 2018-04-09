@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ReportsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ReportsProvider } from '../../providers/reports/reports/reports';
 
 @IonicPage()
 @Component({
@@ -14,12 +8,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'reports.html',
 })
 export class ReportsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user = {};
+  allTimeReport = {};
+  todayReport = {};
+  weekReport = {};
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public reportService : ReportsProvider ) {
+    this.getAllReports();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ReportsPage');
-  }
+   }
 
+  // get all the reports of the user.
+  getAllReports() {
+    //report service call for fetch report data
+    this.reportService.getReportData().subscribe(data => {
+      this.allTimeReport = data.alltime;
+      this.todayReport = data.today;
+      this.weekReport = data.week;
+    }, err => {     
+    });
+  }
 }

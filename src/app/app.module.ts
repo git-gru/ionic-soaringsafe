@@ -18,6 +18,9 @@ import { FiltersProvider } from '../providers/filters/filters';
 import { HelpProvider } from '../providers/help/help';
 import { ProfileProvider } from '../providers/profile/profile';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { ReportsProvider } from '../providers/reports/reports/reports';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -27,10 +30,11 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
     IonicStorageModule.forRoot(),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    IonicModule.forRoot(MyApp, { swipeBackEnabled: false }),
+    IonicModule.forRoot(MyApp, {swipeBackEnabled:false}),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
@@ -40,7 +44,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     GooglePlus,
     DataProvider,
@@ -48,6 +52,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ProfileProvider,
     InAppBrowser,
     HelpProvider,
+    ReportsProvider
   ]
 })
-export class AppModule { }
+export class AppModule {}

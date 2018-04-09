@@ -27,7 +27,7 @@ export class FamilyPage {
   goToJosh(pInfo) {
     console.log('Profile Info', pInfo);
     // Navigate to the JoshPage
-    this.navCtrl.push('JoshPage' , {profileInfo: pInfo});
+    this.navCtrl.push('JoshPage' , {profileInfo: pInfo, toastMessage: ''});
   }
 
   goToCreateChildProfile() {

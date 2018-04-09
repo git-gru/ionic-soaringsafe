@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 
@@ -11,15 +11,31 @@ import { Storage } from '@ionic/storage';
 export class JoshPage {
 
   profileInfo: any;
+  toastMessage: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public storage: Storage) {
-    this.profileInfo = navParams.get('profileInfo');
-    const pName = this.profileInfo.profileName;
-    this.storage.set('pName', pName);
+    public storage: Storage, public toastCtrl: ToastController) {
+      //get Profile Info
+      try {
+        this.profileInfo = navParams.get('profileInfo');
+        const pName = this.profileInfo.profileName;
+        this.storage.set('pName', pName);
+
+        this.toastMessage = navParams.get('toastMessage');
+        console.log('toastMessageInside constrctor', this.toastMessage);
+      } catch(error){
+        console.log('Error ')
+      }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoshPage');
+    if(this.toastMessage) {
+      const toast = this.toastCtrl.create({
+        duration: 2000,
+        message: this.toastMessage
+      });
+      toast.present();
+    }
   }
 
   goToRewardJosh() {
@@ -40,7 +56,8 @@ export class JoshPage {
 
   goToJoshFilters(profileId) {
     // Navigate to the JoshFiltersPage
-    this.navCtrl.push('JoshFiltersPage', { profileId: profileId });
+    // this.navCtrl.push('JoshFiltersPage', { profileId: profileId });
+    this.navCtrl.push('JoshFiltersPage', { profileInfo: this.profileInfo });    
   }
 
   goToJoshBedtime(profileId) {
@@ -65,6 +82,6 @@ export class JoshPage {
 
   goToLateBedtime() {
     // Navigate to the StartPairingPage
-    this.navCtrl.push('RewardLateBedtimePage');
+    this.navCtrl.push('RewardLateBedtimePage', { profileInfo: this.profileInfo });
   }
 }

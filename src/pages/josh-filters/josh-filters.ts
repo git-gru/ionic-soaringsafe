@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Navbar } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Navbar, ViewController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/take';
 import { FiltersProvider } from '../../providers/filters/filters';
@@ -15,6 +15,7 @@ import { ProfileProvider } from '../../providers/profile/profile';
 export class JoshFiltersPage {
   @ViewChild(Navbar) navBar: Navbar;
 
+  profileInfo: any;
   profileName: any;
   profileId: string;
   appFilters = [];
@@ -24,10 +25,11 @@ export class JoshFiltersPage {
   safetySecurity = [];
   ageGroup: any;
   newCustomFilter = [];
+  toastMessage: string = 'Filter settings have been updated. Changes may take up to 10 minutes to show on Josh’s device';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public filterProvider: FiltersProvider, public modalCtrl: ModalController,
-    public profileService: ProfileProvider) {
+    public profileService: ProfileProvider, public viewCtrl: ViewController) {
 
     this.storage.get('pName').then(res => {
       this.profileName = res;
@@ -35,7 +37,8 @@ export class JoshFiltersPage {
       console.log('JoshDevices: Error while getting profileName', error);
     });
 
-    this.profileId = navParams.get('profileId');
+    this.profileInfo = navParams.get('profileInfo');
+    this.profileId = this.profileInfo.profileId;
 
     this.getFilters();
   }
@@ -314,7 +317,18 @@ export class JoshFiltersPage {
       console.log('Safety and Security Filters in JOsh Filter', this.safetySecurity);
 
       this.profileService.updateProfile(this.profileId).then(res => {
-        this.navCtrl.pop();
+        // this.navCtrl.pop();
+        this.navCtrl.push('JoshPage', {profileInfo: this.profileInfo, toastMessage: this.toastMessage})
+        .then(() => {
+        
+            const index = this.viewCtrl.index;
+
+            for(let i = index; i > 0; i--){
+                this.navCtrl.remove(i);
+            }
+        }).catch(error=>{
+          console.log('Error While Poping a view', error);
+        });
       }).catch(error => {
         console.log('Error While Updating the Profile Filters', error);
       });

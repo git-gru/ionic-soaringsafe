@@ -331,4 +331,18 @@ export class ProfileProvider {
     });
     return promise;
   }
+
+  // Set Reward Bedtimes
+
+  setRewardBedtime(profileId, rewardBedtime) {
+    
+  }
+
+  //Get Reward Bedtimes
+  getRewardBedtime(profileId) {
+    const promise = new Promise((resolve, reject) => {
+
+    });
+    return promise;
+  }
 }

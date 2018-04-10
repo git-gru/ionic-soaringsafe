@@ -56,6 +56,7 @@ export class UserProvider {
                     email: user.email,
                     userTimeStamp: user.timestamp
                 }).then(() => {
+                    this.currentUserEmail = user.email
                     resolve({ success: true });
                 }).catch((err) => {
                     console.log('errors', err);
@@ -85,6 +86,7 @@ export class UserProvider {
                         email: res.email,
                         userTimeStamp: userTimestamp
                     }).then(() => {
+                        this.currentUserEmail = res.email
                         resolve({ success: true });
                     }).catch((err) => {
                         console.log('errors', err);

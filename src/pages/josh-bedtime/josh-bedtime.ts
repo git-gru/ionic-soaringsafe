@@ -19,6 +19,7 @@ export class JoshBedtimePage {
   weekendAwaketime: string = '';
   bedtimes = [];
   offtimes = [];
+  isEnabled:boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider,
     public profileService: ProfileProvider) {
@@ -33,11 +34,13 @@ export class JoshBedtimePage {
         if(bt.offtime == 'Weeknights') {
           this.weeknightBedtime = bt.bedtime;
           this.weeknightAwaketime = bt.awake;
+          this.isEnabled = bt.enabled;
         } else {
           this.weekendBedtime = bt.bedtime;
           this.weekendAwaketime = bt.awake;
+          this.isEnabled = bt.enabled;
         }
-      })
+      });
     });
   }
 
@@ -53,20 +56,23 @@ export class JoshBedtimePage {
     console.log('value of WeeknightAwake Time', this.weeknightAwaketime);
     console.log('value of WeekEndBed Time', this.weekendBedtime);
     console.log('value of WeekendAwake Time', this.weekendAwaketime);
+    console.log('Value of isEnabled or not', this.isEnabled);
 
     this.offtimes = [
       {
         offtime: 'Weeknights', 
         bedtime: this.weeknightBedtime, 
-        awake:  this.weeknightAwaketime
+        awake:  this.weeknightAwaketime,
+        isEnabled: this.isEnabled
       },
       {
         offtime: 'Weekends', 
         bedtime: this.weekendBedtime, 
-        awake:  this.weekendAwaketime
+        awake:  this.weekendAwaketime,
+        isEnabled: this.isEnabled
       }
     ];  
-    console.log('Value of Josh page', this.offtimes);
+    console.log('Offtimes', this.offtimes);
 
     this.profileService.updateBedtimes(this.offtimes, this.profileId).then(res=>{
       this.navCtrl.pop();

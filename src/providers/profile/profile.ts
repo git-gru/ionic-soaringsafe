@@ -314,7 +314,8 @@ export class ProfileProvider {
             snap.forEach(result => {
               this.afs.collection('profileSettings').doc(profileId).collection('offtimes').doc(result.id).update({
                 awake: bt.awake,
-                bedtime: bt.bedtime
+                bedtime: bt.bedtime,
+                enabled: bt.isEnabled
               }).then(ar => {
                 console.log('successfully updated Offtimes');
                 resolve(true);
@@ -335,14 +336,41 @@ export class ProfileProvider {
   // Set Reward Bedtimes
 
   setRewardBedtime(profileId, rewardBedtime) {
-    
+    console.log('reward Bedtimes', rewardBedtime);
+    console.log('ProfileId inside SetRewaredBedtime: ', profileId);
+    return this.afs.collection('profileSettings').doc(profileId).collection('rewards').add(rewardBedtime);
   }
 
   //Get Reward Bedtimes
   getRewardBedtime(profileId) {
-    const promise = new Promise((resolve, reject) => {
-
+    return this.afs.collection('profileSettings').doc(profileId).collection('rewards').valueChanges();
+  }
+  // Delete Reward Bedtimes
+  deleteRewardBedtime(profileId) {
+    const promise = new Promise((resolve, reject)=>{
+      this.afs.collection('profileSettings').doc(profileId).collection('rewards').snapshotChanges()
+      .take(1)
+      .subscribe(snap=>{
+        snap.forEach(output=>{
+          const docId = output.payload.doc.id;
+          this.afs.collection('profileSettings').doc(profileId).collection('rewards').doc(docId).delete()
+          // this.afs.collection('profileSettings').doc(profileId).collection('rewards').doc(docId).update({
+          //   status: 'disabled'
+          // })
+          .then(res=>{
+            console.log('Document Deleted Successfully', res);
+           return resolve(true);
+          }).catch(error=>{
+            console.log('Errors While Deleting Reward Bedtimes', error);
+            reject(error);
+          })
+        });
+      }, error=>{
+        console.log('Error While getting snapshot from rewards', error);
+        reject(error);
+      });
     });
     return promise;
   }
+
 }

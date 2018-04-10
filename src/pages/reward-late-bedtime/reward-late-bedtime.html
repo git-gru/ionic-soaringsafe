@@ -6,6 +6,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <button ion-button outline block *ngIf="status == 'enabled'" (tap)='deletBedTime()'>Delete Late Bedtime Tonight</button>
   <h3 class="rewardLateBedtime-heading">
     Select bedtime for tonight:
   </h3>

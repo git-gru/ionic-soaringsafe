@@ -21,6 +21,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ReportsProvider } from '../providers/reports/reports/reports';
 import { HttpModule } from '@angular/http';
 
+import { Globalization } from '@ionic-native/globalization';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { HttpModule } from '@angular/http';
     ProfileProvider,
     InAppBrowser,
     HelpProvider,
-    ReportsProvider
+    ReportsProvider,
+    Globalization
   ]
 })
 export class AppModule {}

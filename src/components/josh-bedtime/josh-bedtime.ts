@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProfileProvider } from '../../providers/profile/profile';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { UserProvider } from '../../providers/user/user';
 
 
 @Component({
@@ -19,10 +20,8 @@ export class JoshBedtimeComponent {
   offtimes = [];
 
   constructor(public profileService: ProfileProvider, public navCtrl: NavController,
-    public storage: Storage) {
-    console.log('Hello JoshBedtimeComponent Component');
-
-    
+    public storage: Storage, public userService: UserProvider) {
+    console.log('Hello JoshBedtimeComponent Component');    
   }
    
   createProfile() {

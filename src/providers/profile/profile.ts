@@ -3,6 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/take';
+import { UserProvider } from '../user/user';
 
 @Injectable()
 export class ProfileProvider {
@@ -19,8 +20,18 @@ export class ProfileProvider {
 
   profileUid: string;
 
-  constructor(public afs: AngularFirestore, public storage: Storage, public aAuth: AngularFireAuth) {
+  timeZone: any;
+  utc_offset: any;
+
+  constructor(public afs: AngularFirestore, public storage: Storage, public aAuth: AngularFireAuth,
+    public userService: UserProvider) {
     console.log('Hello ProfileProvider Provider');
+    this.userService.getTimeZoneAndOffset().then(res=> {
+      this.timeZone = res.timezone;
+      this.utc_offset = res.utc_offset;
+    }).catch(error=> {
+      console.log('Error while gettin offset and timeZone', error);
+    });
   }
 
   createProfile(offtimes) {
@@ -59,6 +70,8 @@ export class ProfileProvider {
 
         // this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
         this.profileData["profileNumber"] = 0;
+        this.profileData["timeZone"] = this.timeZone;
+        this.profileData["utc_offset"] = this.utc_offset;
 
         this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').add(this.profileData).then(res => {
           this.profileUid = res.id;
@@ -169,7 +182,7 @@ export class ProfileProvider {
                 }).then(ar => {
                   console.log('successfully updated app Filter');
                 }).catch(error => {
-                  console.log('Error while Updating App Filter ', error);
+                  console.log('Error while Updating App Filter ', error); 
                 });
               });
             }).catch(error => {
@@ -234,6 +247,7 @@ export class ProfileProvider {
                   status: ssF.status
                 }).then(ar => {
                   console.log('successfully updated Safety and Security Filter');
+                  resolve({ success: true });
                 }).catch(error => {
                   console.log('Error while Updating Safety and Security Filter ', error);
                 });
@@ -243,11 +257,25 @@ export class ProfileProvider {
             });
         });
 
-        resolve({ success: true });
-
+        // resolve({ success: true });
       }, 300);
     });
     return promise;
+  }
+  //update Filter Trigger Collection after finishing of filter updation 
+  updateFilterTriggers(profileId) {
+    // const userId = this.aAuth.auth.currentUser.uid;
+    // const timestamp = this.userService.getUserTimestamp();
+    const data = {
+       userId: this.aAuth.auth.currentUser.uid,
+       timestamp : this.userService.getUserTimestamp()
+    }
+     this.afs.collection('profileSettings').doc(profileId).collection('filterTriggers').add(data)
+     .then(res=> { 
+        console.log('Filter Triggers are successfully Updated', res);
+     }).catch(error=> {
+        console.log('Error While Updating Filter Triggers in firestore', error);
+     });
   }
 
   //Store devices in profileSettings collection in firestore.
@@ -331,6 +359,23 @@ export class ProfileProvider {
       });
     });
     return promise;
+  }
+
+  //update offtime Trigger Collection
+
+  updateOfftimeTriggers(profileId) {
+    // const userId = this.aAuth.auth.currentUser.uid;
+    // const timestamp = this.userService.getUserTimestamp();
+    const data = {
+       userId: this.aAuth.auth.currentUser.uid,
+       timestamp : this.userService.getUserTimestamp()
+    }
+     this.afs.collection('profileSettings').doc(profileId).collection('offtimeTriggers').add(data)
+     .then(res=> { 
+        console.log('Offtime Triggers are successfully Updated', res);
+     }).catch(error=> {
+        console.log('Error While Updating Offtime Triggers in firestore', error);
+     });
   }
 
   // Set Reward Bedtimes

@@ -13,7 +13,7 @@ export class JoshOfftimePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad JoshOfftimePage');
+    console.log('ionViewDidLoad JoshOfftimePage'); 
   }
 
   goToAddOfftime() {

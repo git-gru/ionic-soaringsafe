@@ -33,7 +33,7 @@ export class JoshFiltersPage {
 
     this.storage.get('pName').then(res => {
       this.profileName = res;
-    }).catch(error => {
+    }).catch(error => { 
       console.log('JoshDevices: Error while getting profileName', error);
     });
 
@@ -256,7 +256,7 @@ export class JoshFiltersPage {
       safeSearch: '',
       youtubeRestricted: '',
       customFilters: [],
-      newCustomFilters: []
+      newCustomFilters: [] 
     }
     //User have Enabled Custome Filters
     this.appFilters.forEach(res => {
@@ -317,18 +317,23 @@ export class JoshFiltersPage {
       console.log('Safety and Security Filters in JOsh Filter', this.safetySecurity);
 
       this.profileService.updateProfile(this.profileId).then(res => {
-        // this.navCtrl.pop();
-        this.navCtrl.push('JoshPage', {profileInfo: this.profileInfo, toastMessage: this.toastMessage})
-        .then(() => {
-        
-            const index = this.viewCtrl.index;
+        if (res) {
+          this.navCtrl.push('JoshPage', { profileInfo: this.profileInfo, toastMessage: this.toastMessage })
+            .then(() => {
 
-            for(let i = index; i > 0; i--){
+              const index = this.viewCtrl.index;
+ 
+              for (let i = index; i > 0; i--) {
                 this.navCtrl.remove(i);
-            }
-        }).catch(error=>{
-          console.log('Error While Poping a view', error);
-        });
+              }
+            }).catch(error => {
+              console.log('Error While Poping a view', error);
+            });
+        }
+        setTimeout(()=>{
+          console.log('All the filters are updated now', res);
+          this.profileService.updateFilterTriggers(this.profileId);
+        }, 200);
       }).catch(error => {
         console.log('Error While Updating the Profile Filters', error);
       });

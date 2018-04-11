@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Navbar } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { ProfileProvider } from '../../providers/profile/profile';
+import { UserProvider } from '../../providers/user/user';
 
 
 @IonicPage()
@@ -20,10 +21,12 @@ export class JoshBedtimePage {
   bedtimes = [];
   offtimes = [];
   isEnabled:boolean;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider,
-    public profileService: ProfileProvider) {
+    public profileService: ProfileProvider, public userService: UserProvider) {
     this.profileId = navParams.get('profileId');
+    
     this.dataService.getBedtimes(this.profileId).subscribe(res=>{
       // console.log('Bedtimes ', res);
       res.forEach(result=>{
@@ -37,7 +40,7 @@ export class JoshBedtimePage {
           this.isEnabled = bt.enabled;
         } else {
           this.weekendBedtime = bt.bedtime;
-          this.weekendAwaketime = bt.awake;
+          this.weekendAwaketime = bt.awake; 
           this.isEnabled = bt.enabled;
         }
       });
@@ -73,8 +76,14 @@ export class JoshBedtimePage {
       }
     ];  
     console.log('Offtimes', this.offtimes);
-
+    
     this.profileService.updateBedtimes(this.offtimes, this.profileId).then(res=>{
+      setTimeout(()=> {
+        if(res){
+          console.log('Bedtimes are successfully updated');   
+          this.profileService.updateOfftimeTriggers(this.profileId);     
+          }
+      }, 300); 
       this.navCtrl.pop();
     }).catch(error => {
       console.log('Josh-bedtimes: Error While Updating Bedtimes ', error);

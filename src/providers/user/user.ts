@@ -3,24 +3,32 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { GooglePlus } from '@ionic-native/google-plus';
 import * as firebase from 'firebase';
+import { Globalization } from '@ionic-native/globalization';
 
 
 @Injectable()
 export class UserProvider {
 
-    currentUserEmail = ""
+    currentUserEmail = "";
+    timezone: string = '';
 
-    constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore, public googlePlus: GooglePlus) {
+    constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore, public googlePlus: GooglePlus, 
+        public globalization: Globalization) {
         console.log('Hello UserProvider Provider');
     }
     //Getting timestamp with current time zone
-
     getUserTimestamp() {
         const currentDate = new Date();
         const currentTimeStamp = currentDate.getTime();
         return currentTimeStamp;
     }
-
+    getTimeZoneAndOffset(){
+        let options = {
+            formatLength:'short', 
+            selector:'date and time'
+        }
+        return this.globalization.getDatePattern(options);
+    }
     getCurrentUserEmail() {
         return this.currentUserEmail;
     }

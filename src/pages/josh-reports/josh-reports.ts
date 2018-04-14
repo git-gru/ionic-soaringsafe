@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ActionSheetController } from 'ionic-angular';
 import { ReportsProvider } from '../../providers/reports/reports/reports';
-
-/**
- * Generated class for the JoshReportsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import * as moment from 'moment-timezone';
 
 @IonicPage()
 @Component({
@@ -19,10 +13,13 @@ export class JoshReportsPage {
   profilelog: string = "allowed";
   logReport: any = [];
   shownGroup = null;
+  loader: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public reportService: ReportsProvider
+    public reportService: ReportsProvider,
+    public loadingCtrl: LoadingController, public actionSheetCtrl: ActionSheetController
   ) {
     this.profileId = navParams.get("profileId");
   }
@@ -36,10 +33,29 @@ export class JoshReportsPage {
     //Pass profile id and querytype 
     var params: any = {};
     params.profileId = this.profileId;
-    params.queryType = this.profilelog;
+    params.queryType = this.profilelog; 
+
+    this.loader = this.loadingCtrl.create({
+      content: 'Loading..'
+    });
+    this.loader.present();
+    
     this.reportService.getReportForProfile(params).subscribe(
       data => {
-        this.logReport = data;
+        // this.logReport = data;
+        data.forEach(res=>{
+          let time =  moment(res.time).format();
+          let tempObj = {
+            time: time,
+            fqdn: res.fqdn,
+            domain: res.domain
+          }
+          this.logReport.push(tempObj);
+
+          console.log('Log Reports ', res.time); 
+          console.log('Formatted Time: ',time);
+        });
+        this.loader.dismiss();
       },
       err => {}
     );
@@ -55,4 +71,53 @@ export class JoshReportsPage {
   isGroupShown(group) {
     return this.shownGroup === group;
   }
+
+  openBlockedSheet(log) {
+    console.log('Selected Log', log);
+    let actionSheet = this.actionSheetCtrl.create({
+      title: log.domain,
+      buttons: [
+        {
+          text: 'Visit Website',
+          handler: () => {
+            console.log('Visit Website Selected');
+            this.visitWebsite(log.domain);
+          }
+        },
+        {
+          text: 'Temporarily Allow',
+          handler: () => {
+            console.log('Temporarily Clicked');
+            this.temporarilyAllow();
+          }
+        },
+        {
+          text: 'Always Allow',
+          handler: () => {
+            console.log('Always Clicked');
+            this.alwaysAllow();
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+ 
+    actionSheet.present();
+  }
+  visitWebsite(url) {
+
+  }
+  temporarilyAllow() {
+
+  }
+  alwaysAllow() {
+    
+  }
 }
+ 

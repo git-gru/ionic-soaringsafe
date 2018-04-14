@@ -70,9 +70,7 @@ export class ProfileProvider {
 
         // this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
         this.profileData["profileNumber"] = 0;
-        this.profileData["timeZone"] = this.timeZone;
-        this.profileData["utc_offset"] = this.utc_offset;
-
+       
         this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').add(this.profileData).then(res => {
           this.profileUid = res.id;
           this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(res.id).update({

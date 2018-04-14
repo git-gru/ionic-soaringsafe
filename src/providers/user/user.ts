@@ -10,11 +10,18 @@ import { Globalization } from '@ionic-native/globalization';
 export class UserProvider {
 
     currentUserEmail = "";
-    timezone: string = '';
+    timezone: any;
+    utc_offset: any;
 
     constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore, public googlePlus: GooglePlus, 
         public globalization: Globalization) {
         console.log('Hello UserProvider Provider');
+        this.getTimeZoneAndOffset().then(res=>{
+            this.timezone = res.timezone;
+            this.utc_offset = res.utc_offset;
+        }).catch(error=> {
+            console.log('Errors While getting Timezone and offsets', error);
+        });
     }
     //Getting timestamp with current time zone
     getUserTimestamp() {
@@ -62,7 +69,9 @@ export class UserProvider {
                 this.afs.collection('user').doc(this.afAuth.auth.currentUser.uid).set({
                     userName: user.parentName,
                     email: user.email,
-                    userTimeStamp: user.timestamp
+                    userTimeStamp: user.timestamp,
+                    timezone: this.timezone,
+                    utc_offset : this.utc_offset
                 }).then(() => {
                     this.currentUserEmail = user.email
                     resolve({ success: true });

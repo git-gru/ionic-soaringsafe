@@ -24,6 +24,7 @@ import { HttpModule } from '@angular/http';
 import { Globalization } from '@ionic-native/globalization';
 
 
+
 @NgModule({
   declarations: [
     MyApp

@@ -51,7 +51,7 @@ export class JoshPage {
 
   goToJoshReports() {
     // Navigate to the JoshReportsPage
-    this.navCtrl.push('JoshReportsPage');
+    this.navCtrl.push('JoshReportsPage', { profileInfo: this.profileInfo });
   }
 
   goToJoshFilters(profileId) {

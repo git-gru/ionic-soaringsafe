@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Josh Reports
+            {{profileInfo?.profileName}}'s Reports
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -59,10 +59,11 @@
             <ion-item *ngFor="let log of logReport;let i=index" class="itemtop">
                 <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
                 {{log.time | date:"h:mma"}} : {{log.domain}}
-                <ion-icon name="more" item-right></ion-icon>
+                <!-- <ion-icon name="more" item-right></ion-icon> -->
+                <div class="more-icon" tappable (tap)="openAllowedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div>
                 <div *ngIf="isGroupShown(i)">
                     <ion-item-divider></ion-item-divider>
-                    {{log.fqdn}}
+                    {{log.fqdn}} 
                 </div> 
             </ion-item>
             <p ng-hide="logReport.length">Nothing here!</p>
@@ -74,7 +75,6 @@
 
                 {{log.time | date:"h:mma"}} : {{log.domain}}
                     <div class="more-icon" tappable (tap)="openBlockedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div>
-                    <div class="clearfix"></div>
                 <div *ngIf="isGroupShown(i)">
                     <ion-item-divider></ion-item-divider>
                     {{log.fqdn}}

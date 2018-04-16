@@ -49,27 +49,27 @@ export class JoshReportsPage {
     params.profileId = this.profileId;
     params.queryType = this.profilelog; 
 
-    this.loader = this.loadingCtrl.create({
-      content: 'Loading..'
-    });
-    this.loader.present();
+    // this.loader = this.loadingCtrl.create({
+    //   content: 'Loading..'
+    // });
+    // this.loader.present();
     
     this.reportService.getReportForProfile(params).subscribe(
       data => {
-        // this.logReport = data;
-        data.forEach(res=>{
-          let time =  moment(res.time).format();
-          let tempObj = {
-            time: time,
-            fqdn: res.fqdn,
-            domain: res.domain
-          }
-          this.logReport.push(tempObj);
+        this.logReport = data;
+        // data.forEach(res=>{
+        //   let time =  moment(res.time).format();
+        //   let tempObj = {
+        //     time: time,
+        //     fqdn: res.fqdn,
+        //     domain: res.domain
+        //   }
+        //   this.logReport.push(tempObj);
 
-          // console.log('Log Reports ', res.time); 
-          // console.log('Formatted Time: ',time);
-        });
-        this.loader.dismiss();
+        //   // console.log('Log Reports ', res.time); 
+        //   // console.log('Formatted Time: ',time);
+        // });
+        // this.loader.dismiss();
       },
       err => {}
     );

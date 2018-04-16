@@ -49,10 +49,10 @@ export class JoshReportsPage {
     params.profileId = this.profileId;
     params.queryType = this.profilelog; 
 
-    // this.loader = this.loadingCtrl.create({
-    //   content: 'Loading..'
-    // });
-    // this.loader.present();
+    this.loader = this.loadingCtrl.create({
+      content: 'Loading..'
+    });
+    this.loader.present();
     
     this.reportService.getReportForProfile(params).subscribe(
       data => {
@@ -66,10 +66,10 @@ export class JoshReportsPage {
         //   }
         //   this.logReport.push(tempObj);
 
-        //   // console.log('Log Reports ', res.time); 
-        //   // console.log('Formatted Time: ',time);
+          // console.log('Log Reports ', res.time); 
+          // console.log('Formatted Time: ',time);
         // });
-        // this.loader.dismiss();
+        this.loader.dismiss();
       },
       err => {}
     );

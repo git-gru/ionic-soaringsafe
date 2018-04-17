@@ -72,9 +72,9 @@
       </p>
     </div>
     <ion-list *ngFor="let cf of customFilters; let i = index" no-lines>
-      <ion-item>
+      <ion-item >
         <ion-icon name="information-circle" item-left></ion-icon>
-        {{cf.url}}
+        <div (tap)= "editCustomFilter(i)">{{cf.url}}</div>
         <button ion-button item-right [ngStyle]="{'background-color': cf.buttonColor}" (tap)="toggleCustomFilters(i)">{{cf.status}}</button>
       </ion-item> 
     </ion-list>

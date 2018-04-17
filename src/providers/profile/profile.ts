@@ -70,6 +70,7 @@ export class ProfileProvider {
 
         // this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
         this.profileData["profileNumber"] = 0;
+        this.profileData["status"] = 'SoaringSafe Enabled';
        
         this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').add(this.profileData).then(res => {
           this.profileUid = res.id;
@@ -426,5 +427,32 @@ export class ProfileProvider {
           console.log('Error inside New Custom Filter upload', error);
         });
     }
+  }
+
+  //Update Internet Status
+
+  updateInternetStatus(profileId, status) {
+    console.log(`Updating Internet Status: profileId= ${profileId} and status = ${status}`);
+    return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).update({
+      status: status
+    });
+  }
+
+  //Delete custom filter
+  deleteCustomFilter(profileId, filter) {
+    this.afs.collection('profileSettings').doc(profileId).collection('customFilters').ref.where('url', '==', filter.url)
+    .get().then(res=>{
+      res.forEach(result=>{
+        console.log('document id', result.id);
+        this.afs.collection('profileSettings').doc(profileId).collection('customFilters').doc(result.id).delete()
+        .then(()=>{
+          console.log('Custom filter is deleted Successfully');
+        }).catch(error=>{
+          console.log('Error While Deleting the custom filter', error);
+        });
+      });
+    }).catch(error=>{
+      console.log('Errors While querying for the custom filter', error);
+    })
   }
 }

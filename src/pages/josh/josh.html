@@ -19,10 +19,11 @@
   <h3>Actions</h3>
   <div>
     <ion-list>
-      <ion-item >
+      <ion-item (tap)="pauseInternet(profileInfo?.profileId)">
         <ion-icon name="pause" item-left></ion-icon>
-        Pause the internet
-        <ion-note item-right></ion-note>
+        <span>Pause the Internet</span>
+        <!-- <span>Internet is Paused</span> -->
+        <ion-note item-right [(ngModel)]="profileStatus" ngDefaultControl>{{profileStatus}}</ion-note>
         <ion-icon name="arrow-forward" item-right></ion-icon>
       </ion-item>
       <ion-item (tap)="goToLateBedtime()">

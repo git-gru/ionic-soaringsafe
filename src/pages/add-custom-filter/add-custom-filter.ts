@@ -15,6 +15,11 @@ export class AddCustomFilterPage {
   }
   
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public params: NavParams) {
+    const temp = params.get('customFilter');
+    if(Object.keys(temp).length != 0 ) {
+      this.customFilter.status = JSON.parse(JSON.stringify(temp)).status;
+      this.customFilter.url = JSON.parse(JSON.stringify(temp)).url;
+    }
   }
   addCustomFilter() {
     console.log('Selected Acess Value ', this.customFilter);

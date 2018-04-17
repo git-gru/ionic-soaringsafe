@@ -68,9 +68,9 @@ export class StartPairingOnDevicePage {
           zoom: 'no'
         }
         // Set the Target Browser
-        const target = '_self';
-        // const target = '_system';
-        // const browser = this.inAppBrowser.create(url, target, options);
+        //const target = '_self';
+         const target = '_system';
+         const browser = this.inAppBrowser.create(url, target, options);
         this.buttonTxt = 'Retry 1-click pairing';
         this.pairColor = '#8a8282';
         this.nextColor = '#488aff';

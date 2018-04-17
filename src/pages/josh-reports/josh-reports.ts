@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ActionSheetController, AlertController } from 'ionic-angular';
 import { ReportsProvider } from '../../providers/reports/reports/reports';
-import * as moment from 'moment-timezone';
+import * as moment from 'moment';
 import { InAppBrowserOptions, InAppBrowser } from '@ionic-native/in-app-browser';
 import { ProfileProvider } from '../../providers/profile/profile';
 import { UserProvider } from '../../providers/user/user';
@@ -56,9 +56,9 @@ export class JoshReportsPage {
     
     this.reportService.getReportForProfile(params).subscribe(
       data => {
-        this.logReport = data;
+         this.logReport = data;
         // data.forEach(res=>{
-        //   let time =  moment(res.time).format();
+        //   let time =  moment(res.time).format("h:mm:ss a");
         //   let tempObj = {
         //     time: time,
         //     fqdn: res.fqdn,
@@ -66,8 +66,8 @@ export class JoshReportsPage {
         //   }
         //   this.logReport.push(tempObj);
 
-          // console.log('Log Reports ', res.time); 
-          // console.log('Formatted Time: ',time);
+        //   console.log('Log Reports ', res.time); 
+        //   console.log('Formatted Time: ',time);
         // });
         this.loader.dismiss();
       },

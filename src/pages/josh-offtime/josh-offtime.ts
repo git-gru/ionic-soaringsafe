@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -8,8 +8,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'josh-offtime.html',
 })
 export class JoshOfftimePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  profileName: any;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  
+    this.storage.get('pName').then(res => {
+      this.profileName = res;
+    }).catch(error => { 
+      console.log('JoshOfftime: Error while getting profileName', error);
+    });
+  
   }
 
   ionViewDidLoad() {

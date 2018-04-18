@@ -20,7 +20,9 @@ export class UserProvider {
             this.timezone = res.timezone;
             this.utc_offset = res.utc_offset;
         }).catch(error=> {
-            console.log('Errors While getting Timezone and offsets', error);
+            console.error('Errors While getting Timezone and offsets - running in browser? Ionic Globalization Not working in browser so setting timezone to defaults (mountain)', error);
+            this.timezone = "MDT";
+            this.utc_offset = -6*60*60; //OFFSET is returned from globilzation in seconds! 
         });
     }
     //Getting timestamp with current time zone

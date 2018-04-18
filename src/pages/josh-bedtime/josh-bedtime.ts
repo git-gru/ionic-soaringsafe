@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Navbar } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { ProfileProvider } from '../../providers/profile/profile';
 import { UserProvider } from '../../providers/user/user';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -21,10 +22,17 @@ export class JoshBedtimePage {
   bedtimes = [];
   offtimes = [];
   isEnabled:boolean;
-  
+  profileName: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider,
-    public profileService: ProfileProvider, public userService: UserProvider) {
+    public profileService: ProfileProvider, public userService: UserProvider, public storage: Storage) {
+    
+      this.storage.get('pName').then(res => {
+        this.profileName = res;
+      }).catch(error => { 
+        console.log('JoshOfftime: Error while getting profileName', error);
+      });
+    
     this.profileId = navParams.get('profileId');
     
     this.dataService.getBedtimes(this.profileId).subscribe(res=>{

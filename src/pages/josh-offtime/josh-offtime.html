@@ -1,19 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Josh Offtime
+      {{profileName}}'s Offtimes
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <div text-center>
     <p class="joshOfftime-heading">
-      Shuts off Internet access during an offtime
+      Lets you set additional times when the internet is shut off. For example, during school classes or homework time. 
     </p>
   </div>
   <button ion-button outline color="calm" block (tap)="goToAddOfftime()">
     Add Offtime
   </button>
+  <!--> 
   <div class="joshOfftime-spacer"></div>
   <h3 class="joshOfftime-heading">
     Offtimes
@@ -67,4 +68,5 @@
       <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-item>
   </ion-list>
+  </!-->
 </ion-content>

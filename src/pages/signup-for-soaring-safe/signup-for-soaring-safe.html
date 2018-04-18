@@ -9,20 +9,21 @@
   <form novalidate (ngSubmit)="onSubmit(userValid)" [formGroup]="userValid">
     <!-- <form novalidate (ngSubmit)="onSubmit(userValid)" [formGroup]="userValid"> -->
     <div text-center>
+      <h3>Welcome!</h3>
       <p class="signupForSoaringSafe-p">
         <strong>
-          You can sign up with the parent&#39;s or the child&#39;s phone
+          You can use the parent&#39;s or child&#39;s phone to sign up
         </strong>
       </p>
     </div>
     <ion-list>
       <ion-item id="signupForSoaringSafe-input6">
         <ion-label>Parent's Name</ion-label>
-        <ion-input type="text" placeholder="" formControlName = "parentName"></ion-input>
+        <ion-input type="text" placeholder="e.g. Sally Smartparent" formControlName = "parentName"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Email</ion-label>
-        <ion-input type="text" value="" formControlName="email"></ion-input>
+        <ion-input type="text" placeholder="sally@gmail.com" value="" formControlName="email"></ion-input>
       </ion-item>
       <!-- Email Validation Code Starts -->
       <ion-item no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
@@ -36,7 +37,7 @@
       <!-- Email validation Code Ends -->
       <ion-item>
         <ion-label>Password</ion-label>
-        <ion-input type="password" value="" formControlName="password"></ion-input>
+        <ion-input type="password" placeholder="7 characters" value="" formControlName="password"></ion-input>
       </ion-item>
       <!-- Password Validation code Start -->
       <ion-item no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
@@ -57,8 +58,8 @@
   <button ion-button clear color="calm" block (tap)="goToLoginToSoaringSafe()">
     Login to existing account ...
   </button>
-  <button ion-button icon-start block large color="danger" (click)="signInWithGoogle()">
-    <ion-icon name="logo-googleplus"></ion-icon>
+  <button ion-button icon-start block color="danger" (click)="signInWithGoogle()">
+    <ion-icon name="logo-google"></ion-icon>
     Signup with Google
   </button>
 </ion-content>

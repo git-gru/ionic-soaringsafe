@@ -421,11 +421,7 @@ export class ProfileProvider {
   addNewCustomFilters(profileId, newCustomFilter) {
     if (this.newCustomFilter != undefined && this.newCustomFilter != null) {
        newCustomFilter["profileId"] = profileId;
-       this.afs.collection('profileSettings').doc(profileId).collection('customFilters').add(newCustomFilter).then(ar => {
-          console.log('successfully updated New Custom Filter');
-        }).catch(error => {
-          console.log('Error inside New Custom Filter upload', error);
-        });
+       return this.afs.collection('profileSettings').doc(profileId).collection('customFilters').add(newCustomFilter);
     }
   }
 

@@ -13,10 +13,11 @@ export class AddCustomFilterPage {
     status: 'ALLOWED',
     url: ''
   }
-  
+  title: string = 'Add'
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public params: NavParams) {
     const temp = params.get('customFilter');
     if(Object.keys(temp).length != 0 ) {
+      this.title = 'Edit';
       this.customFilter.status = JSON.parse(JSON.stringify(temp)).status;
       this.customFilter.url = JSON.parse(JSON.stringify(temp)).url;
     }

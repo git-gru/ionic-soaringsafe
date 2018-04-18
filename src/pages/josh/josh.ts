@@ -15,15 +15,25 @@ export class JoshPage {
   toastMessage: string;
   profileStatus: string = '';
   isPaused:boolean;
+  status: string = '';
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public toastCtrl: ToastController, public profileService: ProfileProvider) {
       //get Profile Info
       try {
         this.profileInfo = navParams.get('profileInfo');
         const pName = this.profileInfo.profileName;
-        this.profileStatus = this.profileInfo.status;
+        
+        if(this.profileInfo.status != 'SoaringSafe Enabled') {
+          this.profileStatus = 'Internet Paused';
+          this.status = 'Internet Paused';
+          this.isPaused = true;
+        } else {
+          this.status = 'SoaringSafe Enabled';
+          this.isPaused = false;
+        }
         this.storage.set('pName', pName);
 
+        this.storage.set('profileData', this.profileInfo);
         this.toastMessage = navParams.get('toastMessage');
         console.log('toastMessageInside constrctor', this.toastMessage);
       } catch(error){
@@ -45,20 +55,24 @@ export class JoshPage {
   // Change Internet Settings to pause/play 
   pauseInternet(profileId) {
     let msg = '';
-    if(this.profileStatus == 'SoaringSafe Enabled') {
+    if(this.status == 'SoaringSafe Enabled') {
       msg = 'Internet has been Paused';
       this.profileStatus = 'Internet Paused';
-
+      this.status = 'Internet Paused';
+      this.isPaused = true;
     } else {
       msg = 'Internet has been Enabled';
-      this.profileStatus = 'SoaringSafe Enabled';
+      this.profileStatus = '';
+      this.status = 'SoaringSafe Enabled';
+
+      this.isPaused = false;
     }
     const toast = this.toastCtrl.create({
       duration: 2000,
       message: msg
     });
     toast.present();
-    this.profileService.updateInternetStatus(profileId, this.profileStatus).then(res=>{
+    this.profileService.updateInternetStatus(profileId, this.status).then(res=>{
       console.log(msg);
     }).catch(error=>{
       console.log('Errors While Updating Internet Status', Error);

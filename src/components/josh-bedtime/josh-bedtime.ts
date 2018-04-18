@@ -11,7 +11,7 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class JoshBedtimeComponent {
 
-  customize: boolean = false;
+  isEnabled: boolean = false;
   weeknightBedtime:string = '';
   weeknightAwaketime:string = '';
   weekendBedtime: string = '';
@@ -34,12 +34,14 @@ export class JoshBedtimeComponent {
       {
         offtime: 'Weeknights', 
         bedtime: this.weeknightBedtime, 
-        awake:  this.weeknightAwaketime
+        awake:  this.weeknightAwaketime,
+        enabled: this.isEnabled
       },
       {
         offtime: 'Weekends', 
         bedtime: this.weekendBedtime, 
-        awake:  this.weekendAwaketime
+        awake:  this.weekendAwaketime,
+        enabled: this.isEnabled
       }
     ];  
     console.log('Value of Josh page', this.offtimes);

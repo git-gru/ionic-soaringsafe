@@ -34,7 +34,7 @@ export class StartPairingPage {
     console.log('profile Data', this.profileData);
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { 
     console.log('ionViewDidLoad StartPairingPage');
   }
 
@@ -51,7 +51,8 @@ export class StartPairingPage {
       console.log('successfully updated Offtimes');
       if(res) {
         // Navigate to the IsThisHalleIpadPage
-        this.navCtrl.push('IsThisHalleIpadPage', {deviceName: this.deviceName});
+        // this.navCtrl.push('IsThisHalleIpadPage', {deviceName: this.deviceName});
+        this.navCtrl.push('IsThisHalleIpadPage');
       }
     }).catch(error => {
       console.log('Error inside Offtimes upload', error);

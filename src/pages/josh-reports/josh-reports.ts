@@ -109,7 +109,7 @@ export class JoshReportsPage {
           text: 'Always Allow',
           handler: () => {
             console.log('Always Clicked');
-            this.changeStatus(log, 'ALLOW');
+            this.changeStatus(log, 'ALLOWED', 'Site Allowed');
           }
         },
         {
@@ -148,7 +148,7 @@ export class JoshReportsPage {
           text: 'Block',
           handler: () => {
             console.log('Always Clicked');
-            this.changeStatus(log, 'BLOCK');
+            this.changeStatus(log, 'BLOCKED', 'Site BLOCKED');
           }
         },
         {
@@ -184,13 +184,13 @@ export class JoshReportsPage {
   //Block Temporarily
   temporarilyBlock(log) {
     const status = 'BLOCKED';
-    const title = 'Temporarily Allow';
+    const title = 'Temporarily BLOCK';
     this.temporarilyActionSheet(log, title, status);
   }
-
+ 
   // set Custom Filter Status Allow/Block
-  changeStatus(log, status) { 
-    const title = 'Site Allowed';
+  changeStatus(log, status, siteTitle) { 
+    const title = siteTitle;
     const msg = `This site has been added as custom filter. It may up to 10 minutes for changes to show up on ${this.profileInfo.profileName} device`;
     this.customFilter.url = log.domain;
     this.customFilter.status = status;
@@ -201,7 +201,14 @@ export class JoshReportsPage {
     console.log('profileId', this.profileId);
     // print the value of Custom Filter
     console.log('Custom Filters in JoshReports Page', this.customFilter);
-    this.profileService.addNewCustomFilters(this.profileId, this.customFilter);
+    this.profileService.addNewCustomFilters(this.profileId, this.customFilter).then(ar => {
+      setTimeout(()=>{
+        console.log('Josh-Reports: custom filter Updated');
+        this.profileService.updateFilterTriggers(this.profileId);
+      }, 300);
+    }).catch(error => {
+      console.log('Error inside New Custom Filter upload', error);
+    });
     this.showAlert(title, msg);
   }
 
@@ -281,7 +288,14 @@ export class JoshReportsPage {
     console.log('profileId', this.profileId);
     // print the value of Custom Filter
     console.log('Custom Filters in JoshReports Page', this.customFilter);
-    this.profileService.addNewCustomFilters(this.profileId, this.customFilter);
+    this.profileService.addNewCustomFilters(this.profileId, this.customFilter).then(ar => {
+      setTimeout(()=>{
+        console.log('Josh-Reports: custom filter Updated');
+        this.profileService.updateFilterTriggers(this.profileId);
+      }, 300);
+    }).catch(error => {
+      console.log('Error inside New Custom Filter upload', error);
+    });
     this.showAlert(title, msg);
   }
 }

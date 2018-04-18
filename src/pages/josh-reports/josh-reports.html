@@ -60,7 +60,9 @@
                 <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
                 {{log.time}} : {{log.domain}}
                 <!-- <ion-icon name="more" item-right></ion-icon> -->
-                <div class="more-icon" tappable (tap)="openAllowedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div>
+                <button ion-button item-right color="none" (click)="openAllowedSheet(log)"><ion-icon name="more"></ion-icon></button>
+                
+                <!-- <div class="more-icon" tappable (click)="openAllowedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div> -->
                 <div *ngIf="isGroupShown(i)">
                     <ion-item-divider></ion-item-divider>
                     {{log.fqdn}} 
@@ -74,7 +76,10 @@
                 <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
 
                 {{log.time}} : {{log.domain}}
-                    <div class="more-icon" tappable (tap)="openBlockedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div>
+
+                <button ion-button item-right color="none" (click)="openAllowedSheet(log)"><ion-icon name="more"></ion-icon></button>
+                
+                <!-- <div class="more-icon" tappable (click)="openBlockedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div> -->
                 <div *ngIf="isGroupShown(i)">
                     <ion-item-divider></ion-item-divider>
                     {{log.fqdn}}

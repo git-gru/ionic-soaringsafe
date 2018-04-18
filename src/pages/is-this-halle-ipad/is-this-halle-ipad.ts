@@ -14,7 +14,12 @@ export class IsThisHalleIpadPage {
   profileData: Promise<void>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
     //get Device Name
-    this.deviceName = this.navParams.get('deviceName');
+    // this.deviceName = this.navParams.get('deviceName');
+    this.storage.get('deviceName').then(res=>{
+      this.deviceName = res;
+    }).catch(error=>{
+      console.log('IsThisHalleIpadPage: Errors While getting Device Name from Local Storage', error);
+    });
 
     console.log('DeviceName Inside Is this Halle Ipad', this.deviceName);
 

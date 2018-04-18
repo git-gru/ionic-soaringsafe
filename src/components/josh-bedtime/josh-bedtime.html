@@ -2,11 +2,11 @@
   <ion-label>
     Enable Bedtime
   </ion-label>
-  <ion-toggle color="positive" [checked]="customize" [(ngModel)]="customize"></ion-toggle>
+  <ion-toggle color="positive" [checked]="isEnabled" [(ngModel)]="isEnabled"></ion-toggle>
 </ion-item>
 
 
-<div *ngIf="customize">
+<div *ngIf="isEnabled">
   
   <h3 class="joshBedtime-heading">
     Weeknights

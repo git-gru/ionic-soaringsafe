@@ -21,8 +21,8 @@
     <ion-list>
       <ion-item (tap)="pauseInternet(profileInfo?.profileId)">
         <ion-icon name="pause" item-left></ion-icon>
-        <span>Pause the Internet</span>
-        <!-- <span>Internet is Paused</span> -->
+        <span *ngIf="isPaused == false" [(ngModel)]="isPaused" ngDefaultControl>Pause the Internet</span>
+        <span *ngIf="isPaused == true" [(ngModel)]="isPaused" ngDefaultControl>Unpause</span>
         <ion-note item-right [(ngModel)]="profileStatus" ngDefaultControl>{{profileStatus}}</ion-note>
         <ion-icon name="arrow-forward" item-right></ion-icon>
       </ion-item>

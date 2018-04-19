@@ -1,2 +1,18 @@
 josh-filters {
+
+    .setInitialFilters-spacer {
+        width: 300px;
+        height: 15px;
+    }
+
+    .setInitialFilters-spacer-2 {
+        width: 300px;
+        height: 25px;
+    }
+
+    .item p {
+        white-space:initial;
+        margin-top:10px;
+        font-size:1.5rem;
+    }
 }

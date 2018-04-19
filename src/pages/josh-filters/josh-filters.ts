@@ -22,6 +22,7 @@ export class JoshFiltersPage {
   categoryFilters = [];
   blockedAppFilters = [];
   customFilters = [];
+  shownGroup = null;
   safetySecurity = [];
   ageGroup: any;
   newCustomFilter = [];
@@ -218,6 +219,15 @@ export class JoshFiltersPage {
           } else {
             res.buttonColor = '#ff0000';
           }
+          if (res.name === "youtubeRestricted") {
+            res.name = "YouTube Restricted Mode";
+            res.helpInfo = "This enables Google's YouTube restricted mode which will filter out innappropriate videos on YouTube. It may occasionally filter out videos needed for school, so you may have to experiment with this setting";
+          }
+          if (res.name === "safeSearch") {
+            res.name = "Enforce SafeSearch";
+            res.helpInfo = "This setting forces SafeSearch when searching with Google and Bing. This means that innapropriate search results and image searches will always be blocked. We recommend always having this on.";
+          }
+
         });
       });
     }, error => {
@@ -274,6 +284,19 @@ export class JoshFiltersPage {
     });
     modal.present();
   }
+
+    //For toogling more information
+    toggleGroup(group) {  
+      if (this.isGroupShown(group)) {
+        this.shownGroup = null;
+      } else {
+        this.shownGroup = group;
+      }
+    }
+    isGroupShown(group) {
+      return this.shownGroup === group;
+    }
+
 
   goToSetInitialBedtime() {
     let profile = {

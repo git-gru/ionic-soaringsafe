@@ -18,19 +18,19 @@
   </ion-list>
   <div class="setUpProfile-spacer"></div>
   <h3 class="setUpProfile-heading">
-    {{profileData.profileName}} is a:
+    How old is {{profileData.profileName}}?
   </h3>
   <div>
     <ion-toolbar>
       <ion-segment color="primary" [(ngModel)]="ageGroup" (ionChange)="onAgeChanged($event)">
         <ion-segment-button value="KID">
-          KID
+          12 or under
         </ion-segment-button>
         <ion-segment-button value="TEEN">
-          TEEN
+          13-15
         </ion-segment-button>
         <ion-segment-button value="YOUNG ADULT">
-          YOUNG ADULT
+          16 or over
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
@@ -38,7 +38,7 @@
   <div class="setUpProfile-spacer"></div>
   <div>
     <p class="setUpProfile-p">
-      This is used to set the initial filter settings which you can always customize later.
+      This age range is used to select the default filter settings. You can customize all settings later. 
     </p>
   </div>
   <button ion-button color="calm" block (tap)="goToSetInitialFilters()">

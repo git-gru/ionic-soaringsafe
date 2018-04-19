@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{profileName}} Filters
+      {{profileName}} Filters 
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,15 +13,21 @@
     </h3>
     <ion-list *ngFor= "let sns of safetySecurity; let i = index" no-lines>
       <ion-item>
-        <ion-icon name="information-circle" item-left></ion-icon>
+        <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
         {{sns.name}}
         <button ion-button item-right [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">{{sns.status}}</button>
+        <div *ngIf="isGroupShown(i)">
+            <p>{{sns.helpInfo}} </p>
+        </div> 
       </ion-item>
     </ion-list>
     <ion-item>
-        <ion-icon name="information-circle" item-left></ion-icon>
+        <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
         Block Viruses & Scams
-        <ion-note item-right></ion-note>
+        <ion-note item-right>Always On</ion-note>
+        <div *ngIf="isGroupShown(i)">
+            <p>Over 1 Million Virus, Scam, and Phishing websites are always and automatically blocked to keep your device safe. </p>
+        </div> 
       </ion-item>
     <div class="joshFilters-spacer"></div> 
     

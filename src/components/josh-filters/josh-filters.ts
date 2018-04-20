@@ -200,7 +200,7 @@ export class JoshFiltersComponent {
     }
   }
 
-   //For toogling full url
+   //For toogling showing more information
    toggleGroup(group) {  
     if (this.isGroupShown(group)) {
       this.shownGroup = null;

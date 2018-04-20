@@ -57,6 +57,7 @@ export class StartPairingOnDevicePage {
     this.navCtrl.setRoot('InstallationCheckPage');
   }
   startPairing() {
+      console.log("startPairing: gettingprofilenumber for profile", this.profileId)
     this.profileService.getProfileNumber(this.profileId).subscribe(res=>{
       const profileNumber = JSON.parse(JSON.stringify(res)).profileNumber;
       
@@ -65,7 +66,8 @@ export class StartPairingOnDevicePage {
         console.log('Dynamic URL ', url);
 
         const options: InAppBrowserOptions = {
-          zoom: 'no'
+          zoom: 'no',
+          suppressesIncrementalRendering: 'yes'
         }
         // Set the Target Browser
         //const target = '_self';

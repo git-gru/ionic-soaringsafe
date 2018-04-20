@@ -117,9 +117,9 @@ export class JoshPage {
     this.navCtrl.push('JoshTimeLimitsPage');
   }
 
-  goToStartPairing() {
+  goToStartPairing(profileId) {
     // Navigate to the StartPairingPage
-    this.navCtrl.push('StartPairingPage');
+    this.navCtrl.push('StartPairingPage', { profileId: profileId });
   }
 
   goToLateBedtime() {

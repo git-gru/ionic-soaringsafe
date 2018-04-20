@@ -16,16 +16,19 @@
       </h2>
     </ion-item>
   </ion-list>
-  <h3 class="isTheHalleIpad-heading"></h3>
-  <div>
-    <p class="isTheHalleIpad-heading">
-      Either way works great
-    </p>
-  </div>
+  <h3 class="isTheHalleIpad-heading">
+      Are you using {{deviceName}} right now?
+  </h3>
+  
   <button ion-button outline color="calm" (tap)="goToStartPairingOnDevice()">
     Yes
   </button>
   <button ion-button outline color="calm" (tap)="goToReadyPairingOffDevice()">
     No
   </button>
+  <div>
+      <p class="isTheHalleIpad-heading">
+        Either way works great. You can continue the pairing process from either {{deviceName}} or your own device.  
+      </p>
+    </div>
 </ion-content>

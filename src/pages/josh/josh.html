@@ -107,7 +107,7 @@
       <ion-icon name="arrow-dropdown" item-right></ion-icon>
     </ion-item>
   </ion-list>
-  <button ion-button color="calm" block (tap)="goToStartPairing()">
+  <button ion-button color="calm" block (tap)="goToStartPairing(profileInfo?.profileId)">
     Add Device for {{profileInfo?.profileName}}
   </button>
   <div class="josh-spacer-100"></div>

@@ -53,6 +53,7 @@ export class JoshDevicesPage {
 
   goToStartPairing() {
     // Navigate to the StartPairingPage
+    console.log("ProfileId inside of goToStartPairing", this.profileId);
     this.navCtrl.push('StartPairingPage', {profileId: this.profileId});
   }
 }

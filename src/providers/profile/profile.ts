@@ -155,6 +155,8 @@ export class ProfileProvider {
       this.safeSearch = JSON.parse(JSON.stringify(res)).safeSearch;
       this.youtubeRestricted = JSON.parse(JSON.stringify(res)).youtubeRestricted;
 
+      //Rustin: try clearing out the array first:
+      this.safetySecurity = [];
       this.safetySecurity.push({ name: 'safeSearch', status: this.safeSearch });
       this.safetySecurity.push({ name: 'youtubeRestricted', status: this.youtubeRestricted });
 

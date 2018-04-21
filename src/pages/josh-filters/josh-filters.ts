@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Navbar, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ModalController, Navbar, ViewController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/take';
 import { FiltersProvider } from '../../providers/filters/filters';
@@ -19,6 +19,7 @@ export class JoshFiltersPage {
   profileName: any;
   profileId: string;
   appFilters = [];
+  loader: any;
   categoryFilters = [];
   blockedAppFilters = [];
   customFilters = [];
@@ -30,6 +31,7 @@ export class JoshFiltersPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public filterProvider: FiltersProvider, public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController,
     public profileService: ProfileProvider, public viewCtrl: ViewController) {
 
     this.storage.get('pName').then(res => {
@@ -47,7 +49,7 @@ export class JoshFiltersPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoshFiltersPage');
     this.navBar.backButtonClick = (e: UIEvent) => {
-      this.goToSetInitialBedtime();
+      this.goToProfile();
     }
   }
 
@@ -148,6 +150,7 @@ export class JoshFiltersPage {
   }
 
   filterData(filters, flag) {
+    console.log("entered filterdata() again with filters, flag", filters, flag);
     switch (flag) {
       case 'appFilters': {
         this.filterProvider.getProfileAppFilters(this.profileId).subscribe(res => {
@@ -211,20 +214,21 @@ export class JoshFiltersPage {
     //Fetch Security and Safety from Profile Settings
     this.filterProvider.getProfileSafetySecurityFilters(this.profileId).then(res => {
       res.forEach(output => {
+        //I THINK THERE IS SOMETHING ABOUT THESE TWO LINES THAT IS DUPLICATING THINGS
         this.safetySecurity = output;
         this.safetySecurity.forEach(res => {
-          console.log('inside Safety and security', res.status);
+          console.log('filterdata() inside Safety and security', res);
           if (res.status == 'ON') {
             res.buttonColor = '#488aff';
           } else {
             res.buttonColor = '#ff0000';
           }
           if (res.name === "youtubeRestricted") {
-            res.name = "YouTube Restricted Mode";
+            res.displayName = "Filter YouTube Videos";
             res.helpInfo = "This enables Google's YouTube restricted mode which will filter out innappropriate videos on YouTube. It may occasionally filter out videos needed for school, so you may have to experiment with this setting";
           }
           if (res.name === "safeSearch") {
-            res.name = "Enforce SafeSearch";
+            res.displayName = "Filter Search Results";
             res.helpInfo = "This setting forces SafeSearch when searching with Google and Bing. This means that innapropriate search results and image searches will always be blocked. We recommend always having this on.";
           }
 
@@ -298,7 +302,12 @@ export class JoshFiltersPage {
     }
 
 
-  goToSetInitialBedtime() {
+  goToProfile() { 
+    this.loader = this.loadingCtrl.create({
+      content: 'Saving...'
+    });
+    this.loader.present();
+
     let profile = {
       appFilters: [],
       categoryFilters: [],
@@ -366,6 +375,7 @@ export class JoshFiltersPage {
       console.log('Safety and Security Filters in JOsh Filter', this.safetySecurity);
 
       this.profileService.updateProfile(this.profileId).then(res => {
+        this.loader.dismiss();
         if (res) {
           this.navCtrl.push('JoshPage', { profileInfo: this.profileInfo, toastMessage: this.toastMessage })
             .then(() => {
@@ -388,4 +398,19 @@ export class JoshFiltersPage {
       });
     });
   }
+
+goToCancel() {
+  this.navCtrl.push('JoshPage', { profileInfo: this.profileInfo, toastMessage: "Settings Cancelled" })
+  .then(() => {
+
+    const index = this.viewCtrl.index;
+
+    for (let i = index; i > 0; i--) {
+      this.navCtrl.remove(i);
+    }
+  }).catch(error => {
+    console.log('Error While Poping a view', error);
+  });
+
+  }  
 }

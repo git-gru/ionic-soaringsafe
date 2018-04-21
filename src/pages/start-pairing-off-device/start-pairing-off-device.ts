@@ -58,7 +58,7 @@ export class StartPairingOffDevicePage {
       const profileNumber = JSON.parse(JSON.stringify(res)).profileNumber;
       
       if(profileNumber != 0) {
-        this.url = 'http://pair.soaringsafe.com/' + profileNumber; 
+        this.url = 'pair.soaringsafe.com/' + profileNumber; 
       }
       console.log('Profile Number ', profileNumber);    
     });

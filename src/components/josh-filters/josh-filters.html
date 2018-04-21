@@ -12,8 +12,7 @@
   </h3>
   <ion-list *ngFor= "let sns of safetySecurity; let i = index" no-lines>
     <ion-item>
-      <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
-      {{sns.name}}
+        <div (click)="toggleGroup(i)">{{sns.displayName}} <ion-icon name="information-circle" ></ion-icon></div>
       <button ion-button item-right [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">{{sns.status}}</button>
       <div *ngIf="isGroupShown(i)">
           <p>{{sns.helpInfo}} </p>
@@ -21,8 +20,9 @@
     </ion-item>
   </ion-list>
   <ion-item>
-      <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
-      Block Viruses & Scams
+      <div (click)="toggleGroup(i)">
+          Block Viruses & Scams <ion-icon name="information-circle"></ion-icon>
+        </div>
       <ion-note item-right>Always On</ion-note>
       <div *ngIf="isGroupShown(i)">
           <p>Over 1 Million Virus, Scam, and Phishing websites are always and automatically blocked to keep your device safe. </p>
@@ -52,9 +52,13 @@
   </h3>
   <ion-list *ngFor = "let cat of categoryFilters; let i = index">
     <ion-item>
-      <ion-icon name="information-circle" item-left></ion-icon>
-      {{cat.CategoryName}}
+        <div (click)="toggleGroup(i + 'cat')">
+            {{cat.CategoryName}} <ion-icon name="information-circle"></ion-icon>
+          </div>
       <button ion-button item-right [ngStyle]="{'background-color': cat.buttonColor}" (tap)="toggleCategoryFilters(i)">{{cat.status}}</button>
+      <div *ngIf="isGroupShown(i + 'cat')">
+          <p>{{cat.CategoryDescription}} </p>
+      </div>     
     </ion-item>
   </ion-list>
   <div class="joshFilters-spacer"></div>

@@ -6,6 +6,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
+    <!-->
     <div text-center>
         <p class="joshReports-p">
             Scanned
@@ -44,6 +45,9 @@
       </strong> requests today
         </p>
     </div>
+    </!-->
+    <p>Block or Unblock any website by clicking the action button (...) next to the URL </p>
+    <p>Get more information by clicking the (i) icon next to the URL</p>
     <div class="joshReports-spacer-17"></div>
 
     <ion-segment (ionChange)="changeType()" [(ngModel)]="profilelog">
@@ -77,12 +81,12 @@
 
                 {{log.time}} : {{log.domain}}
 
-                <button ion-button item-right color="none" (click)="openAllowedSheet(log)"><ion-icon name="more"></ion-icon></button>
+                <button ion-button item-right color="none" (click)="openBlockedSheet(log)"><ion-icon name="more"></ion-icon></button>
                 
                 <!-- <div class="more-icon" tappable (click)="openBlockedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div> -->
                 <div *ngIf="isGroupShown(i)">
                     <ion-item-divider></ion-item-divider>
-                    {{log.fqdn}}
+                    Full URL: {{log.fqdn}}
                 </div>
             </ion-item>
             <p ng-hide="logReport.length">Nothing here!</p>

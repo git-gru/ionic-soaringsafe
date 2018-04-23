@@ -10,7 +10,7 @@ import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angul
 export class AddCustomFilterPage {
   // state: string = '';
   customFilter = {
-    status: 'ALLOWED',
+    status: 'BLOCKED',  //Make Blocked the default for a new custom filter
     url: ''
   }
   title: string = 'Add'

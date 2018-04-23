@@ -14,7 +14,7 @@ import { UserProvider } from '../../providers/user/user';
 export class JoshReportsPage {
   profileId: string;
   profileInfo: any;
-  profilelog: string = "allowed";
+  profilelog: string = "blocked";
   logReport: any = [];
   shownGroup = null;
   loader: any;

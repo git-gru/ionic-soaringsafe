@@ -42,8 +42,8 @@ export class ProfileProvider {
       console.log('Error Occured while Fetching Profile Data', error);
     });
 
-    // Get Profile Filter From local Storage
-    this.storage.get('profileFilter').then((res: any) => {
+      // Get Profile Filter Settings (besides offtimes, which came from current page) From local Storage
+      this.storage.get('profileFilter').then((res: any) => {
       this.appFilter = JSON.parse(JSON.stringify(res)).appFilters;
       this.categoryFilter = JSON.parse(JSON.stringify(res)).categoryFilters;
       this.customFilter = JSON.parse(JSON.stringify(res)).customFilters;

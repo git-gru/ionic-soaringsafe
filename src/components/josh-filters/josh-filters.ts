@@ -134,8 +134,9 @@ export class JoshFiltersComponent {
 
   //Add Custom Filters
   goToAddCustomFilter() {
+    const cf = {};
     // Navigate to the AddCustomFilterPage
-    let modal = this.modalCtrl.create('AddCustomFilterPage');
+    let modal = this.modalCtrl.create('AddCustomFilterPage', {customFilter: cf});
 
     modal.onDidDismiss(data => {
       if (data) {
@@ -153,6 +154,32 @@ export class JoshFiltersComponent {
     });
     modal.present();
     // this.navCtrl.push('AddCustomFilterPage');
+  }
+
+  editCustomFilter(index) {
+    console.log('Custom Filter', this.customFilters[index]);
+    let temp = this.customFilters[index];
+    let modal = this.modalCtrl.create('AddCustomFilterPage', {customFilter: temp});
+
+    modal.onDidDismiss(data => {
+      if (data) {
+        if (data.status == 'BLOCKED') {
+          data["buttonColor"] = '#ff0000';
+        } else {
+          data["buttonColor"] = '#488aff';
+        }
+        this.customFilters[index].url = data.url;
+        this.customFilters[index].status = data.status;
+        this.customFilters[index].buttonColor = data.buttonColor;
+                
+        console.log('Data coming from Edit customeFilter in If', this.customFilters);
+      } else {
+        //this line not needed in initial setup: this.profileService.deleteCustomFilter(this.profileId, this.customFilters[index]); 
+        this.customFilters.splice(index, 1);
+        console.log('Custom filters after deleting the item', this.customFilters);
+      }
+    });
+    modal.present();
   }
 
   //Set the filter according to the age group selected

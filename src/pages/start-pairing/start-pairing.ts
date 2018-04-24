@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ProfileProvider } from '../../providers/profile/profile';
 import { UserProvider } from '../../providers/user/user';
@@ -13,12 +13,13 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 })
 export class StartPairingPage {
 
+  loader: any;
   profileData: any;
   deviceName: string;
   profileId: string;
   showProfileCompleteMessage: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
     public storage: Storage, public profileService: ProfileProvider, public userService: UserProvider) {
 
     //get ProfileId
@@ -56,6 +57,11 @@ export class StartPairingPage {
   }
 
   goToIsThisHalleIPad() {
+    this.loader = this.loadingCtrl.create({
+      content: 'Saving...'
+    });
+    this.loader.present();
+
     let currentTime = this.userService.getUserTimestamp();
     let deviceInfo = {
       deviceName: this.deviceName,
@@ -69,10 +75,12 @@ export class StartPairingPage {
       if(res) {
         // Navigate to the IsThisHalleIpadPage
         // this.navCtrl.push('IsThisHalleIpadPage', {deviceName: this.deviceName});
+        this.loader.dismiss();
         this.navCtrl.push('IsThisHalleIpadPage');
       }
     }).catch(error => {
       console.log('Error inside Offtimes upload', error);
+      this.loader.dismiss();
     });
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 
 @IonicPage()
@@ -10,8 +10,9 @@ import { DataProvider } from '../../providers/data/data';
 export class PickChildAvatarPage {
   profileName: string = '';
   avatarList = [];
+  loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataProvider, public loadingCtrl: LoadingController) {
 
     //Get Profile Name
     this.profileName = this.navParams.get('pName');
@@ -20,6 +21,10 @@ export class PickChildAvatarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PickChildAvatarPage');
+    this.loader = this.loadingCtrl.create({
+      content: 'Loading...'
+    });
+    this.loader.present();
 
     this.dataProvider.getAvatars().subscribe((res:any)=>{
       // console.log('Avatars Data', res);
@@ -29,6 +34,7 @@ export class PickChildAvatarPage {
     }, (error)=>{
       console.log('errors', error);
     });
+    this.loader.dismiss();
   }
   goToSetUpProfile(avatar){
     avatar["profileName"] = this.profileName;

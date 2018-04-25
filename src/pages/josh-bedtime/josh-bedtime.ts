@@ -41,6 +41,9 @@ export class JoshBedtimePage {
         this.bedtimes.push(result);
       });
       console.log('Bedtimes', this.bedtimes);
+
+      //NOTE: THE ENABLED FUNCTIONALITY IS ONLY KEYING OFF THE WEEKEND BEDTIME
+      //THIS SHOULD BE OKAY, AS THE ENABLED SETTING SHOULD ALWAYS MATCH
       this.bedtimes.filter(bt => {
         if(bt.offtime == 'Weeknights') {
           this.weeknightBedtime = bt.bedtime;

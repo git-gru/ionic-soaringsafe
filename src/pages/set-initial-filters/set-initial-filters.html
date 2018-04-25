@@ -3,11 +3,13 @@
     <ion-title>
       Set initial Filters
     </ion-title>
+    <!--> HAVE TO REMOVE THIS RIGHT NOW BECAUSE IT DOESNT WORK - goTO is in the COMPONENT!
     <ion-buttons end>
       <button ion-button (tap)="goToSetInitialBedtime()">
         Next
       </button>
     </ion-buttons>
+    </!-->
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -23,11 +25,11 @@
   </ion-list>
   <div class="setInitialFilters-spacer-2"></div>
   <h3 class="setInitialFilters-heading">
-    Would you like to customize the web and app filters for {{profileData.profileName}}?
+    Default web and app filters have been chosen based on {{profileData.profileName}}'s age
   </h3>
   <div>
     <p class="setInitialFilters-p">
-      You can always do this later
+      Slide the knob to see and customize the app and web filters for {{profileData.profileName}}. You can always do this later.
     </p>
   </div>
   

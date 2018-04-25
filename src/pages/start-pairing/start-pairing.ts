@@ -79,7 +79,7 @@ export class StartPairingPage {
         this.navCtrl.push('IsThisHalleIpadPage');
       }
     }).catch(error => {
-      console.log('Error inside Offtimes upload', error);
+      console.log('Error inside saving device / goToIsThisHalleIpad:', error);
       this.loader.dismiss();
     });
   }

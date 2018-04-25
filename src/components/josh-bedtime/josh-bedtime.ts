@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileProvider } from '../../providers/profile/profile';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { UserProvider } from '../../providers/user/user';
 
@@ -16,10 +16,10 @@ export class JoshBedtimeComponent {
   weeknightAwaketime:string = '';
   weekendBedtime: string = '';
   weekendAwaketime: string = '';
-
+  loader: any;
   offtimes = [];
 
-  constructor(public profileService: ProfileProvider, public navCtrl: NavController,
+  constructor(public profileService: ProfileProvider, public navCtrl: NavController, public loadingCtrl: LoadingController,
     public storage: Storage, public userService: UserProvider) {
     console.log('Hello JoshBedtimeComponent Component');    
   }
@@ -29,6 +29,10 @@ export class JoshBedtimeComponent {
     // console.log('value of WeeknightAwake Time', this.weeknightAwaketime);
     // console.log('value of WeekEndBed Time', this.weekendBedtime);
     // console.log('value of WeekendAwake Time', this.weekendAwaketime);
+    this.loader = this.loadingCtrl.create({
+      content: 'Creating Profile...'
+    });
+    this.loader.present();
 
     this.offtimes = [
       {
@@ -47,11 +51,15 @@ export class JoshBedtimeComponent {
     console.log('Value of Josh page', this.offtimes);
 
     this.profileService.createProfile(this.offtimes).then(res=>{
-        const temp = JSON.parse(JSON.stringify(res)).profileId;
+          console.log('response from Profile Provider', res);
+          //const temp = JSON.parse(JSON.stringify(res)).profileId;
+          const temp = res;
           console.log('profileId from Profile Provider', temp);
           this.storage.set('profileId',temp);
+          this.loader.dismiss();
           this.navCtrl.setRoot('StartPairingPage', {profileId: temp});
     }).catch(error => {
+      this.loader.dismiss();
       console.log('Josh-bedtimes: Error While Creating Profile ', error);
     });
   }

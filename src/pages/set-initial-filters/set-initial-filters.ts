@@ -32,6 +32,7 @@ export class SetInitialFiltersPage {
  
   getFilters(ageGroup) {
     //Get Default Filters According to AgeGroup Selected
+    //BELOW IS AN EMPTY FUNCTION - THE COMPONENT NOW GRABS THE DEFAULT FILTERS
     this.filterProvider.getDefaultFilters(ageGroup);
   }
 

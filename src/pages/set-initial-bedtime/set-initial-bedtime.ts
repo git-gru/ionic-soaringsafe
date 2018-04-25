@@ -23,6 +23,6 @@ export class SetInitialBedtimePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SetInitialBedtimePage');
+    console.log('ionViewDidLoad SetInitialBedtimePage profiledata', this.profileData);
   }
 }

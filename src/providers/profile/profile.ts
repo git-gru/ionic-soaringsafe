@@ -18,7 +18,7 @@ export class ProfileProvider {
   safeSearch: string = '';
   youtubeRestricted: string = '';
 
-  profileUid: string;
+  profileId: string = '';
 
   timeZone: any;
   utc_offset: any;
@@ -34,115 +34,139 @@ export class ProfileProvider {
     });
   }
 
+  //@ Create Profile NEEDS TO RETURN THE NEW PROFILE ID!!!
+  //  Look at components/josh-bedtime.ts  createProfile() function for more info
   createProfile(offtimes) {
-    // Get Profile Data from Local Storage
-    this.storage.get('profileData').then(res => {
-      this.profileData = res;
-    }).catch(error => {
-      console.log('Error Occured while Fetching Profile Data', error);
-    });
-
+    
+    return Promise.all([ 
+      // Get Profile Data from Local Storage
+      this.storage.get('profileData').then(res => {
+        this.profileData = res;
+      }).catch(error => {
+        console.log('Error Occured while Fetching Profile Data', error);
+        return Promise.reject(error);
+      }),
+      
       // Get Profile Filter Settings (besides offtimes, which came from current page) From local Storage
       this.storage.get('profileFilter').then((res: any) => {
-      this.appFilter = JSON.parse(JSON.stringify(res)).appFilters;
-      this.categoryFilter = JSON.parse(JSON.stringify(res)).categoryFilters;
-      this.customFilter = JSON.parse(JSON.stringify(res)).customFilters;
-      this.safeSearch = JSON.parse(JSON.stringify(res)).safeSearch;
-      this.youtubeRestricted = JSON.parse(JSON.stringify(res)).youtubeRestricted;
+        
+        this.appFilter = JSON.parse(JSON.stringify(res)).appFilters;
+        this.categoryFilter = JSON.parse(JSON.stringify(res)).categoryFilters;
+        this.customFilter = JSON.parse(JSON.stringify(res)).customFilters;
+        this.safeSearch = JSON.parse(JSON.stringify(res)).safeSearch;
+        this.youtubeRestricted = JSON.parse(JSON.stringify(res)).youtubeRestricted;
 
-      this.safetySecurity.push({ name: 'safeSearch', status: this.safeSearch });
-      this.safetySecurity.push({ name: 'youtubeRestricted', status: this.youtubeRestricted });
+        this.safetySecurity.push({ name: 'safeSearch', status: this.safeSearch });
+        this.safetySecurity.push({ name: 'youtubeRestricted', status: this.youtubeRestricted });
 
-      //print the Filters
+        //print the Filters
 
-      console.log('App Filter Inside the Profile Provider', this.appFilter);
-      console.log('Category Filter Inside the Profile Provider', this.categoryFilter);
-      console.log('Custom Filter Inside the Profile Provider', this.customFilter);
-      console.log('Safety and Security Filter Inside the Profile Provider', this.safetySecurity);
+        console.log('App Filter Inside the Profile Provider', this.appFilter);
+        console.log('Category Filter Inside the Profile Provider', this.categoryFilter);
+        console.log('Custom Filter Inside the Profile Provider', this.customFilter);
+        console.log('Safety and Security Filter Inside the Profile Provider', this.safetySecurity);
 
-    }).catch(error => {
-      console.log('Error Occured while Fetching Profile fitler', error);
-    });
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log('Profile Data in Profle Provider: ', this.profileData)
-        console.log('Offtimes Data: ', offtimes);
+      }).catch(error => {
+        console.log('Error Occured while Fetching Profile fitler', error);
+        return Promise.reject(error);
+      })
+    ]).then(() => { 
+      //First, create the profile:
+      console.log('Profile Data in Profle Provider: ', this.profileData)
+      console.log('Offtimes Data: ', offtimes);
 
-        // this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
-        this.profileData["profileNumber"] = 0;
-        this.profileData["status"] = 'SoaringSafe Enabled';
-       
-        this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').add(this.profileData).then(res => {
-          this.profileUid = res.id;
-          this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(res.id).update({
-            profileId: res.id
-          }).catch(error => {
-            console.log("Errors while Updating the profile", error);
-          });
-          this.appFilter.forEach(appF => {
-            appF["profileId"] = res.id;
-            this.afs.collection('profileSettings').doc(res.id).collection('appFilters').add(appF).then(ar => {
-              console.log('successfully updated app Filter');
-            }).catch(error => {
-              console.log('Error inside App Filter upload', error);
-            });
-          });
-
-          //Store category Filters in Firestore Database
-
-          this.categoryFilter.forEach(catF => {
-            catF["profileId"] = res.id;
-            this.afs.collection('profileSettings').doc(res.id).collection('categoryFilters').add(catF).then(ar => {
-              console.log('successfully updated Category Filter');
-            }).catch(error => {
-              console.log('Error inside Category Filter upload', error);
-            });
-          });
-
-          //Store Custome Filters in Firestore Database
-          if (this.customFilter != undefined && this.customFilter != null) {
-            this.customFilter.forEach(custF => {
-              custF["profileId"] = res.id;
-              this.afs.collection('profileSettings').doc(res.id).collection('customFilters').add(custF).then(ar => {
-                console.log('successfully updated Custom Filter');
-              }).catch(error => {
-                console.log('Error inside Custom Filter upload', error);
-              });
-            });
-          }
-
-          // Store Safety and Security in Firestore Database
-
-          this.safetySecurity.forEach(ssF => {
-            ssF["profileId"] = res.id;
-            this.afs.collection('profileSettings').doc(res.id).collection('safetySecurityFilters').add(ssF).then(ar => {
-              console.log('successfully updated Safety and Security Filter');
-            }).catch(error => {
-              console.log('Error inside Safety and Security Filter upload', error);
-            });
-          });
-
-          // Store Offtimes in the Firestore Database
-
-          if (offtimes != undefined && offtimes != null) {
-            offtimes.forEach(off => {
-              off["profileId"] = res.id;
-              this.afs.collection('profileSettings').doc(res.id).collection('offtimes').add(off).then(ar => {
-                console.log('successfully updated Offtimes');
-              }).catch(error => {
-                console.log('Error inside Offtimes upload', error);
-              });
-            });
-          }
-          console.log('Successfully Updated', res.id);
-          resolve({ profileId: res.id });
+      // this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
+      this.profileData["profileNumber"] = 0;
+      this.profileData["status"] = 'SoaringSafe Enabled';
+      this.profileData["saveStatus"] = 'pending';
+      this.profileData["created"] = Date.now();
+      
+      return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').add(this.profileData)
+      .catch(error => {
+        console.log('Error while updating Profile', error);
+        return Promise.reject(error);
+      })
+    }).then(res => {
+      //Now update the Profile Settings:  
+      var promises = [];
+      this.profileId = res.id; 
+      
+      //Add the profileId as a field to the actual Profile document. This is needed for ease of use in the app when creating the profile object.
+      promises.push(this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(res.id).update({
+        profileId: res.id
+      }).then(ar => {
+        console.log('successfully updated profile doc with profileId');
+      }).catch(error => {
+        console.log('Error adding profileId to profiledoc', error);
+      }));
+      
+      //Store App Filters
+      this.appFilter.forEach(appF => {
+        appF.profileId = res.id;
+        promises.push(this.afs.collection('profileSettings').doc(res.id).collection('appFilters').add(appF).then(ar => {
+          console.log('successfully updated app Filter');
         }).catch(error => {
-          console.log('Error while updating Profile ', error);
-          reject(error);
+          console.log('Error inside App Filter upload', error);
+        }));
+      });
+
+      //Store category Filters in Firestore Database
+      this.categoryFilter.forEach(catF => {
+        catF.profileId = res.id;
+        promises.push(this.afs.collection('profileSettings').doc(res.id).collection('categoryFilters').add(catF).then(ar => {
+          console.log('successfully updated Category Filter');
+        }).catch(error => {
+          console.log('Error inside Category Filter upload', error);
+        }));
+      });
+
+      //Store Custome Filters in Firestore Database
+      if (this.customFilter != undefined && this.customFilter != null) {
+        this.customFilter.forEach(custF => {
+          custF.profileId = res.id;
+          promises.push(this.afs.collection('profileSettings').doc(res.id).collection('customFilters').add(custF).then(ar => {
+            console.log('successfully updated Custom Filter');
+          }).catch(error => {
+            console.log('Error inside Custom Filter upload', error);
+          }));
         });
-      }, 300);
-    });
-    return promise;
+      }
+
+      // Store Safety and Security Settings in Firestore Database
+      this.safetySecurity.forEach(ssF => {
+        ssF.profileId = res.id;
+        promises.push(this.afs.collection('profileSettings').doc(res.id).collection('safetySecurityFilters').add(ssF).then(ar => {
+          console.log('successfully updated Safety and Security Filter');
+        }).catch(error => {
+          console.log('Error inside Safety and Security Filter upload', error);
+        }));
+      });
+
+      // Store Offtimes in the Firestore Database
+      if (offtimes != undefined && offtimes != null) {
+        offtimes.forEach(off => {
+          off.profileId = res.id;
+          promises.push(this.afs.collection('profileSettings').doc(res.id).collection('offtimes').add(off).then(ar => {
+            console.log('successfully updated Offtimes');
+          }).catch(error => {
+            console.log('Error inside Offtimes upload', error);
+          }));
+        });
+      }
+
+      return Promise.all(promises);
+    }).then( res => {
+      console.log('Profile Settings Successfully Updated - creating filter trigger');
+      return Promise.all([
+        this.updateFilterTriggers(this.profileId),
+        this.updateOfftimeTriggers(this.profileId)
+    ])}).then(res => {
+      console.log('filter trigs sent, returning profileId:', this.profileId);
+      return this.profileId;
+    }).catch(error => {
+      console.error('Error creating / updating profile / triggers', error);
+      return Promise.reject(error);
+    }) 
   }
 
   updateProfile(profileId) {

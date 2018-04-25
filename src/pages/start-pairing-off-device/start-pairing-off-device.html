@@ -17,26 +17,25 @@
     </ion-item>
   </ion-list>
   <h3 class="startPairingOffDevice-heading">
-      Watch this 90 second video about the simple pairing process
+      Let's pair this profile with {{deviceName}} 
     </h3>
-  <div>
-    <p class="startPairingOffDevice-heading">
-      The process will open the device settings to confirm that you want to have internet traffic filtered   
+    <p>The pairing process will install a profile (not an app) on {{deviceName}} so you can filter traffic</p>
+  <h3>Step 1. Open Safari on {{deviceName}}, enter this URL:</h3>
+  <div text-center>
+  <p class="startPairingOffDevice-heading">
+      <strong>
+       {{url}}
+      </strong>
     </p>
+    </div>  
+    <div>
+      <h3>Step 2. Watch this 90 second video and follow along:</h3>
   </div>
   <div class="startPairingOffDevice-video">
     <iframe src="https://www.youtube.com/embed/iPDSLe_4aJs?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560" height="315" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
   </div>
   <div class="startPairingOffDevice-spacer"></div>
-  <div text-center>
-    <p class="startPairingOffDevice-heading">
-      Open Safari on {{deviceName}}, enter this URL and follow the instructions:
-    </p>
-    <p class="startPairingOffDevice-heading">
-      <strong>
-       {{url}}
-      </strong>
-    </p>
-  </div>
+  <h3>Step 3. Click this button when done on {{deviceName}} to check pairing</h3>
+  
   <button ion-button outline color="calm" block (tap)="goToInstallationCheck()">I finished on {{deviceName}}</button>
 </ion-content>

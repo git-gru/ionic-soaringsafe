@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 export class SetInitialBedtimePage {
 
   profileData: any; 
+  shownGroup = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
     this.storage.get('profileData').then(res => {
@@ -24,5 +25,17 @@ export class SetInitialBedtimePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SetInitialBedtimePage profiledata', this.profileData);
+  }
+
+   //For toogling showing more information
+   toggleGroup(group) {  
+    if (this.isGroupShown(group)) {
+      this.shownGroup = null;
+    } else {
+      this.shownGroup = group;
+    }
+  }
+  isGroupShown(group) {
+    return this.shownGroup === group;
   }
 }

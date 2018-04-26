@@ -22,6 +22,13 @@ export class JoshBedtimeComponent {
   constructor(public profileService: ProfileProvider, public navCtrl: NavController, public loadingCtrl: LoadingController,
     public storage: Storage, public userService: UserProvider) {
     console.log('Hello JoshBedtimeComponent Component');    
+      
+    //set initial values of bedtime & aweake times
+    this.weeknightBedtime = '84';
+    this.weeknightAwaketime = '20';
+    this.weekendBedtime = '86';
+    this.weekendAwaketime = '20';
+  
   }
    
   createProfile() {

@@ -13,7 +13,7 @@ export class RewardLateBedtimePage {
 
   profileInfo: any;
   profileId: any;
-  bedtime: string = '';
+  bedtime: string = '86';
   status: string = '';
   rewardBedtimes = {
     creation_time: undefined,

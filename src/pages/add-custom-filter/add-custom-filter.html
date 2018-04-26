@@ -1,5 +1,10 @@
 <ion-header>
   <ion-navbar>
+      <ion-buttons left>
+          <button ion-button (tap)="cancelFilter()">
+            Cancel
+          </button>
+        </ion-buttons>
     <ion-title text-center>
       {{title}} Custom Filter 
     </ion-title>
@@ -31,6 +36,6 @@
   </button>
   <div class="custom-filter-spacer-49"></div>
   <button ion-button clear color="calm" block (tap)="cancelFilter()">
-    Delete Custom Filter
+    {{cancelOrDelete}}
   </button>
 </ion-content>

@@ -32,6 +32,14 @@
       <p class="setInitialBedtime-heading">
         The internet will shut off at bedtime. You can always do this later.
       </p>
+      <div (click)="toggleGroup('bedtimeinfo')">
+        <p><u>More information</u> <ion-icon name="information-circle" ></ion-icon></p>
+      </div>
+      <div *ngIf="isGroupShown('bedtimeinfo')">
+        <p>At bedtime the internet connection to the device will be shut off.</p>
+        <p>This means that the user can still use non internet connected apps such as games. The ability to block non internet apps and games is coming in a future release.</p>
+        <p>Note that for safety & emergency reasons, calls and texting cannot be blocked. If texting late at night is a problem we recommend taking the device at night or placing it in a safe areay.</p>
+      </div>
     </div>
     <josh-bedtime></josh-bedtime>
   <div class="setInitialBedtime-spacer-15"></div>

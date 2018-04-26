@@ -45,7 +45,8 @@ export class JoshPage {
     console.log('ionViewDidLoad JoshPage. ProfileId:', this.profileInfo.profileId);
     if(this.toastMessage) {
       const toast = this.toastCtrl.create({
-        duration: 2000,
+        duration: 4000,
+        position: 'top',
         message: this.toastMessage
       });
       toast.present();

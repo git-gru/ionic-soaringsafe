@@ -12,12 +12,15 @@ export class AddCustomFilterPage {
   customFilter = {
     status: 'BLOCKED',  //Make Blocked the default for a new custom filter
     url: ''
-  }
-  title: string = 'Add'
+  };
+  title: string = 'Add';
+  cancelOrDelete = 'Cancel';
+
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public params: NavParams) {
     const temp = params.get('customFilter');
     if(Object.keys(temp).length != 0 ) {
       this.title = 'Edit';
+      this.cancelOrDelete = 'Delete Custom Filter';
       this.customFilter.status = JSON.parse(JSON.stringify(temp)).status;
       this.customFilter.url = JSON.parse(JSON.stringify(temp)).url;
     }

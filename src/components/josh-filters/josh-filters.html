@@ -6,10 +6,15 @@
 </ion-item>
 
 <div *ngIf="customize">
-    <div class="setInitialFilters-spacer-2"></div>
-  <h3 class="joshFilters-heading">
-    Safety and Security
-  </h3>
+  <div class="setInitialFilters-spacer-2"></div>
+  <div (click)="toggleGroup('ssinfo')">
+    <h3 class="joshFilters-heading">
+    Safety and Security <ion-icon name="information-circle"></ion-icon>
+    </h3>
+  </div>
+  <div *ngIf="isGroupShown('ssinfo')">
+      <p>For more information about each setting, click the info icon (i) next to each setting.</p>
+    </div>
   <ion-list *ngFor= "let sns of safetySecurity; let i = index" no-lines>
     <ion-item>
         <div (click)="toggleGroup(i)">{{sns.displayName}} <ion-icon name="information-circle" ></ion-icon></div>
@@ -18,7 +23,7 @@
           <p>{{sns.helpInfo}} </p>
       </div> 
     </ion-item>
-  </ion-list>
+  </ion-list> 
   <ion-item>
       <div (click)="toggleGroup(i)">
           Block Viruses & Scams <ion-icon name="information-circle"></ion-icon>
@@ -31,26 +36,49 @@
   <div class="joshFilters-spacer"></div> 
   
   <!-- Show the App Filters -->
-  <h3 class="joshFilters-heading">
-    Apps and Websites
-  </h3>
-  <ion-list *ngFor="let appf of appFilters; let i = index">
+  <div (click)="toggleGroup('appinfo')">
+    <h3 class="joshFilters-heading">
+      Apps and Websites <ion-icon name="information-circle"></ion-icon>
+    </h3>
+  </div>
+  <div *ngIf="isGroupShown('appinfo')">
+    <p>You can allow or block the internet connection for the top 100+ apps for teens here.</p>
+    <p>This won't block the app from installing, but it will block the app from connecting to the internet. Blocking games and other non-internet connected apps will be possible in a future release.</p>
+     <p>As new apps become popular, they are automatically added and you will be notified. By default new apps are BLOCKED or ALLOWED based on the profile age settings.</p>
+      <p>In addition, you can block entire categories of apps using the category filters below.</p>
+  </div>
+  <ion-list *ngFor="let appf of appFilters; let i = index" nolines>
     <ion-item>
-      <ion-avatar item-left>
-        <img [src]="appf.squareIcon" /> 
-      </ion-avatar>
-      <ion-label>{{appf.appName}}</ion-label>
+        
+          <ion-avatar item-left>
+            <img [src]="appf.squareIcon" /> 
+          </ion-avatar>
+          <div (click)="toggleGroup(i + 'app')">
+            <!-- <ion-label (click)="toggleGroup(i + 'app')">  -->
+              {{appf.appName}} <ion-icon name="information-circle"></ion-icon>
+            <!-- </ion-label> -->
+         </div> 
       <!-- <button ion-button item-right  [ngStyle]="{'background-color': buttonColor}" (tap)="toggleAllowBlock(i)">{{appf.status}}</button> -->
       <button ion-button item-right [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">{{appf.status}}</button>
+      <div *ngIf="isGroupShown(i + 'app')">
+          <p>{{appf.appInfo}}</p>
+      </div>    
     </ion-item>
   </ion-list>
   <div class="joshFilters-spacer"></div>
   
   <!-- Show the Category Filters -->
-  <h3 class="joshFilters-heading">
-    Website Categories
-  </h3>
-  <ion-list *ngFor = "let cat of categoryFilters; let i = index">
+  <div (click)="toggleGroup('catinfo')">
+    <h3 class="joshFilters-heading">
+      Website & App Categories <ion-icon name="information-circle"></ion-icon>
+    </h3>
+  </div>
+  <div *ngIf="isGroupShown('catinfo')">
+      <p>SoaringSafe uses various 3rd party vendors to categorize all sites on the internet.</p>
+       <p>Virtually all popular websites have been categorized. Thousands of new websites and apps are added every day.</p>
+        <p>You can block entire categories of apps using the Website & App Category Filters Below:</p>
+    </div>
+  <ion-list *ngFor = "let cat of categoryFilters; let i = index" nolines>
     <ion-item>
         <div (click)="toggleGroup(i + 'cat')">
             {{cat.CategoryName}} <ion-icon name="information-circle"></ion-icon>

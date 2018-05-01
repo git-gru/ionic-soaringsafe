@@ -24,7 +24,9 @@ export class MyApp {
       this.afAuth.authState.subscribe(user=>{
         if(user) {
           userService.currentUserEmail = user.email
-          this.rootPage = 'TabsControllerPage';
+          //UPDATE 5/1/2018: Instead of tabs, opting for a single home screen for family page
+          //this.rootPage = 'TabsControllerPage';
+          this.rootPage = 'FamilyPage';
         } else {
           this.rootPage = 'LoginToSoaringSafePage'
         }

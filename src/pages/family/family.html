@@ -1,11 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Family
+      SoaringSafe
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <h3>
+    Family
+  </h3>
   <ion-list *ngFor="let profile of profiles">
     <ion-item color="none" (tap)="goToJosh(profile)">
       <ion-avatar item-left>
@@ -17,7 +20,25 @@
       <ion-note *ngIf="profile.status == 'Internet Paused'" item-right>{{profile?.status}}</ion-note>
     </ion-item>
   </ion-list>
-  <button ion-button color="calm" block (tap)="goToCreateChildProfile()">
-    Add Family Member
-  </button>
+  <ion-item color="none" (tap)="goToCreateChildProfile()">
+    <ion-icon name="add" item-left></ion-icon>
+    <h2>
+      Add family member...
+    </h2>
+  </ion-item>
+  
+  <h3>
+    -------
+  </h3>
+  <ion-list>
+    <ion-item (tap)="goToAccount()">
+      <ion-icon name="paper" item-left></ion-icon>
+      <h2>Account</h2>
+    </ion-item>
+    <ion-item (tap)="goToHelp()">
+      <ion-icon name="help-buoy" item-left></ion-icon>
+      <h2>Help and Support</h2>
+    </ion-item>
+    
+  </ion-list>
 </ion-content>

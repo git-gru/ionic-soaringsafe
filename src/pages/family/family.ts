@@ -30,8 +30,26 @@ export class FamilyPage {
     this.navCtrl.push('JoshPage' , {profileInfo: pInfo, toastMessage: ''});
   }
 
+  goToHelp() {
+    //console.log('Profile Info', pInfo);
+    // Navigate to Help
+    this.navCtrl.push('HelpAndSupportPage');
+  }
+
+  goToAccount() {
+    //console.log('Profile Info', pInfo);
+    // Navigate to the JoshPage
+    this.navCtrl.push('AccountPage');
+  }
+
+  goToReports() {
+    //console.log('Profile Info', pInfo);
+    // Navigate to the JoshPage
+    this.navCtrl.push('ReportsPage');
+  }
+
   goToCreateChildProfile() {
     // navigate to the CreateChildProfilePage
-    this.navCtrl.setRoot('CreateChildProfilePage');
+    this.navCtrl.push('CreateChildProfilePage');
   }
 }

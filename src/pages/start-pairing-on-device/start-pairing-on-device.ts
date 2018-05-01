@@ -27,7 +27,7 @@ export class StartPairingOnDevicePage {
 
     this.storage.get('profileId').then(res => {
       this.profileId = res;
-    }).catch(error => {
+    }).catch(error => {              
       console.log('Start-paring-on-device: Error Occured While fetching ProfileId from local Storage', error);
     });
 
@@ -77,7 +77,7 @@ export class StartPairingOnDevicePage {
         this.pairColor = '#8a8282';
         this.nextColor = '#488aff';
 
-        let status = 'Started Pairing On Device';
+        let status = 'Check Pairing';
         this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);
       }
       console.log('Profile Number ', profileNumber);    

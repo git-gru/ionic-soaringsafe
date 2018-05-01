@@ -60,7 +60,10 @@ export class StartPairingOffDevicePage {
       if(profileNumber != 0) {
         this.url = 'pair.soaringsafe.com/' + profileNumber; 
       }
-      console.log('Profile Number ', profileNumber);    
+      console.log('Profile Number ', profileNumber);
+      
+      let status = 'Check Pairing';
+      this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);    
     });
   }
 }

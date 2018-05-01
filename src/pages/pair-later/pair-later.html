@@ -15,18 +15,11 @@
       You will need to pair this profile to {{deviceName}} before SoaringSafe can start working.
     </p>
     <p class="pairLater-p">
-      When you are ready to pair this profile to {{deviceName}} device, go to:
+      <strong>When you are ready to pair {{profileData?.profileName}}'s profile to {{deviceName}} device, follow the instructions from the dashboard.</strong>
     </p>
-    <p class="pairLater-p">
-      <strong>
-        {{profileData?.profileName}}  -&gt; DEVICES -&gt; {{deviceName}}
-      </strong>
-    </p>
-    <p class="pairLater-p">
-      You can still use this device to get instructions.
-    </p>
+    
   </div>
   <button ion-button color="calm" block (tap)="goToFamily()">
-    Go to dashboard
+    Go to Dashboard
   </button>
 </ion-content>

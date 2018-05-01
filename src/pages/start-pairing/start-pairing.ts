@@ -66,7 +66,7 @@ export class StartPairingPage {
     let deviceInfo = {
       deviceName: this.deviceName,
       created: currentTime,
-      deviceStatus: 'Pairing Initiated', 
+      deviceStatus: 'Needs Pairing', 
       profileId: this.profileId
     }
     this.storage.set('deviceName', this.deviceName);

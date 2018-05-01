@@ -77,8 +77,9 @@ export class ProfileProvider {
 
       // this.profileData["userId"] = this.aAuth.auth.currentUser.uid;
       this.profileData["profileNumber"] = 0;
-      this.profileData["status"] = 'SoaringSafe Enabled';
-      this.profileData["saveStatus"] = 'pending';
+      this.profileData["status"] = 'Needs Pairing'; //when a profile is first created - it needs a device paired with it
+      //this.profileData["saveStatus"] = 'pending'; //NOT USED YET - in the future this will be used for polling system
+      this.profileData["devicePaired"] = false; //signal that a device needs to be paired
       this.profileData["created"] = Date.now();
       
       return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').add(this.profileData)
@@ -303,6 +304,37 @@ export class ProfileProvider {
      });
   }
 
+  // Update Profile Status
+  updateProfileStatus(profileId, status) {
+    console.log('status Inside update Profile Status', status);
+    
+    return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).update({
+      status: status
+    }).then(res => {
+      console.log('Device Status Updated Successfully');
+      return status;
+    }).catch(error => {
+      console.log('Error while updating profile status', error);
+      return status;
+    });
+  }
+
+   // Update A Profile Field
+   updateProfileField(profileId, field, value) {
+    console.log('Inside update Profile Field', profileId, field, value);
+    
+    return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).set({
+      field: value 
+    },{merge:true}
+    ).then(res => {
+      console.log('Device Status Updated Successfully');
+      return status;
+    }).catch(error => {
+      console.log('Error while updating profile status', error);
+      return status;
+    });
+  }
+
   //Store devices in profileSettings collection in firestore.
   storeDevice(deviceInfo, profileId) {
     console.log('Device Name inside Profile Provider: ', deviceInfo);
@@ -332,6 +364,7 @@ export class ProfileProvider {
         });
       });
   }
+  
 
   //Update Device Name
   updateDeviceName(newDeviceName, profileId, deviceName) {

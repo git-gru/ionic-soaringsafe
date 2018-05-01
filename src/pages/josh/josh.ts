@@ -16,6 +16,8 @@ export class JoshPage {
   profileStatus: string = '';
   isPaused:boolean;
   status: string = '';
+  shownGroup = null;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public toastCtrl: ToastController, public profileService: ProfileProvider) {
       //get Profile Info
@@ -127,4 +129,17 @@ export class JoshPage {
     // Navigate to the StartPairingPage
     this.navCtrl.push('RewardLateBedtimePage', { profileInfo: this.profileInfo });
   }
+
+   //For toogling more information
+   toggleGroup(group) {  
+    if (this.isGroupShown(group)) {
+      this.shownGroup = null;
+    } else {
+      this.shownGroup = group;
+    }
+  }
+  isGroupShown(group) {
+    return this.shownGroup === group;
+  }
+
 }

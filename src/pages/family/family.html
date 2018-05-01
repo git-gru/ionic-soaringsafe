@@ -17,7 +17,7 @@
       <h2>
         {{profile?.profileName}}
       </h2>
-      <ion-note *ngIf="profile.status == 'Internet Paused'" item-right>{{profile?.status}}</ion-note>
+      <ion-note *ngIf="profile.status != 'Working'" item-right>{{profile?.status}}</ion-note>
     </ion-item>
   </ion-list>
   <ion-item color="none" (tap)="goToCreateChildProfile()">

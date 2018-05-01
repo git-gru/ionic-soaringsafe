@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ProfileProvider } from '../../providers/profile/profile';
 
 
 @IonicPage()
@@ -16,7 +17,7 @@ export class PairLaterPage {
   deviceName(arg0: any, arg1: any): any {
     throw new Error("Method not implemented.");
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public profileService: ProfileProvider) {
 
     this.storage.get('profileData').then(res => {
       this.profileData = res;
@@ -41,6 +42,10 @@ export class PairLaterPage {
 
   goToFamily() {
     // Navigate to the FamilyPage
+    // what is the profileId: 
+    console.log("pair-later goToFamily profielId", this.profileData["profileId"])
+    this.profileService.updateDeviceStatus(this.profileData["profileId"], "Retry pairing", this.deviceName);
+    
     this.navCtrl.setRoot('FamilyPage');
   }
 }

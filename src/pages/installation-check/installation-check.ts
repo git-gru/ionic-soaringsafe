@@ -13,6 +13,7 @@ export class InstallationCheckPage {
   profileId: any;
   deviceName: any;
   profileData: any;
+  shownGroup = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
     public profileService: ProfileProvider) {
@@ -45,15 +46,29 @@ export class InstallationCheckPage {
   }
 
   goToInstallationSuccessful() {
-     let status = 'Pairing Succesfull';
+     let status = 'Pairing Successful';
     this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);
+    this.profileService.updateProfileStatus(this.profileId, "Working");
+    this.profileService.updateProfileField(this.profileId, "devicePaired", true);
     // Navigate to the InstallationSuccessfulPage
     this.navCtrl.setRoot('InstallationSuccessfulPage');
   }
 
   goToInstallationTryAgain() {
+    this.profileService.updateDeviceStatus(this.profileId, "Retry pairing", this.deviceName);
     // Navigate to the InstallationTryAgainPage
-    this.navCtrl.setRoot('InstallationTryAgainPage'); 
+    this.navCtrl.push('InstallationTryAgainPage'); 
   }
 
+  //For toogling showing more information
+  toggleGroup(group) {  
+    if (this.isGroupShown(group)) {
+      this.shownGroup = null;
+    } else {
+      this.shownGroup = group;
+    }
+  }
+  isGroupShown(group) {
+    return this.shownGroup === group;
+  }
 }

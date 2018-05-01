@@ -6,16 +6,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-avatar item-left>
-        <img [src]="profileData?.ImageURL" />
-      </ion-avatar>
-      <h2>
-        {{profileData?.profileName}}
-      </h2>
-    </ion-item> 
-  </ion-list>
+
   <div class="startPairing-spacer"></div>
   <div *ngIf="isGroupShown(i)">
     <h3 class="startPairing-heading">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h3>

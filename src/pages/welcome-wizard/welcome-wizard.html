@@ -1,0 +1,44 @@
+<!--
+  Generated template for the WelcomeWizardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Welcome to SoaringSafe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-slides pager="true">
+        <ion-slide>
+          <h1>Watch this 90 second introductory video</h1>
+          <iframe src="https://www.youtube.com/embed/e8jN4bZF5Zs?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="157" height="280" ></iframe>
+          <div class="spacer"><br /></div>
+          <button ion-button outline color="calm" block (tap)="nextSlide()">Next</button>
+          <div class="spacer"><br /></div>
+          <button ion-button clear color="calm" block (tap)="exitWizard(0)">Skip</button>
+        </ion-slide>
+        <ion-slide>
+          <h1>If you have an Apple device: Install this app on your device first.</h1>
+          <p>Then you will pair with the child device.</p>
+          <h1>Don't have an Apple device?</h1>
+          <p>No problem, install this app on the child device and you can use the web to change.</p>
+          <div class="spacer"><br /></div>
+          <button ion-button outline color="calm" block (tap)="nextSlide()">Next</button>
+          <div class="spacer"><br /></div>
+          <button ion-button clear color="calm" block (tap)="exitWizard(1)">Skip</button>
+        </ion-slide>
+        <ion-slide>
+          <h1>Slide 3</h1>
+          <h1>If you have an Apple device: Install this app on your device first.</h1>
+          <div class="spacer"><br /></div>
+          <button ion-button color="calm" block (tap)="exitWizard(2)">Get Started</button>
+        </ion-slide>
+      </ion-slides>
+</ion-content>

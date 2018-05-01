@@ -248,7 +248,7 @@ export class JoshFiltersComponent {
       customFilters: []
     }
     if (this.customize) {
-      //User have Enabled Custome Filters
+      //User have Enabled Custome Filters, fetch and save
       this.appFilters.forEach(res => {
         let temp = {
           filterId: res.filterId,
@@ -257,7 +257,7 @@ export class JoshFiltersComponent {
         profile.appFilters.push(temp);
       });
 
-      //fetch the category filter
+      //fetch and save the category filters
       this.categoryFilters.forEach(res => {
         let temp = {
           filterId: res.filterId,
@@ -266,11 +266,10 @@ export class JoshFiltersComponent {
         profile.categoryFilters.push(temp);
       });
 
-      //get the Safe and Security Filter
-
+      //fetch and save the Safety and Security Filter
       this.safetySecurity.forEach(res => {
         console.log('safeSearch', res);
-        if (res.name == "Enforce Safesearch") {
+        if (res.name == "safeSearch") {
           profile.safeSearch = res.status;
         } else {
           profile.youtubeRestricted = res.status;
@@ -315,8 +314,8 @@ export class JoshFiltersComponent {
       
       //Fetch safety and Security
       this.safetySecurity.forEach(res => {
-        console.log('safeSearch', res);
-        if (res.name == "Enforce Safesearch") {
+        console.log('Safety and Security:', res);
+        if (res.name == "safeSearch") {
           profile.safeSearch = res.status;
         } else {
           profile.youtubeRestricted = res.status;

@@ -61,15 +61,16 @@
     <div [ngSwitch]="profilelog">
         <ion-list *ngSwitchCase="'allowed'">
             <ion-item *ngFor="let log of logReport;let i=index" class="itemtop">
-                <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
-                {{log.time}} : {{log.domain}}
-                <!-- <ion-icon name="more" item-right></ion-icon> -->
+                <div (click)="toggleGroup(i)">
+                    {{log.time}} : {{log.domain}} 
+                    <ion-icon name="information-circle"></ion-icon>
+                    <!-- <ion-icon name="more" item-right></ion-icon> -->
+                </div>    
                 <button ion-button item-right color="none" (click)="openAllowedSheet(log)"><ion-icon name="more"></ion-icon></button>
                 
                 <!-- <div class="more-icon" tappable (click)="openAllowedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div> -->
                 <div *ngIf="isGroupShown(i)">
-                    <ion-item-divider></ion-item-divider>
-                    {{log.fqdn}} 
+                    <p>Full URL: {{log.fqdn}}</p>
                 </div> 
             </ion-item>
             <p ng-hide="logReport.length">Nothing here!</p>
@@ -77,17 +78,17 @@
 
         <ion-list *ngSwitchCase="'blocked'">
             <ion-item *ngFor="let log of logReport;let i=index" class="itemtop">
-                <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon>
-
-                {{log.time}} : {{log.domain}}
-
+                <div (click)="toggleGroup(i)">
+                    {{log.time}} : {{log.domain}} 
+                    <ion-icon name="information-circle"></ion-icon>
+                    <!-- <ion-icon name="more" item-right></ion-icon> -->
+                </div>    
                 <button ion-button item-right color="none" (click)="openBlockedSheet(log)"><ion-icon name="more"></ion-icon></button>
                 
                 <!-- <div class="more-icon" tappable (click)="openBlockedSheet(log)" item-right> <ion-icon name="more"></ion-icon></div> -->
                 <div *ngIf="isGroupShown(i)">
-                    <ion-item-divider></ion-item-divider>
-                    Full URL: {{log.fqdn}}
-                </div>
+                    <p>Full URL: {{log.fqdn}}</p>
+                </div> 
             </ion-item>
             <p ng-hide="logReport.length">Nothing here!</p>
         </ion-list>

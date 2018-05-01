@@ -27,7 +27,7 @@ export class JoshFiltersPage {
   safetySecurity = [];
   ageGroup: any;
   newCustomFilter = [];
-  toastMessage: string = 'Filter settings have been updated. Changes may take up to 10 minutes to show on Josh’s device';
+  toastMessage: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public filterProvider: FiltersProvider, public modalCtrl: ModalController,
@@ -36,6 +36,7 @@ export class JoshFiltersPage {
 
     this.storage.get('pName').then(res => {
       this.profileName = res;
+      this.toastMessage = 'Filter settings have been updated. Changes may take up to 10 minutes to show on' + this.profileName + '\'s  devices';
     }).catch(error => { 
       console.log('JoshDevices: Error while getting profileName', error);
     });

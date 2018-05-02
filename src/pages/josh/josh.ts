@@ -17,7 +17,8 @@ export class JoshPage {
   isPaused:boolean;
   status: string = '';
   shownGroup = null;
-  
+  noDevicePaired:boolean;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public toastCtrl: ToastController, public profileService: ProfileProvider) {
       //get Profile Info
@@ -25,19 +26,30 @@ export class JoshPage {
         this.profileInfo = navParams.get('profileInfo');
         const pName = this.profileInfo.profileName;
         
-        if(this.profileInfo.status != 'SoaringSafe Enabled') {
+        if(this.profileInfo.status != 'Working') {
           this.profileStatus = 'Internet Paused';
           this.status = 'Internet Paused';
           this.isPaused = true;
         } else {
-          this.status = 'SoaringSafe Enabled';
+          this.status = 'Working';
           this.isPaused = false;
         }
+        
+        console.log('device paired', this.profileInfo.devicePaired);
+        if(this.profileInfo.devicePaired !== undefined) {
+          this.noDevicePaired = !this.profileInfo.devicePaired;
+        }
+        else {
+          this.noDevicePaired = false; //default value
+        }
+        
+        
         this.storage.set('pName', pName);
 
         this.storage.set('profileData', this.profileInfo);
         this.toastMessage = navParams.get('toastMessage');
         console.log('toastMessageInside constrctor', this.toastMessage);
+
       } catch(error){
         console.log('Error ')
       }

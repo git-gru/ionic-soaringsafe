@@ -41,11 +41,14 @@ export class StartPairingPage {
 
     this.profileData = this.storage.get('profileData').then(res => {
       this.profileData = res;
+      this.deviceName = this.profileData.profileName +"\'s iPhone";
+
     }).catch(error => {
       console.log('Error Occured while Fetching Profile Data', error);
     });
 
     console.log('profile Data', this.profileData);
+    
   }
 
   isGroupShown(group) {
@@ -64,14 +67,14 @@ export class StartPairingPage {
 
     let currentTime = this.userService.getUserTimestamp();
     let deviceInfo = {
-      deviceName: this.deviceName,
+      deviceName: String(this.deviceName),
       created: currentTime,
       deviceStatus: 'Needs Pairing', 
       profileId: this.profileId
     }
-    this.storage.set('deviceName', this.deviceName);
+    this.storage.set('deviceName', String(this.deviceName));
     this.profileService.storeDevice(deviceInfo, this.profileId).then(res => {
-      console.log('successfully updated Devices');
+      console.log('successfully updated Devices', this.deviceName);
       if(res) {
         // Navigate to the IsThisHalleIpadPage
         // this.navCtrl.push('IsThisHalleIpadPage', {deviceName: this.deviceName});

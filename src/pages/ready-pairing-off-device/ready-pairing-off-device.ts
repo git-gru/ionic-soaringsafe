@@ -20,19 +20,20 @@ export class ReadyPairingOffDevicePage {
 
     this.storage.get('profileData').then(res => {
       this.profileData = res;
+      console.log('profile Data inside ready-paring-off', this.profileData);
     }).catch(error => {
       console.log('Error Occured while Fetching Profile Data', error);
     });
-
-    console.log('profile Data', this.profileData);
+    
 
     this.storage.get('deviceName').then(res=> {
       this.deviceName = res;
+      console.log('Device Name inside ready-pairing-off', this.deviceName);
     }).catch(error => {
       console.log('InstallationCheck: Error Occured while Fetching Device Name',error);
     });
 
-    console.log('Device Name', this.deviceName);
+    
   }
 
   ionViewDidLoad() {

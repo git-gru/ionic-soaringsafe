@@ -17,11 +17,12 @@ export class IsThisHalleIpadPage {
     // this.deviceName = this.navParams.get('deviceName');
     this.storage.get('deviceName').then(res=>{
       this.deviceName = res;
+      console.log('DeviceName Inside Is this Halle Ipad', this.deviceName);
     }).catch(error=>{
       console.log('IsThisHalleIpadPage: Errors While getting Device Name from Local Storage', error);
     });
 
-    console.log('DeviceName Inside Is this Halle Ipad', this.deviceName);
+    
 
    this.storage.get('profileData').then(res => {
       this.profileData = res;

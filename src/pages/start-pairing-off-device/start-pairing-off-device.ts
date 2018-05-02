@@ -36,6 +36,9 @@ export class StartPairingOffDevicePage {
 
     this.storage.get('deviceName').then(res=> {
       this.deviceName = res;
+      let status = 'Needs to complete pairing';
+      this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);
+
     }).catch(error => {
       console.log('InstallationCheck: Error Occured while Fetching Device Name',error);
     });
@@ -60,10 +63,7 @@ export class StartPairingOffDevicePage {
       if(profileNumber != 0) {
         this.url = 'pair.soaringsafe.com/' + profileNumber; 
       }
-      console.log('Profile Number ', profileNumber);
-      
-      let status = 'Check Pairing';
-      this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);    
+      console.log('Profile Number ', profileNumber);    
     });
   }
 }

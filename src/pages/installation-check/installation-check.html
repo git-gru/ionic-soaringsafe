@@ -15,10 +15,10 @@
     <p class="installationCheck-heading">
       Does it look like this? Do you see the VPN Symbol?
     </p>
-    <div>
+    <div (click)="toggleGroup('iphonex')">
       <p>If {{deviceName}} is an iPhone X, <u>click here</u></p>
     </div>
-    <div>
+    <div *ngIf="isGroupShown('iphonex')">
       <p><strong>If you have an iPhone X you may not see the VPN Icon. Instead, open Settings and look for this image</strong></p>
       <img src="assets/img/Pasted_Image_5_1_18__12_53_PM.png" class="installationCheck-img">
     </div>

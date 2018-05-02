@@ -324,7 +324,7 @@ export class ProfileProvider {
     console.log('Inside update Profile Field', profileId, field, value);
     
     return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).set({
-      field: value 
+      [field]: value 
     },{merge:true}
     ).then(res => {
       console.log('Device Status Updated Successfully');
@@ -337,7 +337,7 @@ export class ProfileProvider {
 
   //Store devices in profileSettings collection in firestore.
   storeDevice(deviceInfo, profileId) {
-    console.log('Device Name inside Profile Provider: ', deviceInfo);
+    console.log('Device Info inside Profile Provider - should be object ', deviceInfo);
     console.log('Profile Id inside Profile Provider', profileId);
 
     //update the Device Info in Profile Settings Collection of Firestore

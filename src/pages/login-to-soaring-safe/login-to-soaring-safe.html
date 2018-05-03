@@ -1,56 +1,81 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Login to SoaringSafe
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
 <ion-content padding>
+
+
   <form class="login-form" novalidate  [formGroup]="userValid">
-    <ion-list>
-      <ion-item>
-        <ion-label>
-          Email
-        </ion-label>
-        <ion-input type="email" placeholder="sally@gmail.com" autocomplete="on" formControlName="email"></ion-input>
-      </ion-item>
-      <!-- Email Validation Code Start  -->
-      <ion-item no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
-        <div class="loginForSoaringSafe-error" *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
-          email is required
+
+    <div id="content" class="grey-blue login">
+
+      <!-- Toolbar -->
+      <div id="toolbar" class="tool-login primary-color animated fadeindown">
+
+      </div>
+
+      <!-- Main Content -->
+      <div class="login-form animated fadeinup delay-2 z-depth-1">
+
+        <h1>Login</h1>
+        <div class="input-field">
+
+          <ion-list>
+            <div class="input-field relative" >
+            <i class="ion-android-contact prefix"></i>
+            <div class="ml-2">
+            <ion-item class="m-0 p-0">
+            <i class="ion-android-contact prefix"></i>
+
+            <ion-label floating>
+              Email</ion-label>
+            <ion-input class="with-icons" type="text" value="" formControlName="email"></ion-input>
+            </ion-item>
+
+            <small class="pl-6 block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
+            <small class="loginForSoaringSafe-error" *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
+              Email is required
+            </small>
+            <br>
+            <small class="loginForSoaringSafe-error   " *ngIf="userValid.get('email').hasError('email') && userValid.get('email').touched">
+              Please enter valid email
+            </small>
+            </small>
+            </div>
+            </div>
+            <div class="input-field relative">
+              <i class="ion-android-lock prefix"></i>
+
+              <div class="ml-2">
+              <ion-item class="m-0 p-0">
+
+              <ion-label floating>Password</ion-label>
+              <ion-input class="with-icons" type="password" value="" formControlName="password"></ion-input>
+            </ion-item>
+            <!-- Password validation code start -->
+            <small class="loginForSoaringSafe-error   pl-6"  no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
+              <small class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
+                password is required
+              </small>
+
+              <small class="signupForSoaringSafe-error pl-6" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
+                Minimum of 7 characters
+              </small>
+            </small>
+            <!-- Password validation code Ends -->
+            </div>
+            </div>
+          </ion-list>
+
+
         </div>
-        <div class="loginForSoaringSafe-error" *ngIf="userValid.get('email').hasError('email') && userValid.get('email').touched">
-          Please enter valid email
-        </div>
-      </ion-item> 
-      <!-- Email Validation Code Ends -->
-      <ion-item>
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-input type="password" placeholder="" formControlName="password"></ion-input>
-      </ion-item>
-      <!-- Password validation code start -->
-      <ion-item no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
-        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
-          password is required
-        </div>
-        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
-          Minimum of 7 characters
-        </div>
-      </ion-item>
-      <!-- Password validation code Ends -->
-    </ion-list>
-    <button ion-button color="stable" block (tap)="goToTabs()" [disabled]="userValid.invalid">
-      Log In
-    </button>
-    <div class="spacer"></div>
-    <button ion-button clear color="calm" block (tap)="signupForSoaringSafe()">
-      Or create an account
-    </button>
+
+
+        <button class="login waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4" (tap)="goToTabs()" [disabled]="userValid.invalid"  >Login</button>
+        <span>Don't have an account? <a class="primary-text" (tap)="signupForSoaringSafe()" >Sign Up</a></span>
+      </div><!-- End of Main Contents -->
+
+
+    </div>
+
+
   </form>
-  <button ion-button icon-start block large color="danger" (click)="loginWithGoogle()">
-    <ion-icon name="logo-googleplus"></ion-icon>
-    Login with Google
-  </button>
+
 </ion-content>

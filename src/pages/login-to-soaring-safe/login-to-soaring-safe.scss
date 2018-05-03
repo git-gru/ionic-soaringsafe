@@ -24,4 +24,78 @@ page-login-to-soaring-safe {
         width: 300px;
         height: 13px;
     }
+  .login {
+    min-height: auto;
+  }
+
+  .input-field label {
+    font-size: 15px;
+  }
+
+  .input.ng-dirty label,.input.ng-valid label {
+    font-size: 0.8rem;
+    -webkit-transform: translateY(-140%);
+    -moz-transform: translateY(-140%);
+    -ms-transform: translateY(-140%);
+    -o-transform: translateY(-140%);
+    transform: translateY(-140%);
+  }
+
+
+
+  ion-input.with-icons input {
+    //padding-left: 20px!important;
+  }
+  ion-item input {
+    border: none!important;
+    padding: 0!important;
+    margin: 0!important;
+    width: 100%!important;
+  }
+
+  ion-item .item-inner {
+    width: 100%;
+    margin: 0!important;
+    padding: 0!important;
+  }
+  .login:disabled {
+    background: rgba(255, 66, 132, 0.56) !important;
+  }
+  i.ion-android-contact.prefix {
+    z-index: 9;
+    top: 33px;
+    position: absolute;
+  }
+  .input-cover {
+    border: none;
+    background: none;
+  }
+
+  .list-md .item-input:last-child {
+    border: none;
+  }
+
+  i.ion-android-lock.prefix {
+    z-index: 99;
+    top: 32px;
+  }
+  .login-form {
+    margin: 10px;
+    margin-top: -20px;
+  }
+  input {
+    font-size: 16px!important;
+  }
 }
+
+ion-app.md [padding] {
+  padding: 0!important;
+}
+
+ion-app.md [padding] .scroll-content {
+  padding: 0!important;
+  width: 100%;
+}
+
+
+

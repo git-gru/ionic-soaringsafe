@@ -19,4 +19,40 @@ page-signup-for-soaring-safe {
         width: 300px;
         height: 12px;
     }
+  input.text-input.text-input-md {
+    font-size: 16px;
+  }
+
+  .input-field .prefix ~ input {
+    font-size: 15px;
+  }
+
+  .input-field .prefix ~ label {
+    font-size: 16px;
+  }
+  .input-field .prefix ~ label.active {
+    font-size: 13px;
+  }
+
+  i[class*=ion] {
+    z-index: 9;
+    top: 33px;
+    position: absolute;
+  }
+
+  input {
+  font-size: 16px!important;
+  }
+  ion-item input {
+    border: none!important;
+    padding: 0!important;
+    margin: 0!important;
+    width: 100%!important;
+  }
+
+  ion-item .item-inner {
+    width: 100%;
+    margin: 0!important;
+    padding: 0!important;
+  }
 }

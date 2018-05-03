@@ -1,65 +1,96 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Signup for SoaringSafe
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
 <ion-content padding>
-  <form novalidate (ngSubmit)="onSubmit(userValid)" [formGroup]="userValid">
-    <!-- <form novalidate (ngSubmit)="onSubmit(userValid)" [formGroup]="userValid"> -->
-    <div text-center>
-      <h3>Welcome!</h3>
-      <!-- >p class="signupForSoaringSafe-p">
-        <strong>
-          You can use the parent&#39;s or child&#39;s phone to sign up
-        </strong>
-      </p></!-->
+
+
+  <div id="content" class="grey-blue signup">
+
+    <!-- Toolbar -->
+    <div id="toolbar" class="tool-signup primary-color animated fadeindown">
+      <a href="javascript:history.back()" class="open-left">
+        <i class="ion-android-arrow-back"></i>
+      </a>
     </div>
-    <ion-list>
-      <ion-item id="signupForSoaringSafe-input6">
-        <ion-label>Parent's Name</ion-label>
-        <ion-input type="text" placeholder="e.g. Sally Smartparent" formControlName = "parentName"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Email</ion-label>
-        <ion-input type="email" placeholder="sally@gmail.com" autocomplete="on" value="" formControlName="email"></ion-input>
-      </ion-item>
-      <!-- Email Validation Code Starts -->
-      <ion-item no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
-        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
-          email is required
+
+    <form novalidate (ngSubmit)="onSubmit(userValid)" [formGroup]="userValid">
+
+    <!-- Main Content -->
+    <div class="signup-form animated fadeinup delay-2 z-depth-1">
+
+      <h1>Sign Up</h1>
+
+      <div class="input-field relative" >
+        <i class="ion-android-contact prefix"></i>
+        <div class="ml-8">
+          <ion-item class="m-0 p-0">
+            <i class="ion-android-contact prefix"></i>
+
+            <ion-label floating>
+              Parent's Name</ion-label>
+            <ion-input class="with-icons" type="text" value="" formControlName="parentName"></ion-input>
+          </ion-item>
+
+
         </div>
-        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('email').hasError('email') && userValid.get('email').touched">
-          Please enter valid email
+      </div>
+
+      <div class="input-field relative" >
+        <i class="ion-email prefix"></i>
+        <div class="ml-8">
+          <ion-item class="m-0 p-0">
+
+
+            <ion-label floating>
+              Email</ion-label>
+            <ion-input class="with-icons" type="text" value="" formControlName="email"></ion-input>
+          </ion-item>
+
+          <small class="pl-6 block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
+            <small class="signupForSoaringSafe-error " *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
+              Email is required
+            </small>
+            <br>
+            <small class="signupForSoaringSafe-error " *ngIf="userValid.get('email').hasError('email') && userValid.get('email').touched">
+              Please enter valid email
+            </small>
+          </small>
         </div>
-      </ion-item>
-      <!-- Email validation Code Ends -->
-      <ion-item>
-        <ion-label>Password</ion-label>
-        <ion-input type="password"  value="" formControlName="password"></ion-input>
-      </ion-item>
-      <!-- Password Validation code Start -->
-      <ion-item no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
-        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
-          password is required
+      </div>
+      <div class="input-field relative" >
+        <i class="ion-android-lock prefix"></i>
+        <div class="ml-8">
+          <ion-item class="m-0 p-0">
+            <i class="ion-android-contact prefix"></i>
+
+            <ion-label floating>
+              Password</ion-label>
+            <ion-input class="with-icons" type="password" value="" formControlName="password"></ion-input>
+          </ion-item>
+
+          <!-- Password Validation code Start -->
+          <small class="signupForSoaringSafe-error pl-6" no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
+            <small class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
+              password is required
+            </small>
+            <small class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
+              Minimum of 7 characters
+            </small>
+          </small>
+          <!-- Password Validaton Code Ends -->
         </div>
-        <div class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
-          Minimum of 7 characters
-        </div>
-      </ion-item>
-      <!-- Password Validaton Code Ends -->
-    </ion-list>
-    
-    <button ion-button color="stable" block (tap)="goToCreateChildProfile(user)" [disabled]="userValid.invalid">
-      Sign up
-    </button>
-  </form>
-  <button ion-button clear color="calm" block (tap)="goToLoginToSoaringSafe()">
-    Login to existing account ...
-  </button>
-  <button ion-button icon-start block color="danger" (click)="signInWithGoogle()">
-    <ion-icon name="logo-google"></ion-icon>
-    Signup with Google
-  </button>
+      </div>
+
+      <br>
+
+
+      <button class="waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4" (tap)="goToCreateChildProfile(user)" [disabled]="userValid.invalid">Signup</button>
+      <span>Have an account? <button class="primary-text"  (tap)="goToLoginToSoaringSafe()">Login</button></span>
+    </div><!-- End of Main Contents -->
+    </form>
+
+  </div>
+  <!---->
+  <!--<button ion-button icon-start block color="danger" (click)="signInWithGoogle()">-->
+    <!--<ion-icon name="logo-google"></ion-icon>-->
+    <!--Signup with Google-->
+  <!--</button>-->
 </ion-content>

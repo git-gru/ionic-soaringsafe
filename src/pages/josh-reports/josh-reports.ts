@@ -137,13 +137,13 @@ export class JoshReportsPage {
             this.visitWebsite(log.domain);
           }
         },
-        {
-          text: 'Temporarily Block',
-          handler: () => {
-            console.log('Temporarily Clicked');
-            this.temporarilyBlock(log);
-          }
-        },
+        // {
+        //   text: 'Temporarily Block',
+        //   handler: () => {
+        //     console.log('Temporarily Clicked');
+        //     this.temporarilyBlock(log);
+        //   }
+        // },
         {
           text: 'Block',
           handler: () => {
@@ -235,6 +235,13 @@ export class JoshReportsPage {
       title: title,
       buttons: [
         {
+          text: '15 minutes',
+          handler: () => {
+            console.log('Block 1 hour selected');
+            this.setTemporaryFilter(log, .25, status);
+          }
+        },
+        {
           text: '1 hour',
           handler: () => {
             console.log('Block 1 hour selected');
@@ -242,24 +249,38 @@ export class JoshReportsPage {
           }
         },
         {
-          text: '4 hour',
+          text: '4 hours',
           handler: () => {
             console.log('Block 4 hour selected');
             this.setTemporaryFilter(log, 4, status);
           }
         },
         {
-          text: '8 hour',
+          text: '8 hours',
           handler: () => {
             console.log('Block 8 hour selected');
             this.setTemporaryFilter(log, 8, status);
           }
         },
         {
-          text: '24 hour',
+          text: '24 hours',
           handler: () => {
             console.log('Block 24 hour selected');
             this.setTemporaryFilter(log, 24, status);
+          }
+        },
+        {
+          text: '3 days',
+          handler: () => {
+            console.log('Block 24 hour selected');
+            this.setTemporaryFilter(log, 72, status);
+          }
+        },
+        {
+          text: '1 week',
+          handler: () => {
+            console.log('Block 24 hour selected');
+            this.setTemporaryFilter(log, 504, status);
           }
         },
         {

@@ -24,6 +24,7 @@ export class JoshPage {
       //get Profile Info
       try {
         this.profileInfo = navParams.get('profileInfo');
+        console.log('profileInfo inside of Josh', this.profileInfo);
         const pName = this.profileInfo.profileName;
         
         if(this.profileInfo.status != 'Working') {

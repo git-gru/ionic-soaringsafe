@@ -327,7 +327,7 @@ export class ProfileProvider {
       [field]: value 
     },{merge:true}
     ).then(res => {
-      console.log('Device Status Updated Successfully');
+      console.log('Profile Field Updated Successfully', field, value, res);
       return status;
     }).catch(error => {
       console.log('Error while updating profile status', error);

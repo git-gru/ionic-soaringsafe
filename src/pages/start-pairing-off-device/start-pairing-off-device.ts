@@ -36,6 +36,7 @@ export class StartPairingOffDevicePage {
 
     this.storage.get('deviceName').then(res=> {
       this.deviceName = res;
+      console.log('Device Name', this.deviceName);
       let status = 'Needs to complete pairing';
       this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);
 
@@ -43,7 +44,6 @@ export class StartPairingOffDevicePage {
       console.log('InstallationCheck: Error Occured while Fetching Device Name',error);
     });
 
-    console.log('Device Name', this.deviceName);
 
   }
 

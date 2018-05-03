@@ -41,7 +41,7 @@ export class StartPairingPage {
 
     this.profileData = this.storage.get('profileData').then(res => {
       this.profileData = res;
-      this.deviceName = this.profileData.profileName +"\'s iPhone";
+      //this.deviceName = this.profileData.profileName +"\'s iPhone";
 
     }).catch(error => {
       console.log('Error Occured while Fetching Profile Data', error);

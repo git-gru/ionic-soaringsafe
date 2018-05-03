@@ -11,12 +11,12 @@
   <div *ngIf="isGroupShown(i)">
     <h3 class="startPairing-heading">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h3>
   </div>
-    <h3>Choose a nickname for {{profileData?.profileName}}'s <div *ngIf="isGroupShown(i)">first </div>device</h3>
+    <h3>Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h3>
     <ion-item>
       <ion-label>
         Device Nickname
       </ion-label>
-      <ion-input type="text" [(ngModel)]="deviceName"></ion-input>
+      <ion-input type="text" placeholder="{{profileData?.profileName}}'s iPhone" [(ngModel)]="deviceName"></ion-input>
     </ion-item>
   <button ion-button color="stable" block (tap)="goToIsThisHalleIPad()">
     Next

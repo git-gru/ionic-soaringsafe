@@ -9,12 +9,12 @@
 <ion-content padding>
   <div class="spacer" style="margin-top: 30px"></div>
 
-  <div class="form-inputs">
+  <div class="form-inputs i-page min-h-full">
     <h3 class="pickChildAvatar-heading">
     Choose an avatar for {{profileName}}:
   </h3>
 
-    <section class="">
+    <section class="row ">
 
       <div class="list-box half-box" *ngFor="let avatar of avatarList" >
         <a  class="list-item" (tap)="goToSetUpProfile(avatar)">

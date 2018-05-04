@@ -1,24 +1,25 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Is this {{profileData?.profileName}}'s device?
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title i-title">  Is this {{profileData?.profileName}}'s device?
+  </h1>
+
+</header>
+
+
 <ion-content padding>
- 
+
   <h3 class="isTheHalleIpad-heading">
       Right now, are you using {{profileData?.profileName}}'s device or your own parent device?
   </h3>
   <button ion-button outline color="calm" (tap)="goToReadyPairingOffDevice()">
       Parent Device
-  </button>  
+  </button>
   <button ion-button outline color="calm" (tap)="goToStartPairingOnDevice()">
     {{profileData?.profileName}}'s device
   </button>
   <div>
       <p class="isTheHalleIpad-heading">
-        Either way works great. You can continue the pairing process from either {{profileData?.profileName}}'s device or your own device.  
+        Either way works great. You can continue the pairing process from either {{profileData?.profileName}}'s device or your own device.
       </p>
     </div>
 </ion-content>

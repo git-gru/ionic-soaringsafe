@@ -37,7 +37,7 @@ export class JoshFiltersPage {
     this.storage.get('pName').then(res => {
       this.profileName = res;
       this.toastMessage = 'Filter settings have been updated. Changes may take up to 10 minutes to show on' + this.profileName + '\'s  devices';
-    }).catch(error => { 
+    }).catch(error => {
       console.log('JoshDevices: Error while getting profileName', error);
     });
 
@@ -49,12 +49,12 @@ export class JoshFiltersPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoshFiltersPage');
-    this.navBar.backButtonClick = (e: UIEvent) => {
-      this.goToProfile();
-    }
+    // this.navBar.backButtonClick = (e: UIEvent) => {
+    //   this.goToProfile();
+    // }
   }
 
-  // Get All Filters 
+  // Get All Filters
   getFilters() {
     let tempAppFilter = [];
     //Get Filters from Filter Provider
@@ -87,12 +87,12 @@ export class JoshFiltersPage {
       console.log('clicked Item', this.appFilters[index]);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.appFilters[index].status == 'BLOCKED' && this.appFilters[index].buttonColor == '#ff0000') {
+      if (this.appFilters[index].status == 'BLOCKED' && this.appFilters[index].buttonColor == '#FF4081') {
         this.appFilters[index].status = 'ALLOWED';
         this.appFilters[index].buttonColor = '#488aff';
       } else {
         this.appFilters[index].status = 'BLOCKED';
-        this.appFilters[index].buttonColor = '#ff0000';
+        this.appFilters[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -105,12 +105,12 @@ export class JoshFiltersPage {
       console.log('clicked Item', this.categoryFilters[index]);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.categoryFilters[index].status == 'BLOCKED' && this.categoryFilters[index].buttonColor == '#ff0000') {
+      if (this.categoryFilters[index].status == 'BLOCKED' && this.categoryFilters[index].buttonColor == '#FF4081') {
         this.categoryFilters[index].status = 'ALLOWED';
         this.categoryFilters[index].buttonColor = '#488aff';
       } else {
         this.categoryFilters[index].status = 'BLOCKED';
-        this.categoryFilters[index].buttonColor = '#ff0000';
+        this.categoryFilters[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -123,12 +123,12 @@ export class JoshFiltersPage {
       console.log('clicked Item', this.customFilters);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.customFilters[index].status == 'BLOCKED' && this.customFilters[index].buttonColor == '#ff0000') {
+      if (this.customFilters[index].status == 'BLOCKED' && this.customFilters[index].buttonColor == '#FF4081') {
         this.customFilters[index].status = 'ALLOWED';
         this.customFilters[index].buttonColor = '#488aff';
       } else {
         this.customFilters[index].status = 'BLOCKED';
-        this.customFilters[index].buttonColor = '#ff0000';
+        this.customFilters[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -140,12 +140,12 @@ export class JoshFiltersPage {
       console.log('clicked Item', this.safetySecurity[index]);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.safetySecurity[index].status == 'OFF' && this.safetySecurity[index].buttonColor == '#ff0000') {
+      if (this.safetySecurity[index].status == 'OFF' && this.safetySecurity[index].buttonColor == '#FF4081') {
         this.safetySecurity[index].status = 'ON';
         this.safetySecurity[index].buttonColor = '#488aff';
       } else {
         this.safetySecurity[index].status = 'OFF';
-        this.safetySecurity[index].buttonColor = '#ff0000';
+        this.safetySecurity[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -160,7 +160,7 @@ export class JoshFiltersPage {
               if (res.filterId == JSON.parse(JSON.stringify(paf)).filterId) {
                 res["status"] = JSON.parse(JSON.stringify(paf)).status;
                 if (res.status == 'BLOCKED') {
-                  res.buttonColor = '#ff0000';
+                  res.buttonColor = '#FF4081';
                 } else {
                   res.buttonColor = '#488aff';
                 }
@@ -180,7 +180,7 @@ export class JoshFiltersPage {
               if (res.filterId == JSON.parse(JSON.stringify(pcf)).filterId) {
                 res["status"] = JSON.parse(JSON.stringify(pcf)).status;
                 if (res.status == 'BLOCKED') {
-                  res.buttonColor = '#ff0000';
+                  res.buttonColor = '#FF4081';
                 } else {
                   res.buttonColor = '#488aff';
                 }
@@ -202,7 +202,7 @@ export class JoshFiltersPage {
         console.log('Custome Filters', output);
         this.customFilters.forEach(res => {
           if (res.status == 'BLOCKED') {
-            res.buttonColor = '#ff0000';
+            res.buttonColor = '#FF4081';
           } else {
             res.buttonColor = '#488aff';
           }
@@ -222,7 +222,7 @@ export class JoshFiltersPage {
           if (res.status == 'ON') {
             res.buttonColor = '#488aff';
           } else {
-            res.buttonColor = '#ff0000';
+            res.buttonColor = '#FF4081';
           }
           if (res.name === "youtubeRestricted") {
             res.displayName = "Filter YouTube Videos";
@@ -249,7 +249,7 @@ export class JoshFiltersPage {
     modal.onDidDismiss(data => {
       if (data) {
         if (data.status == 'BLOCKED') {
-          data["buttonColor"] = '#ff0000';
+          data["buttonColor"] = '#FF4081';
         } else {
           data["buttonColor"] = '#488aff';
         }
@@ -272,14 +272,14 @@ export class JoshFiltersPage {
     modal.onDidDismiss(data => {
       if (data) {
         if (data.status == 'BLOCKED') {
-          data["buttonColor"] = '#ff0000';
+          data["buttonColor"] = '#FF4081';
         } else {
           data["buttonColor"] = '#488aff';
         }
         this.customFilters[index].url = data.url;
         this.customFilters[index].status = data.status;
         this.customFilters[index].buttonColor = data.buttonColor;
-                
+
         console.log('Data coming from Edit customeFilter in If', this.customFilters);
       } else {
         this.profileService.deleteCustomFilter(this.profileId, this.customFilters[index]);
@@ -291,7 +291,7 @@ export class JoshFiltersPage {
   }
 
     //For toogling more information
-    toggleGroup(group) {  
+    toggleGroup(group) {
       if (this.isGroupShown(group)) {
         this.shownGroup = null;
       } else {
@@ -303,7 +303,7 @@ export class JoshFiltersPage {
     }
 
 
-  goToProfile() { 
+  goToProfile() {
     this.loader = this.loadingCtrl.create({
       content: 'Saving...'
     });
@@ -315,7 +315,7 @@ export class JoshFiltersPage {
       safeSearch: '',
       youtubeRestricted: '',
       customFilters: [],
-      newCustomFilters: [] 
+      newCustomFilters: []
     }
     //User have Enabled Custome Filters
     this.appFilters.forEach(res => {
@@ -323,7 +323,7 @@ export class JoshFiltersPage {
         filterId: res.filterId,
         status: res.status
       };
-      profile.appFilters.push(temp); 
+      profile.appFilters.push(temp);
     });
 
     //fetch the category filter
@@ -382,7 +382,7 @@ export class JoshFiltersPage {
             .then(() => {
 
               const index = this.viewCtrl.index;
- 
+
               for (let i = index; i > 0; i--) {
                 this.navCtrl.remove(i);
               }
@@ -413,5 +413,5 @@ goToCancel() {
     console.log('Error While Poping a view', error);
   });
 
-  }  
+  }
 }

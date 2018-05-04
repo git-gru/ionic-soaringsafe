@@ -1,119 +1,230 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      {{profileName}} Filters
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
+<header class=""> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+
+  <h1 class="page-title i-title">
+    Apps and Filters
+  </h1>
+
+</header>
 <ion-content padding>
-   <div>
+  <div class="form-inputs i-page filters-page" style="  margin-top: 25px;
+">
+    <section class="filters">
 
-    <h3 class="joshFilters-heading">
-      Safety and Security
-    </h3>
-    <ion-list *ngFor= "let sns of safetySecurity; let i = index" no-lines>
-      <ion-item>
-        <!-- <ion-icon name="information-circle" (click)="toggleGroup(i)" item-left></ion-icon> </!-->
-        <div (click)="toggleGroup(i)">{{sns.displayName}} <ion-icon name="information-circle" ></ion-icon></div>
-        <button ion-button item-right [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">{{sns.status}}</button>
-        <div *ngIf="isGroupShown(i)">
-            <p>{{sns.helpInfo}} </p>
+      <div class="form-divider"></div>
+      <div class="form-label-divider uppercase"><span>          Safety and Security
+
+          </span>
+      </div>
+      <div class="form-divider"></div>
+
+
+      <div class="list-box" *ngFor="let sns of safetySecurity; let i = index" >
+        <a (click)="toggleGroup(i)" class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
+">
+       <span>{{sns.displayName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+</span>
+          <div class="center-right-align " item-right  >
+            <button ion-button item-right [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">
+            {{sns.status}}
+          </button>
         </div>
-      </ion-item>
-    </ion-list>
-    <ion-item>
-        <div (click)="toggleGroup(i)">
-          Block Viruses & Scams <ion-icon name="information-circle"></ion-icon>
+      </span>
+
+
+        </a>
+        <div class="p-2" *ngIf="isGroupShown(i)">
+          <p>{{sns.helpInfo}} </p>
         </div>
+      </div>
+
+
+
+
+      <div class="list-box" >
+        <a (click)="toggleGroup('virus')" class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
+      ">
+       <span>          Block Viruses & Scams
+        <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+</span>
         <ion-note item-right>Always On</ion-note>
-        <div *ngIf="isGroupShown(i)">
-            <p>Over 1 Million Virus, Scam, and Phishing websites are always and automatically blocked to keep your device safe. </p>
+      </span>
+
+
+        </a>
+        <div *ngIf="isGroupShown('virus')">
+          <p>Over 1 Million Virus, Scam, and Phishing websites are always and automatically blocked to keep your device
+            safe. </p>
         </div>
-      </ion-item>
-    <div class="joshFilters-spacer"></div>
+      </div>
 
-    <!-- Show the App Filters -->
-    <h3 class="joshFilters-heading">
-      Apps and Websites
-    </h3>
-    <ion-list *ngFor="let appf of appFilters; let i = index">
-      <ion-item>
-        <ion-avatar item-left>
-          <img [src]="appf.squareIcon" />
-        </ion-avatar>
-        <ion-label>{{appf.appName}}</ion-label>
-        <!-- <button ion-button item-right  [ngStyle]="{'background-color': buttonColor}" (tap)="toggleAllowBlock(i)">{{appf.status}}</button> -->
-        <button ion-button item-right [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">{{appf.status}}</button>
-      </ion-item>
-    </ion-list>
-    <div class="joshFilters-spacer"></div>
 
-    <!-- Show the Category Filters -->
-    <h3 class="joshFilters-heading">
-      Website Categories
-    </h3>
 
-    <ion-list *ngFor = "let cat of categoryFilters; let i = index">
-      <ion-item>
-        <div (click)="toggleGroup(i + 'cat')">
-          {{cat.CategoryName}} <ion-icon name="information-circle"></ion-icon>
+    </section>
+
+    <section class="apps-websites">
+
+      <div class="form-divider"></div>
+      <div class="form-label-divider uppercase"><span>                  Apps and Websites
+
+
+          </span>
+      </div>
+      <div class="form-divider"></div>
+
+
+      <div class="list-box" *ngFor="let appf of appFilters; let i = index" >
+        <a (click)="toggleGroup(i)" class="list-item pointer flex">
+          <ion-avatar item-left class="i-img">
+            <img [src]="appf.squareIcon"/>
+          </ion-avatar>
+          <em class="seperate"></em>
+
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
+">
+       <span>{{appf.appName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+</span>
+          <div class="center-right-align " item-right  >
+           <button ion-button item-right [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">
+            {{appf.status}}
+          </button>
+          </div>
+      </span>
+
+
+        </a>
+      </div>
+
+
+
+
+
+
+
+    </section>
+    <section class="web-categories">
+
+      <div class="form-divider"></div>
+      <div class="form-label-divider uppercase"><span>                         Website Categories
+
+
+
+          </span>
+      </div>
+      <div class="form-divider"></div>
+
+
+      <div class="list-box"  *ngFor="let cat of categoryFilters; let i = index" >
+        <a (click)="toggleGroup(i + 'cat')" class="list-item pointer flex">
+
+
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
+">
+       <span> {{cat.CategoryName}}         <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+</span>
+          <div class="center-right-align " item-right  >
+              <button ion-button item-right [ngStyle]="{'background-color': cat.buttonColor}"
+                      (tap)="toggleCategoryFilters(i)">{{cat.status}}
+          </button>
+
+          </div>
+      </span>
+
+        </a>
+        <div class="p-2" *ngIf="isGroupShown(i + 'cat')">
+          <p>{{cat.CategoryDescription}} </p>
         </div>
-        <button ion-button item-right [ngStyle]="{'background-color': cat.buttonColor}" (tap)="toggleCategoryFilters(i)">{{cat.status}}</button>
-        <div *ngIf="isGroupShown(i + 'cat')">
-            <p>{{cat.CategoryDescription}} </p>
-        </div>
-      </ion-item>
-    </ion-list>
-    <div class="joshFilters-spacer"></div>
 
-    <!-- Show the Custome Filters -->
-    <h3 class="joshFilters-heading">
-      Custom Filters
-    </h3>
-    <div>
-      <p class="joshFilters-heading">
+      </div>
+
+
+
+
+
+
+
+    </section>
+
+    <section class="custom-filter">
+
+      <div class="form-divider"></div>
+      <div class="form-label-divider uppercase"><span>        Custom Filters</span>
+      </div>
+      <div class="form-divider"></div>
+
+      <p class="i-p">
         Allows you to block (or allow) any website. These settings override any of the above settings.
-
       </p>
-    </div>
-    <ion-list *ngFor="let cf of customFilters; let i = index" no-lines>
-      <ion-item >
-        <div (tap)= "editCustomFilter(i)">
-          <ion-icon name="create" item-left></ion-icon>
-          {{cf.url}}
-        </div>
-        <button ion-button item-right [ngStyle]="{'background-color': cf.buttonColor}" (tap)="toggleCustomFilters(i)">{{cf.status}}</button>
-      </ion-item>
-    </ion-list>
-    <button ion-button outline color="calm" (tap)="goToAddCustomFilter()">
-      Add Custom Filter
-    </button>
-    <div class="joshFilters-spacer"></div>
 
-    <!-- Load the Default Filters -->
-    <!-- <h3 class="joshFilters-heading">
-      Load Defaults
-    </h3>
+      <div class="list-box"  *ngFor="let cf of customFilters; let i = index" >
+        <a (tap)="editCustomFilter(i)" class="list-item pointer flex">
+          <ion-icon name="create" class="icon-f" item-left></ion-icon>
+          <em class="seperate"></em>
+
+
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
+">
+
+          <span>            {{cf.url}}
+
+          </span>
+          <div class="center-right-align " item-right  >
+             <button ion-button item-right  [ngStyle]="{'background-color': cf.buttonColor}"  (tap)="toggleCustomFilters(i)">
+            {{cf.status}}
+          </button>
+          </div>
+      </span>
+
+        </a>
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </section>
+
     <div>
-      <p class="joshFilters-heading">
-        Platform and Website Categories will be set to defaults. Custom filters will not be affected.
-      </p>
+
+
+      <button ion-button outline color="calm" (tap)="goToAddCustomFilter()">
+        Add Custom Filter
+      </button>
+      <div class="joshFilters-spacer"></div>
+
+      <!-- Load the Default Filters -->
+      <!-- <h3 class="joshFilters-heading">
+        Load Defaults
+      </h3>
+      <div>
+        <p class="joshFilters-heading">
+          Platform and Website Categories will be set to defaults. Custom filters will not be affected.
+        </p>
+      </div>
+      <button ion-button outline color="calm">
+        Child
+      </button>
+      <button ion-button outline color="calm">
+        Teen
+      </button>
+      <button ion-button outline color="calm">
+        Young Adult
+      </button> -->
     </div>
-    <button ion-button outline color="calm">
-      Child
-    </button>
-    <button ion-button outline color="calm">
-      Teen
-    </button>
-    <button ion-button outline color="calm">
-      Young Adult
-    </button> -->
-  </div>
-    <button ion-button color="calm" block (tap)="goToProfile()">
+    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToProfile()">
       Save
     </button>
     <div class="joshFilters-spacer"></div>
-    <button ion-button color="calm" block outline (tap)="goToCancel()">
-        Cancel
+    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="goToCancel()">
+      Cancel
     </button>
+  </div>
 </ion-content>

@@ -1,14 +1,21 @@
 page-set-up-profile {
-    $black: #000000;
-    
+  $black: #37474f;
 
 
-    .setUpProfile-heading {
+
+    .setUpProfile-heading{
         color: $black;
+      padding: 0;
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.11em;
     }
 
     .setUpProfile-p {
         color: $black;
+        font-size: 14px;
+
     }
 
     .setUpProfile-spacer {
@@ -23,5 +30,60 @@ page-set-up-profile {
     .toolbar-background {
         background: white;
     }
-    
+
+
+
+  .pickChildAvatar-heading {
+    color: $black;
+    padding: 0;
+    margin: 0;
+  }
+
+  .largerAvatar img {
+    width: 60px;
+    height: 60px;
+  }
+
+  *{font-family: 'Open Sans', sans-serif;}
+  p {
+    font-family: 'Open Sans', sans-serif;
+    color: #76838f;
+  }
+
+  .spacer {
+    width: 300px;
+    height: 21px;
+  }
+
+
+  .pickChildAvatar-heading{
+    font-family: Nunito;
+
+  }
+  h1.page-title {    font-family: Nunito;
+    font-size: 16px;
+    color: #667F97; font-weight:bold;}
+
+  a.go-back-link {
+    color: #667F97;
+  }
+  .largerAvatar img {
+    margin: 0 auto;
+  }
+  .segment-md-primary .segment-button.activated, .segment-md-primary .segment-button.segment-activated {
+    background: #2296f3;
+    border: none;
+    color: white;
+  }
+
+  ion-segment-button.segment-button.segment-activated {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12); font-family: Nunito;
+  }
+
+  ion-segment {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16); font-family: Nunito;
+  }
+
+
+
 }

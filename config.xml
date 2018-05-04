@@ -89,4 +89,5 @@
     <plugin name="cordova-plugin-globalization" spec="^1.0.9" />
     <engine name="ios" spec="~4.5.4" />
     <engine name="android" spec="~6.4.0" />
+    <allow-navigation href="http://192.168.8.100:8100" />
 </widget>

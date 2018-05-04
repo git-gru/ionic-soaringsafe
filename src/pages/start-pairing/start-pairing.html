@@ -1,24 +1,31 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Start Pairing
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title i-title">Start Pairing</h1>
+
+</header>
+
 <ion-content padding>
 
-  <div class="startPairing-spacer"></div>
-  <div *ngIf="isGroupShown(i)">
-    <h3 class="startPairing-heading">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h3>
-  </div>
-    <h3>Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h3>
+  <div class="form-inputs i-page">
+    <div class="spacer" style="margin-top: 50px"></div>
+    <div *ngIf="isGroupShown(i)">
+      <h3 class="startPairing-heading i-heading">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h3>
+    </div>
+
+    <h5 class="i-p">Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h5>
     <ion-item>
-      <ion-label>
+      <ion-label floating class="i-p">
         Device Nickname
       </ion-label>
-      <ion-input type="text" placeholder="{{profileData?.profileName}}'s iPhone" [(ngModel)]="deviceName"></ion-input>
+      <ion-input type="text"  [(ngModel)]="deviceName"></ion-input>
     </ion-item>
-  <button ion-button color="stable" block (tap)="goToIsThisHalleIPad()">
-    Next
-  </button>
+
+    <br>
+    <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="goToIsThisHalleIPad()">
+      Next
+    </button>
+  </div>
+  <!-- </form> -->
 </ion-content>
+
+

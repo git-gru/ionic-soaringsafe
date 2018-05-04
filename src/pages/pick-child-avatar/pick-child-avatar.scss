@@ -1,5 +1,5 @@
 page-pick-child-avatar {
-    $black: #000000;
+    $black: #37474f;
 
     .pickChildAvatar-heading {
         color: $black;
@@ -9,6 +9,38 @@ page-pick-child-avatar {
         width: 60px;
         height: 60px;
     }
+
+  *{font-family: 'Open Sans', sans-serif;}
+  p {
+    font-family: 'Open Sans', sans-serif;
+    color: #76838f;
+  }
+
+  .spacer {
+    width: 300px;
+    height: 21px;
+  }
+
+
+  .pickChildAvatar-heading{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.11em;
+
+  }
+  h1.page-title {    font-family: Nunito;
+    font-size: 16px;
+    color: #667F97; font-weight:bold;
+  }
+
+  a.go-back-link {
+    color: #667F97;
+  }
+  .largerAvatar img {
+    margin: 0 auto;
+  }
+
+
 
 
 }

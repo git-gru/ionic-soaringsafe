@@ -1,38 +1,35 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Set Initial Bedtime
-    </ion-title>
-    <!--> HAVE TO REMOVE THIS RIGHT NOW BECAUSE IT DOESNT WORK - goTO is in the COMPONENT!
-    <ion-buttons end>
-      <button ion-button (tap)="goToSetInitialTimeLimits()">
-        Next
-      </button>
-    </ion-buttons>
-    </!-->
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title uppercase">      Set Initial Bedtime
+  </h1>
+
+</header>
+
 <ion-content padding>
-  
-  <div class="setInitialBedtime-spacer"></div>
-  <h3 class="setInitialBedtime-heading">
-    Would you like to set a bedtime for {{profileData?.profileName}}?
-  </h3>
-  
+  <div class="form-inputs">
+    <div class="setInitialBedtime-spacer"  style="margin-top: 40px"></div>
+    <h3 class="setInitialBedtime-heading">
+      Would you like to set a bedtime for {{profileData?.profileName}}?
+    </h3>
+
     <div>
-      <p class="setInitialBedtime-heading">
+      <p class="">
         The internet will shut off at bedtime. You can always do this later.
       </p>
       <div (click)="toggleGroup('bedtimeinfo')">
-        <p><u>More information</u> <ion-icon name="information-circle" ></ion-icon></p>
+        <p><u>More information</u>
+          <ion-icon name="information-circle"></ion-icon>
+        </p>
       </div>
       <div *ngIf="isGroupShown('bedtimeinfo')">
         <p>At bedtime the internet connection to the device will be shut off.</p>
-        <p>This means that the user can still use non internet connected apps such as games. The ability to block non internet apps and games is coming in a future release.</p>
-        <p>Note that for safety & emergency reasons, calls and texting cannot be blocked. If texting late at night is a problem we recommend taking the device at night or placing it in a safe areay.</p>
+        <p>This means that the user can still use non internet connected apps such as games. The ability to block non
+          internet apps and games is coming in a future release.</p>
+        <p>Note that for safety & emergency reasons, calls and texting cannot be blocked. If texting late at night is a
+          problem we recommend taking the device at night or placing it in a safe areay.</p>
       </div>
     </div>
     <josh-bedtime></josh-bedtime>
-  <div class="setInitialBedtime-spacer-15"></div>
-
+    <div class="setInitialBedtime-spacer-15"></div>
+  </div>
 </ion-content>

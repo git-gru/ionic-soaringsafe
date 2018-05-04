@@ -1,17 +1,33 @@
 page-set-initial-bedtime {
-    $black: #000000;
+
+  $black: #37474f;
 
     .setInitialBedtime-heading {
-        color: $black;
+      color: $black;
+
+      font-family: 'Open Sans', sans-serif;
+
+
+      font-size: 18px;
+      line-height: 1.11em;
+
     }
 
-    .setInitialBedtime-spacer {
-        width: 300px;
-        height: 5px;
-    }
 
-    .setInitialBedtime-spacer-15 {
-        width: 300px;
-        height: 15px;
-    }
+
+  .p {
+    font-family: 'Open Sans', sans-serif;
+    color: #76838f;
+    font-size: 14px;
+
+  }
+  h1.page-title {    font-family: Nunito;
+    font-size: 16px;
+    color: #667F97; font-weight:bold;}
+
+  a.go-back-link {
+    color: #667F97;
+  }
+
+
 }

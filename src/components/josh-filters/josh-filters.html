@@ -21,9 +21,9 @@
       <button ion-button item-right [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">{{sns.status}}</button>
       <div *ngIf="isGroupShown(i)">
           <p>{{sns.helpInfo}} </p>
-      </div> 
+      </div>
     </ion-item>
-  </ion-list> 
+  </ion-list>
   <ion-item>
       <div (click)="toggleGroup(i)">
           Block Viruses & Scams <ion-icon name="information-circle"></ion-icon>
@@ -31,10 +31,10 @@
       <ion-note item-right>Always On</ion-note>
       <div *ngIf="isGroupShown(i)">
           <p>Over 1 million Virus, Scam, and Phishing websites are automatically blocked to keep your device safe. </p>
-      </div> 
+      </div>
     </ion-item>
-  <div class="joshFilters-spacer"></div> 
-  
+  <div class="joshFilters-spacer"></div>
+
   <!-- Show the App Filters -->
   <div (click)="toggleGroup('appinfo')">
     <h3 class="joshFilters-heading">
@@ -49,24 +49,24 @@
   </div>
   <ion-list *ngFor="let appf of appFilters; let i = index" nolines>
     <ion-item>
-        
+
           <ion-avatar item-left>
-            <img [src]="appf.squareIcon" /> 
+            <img [src]="appf.squareIcon" />
           </ion-avatar>
           <div (click)="toggleGroup(i + 'app')">
             <!-- <ion-label (click)="toggleGroup(i + 'app')">  -->
               {{appf.appName}} <ion-icon name="information-circle"></ion-icon>
             <!-- </ion-label> -->
-         </div> 
+         </div>
       <!-- <button ion-button item-right  [ngStyle]="{'background-color': buttonColor}" (tap)="toggleAllowBlock(i)">{{appf.status}}</button> -->
       <button ion-button item-right [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">{{appf.status}}</button>
       <div *ngIf="isGroupShown(i + 'app')">
           <p>{{appf.appInfo}}</p>
-      </div>    
+      </div>
     </ion-item>
   </ion-list>
   <div class="joshFilters-spacer"></div>
-  
+
   <!-- Show the Category Filters -->
   <div (click)="toggleGroup('catinfo')">
     <h3 class="joshFilters-heading">
@@ -86,11 +86,11 @@
       <button ion-button item-right [ngStyle]="{'background-color': cat.buttonColor}" (tap)="toggleCategoryFilters(i)">{{cat.status}}</button>
       <div *ngIf="isGroupShown(i + 'cat')">
           <p>{{cat.CategoryDescription}} </p>
-      </div>     
+      </div>
     </ion-item>
   </ion-list>
   <div class="joshFilters-spacer"></div>
-  
+
   <!-- Show the Custome Filters -->
   <h3 class="joshFilters-heading">
     Custom Filters
@@ -98,7 +98,7 @@
   <div>
     <p class="joshFilters-heading">
       Allows you to block (or allow) any website. These settings override any of the above settings.
-      
+
     </p>
   </div>
   <ion-list *ngFor="let cf of customFilters; let i = index" no-lines>
@@ -108,16 +108,16 @@
             {{cf.url}}
         </div>
       <button ion-button item-right [ngStyle]="{'background-color': cf.buttonColor}" (tap)="toggleCustomFilters(i)">{{cf.status}}</button>
-    </ion-item> 
+    </ion-item>
   </ion-list>
   <button ion-button outline color="calm" (tap)="goToAddCustomFilter()">
     Add Custom Filter
   </button>
   <div class="joshFilters-spacer"></div>
-  
+
   <!-- Load the Default Filters -->
   <!-- <h3 class="joshFilters-heading">
-    Load Defaults 
+    Load Defaults
   </h3>
   <div>
     <p class="joshFilters-heading">
@@ -135,6 +135,7 @@
   </button> -->
 </div>
 <div class="setInitialFilters-spacer-2"></div>
-  <button ion-button color="calm" block (tap)="goToSetInitialBedtime()">
+  <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="goToSetInitialBedtime()">
     Next
   </button>
+

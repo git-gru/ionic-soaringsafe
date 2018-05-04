@@ -1,29 +1,27 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Set initial Filters
-    </ion-title>
-    <!--> HAVE TO REMOVE THIS RIGHT NOW BECAUSE IT DOESNT WORK - goTO is in the COMPONENT!
-    <ion-buttons end>
-      <button ion-button (tap)="goToSetInitialBedtime()">
-        Next
-      </button>
-    </ion-buttons>
-    </!-->
-  </ion-navbar>
-</ion-header>
+
+
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title uppercase"> Set initial Filters</h1>
+
+</header>
+
+
 <ion-content padding>
-  <div class="setInitialFilters-spacer-2"></div>
-  <h3 class="setInitialFilters-heading">
-    Default web and app filters have been chosen based on {{profileData.profileName}}'s age
-  </h3>
-  <div>
-    <p class="setInitialFilters-p">
-      You can customize the app and web filters for {{profileData.profileName}} now or you can always do this later.
-    </p>
-  </div>
-  
-  <div>
-    <josh-filters [age]="ageGroup"></josh-filters>
+  <div class="form-inputs">
+    <div class="spacer" style="margin-top: 40px"></div>
+
+    <h3 class="setInitialFilters-heading">
+      Default web and app filters have been chosen based on {{profileData && profileData.profileName}}'s age
+    </h3>
+    <div>
+      <p class="setInitialFilters-p">
+        You can customize the app and web filters for {{ profileData && profileData.profileName}} now or you can always do this later.
+      </p>
+    </div>
+
+    <div>
+      <josh-filters [age]="ageGroup"></josh-filters>
+    </div>
   </div>
 </ion-content>

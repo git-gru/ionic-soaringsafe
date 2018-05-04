@@ -1,23 +1,25 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Create Child Profile
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title">CREATE PROFILE</h1>
+
+</header>
+
 <ion-content padding>
-  <div class="spacer"></div>
-  <h3 class="CreateChildProfile-heading">Create a profile for your child</h3>
-  <p>A profile lets you customize filters, bedtimes, and view reports for each child.</p>
-  <p>You can add additional children later.</p>
-  <!-- <form> -->
+
+  <div class="form-inputs">
+    <div class="spacer" style="margin-top: 10px"></div>
+    <h3 class="CreateChildProfile-heading">Create a profile for your child</h3>
+    <p>A profile lets you customize filters, bedtimes, and view reports for each child.</p>
+    <p>You can add additional children later.</p>
+    <!-- <form> -->
     <ion-item>
-      <ion-label>Child's First Name</ion-label>
-      <ion-input type="text" placeholder="Jennifer" [(ngModel)]="profileName"></ion-input>
+      <ion-label floating >Child's First Name</ion-label>
+      <ion-input type="text"  [(ngModel)]="profileName"></ion-input>
     </ion-item>
     <div class="spacer"></div>
-    <button ion-button color="stable" block (tap)="goToPickChildAvatar()">
+    <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="goToPickChildAvatar()">
       Next
-    </button> 
+    </button>
+  </div>
   <!-- </form> -->
 </ion-content>

@@ -1,0 +1,109 @@
+
+$black: #37474f;
+$greybg:#F5F6F8;
+$textColor:  #667F97;
+
+header{
+  .i-title{
+    font-family: Nunito;
+    font-size: 16px;
+    color: #667F97; font-weight:bold;
+  }
+  a.go-back-link {
+    color: #667F97;
+  }
+}
+.i-page {
+  background-color: $greybg;
+  .i-heading {
+    color: $black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.11em;
+  }
+  .i-p {
+    font-family: 'Open Sans', sans-serif;
+    color: #76838f;
+    font-size: 14px;
+  }
+
+  ion-item input {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    font-size: 16px !important;
+  }
+
+  ion-item .item-inner {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .item-md {
+    padding: 0;
+  }
+
+  .family{
+    .form-label-divider{
+      color: #667F97;
+    } 
+
+    .i-img {
+      display: inline-block;
+      line-height: 28px;
+
+      float: left;
+      width: 36px;
+      position: relative;
+      left: 0px;
+    }
+    .center-right-align{ float: right;
+      display: flex;
+      height: 36px;
+      align-items: center;
+      font-weight: 400;
+      font-size: 12px;
+    }
+    .i-normal-width{
+
+      max-width: 50%;
+      line-height: 1;
+      display: flex;
+      min-height: 36px;
+      align-items: center;
+    }
+    .i-text-color{
+      color:$textColor;
+    }
+    em.seperate {
+      height: 36px!important;
+      margin-left: 10px;
+    }
+    i.i-size{
+      font-size: 35px;
+      display: flex;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-f{
+      font-size: 36px;
+      color: #C5CFD9;
+      float: none;
+    }
+  }
+
+
+
+
+}
+
+
+ion-app.md {
+  ion-content.p-t-30 {
+
+    top: 30px;
+  }
+}

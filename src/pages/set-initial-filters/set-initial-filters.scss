@@ -1,5 +1,5 @@
 page-set-initial-filters {
-    $black: #000000;
+  $black: #37474f;
 
     .setInitialFilters-heading {
         color: $black;
@@ -7,15 +7,42 @@ page-set-initial-filters {
 
     .setInitialFilters-p {
         color: $black;
+      font-size: 14px;
     }
 
-    .setInitialFilters-spacer {
-        width: 300px;
-        height: 15px;
-    }
 
-    .setInitialFilters-spacer-2 {
-        width: 300px;
-        height: 25px;
-    }
+
+
+  .setInitialFilters-heading {
+    color: $black;
+    color: #37474f;
+    font-size: 18px;
+    line-height: 1.11em;
+  }
+
+  .largerAvatar img {
+    width: 60px;
+    height: 60px;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    color: #76838f;
+  }
+
+
+  .setInitialFilters-heading{
+    font-family: Nunito;
+
+  }
+  h1.page-title {    font-family: Nunito;
+    font-size: 16px;
+    color: #667F97; font-weight:bold;}
+
+  a.go-back-link {
+    color: #667F97;
+  }
+
+
+
 }

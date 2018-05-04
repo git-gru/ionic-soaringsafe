@@ -42,6 +42,7 @@ export class JoshFiltersPage {
     });
 
     this.profileInfo = navParams.get('profileInfo');
+    console.log('profileInfo in JoshFiltersPage contructor', this.profileInfo);
     this.profileId = this.profileInfo.profileId;
 
     this.getFilters();

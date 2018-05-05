@@ -26,15 +26,15 @@ export class JoshBedtimePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider,
     public profileService: ProfileProvider, public userService: UserProvider, public storage: Storage) {
-    
+
       this.storage.get('pName').then(res => {
         this.profileName = res;
-      }).catch(error => { 
+      }).catch(error => {
         console.log('JoshOfftime: Error while getting profileName', error);
       });
-    
+
     this.profileId = navParams.get('profileId');
-    
+
     this.dataService.getBedtimes(this.profileId).subscribe(res=>{
       // console.log('Bedtimes ', res);
       res.forEach(result=>{
@@ -51,7 +51,7 @@ export class JoshBedtimePage {
           this.isEnabled = bt.enabled;
         } else {
           this.weekendBedtime = bt.bedtime;
-          this.weekendAwaketime = bt.awake; 
+          this.weekendAwaketime = bt.awake;
           this.isEnabled = bt.enabled;
         }
       });
@@ -60,9 +60,9 @@ export class JoshBedtimePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoshBedtimePage');
-    this.navBar.backButtonClick = (e: UIEvent) => {
-      this.updateBedtimes();
-    }
+    // this.navBar.backButtonClick = (e: UIEvent) => {
+    //   this.updateBedtimes();
+    // }
   }
   //Update the Bedtimes in profileSettings in firestore
   updateBedtimes() {
@@ -74,32 +74,32 @@ export class JoshBedtimePage {
 
     this.offtimes = [
       {
-        offtime: 'Weeknights', 
-        bedtime: this.weeknightBedtime, 
+        offtime: 'Weeknights',
+        bedtime: this.weeknightBedtime,
         awake:  this.weeknightAwaketime,
         isEnabled: this.isEnabled
       },
       {
-        offtime: 'Weekends', 
-        bedtime: this.weekendBedtime, 
+        offtime: 'Weekends',
+        bedtime: this.weekendBedtime,
         awake:  this.weekendAwaketime,
         isEnabled: this.isEnabled
       }
-    ];  
+    ];
     console.log('Offtimes', this.offtimes);
-    
+
     this.profileService.updateBedtimes(this.offtimes, this.profileId).then(res=>{
       setTimeout(()=> {
         if(res){
-          console.log('Bedtimes are successfully updated');   
-          this.profileService.updateOfftimeTriggers(this.profileId);     
+          console.log('Bedtimes are successfully updated');
+          this.profileService.updateOfftimeTriggers(this.profileId);
           }
-      }, 300); 
+      }, 300);
       this.navCtrl.pop();
     }).catch(error => {
       console.log('Josh-bedtimes: Error While Updating Bedtimes ', error);
     });
   }
-   
+
 
 }

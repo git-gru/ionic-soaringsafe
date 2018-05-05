@@ -1,41 +1,43 @@
-<ion-header>
-  <ion-navbar>
-      <ion-buttons left>
-          <button ion-button (tap)="cancelFilter()">
-            Cancel
-          </button>
-        </ion-buttons>
-    <ion-title text-center>
-      {{title}} Custom Filter 
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" style="white-space: nowrap;width: auto;padding-left: 10px" (tap)="cancelFilter()" >Cancel</a>
+  <h1 class="page-title i-title">                {{title}} Custom Filter
+
+  </h1>
+
+</header>
+
+
 <ion-content padding>
-  <div class="custom-filter-spacer-32"></div>
-  <div>
-    <ion-toolbar>
-      <ion-segment color="primary" [(ngModel)]="customFilter.status">
-        <ion-segment-button color="primary" value="ALLOWED">
-          ALLOW
-        </ion-segment-button>
-        <ion-segment-button color="primary" value="BLOCKED">
-          BLOCK
-        </ion-segment-button>
-      </ion-segment>
-    </ion-toolbar>
-  </div>
-  <div class="custom-filter-spacer-11"></div>
+  <div class="form-inputs i-page min-h-full">
+    <div class="custom-filter-spacer-32"></div>
+    <div>
+      <ion-toolbar>
+        <ion-segment color="primary" [(ngModel)]="customFilter.status">
+          <ion-segment-button color="primary" value="ALLOWED">
+            ALLOW
+          </ion-segment-button>
+          <ion-segment-button color="primary" value="BLOCKED">
+            BLOCK
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+    </div>
+    <div class="custom-filter-spacer-11"></div>
     <ion-item>
-      <ion-label>
+      <ion-label stacked>
         Address (URL)
       </ion-label>
-      <ion-input type="text" placeholder="eg google.com" [(ngModel)]= "customFilter.url"></ion-input>
+      <ion-input type="text" placeholder="eg google.com" [(ngModel)]="customFilter.url"></ion-input>
     </ion-item>
-  <button ion-button color="calm" block (tap)="addCustomFilter()">
-    Save
-  </button>
-  <div class="custom-filter-spacer-49"></div>
-  <button ion-button clear color="calm" block (tap)="cancelFilter()">
-    {{cancelOrDelete}}
-  </button>
+    <div class="form-divider"></div>
+
+    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="addCustomFilter()">
+      Save
+    </button>
+    <div class="form-divider"></div>
+
+    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="cancelFilter()">
+      {{cancelOrDelete}}
+    </button>
+  </div>
 </ion-content>

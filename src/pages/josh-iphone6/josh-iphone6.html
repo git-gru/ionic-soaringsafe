@@ -1,31 +1,60 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      {{deviceInfo?.deviceName}}
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title i-title">                {{deviceInfo?.deviceName}}
+  </h1>
+
+</header>
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-icon name="phone-portrait" item-left></ion-icon>
-      {{deviceInfo?.deviceName}}
-      <ion-note item-right></ion-note>
-      <ion-icon name="checkmark-circle-outline" item-right></ion-icon>
-    </ion-item>
-  </ion-list>
-  <div class="joshIPhone6-spacer"></div>
-    <ion-item>
-      <ion-label>
-        Rename Device
-      </ion-label>
-      <ion-input type="text" [placeholder]="deviceInfo?.deviceName" [(ngModel)] = "newDeviceName"></ion-input>
-    </ion-item>
-  <button ion-button color="calm" block (tap)="goToJoshDevices()">
-    Save
-  </button>
-  <div class="joshIPhone6-spacer"></div>
-  <button ion-button clear color="calm" block>
-    Delete Device
-  </button>
+  <div class="form-inputs i-page min-h-full">
+
+    <section class="devices-section" style="margin-top: 40px">
+      <div class="form-divider"></div>
+      <div class="form-label-divider uppercase"><span> Rename Devices
+          </span>
+      </div>
+      <div class="form-divider"></div>
+
+      <div class="list-box">
+        <a class="list-item pointer flex" >
+          <ion-icon name="phone-portrait" class="icon-f" item-left></ion-icon>
+          <em class="seperate"></em>
+
+
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
+        "><span>{{deviceInfo?.deviceName}}
+        </span>
+
+        <span class="center-right-align">
+        <ion-icon name="checkmark-circle-outline" class="icon-f" style="font-size:20px;margin-left: 10px" item-right></ion-icon>
+        </span>
+
+        </span>
+        </a>
+      </div>
+
+      <ion-item class="input-has-focus">
+        <ion-label floating>
+          Rename Device
+        </ion-label>
+        <ion-input type="text" [placeholder]="deviceInfo?.deviceName" [(ngModel)]="newDeviceName"></ion-input>
+      </ion-item>
+
+
+
+    </section>
+
+
+
+    <div class="form-divider"></div>
+
+    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToJoshDevices()">
+      Save
+    </button>
+    <div class="form-divider"></div>
+
+    <button class="waves-effect waves-light btn-large accent-color width-100">
+      Delete Device
+    </button>
+
+  </div>
 </ion-content>

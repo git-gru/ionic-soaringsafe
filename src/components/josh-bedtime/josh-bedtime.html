@@ -6,37 +6,18 @@
 </ion-item>
 
 
-<div *ngIf="isEnabled">
-
-  <h3 class="joshBedtime-heading">
-    Weeknights
-  </h3>
-  <!-- <div>
-    <button ion-button color="calm" small>
-      Su
-    </button>
-    <button ion-button color="calm" small>
-      M
-    </button>
-    <button ion-button color="calm" small>
-      T
-    </button>
-    <button ion-button color="calm" small>
-      W
-    </button>
-    <button ion-button color="calm" small>
-      Th
-    </button>
-    <button ion-button outline color="calm" small>
-      F
-    </button>
-    <button ion-button outline color="calm" small>
-      Sa
-    </button>
-  </div> -->
+<div *ngIf="isEnabled" class="i-page">
 
 
-    <ion-item>
+  <div class="form-divider"></div>
+  <div class="form-label-divider uppercase">
+        <span>Weeknights
+          </span>
+  </div>
+  <div class="form-divider "></div>
+
+
+     <ion-item>
       <ion-label>Bedtime</ion-label>
       <ion-select [(ngModel)]="weeknightBedtime" >
         <ion-option value="76">7:00 PM </ion-option>
@@ -239,35 +220,13 @@
       </ion-select>
     </ion-item>
 
-    <div class="joshBedtime-spacer"></div>
-    <h3 class="joshBedtime-heading">
-      Weekends
-    </h3>
-    <!-- <div>
-      <button ion-button outline color="calm" small>
-        Su
-      </button>
-      <button ion-button outline color="calm" small>
-        M
-      </button>
-      <button ion-button outline color="calm" small>
-        T
-      </button>
-      <button ion-button outline color="calm" small>
-        W
-      </button>
-      <button ion-button outline color="calm" small>
-        Th
-      </button>
-      <button ion-button color="calm" small>
-        F
-      </button>
-      <button ion-button color="calm" small>
-        Sa
-      </button>
-    </div> -->
-
-    <ion-item>
+  <div class="form-divider"></div>
+  <div class="form-label-divider uppercase">
+        <span>Weekends
+          </span>
+  </div>
+  <div class="form-divider m-0"></div>
+      <ion-item>
       <ion-label>Bedtime</ion-label>
       <ion-select [(ngModel)]="weekendBedtime">
         <ion-option value="76">7:00 PM </ion-option>

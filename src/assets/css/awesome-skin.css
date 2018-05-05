@@ -6,8 +6,14 @@ header .i-title {
 header a.go-back-link {
   color: #667F97; }
 
+page-set-up-profile .toolbar-background {
+  background: transparent !important; }
+
 .i-page {
   background-color: #F5F6F8; }
+  .i-page .primary-border-color {
+    color: #2196F3 !important;
+    border-color: #2196F3 !important; }
   .i-page .i-heading {
     color: #37474f;
     font-family: 'Open Sans', sans-serif;

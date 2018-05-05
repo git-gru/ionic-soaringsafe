@@ -20,7 +20,7 @@ export class JoshFiltersComponent {
   customFilters = [];
   safetySecurity = [
     { name: "safeSearch", displayName: 'Filter Search Results', status: 'ON', buttonColor: '#488aff', helpInfo: "This setting enables Google's SafeSearch mode which will filter out innappropriate image and web search results on Google and Bing. This means that innapropriate search results and image searches (according to Google) will be blocked. We recommend always having this on." },
-    { name: "youtubeRestricted", displayName: 'Filter YouTube Videos', status: 'OFF', buttonColor: '#ff0000', helpInfo: "This enables Google's YouTube restricted mode which will filter out innappropriate videos on YouTube. Note that if you have blocked the YouTube App, this setting does not apply." }
+    { name: "youtubeRestricted", displayName: 'Filter YouTube Videos', status: 'OFF', buttonColor: '#FF4081', helpInfo: "This enables Google's YouTube restricted mode which will filter out innappropriate videos on YouTube. Note that if you have blocked the YouTube App, this setting does not apply." }
   ];
   // buttonColor: string = '#488aff';
 
@@ -35,7 +35,7 @@ export class JoshFiltersComponent {
     this.getFilters();
   }
 
-  // Get All Filters 
+  // Get All Filters
   getFilters() {
     //Get Filters from Filter Provider
     this.filterProvider.getAppFilters().subscribe((res: any) => {
@@ -69,12 +69,12 @@ export class JoshFiltersComponent {
       console.log('clicked Item', this.appFilters[index]);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.appFilters[index].status == 'BLOCKED' && this.appFilters[index].buttonColor == '#ff0000') {
+      if (this.appFilters[index].status == 'BLOCKED' && this.appFilters[index].buttonColor == '#FF4081') {
         this.appFilters[index].status = 'ALLOWED';
         this.appFilters[index].buttonColor = '#488aff';
       } else {
         this.appFilters[index].status = 'BLOCKED';
-        this.appFilters[index].buttonColor = '#ff0000';
+        this.appFilters[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -87,12 +87,12 @@ export class JoshFiltersComponent {
       console.log('clicked Item', this.categoryFilters[index]);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.categoryFilters[index].status == 'BLOCKED' && this.categoryFilters[index].buttonColor == '#ff0000') {
+      if (this.categoryFilters[index].status == 'BLOCKED' && this.categoryFilters[index].buttonColor == '#FF4081') {
         this.categoryFilters[index].status = 'ALLOWED';
         this.categoryFilters[index].buttonColor = '#488aff';
       } else {
         this.categoryFilters[index].status = 'BLOCKED';
-        this.categoryFilters[index].buttonColor = '#ff0000';
+        this.categoryFilters[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -105,12 +105,12 @@ export class JoshFiltersComponent {
       console.log('clicked Item', this.customFilters);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.customFilters[index].status == 'BLOCKED' && this.customFilters[index].buttonColor == '#ff0000') {
+      if (this.customFilters[index].status == 'BLOCKED' && this.customFilters[index].buttonColor == '#FF4081') {
         this.customFilters[index].status = 'ALLOWED';
         this.customFilters[index].buttonColor = '#488aff';
       } else {
         this.customFilters[index].status = 'BLOCKED';
-        this.customFilters[index].buttonColor = '#ff0000';
+        this.customFilters[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -122,12 +122,12 @@ export class JoshFiltersComponent {
       console.log('clicked Item', this.customFilters);
 
       // Check the Current Status of App and Change Accordingly
-      if (this.safetySecurity[index].status == 'OFF' && this.safetySecurity[index].buttonColor == '#ff0000') {
+      if (this.safetySecurity[index].status == 'OFF' && this.safetySecurity[index].buttonColor == '#FF4081') {
         this.safetySecurity[index].status = 'ON';
         this.safetySecurity[index].buttonColor = '#488aff';
       } else {
         this.safetySecurity[index].status = 'OFF';
-        this.safetySecurity[index].buttonColor = '#ff0000';
+        this.safetySecurity[index].buttonColor = '#FF4081';
       }
     }
   }
@@ -142,7 +142,7 @@ export class JoshFiltersComponent {
       if (data) {
 
         if (data.status == 'BLOCKED') {
-          data["buttonColor"] = '#ff0000';
+          data["buttonColor"] = '#FF4081';
         } else {
           data["buttonColor"] = '#488aff';
         }
@@ -164,17 +164,17 @@ export class JoshFiltersComponent {
     modal.onDidDismiss(data => {
       if (data) {
         if (data.status == 'BLOCKED') {
-          data["buttonColor"] = '#ff0000';
+          data["buttonColor"] = '#FF4081';
         } else {
           data["buttonColor"] = '#488aff';
         }
         this.customFilters[index].url = data.url;
         this.customFilters[index].status = data.status;
         this.customFilters[index].buttonColor = data.buttonColor;
-                
+
         console.log('Data coming from Edit customeFilter in If', this.customFilters);
       } else {
-        //this line not needed in initial setup: this.profileService.deleteCustomFilter(this.profileId, this.customFilters[index]); 
+        //this line not needed in initial setup: this.profileService.deleteCustomFilter(this.profileId, this.customFilters[index]);
         this.customFilters.splice(index, 1);
         console.log('Custom filters after deleting the item', this.customFilters);
       }
@@ -190,7 +190,7 @@ export class JoshFiltersComponent {
 
         filters.forEach(res => {
           if (res.status == 'BLOCKED') {
-            res.buttonColor = '#ff0000';
+            res.buttonColor = '#FF4081';
           } else {
             res.buttonColor = '#488aff';
           }
@@ -203,7 +203,7 @@ export class JoshFiltersComponent {
 
         filters.forEach(res => {
           if (res.status == 'BLOCKED') {
-            res.buttonColor = '#ff0000';
+            res.buttonColor = '#FF4081';
           } else {
             res.buttonColor = '#488aff';
           }
@@ -216,7 +216,7 @@ export class JoshFiltersComponent {
 
         filters.forEach(res => {
           if (res.status == 'BLOCKED') {
-            res.buttonColor = '#ff0000';
+            res.buttonColor = '#FF4081';
           } else {
             res.buttonColor = '#488aff';
           }
@@ -228,7 +228,7 @@ export class JoshFiltersComponent {
   }
 
    //For toogling showing more information
-   toggleGroup(group) {  
+   toggleGroup(group) {
     if (this.isGroupShown(group)) {
       this.shownGroup = null;
     } else {
@@ -311,7 +311,7 @@ export class JoshFiltersComponent {
         };
         profile.categoryFilters.push(temp);
       });
-      
+
       //Fetch safety and Security
       this.safetySecurity.forEach(res => {
         console.log('Safety and Security:', res);

@@ -14,6 +14,7 @@ header{
   }
 }
 .i-page {
+
   background-color: $greybg;
   .i-heading {
     color: $black;
@@ -26,7 +27,9 @@ header{
     color: #76838f;
     font-size: 14px;
   }
-
+  .blue-accent-color.icon {
+    color: #478aff;
+  }
   ion-item input {
     border: none !important;
     padding: 0 !important;
@@ -43,12 +46,67 @@ header{
 
   .item-md {
     padding: 0;
+    background: transparent;
+
+  }
+  .icon-f{
+    font-size: 36px;
+    color: #C5CFD9;
+    float: none;
+  }
+  .center-right-align{ float: right;
+    display: flex;
+    height: 36px;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    max-width: 80px;
+    text-align: right;
+    line-height: 1!important;
+  }
+  .i-normal-width{
+
+    max-width: 50%;
+    line-height: 1;
+    display: flex;
+    line-height: 1!important;
+    display: flex!important;
+    min-height: 36px;
+    align-items: center;
+  }
+  .i-text-color{
+    color:$textColor;
+  }
+  em.seperate {
+    height: 36px!important;
+    margin-left: 10px;
+  }
+  i.i-size{
+    font-size: 35px;
+    display: flex;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
   }
 
+  .list-item.flex{
+    display: flex;
+  } .i-img {
+      display: inline-block;
+      line-height: 28px;
+
+      float: left;
+      width: 36px;
+      position: relative;
+      left: 0px;
+        display: flex;
+        height: 36px;
+        align-items: center;
+    }
   .family{
     .form-label-divider{
       color: #667F97;
-    } 
+    }
 
     .i-img {
       display: inline-block;
@@ -59,47 +117,21 @@ header{
       position: relative;
       left: 0px;
     }
-    .center-right-align{ float: right;
-      display: flex;
-      height: 36px;
-      align-items: center;
-      font-weight: 400;
-      font-size: 12px;
-    }
-    .i-normal-width{
 
-      max-width: 50%;
-      line-height: 1;
-      display: flex;
-      min-height: 36px;
-      align-items: center;
-    }
-    .i-text-color{
-      color:$textColor;
-    }
-    em.seperate {
-      height: 36px!important;
-      margin-left: 10px;
-    }
-    i.i-size{
-      font-size: 35px;
-      display: flex;
-      height: 36px;
-      align-items: center;
-      justify-content: center;
-    }
-    .icon-f{
-      font-size: 36px;
-      color: #C5CFD9;
-      float: none;
-    }
+
+
   }
 
 
 
 
 }
-
+.profile-page {
+  margin-top: 50px;
+  h1.product-view-title.txt-green {
+    font-size: 1.6rem;
+  }
+}
 
 ion-app.md {
   ion-content.p-t-30 {

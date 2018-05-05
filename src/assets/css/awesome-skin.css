@@ -1,0 +1,98 @@
+header .i-title {
+  font-family: Nunito;
+  font-size: 16px;
+  color: #667F97;
+  font-weight: bold; }
+header a.go-back-link {
+  color: #667F97; }
+
+.i-page {
+  background-color: #F5F6F8; }
+  .i-page .i-heading {
+    color: #37474f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.11em; }
+  .i-page .i-p {
+    font-family: 'Open Sans', sans-serif;
+    color: #76838f;
+    font-size: 14px; }
+  .i-page .blue-accent-color.icon {
+    color: #478aff; }
+  .i-page ion-item input {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    font-size: 16px !important; }
+  .i-page ion-item .item-inner {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important; }
+  .i-page .item-md {
+    padding: 0;
+    background: transparent; }
+  .i-page .icon-f {
+    font-size: 36px;
+    color: #C5CFD9;
+    float: none; }
+  .i-page .center-right-align {
+    float: right;
+    display: flex;
+    height: 36px;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    max-width: 80px;
+    text-align: right;
+    line-height: 1 !important; }
+  .i-page .i-normal-width {
+    max-width: 50%;
+    line-height: 1;
+    display: flex;
+    line-height: 1 !important;
+    display: flex !important;
+    min-height: 36px;
+    align-items: center; }
+  .i-page .i-text-color {
+    color: #667F97; }
+  .i-page em.seperate {
+    height: 36px !important;
+    margin-left: 10px; }
+  .i-page i.i-size {
+    font-size: 35px;
+    display: flex;
+    height: 36px;
+    align-items: center;
+    justify-content: center; }
+  .i-page .list-item.flex {
+    display: flex; }
+  .i-page .i-img {
+    display: inline-block;
+    line-height: 28px;
+    float: left;
+    width: 36px;
+    position: relative;
+    left: 0px;
+    display: flex;
+    height: 36px;
+    align-items: center; }
+  .i-page .family .form-label-divider {
+    color: #667F97; }
+  .i-page .family .i-img {
+    display: inline-block;
+    line-height: 28px;
+    float: left;
+    width: 36px;
+    position: relative;
+    left: 0px; }
+
+.profile-page {
+  margin-top: 50px; }
+  .profile-page h1.product-view-title.txt-green {
+    font-size: 1.6rem; }
+
+ion-app.md ion-content.p-t-30 {
+  top: 30px; }
+
+/*# sourceMappingURL=awesome-skin.css.map */

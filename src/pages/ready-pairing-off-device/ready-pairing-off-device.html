@@ -1,40 +1,43 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ready Pairing - Off Device
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header>
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title i-title">          Ready Pairing - Off Device
+
+  </h1>
+
+</header>
 <ion-content padding>
-  
-  <h3 class="readyPairingOffDevice-heading">
+  <div class="form-inputs i-page min-h-full" style="padding-top:60px">
+    <h3 class="i-heading">
     Let's pair this profile with {{profileData?.profileName}}'s device ({{deviceName}})
   </h3>
-  <div>
-    <p class="readyPairingOffDevice-heading">
-      Things you will need:
-    </p>
-    <ol>
-      <li>
+    <div>
+      <p class="i-p">
+        Things you will need:
+      </p>
+      <ol class="i-p">
+        <li>
           {{profileData?.profileName}}'s device ({{deviceName}}), unlocked
-      </li>
-      <li>
-        Safari enabled on {{deviceName}} (at least temporarily)
-      </li>
-    </ol>
+        </li>
+        <li>
+          Safari enabled on {{deviceName}} (at least temporarily)
+        </li>
+      </ol>
+    </div>
+    <div class="form-divider"></div>
+    <div>
+      <p class="i-p font-bold">
+        <strong>
+          Are you ready to pair with {{deviceName}}?
+        </strong>
+      </p>
+    </div>
+    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToStartPairingOffDevice()">
+      Yes, start pairing
+    </button>
+    <div class="form-divider m-0"></div>
+
+    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="goToPairLater()">
+      No, I will do it later from dashboard
+    </button>
   </div>
-  <div class="readyPairingOffDevice-spacer"></div>
-  <div>
-    <p class="readyPairingOffDevice-heading">
-      <strong>
-        Are you ready to pair with {{deviceName}}?
-      </strong>
-    </p>
-  </div>
-  <button ion-button color="calm" block (tap)="goToStartPairingOffDevice()">
-    Yes, start pairing
-  </button>
-  <button ion-button outline color="calm" block (tap)="goToPairLater()">
-    No, I will do it later from dashboard
-  </button>
 </ion-content>

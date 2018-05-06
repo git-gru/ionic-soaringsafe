@@ -1,41 +1,48 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Installation Check
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title i-title">                Installation Check
+
+  </h1>
+
+</header>
+
+
 <ion-content padding>
-  
-  <h3 class="installationCheck-heading"></h3>
-  <div>
-    <p class="installationCheck-heading">
-      Click the home button on {{deviceName}}. Then Look in the very upper left of {{deviceName}}.
-    </p>
-    <p class="installationCheck-heading">
-      Does it look like this? Do you see the VPN Symbol?
-    </p>
-    <div (click)="toggleGroup('iphonex')">
-      <p>If {{deviceName}} is an iPhone X, <u>click here</u></p>
+
+  <div class="form-inputs i-page min-h-full" style="padding-top: 60px">
+    <h3 class="i-heading"></h3>
+    <div>
+      <p class="i-p">
+        Click the home button on {{deviceName}}. Then Look in the very upper left of {{deviceName}}.
+      </p>
+      <p class="i-p">
+        Does it look like this? Do you see the VPN Symbol?
+      </p>
+      <div (click)="toggleGroup('iphonex')" >
+        <p class="i-p">If {{deviceName}} is an iPhone X, <u>click here</u></p>
+      </div>
+      <div *ngIf="isGroupShown('iphonex')">
+        <p class="i-p"><strong>If you have an iPhone X you may not see the VPN Icon. Instead, open Settings and look for this
+          image</strong></p>
+        <img src="assets/img/Pasted_Image_5_1_18__12_53_PM.png" class="installationCheck-img">
+      </div>
     </div>
-    <div *ngIf="isGroupShown('iphonex')">
-      <p><strong>If you have an iPhone X you may not see the VPN Icon. Instead, open Settings and look for this image</strong></p>
-      <img src="assets/img/Pasted_Image_5_1_18__12_53_PM.png" class="installationCheck-img">
+    <img src="assets/img/S4rqQRTsSjWETlavXSQm_IMG_E3D5BE9CBED2-1.jpg" class="installationCheck-img">
+    <div class="installationCheck-spacer"></div>
+    <div text-center>
+      <p class="i-p">
+        <strong>
+          Do you see the VPN Symbol?
+        </strong>
+      </p>
     </div>
+    <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="goToInstallationSuccessful()">
+      Yes
+    </button>
+    <div class="form-divider m-0"></div>
+
+    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="goToInstallationTryAgain()">
+      No
+    </button>
   </div>
-  <img src="assets/img/S4rqQRTsSjWETlavXSQm_IMG_E3D5BE9CBED2-1.jpg" class="installationCheck-img">
-  <div class="installationCheck-spacer"></div>
-  <div text-center>
-    <p class="installationCheck-heading">
-      <strong>
-        Do you see the VPN Symbol?
-      </strong>
-    </p>
-  </div>
-  <button ion-button outline color="calm" block (tap)="goToInstallationSuccessful()">
-    Yes
-  </button>
-  <button ion-button outline color="calm" block (tap)="goToInstallationTryAgain()">
-    No
-  </button>
 </ion-content>

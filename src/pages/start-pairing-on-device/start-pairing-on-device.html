@@ -1,38 +1,41 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Start Pairing - On Device
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<header> <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+  <h1 class="page-title i-title">           Start Pairing - On Device
+
+  </h1>
+
+</header>
 <ion-content padding>
-  
-  <h3 class="startPairingOnDevice-heading">
+  <div class="form-inputs i-page min-h-full" style="padding-top: 60px">
+
+  <h3 class="i-heading">
       Watch this 60 second walkthrough of the simple pairing process
   </h3>
   <div>
-    <p class="startPairingOnDevice-heading">
-        The process will open the device settings to confirm that you want to have internet traffic filtered   
+    <p class="i-p">
+        The process will open the device settings to confirm that you want to have internet traffic filtered
     </p>
   </div>
   <div class="startPairingOnDevice-video">
     <iframe src="https://www.youtube.com/embed/rCDZinU3Ia0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560" height="315" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
   </div>
-  <div class="startPairingOnDevice-spacer"></div>
+    <div class="form-divider"></div>
   <div>
-    <p class="startPairingOnDevice-heading">
-      After watching the video, click start pairing below. 
+    <p class="i-p">
+      After watching the video, click start pairing below.
       <strong>
         If you have Safari disabled on this device, you will need to first temporarily enable safari.
       </strong>
     </p>
   </div>
-  <button ion-button [ngStyle]="{'background-color': pairColor}" block (tap)='startPairing()'>
+  <button class="waves-effect waves-light btn-large  width-100"  [ngStyle]="{'background-color': pairColor}"  (tap)='startPairing()'>
     <ion-icon name="navigate"></ion-icon>
     {{buttonTxt}}
   </button>
-  <button ion-button [ngStyle]="{'background-color': nextColor}" block (tap)="goToInstallationCheck()">
+    <div class="form-divider m-0"></div>
+
+    <button class="waves-effect waves-light btn-large  width-100"  [ngStyle]="{'background-color': nextColor}"  (tap)="goToInstallationCheck()">
     Next: Check if Pairing Successful
   </button>
-  
+  </div>
 </ion-content>

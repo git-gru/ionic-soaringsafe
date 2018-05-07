@@ -11,6 +11,9 @@ page-login-to-soaring-safe {
     .loginForSoaringSafe-error {
         color: $red;
     }
+
+  h1 {font-family: 'Open Sans', sans-serif;font-size: 32px;line-height: 1.25em;}
+
     .login-form {
         img {
             display: block;
@@ -85,6 +88,30 @@ page-login-to-soaring-safe {
   }
   input {
     font-size: 16px!important;
+  }
+   i.prefix {
+    color: #999;
+    left: 0px;
+  }
+
+  i.prefix:before {
+    font-size: 28px;
+  }
+
+  ion-item.item-md {
+    padding-left: 0px;
+  }
+  .pl-12 {
+    padding-left: 40px;
+  }
+  .input-field{
+    margin-top: 0px;
+  }
+  ion-content.content.content-md {
+    background: #f1f4f5;
+    font-family: 'Open Sans', sans-serif!important;
+
+
   }
 }
 

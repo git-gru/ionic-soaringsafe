@@ -18,6 +18,16 @@ page-set-up-profile .toolbar-background {
 }
 .i-page {
 
+
+  h1 {
+    font-size: 32px;
+    line-height: 1.25em;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .activity .date{top:21px;}
+  .activity .dot {
+    left: -39px;
+  }
   background-color: $greybg;
   .primary-border-color {
     color: #2196F3 !important;
@@ -110,6 +120,18 @@ page-set-up-profile .toolbar-background {
         height: 36px;
         align-items: center;
     }
+  button.super-right-menu {
+    position: absolute;
+    top: 11px;
+    right: 33px;
+    padding: 0px;
+    height: auto;
+    transform: rotate(90deg);
+    font-size: 14px!important;
+    box-shadow: none;
+  }button.super-right-menu *{
+     font-size: 30px;
+   }
   .family{
     .form-label-divider{
       color: #667F97;
@@ -129,7 +151,16 @@ page-set-up-profile .toolbar-background {
 
   }
 
-
+  iframe.mobile-video {
+    width: 100%;
+    min-height: 400px;
+  }
+  .slider-sliced .swiper-slide {
+    align-items: flex-start;
+  }
+  .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    bottom: 60px;
+  }
 
 
 }

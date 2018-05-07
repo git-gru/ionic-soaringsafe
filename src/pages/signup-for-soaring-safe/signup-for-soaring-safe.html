@@ -2,17 +2,17 @@
 <ion-content padding>
 
 
-  <div id="content" class="grey-blue signup">
+  <div id="content" class="grey-blue signup i-page">
 
     <!-- Toolbar -->
     <div id="toolbar" class="tool-signup primary-color animated fadeindown">
       <a href="javascript:history.back()" class="open-left">
-        <i class="ion-android-arrow-back"></i>
+        <i class="ion-android-arrow-back" style=" position: static;"></i>
       </a>
     </div>
 
     <form novalidate (ngSubmit)="onSubmit(userValid)" [formGroup]="userValid">
-
+      <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <!-- Main Content -->
     <div class="signup-form animated fadeinup delay-2 z-depth-1">
 
@@ -20,10 +20,10 @@
 
       <div class="input-field relative" >
         <i class="ion-android-contact prefix"></i>
-        <div class="ml-8">
+        <div class="pl-12">
+
           <ion-item class="m-0 p-0">
             <i class="ion-android-contact prefix"></i>
-
             <ion-label floating>
               Parent's Name</ion-label>
             <ion-input class="with-icons" type="text" value="" formControlName="parentName"></ion-input>
@@ -35,7 +35,7 @@
 
       <div class="input-field relative" >
         <i class="ion-email prefix"></i>
-        <div class="ml-8">
+        <div class="pl-12">
           <ion-item class="m-0 p-0">
 
 
@@ -44,12 +44,12 @@
             <ion-input class="with-icons" type="text" value="" formControlName="email"></ion-input>
           </ion-item>
 
-          <small class="pl-6 block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
-            <small class="signupForSoaringSafe-error " *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
+          <small class="block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
+            <small class="signupForSoaringSafe-error block " *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
               Email is required
             </small>
-            <br>
-            <small class="signupForSoaringSafe-error " *ngIf="userValid.get('email').hasError('email') && userValid.get('email').touched">
+
+            <small class="signupForSoaringSafe-error block " *ngIf="userValid.get('email').hasError('email') && userValid.get('email').touched">
               Please enter valid email
             </small>
           </small>
@@ -57,7 +57,7 @@
       </div>
       <div class="input-field relative" >
         <i class="ion-android-lock prefix"></i>
-        <div class="ml-8">
+        <div class="pl-12">
           <ion-item class="m-0 p-0">
             <i class="ion-android-contact prefix"></i>
 
@@ -67,11 +67,11 @@
           </ion-item>
 
           <!-- Password Validation code Start -->
-          <small class="signupForSoaringSafe-error pl-6" no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
-            <small class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
+          <small class="signupForSoaringSafe-error " no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
+            <small class="signupForSoaringSafe-error block" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
               password is required
             </small>
-            <small class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
+            <small class="signupForSoaringSafe-error block" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
               Minimum of 7 characters
             </small>
           </small>
@@ -83,7 +83,7 @@
 
 
       <button class="waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4" (tap)="goToCreateChildProfile(user)" [disabled]="userValid.invalid">Signup</button>
-      <span>Have an account? <button class="primary-text"  (tap)="goToLoginToSoaringSafe()">Login</button></span>
+      <span style="color:#76838f">Have an account? <button class="primary-text"  (tap)="goToLoginToSoaringSafe()">Login</button></span>
     </div><!-- End of Main Contents -->
     </form>
 

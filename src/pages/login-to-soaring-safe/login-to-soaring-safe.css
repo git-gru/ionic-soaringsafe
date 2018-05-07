@@ -1,0 +1,82 @@
+page-login-to-soaring-safe .error-text {
+  color: #ff0000; }
+page-login-to-soaring-safe .spacer {
+  width: 300px;
+  height: 23px; }
+page-login-to-soaring-safe .loginForSoaringSafe-error {
+  color: #ff0000; }
+page-login-to-soaring-safe h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 32px;
+  line-height: 1.25em; }
+page-login-to-soaring-safe .login-form img {
+  display: block;
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto; }
+page-login-to-soaring-safe .soaring-safe-spacer {
+  width: 300px;
+  height: 13px; }
+page-login-to-soaring-safe .login {
+  min-height: auto; }
+page-login-to-soaring-safe .input-field label {
+  font-size: 15px; }
+page-login-to-soaring-safe .input.ng-dirty label, page-login-to-soaring-safe .input.ng-valid label {
+  font-size: 0.8rem;
+  -webkit-transform: translateY(-140%);
+  -moz-transform: translateY(-140%);
+  -ms-transform: translateY(-140%);
+  -o-transform: translateY(-140%);
+  transform: translateY(-140%); }
+page-login-to-soaring-safe ion-item input {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important; }
+page-login-to-soaring-safe ion-item .item-inner {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important; }
+page-login-to-soaring-safe .login:disabled {
+  background: rgba(255, 66, 132, 0.56) !important; }
+page-login-to-soaring-safe i.ion-android-contact.prefix {
+  z-index: 9;
+  top: 33px;
+  position: absolute; }
+page-login-to-soaring-safe .input-cover {
+  border: none;
+  background: none; }
+page-login-to-soaring-safe .list-md .item-input:last-child {
+  border: none; }
+page-login-to-soaring-safe i.ion-android-lock.prefix {
+  z-index: 99;
+  top: 32px; }
+page-login-to-soaring-safe .login-form {
+  margin: 10px;
+  margin-top: -20px; }
+page-login-to-soaring-safe input {
+  font-size: 16px !important; }
+page-login-to-soaring-safe i.prefix {
+  color: #999;
+  left: 0px; }
+page-login-to-soaring-safe i.prefix:before {
+  font-size: 28px; }
+page-login-to-soaring-safe ion-item.item-md {
+  padding-left: 0px; }
+page-login-to-soaring-safe .pl-12 {
+  padding-left: 40px; }
+page-login-to-soaring-safe .input-field {
+  margin-top: 0px; }
+page-login-to-soaring-safe ion-content.content.content-md {
+  background: #f1f4f5;
+  font-family: "Open Sans", sans-serif !important; }
+
+ion-app.md [padding] {
+  padding: 0 !important; }
+
+ion-app.md [padding] .scroll-content {
+  padding: 0 !important;
+  width: 100%; }
+
+/*# sourceMappingURL=login-to-soaring-safe.css.map */

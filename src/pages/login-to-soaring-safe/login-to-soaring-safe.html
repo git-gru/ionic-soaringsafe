@@ -3,7 +3,7 @@
 
 
   <form class="login-form" novalidate  [formGroup]="userValid">
-
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <div id="content" class="grey-blue login">
 
       <!-- Toolbar -->
@@ -20,7 +20,7 @@
           <ion-list>
             <div class="input-field relative" >
             <i class="ion-android-contact prefix"></i>
-            <div class="ml-2">
+            <div class="pl-12">
             <ion-item class="m-0 p-0">
             <i class="ion-android-contact prefix"></i>
 
@@ -29,7 +29,7 @@
             <ion-input class="with-icons" type="text" value="" formControlName="email"></ion-input>
             </ion-item>
 
-            <small class="pl-6 block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
+            <small class="block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
             <small class="loginForSoaringSafe-error" *ngIf="userValid.get('email').hasError('required') && userValid.get('email').touched">
               Email is required
             </small>
@@ -43,19 +43,19 @@
             <div class="input-field relative">
               <i class="ion-android-lock prefix"></i>
 
-              <div class="ml-2">
+              <div class="pl-12">
               <ion-item class="m-0 p-0">
 
               <ion-label floating>Password</ion-label>
               <ion-input class="with-icons" type="password" value="" formControlName="password"></ion-input>
             </ion-item>
             <!-- Password validation code start -->
-            <small class="loginForSoaringSafe-error   pl-6"  no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
+            <small class="loginForSoaringSafe-error   "  no-lines *ngIf="( userValid.get('password').hasError('minlength') || userValid.get('password').hasError('required') ) && userValid.get('password').touched">
               <small class="signupForSoaringSafe-error" *ngIf="userValid.get('password').hasError('required') && userValid.get('password').touched">
                 password is required
               </small>
 
-              <small class="signupForSoaringSafe-error pl-6" *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
+              <small class="signupForSoaringSafe-error " *ngIf="userValid.get('password').hasError('minlength') && userValid.get('password').touched">
                 Minimum of 7 characters
               </small>
             </small>
@@ -69,7 +69,7 @@
 
 
         <button class="login waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4" (tap)="goToTabs()" [disabled]="userValid.invalid"  >Login</button>
-        <span>Don't have an account? <a class="primary-text" (tap)="signupForSoaringSafe()" >Sign Up</a></span>
+        <span style="color:#76838f">Don't have an account? <a class="primary-text" (tap)="signupForSoaringSafe()" >Sign Up</a></span>
       </div><!-- End of Main Contents -->
 
 

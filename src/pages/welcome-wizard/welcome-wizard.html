@@ -1,44 +1,68 @@
-<!--
-  Generated template for the WelcomeWizardPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<header> <!-- extra class no-background -->
+  <h1 class="page-title i-title">
+    Welcome to SoaringSafe
+  </h1>
 
-  <ion-navbar>
-    <ion-title>Welcome to SoaringSafe</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
+</header>
 
 <ion-content padding>
 
-    <ion-slides pager="true">
-        <ion-slide>
-          <h1>Watch this 90 second introductory video</h1>
-          <iframe src="https://www.youtube.com/embed/e8jN4bZF5Zs?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="157" height="280" ></iframe>
-          <div class="spacer"><br /></div>
-          <button ion-button outline color="calm" block (tap)="nextSlide()">Next</button>
-          <div class="spacer"><br /></div>
-          <button ion-button clear color="calm" block (tap)="exitWizard(0)">Skip</button>
-        </ion-slide>
-        <ion-slide>
-          <h1>If you have an Apple device: Install this app on your device first.</h1>
-          <p>Then you will pair with the child device.</p>
-          <h1>Don't have an Apple device?</h1>
-          <p>No problem, install this app on the child device and you can use the web to change.</p>
-          <div class="spacer"><br /></div>
-          <button ion-button outline color="calm" block (tap)="nextSlide()">Next</button>
-          <div class="spacer"><br /></div>
-          <button ion-button clear color="calm" block (tap)="exitWizard(1)">Skip</button>
-        </ion-slide>
-        <ion-slide>
-          <h1>Slide 3</h1>
-          <h1>If you have an Apple device: Install this app on your device first.</h1>
-          <div class="spacer"><br /></div>
-          <button ion-button color="calm" block (tap)="exitWizard(2)">Get Started</button>
-        </ion-slide>
-      </ion-slides>
+  <div class="i-page min-h-full" style="padding-top: 50px;">
+    <ion-slides pager="true" class="slider-sliced">
+      <ion-slide>
+
+        <iframe  class="mobile-video" src="https://www.youtube.com/embed/e8jN4bZF5Zs?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen
+                width="157" height="280"></iframe>
+
+        <div class="slider-bottom-right valign-wrapper">
+          <div class="valign center-align width-100 p-b-5em" style="    padding-bottom: 9em!important;">
+            <h2 class="uppercase">Watch</h2>
+            <p>this 90 second introductory video</p>
+            <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="nextSlide()">Next</button>
+            <button ion-button clear color="calm" block (tap)="exitWizard(0)">Skip</button>
+          </div>
+
+        </div>
+
+
+      </ion-slide>
+      <ion-slide>
+        <br>
+        <h2 class="">If you have an Apple device: Install this app on your device first.</h2>
+        <p class="">Then you will pair with the child device.</p>
+
+
+        <div class="slider-bottom-left valign-wrapper">
+          <div class="valign center-align width-100 p-b-5em">
+            <h2 class="uppercase">Don't have an Apple device?</h2>
+            <p>No problem, install this app on the child device and you can use the web to change.</p>
+            <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="nextSlide()">Next</button>
+            <button ion-button clear color="calm" block (tap)="exitWizard(1)">Skip</button>
+          </div>
+
+        </div>
+
+
+      </ion-slide>
+      <ion-slide>
+
+        <br>
+
+
+        <div class="slider-bottom-right valign-wrapper">
+          <div class="valign center-align width-100 p-b-5em" style="
+    padding-bottom: 10.2em!important;
+">
+            <h2 class="uppercase">Slide 3</h2>
+            <p>If you have an Apple device: Install this app on your device first.</p>
+            <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="nextSlide()">Get Started</button>
+
+          </div>
+
+        </div>
+
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-content>

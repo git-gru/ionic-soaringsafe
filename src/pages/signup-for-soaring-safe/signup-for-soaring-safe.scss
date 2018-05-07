@@ -1,6 +1,7 @@
 page-signup-for-soaring-safe {
     $black: #000000;
     $red: #ff0000;
+  font-family: 'Open Sans', sans-serif!important;
 
     .signupForSoaringSafe-p {
         color: $black;
@@ -54,5 +55,24 @@ page-signup-for-soaring-safe {
     width: 100%;
     margin: 0!important;
     padding: 0!important;
+  }
+
+  i.prefix {
+    color: #999;
+    left: 0px;
+  }
+
+  i.prefix:before {
+    font-size: 28px;
+  }
+  .pl-12{
+    padding-left:40px;
+  }
+  .signup-form h1 {
+    margin: 0!important;
+  }
+  .item-md.item-block .item-inner {
+    border-bottom: 1px solid #9e9e9e!important;
+    padding-bottom: 10px!important;
   }
 }

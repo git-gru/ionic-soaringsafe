@@ -11,6 +11,14 @@ page-set-up-profile .toolbar-background {
 
 .i-page {
   background-color: #F5F6F8; }
+  .i-page h1 {
+    font-size: 32px;
+    line-height: 1.25em;
+    font-family: 'Open Sans', sans-serif; }
+  .i-page .activity .date {
+    top: 21px; }
+  .i-page .activity .dot {
+    left: -39px; }
   .i-page .primary-border-color {
     color: #2196F3 !important;
     border-color: #2196F3 !important; }
@@ -83,6 +91,17 @@ page-set-up-profile .toolbar-background {
     display: flex;
     height: 36px;
     align-items: center; }
+  .i-page button.super-right-menu {
+    position: absolute;
+    top: 11px;
+    right: 33px;
+    padding: 0px;
+    height: auto;
+    transform: rotate(90deg);
+    font-size: 14px !important;
+    box-shadow: none; }
+  .i-page button.super-right-menu * {
+    font-size: 30px; }
   .i-page .family .form-label-divider {
     color: #667F97; }
   .i-page .family .i-img {
@@ -92,6 +111,13 @@ page-set-up-profile .toolbar-background {
     width: 36px;
     position: relative;
     left: 0px; }
+  .i-page iframe.mobile-video {
+    width: 100%;
+    min-height: 400px; }
+  .i-page .slider-sliced .swiper-slide {
+    align-items: flex-start; }
+  .i-page .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    bottom: 60px; }
 
 .profile-page {
   margin-top: 50px; }

@@ -43,7 +43,7 @@ export class LoginToSoaringSafePage {
       loader.dismiss();
       if (res.success) {
         //Navigate to TabsPage
-        this.navCtrl.setRoot('TabsControllerPage');
+        this.navCtrl.setRoot('FamilyPage');
       } else {
         alert("Error" + res);
       }

@@ -41,6 +41,6 @@ export class InstallationSuccessfulPage {
 
   goToFamily() {
     // Navigate to the FamilyPage
-    this.navCtrl.setRoot('TabsControllerPage');
+    this.navCtrl.setRoot('FamilyPage');
   }
 }

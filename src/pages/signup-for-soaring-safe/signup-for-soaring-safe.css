@@ -37,8 +37,9 @@ page-signup-for-soaring-safe {
     margin: 0 !important;
     padding: 0 !important; }
   page-signup-for-soaring-safe i.prefix {
-    color: #999;
     left: 0px; }
+  page-signup-for-soaring-safe i.prefix {
+    color: #76838f; }
   page-signup-for-soaring-safe i.prefix:before {
     font-size: 28px; }
   page-signup-for-soaring-safe .pl-12 {
@@ -48,5 +49,14 @@ page-signup-for-soaring-safe {
   page-signup-for-soaring-safe .item-md.item-block .item-inner {
     border-bottom: 1px solid #9e9e9e !important;
     padding-bottom: 10px !important; }
+  page-signup-for-soaring-safe .font-smoothing-auto {
+    -webkit-font-smoothing: auto !important; }
+  page-signup-for-soaring-safe ion-label.label-md {
+    font-family: 'Open Sans', sans-serif;
+    color: #9e9e9e !important;
+    font-size: 14px;
+    -webkit-font-smoothing: auto;
+    font-weight: normal;
+    padding-left: 10px; }
 
 /*# sourceMappingURL=signup-for-soaring-safe.css.map */

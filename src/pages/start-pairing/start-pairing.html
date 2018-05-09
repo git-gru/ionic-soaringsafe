@@ -6,13 +6,19 @@
 
 <ion-content padding>
 
-  <div class="form-inputs i-page min-h-full">
+  <div class="form-inputs i-page min-h-full white-bg">
     <div class="spacer" style="margin-top: 50px"></div>
     <div *ngIf="isGroupShown(i)">
-      <h3 class="startPairing-heading i-heading">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h3>
+      <h4 class="startPairing-heading i-heading pt-8">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h4>
+      <h3 class="i-p">Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h3>
+
+    </div>
+    <div *ngIf="!isGroupShown(i)">
+      <h3 class="startPairing-heading i-heading pt-6">Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h3>
+
     </div>
 
-    <h5 class="i-p">Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h5>
+
     <ion-item>
       <ion-label floating class="i-p">
         Device Nickname

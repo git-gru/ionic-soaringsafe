@@ -5,11 +5,13 @@
 
 </header>
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full">
+  <div class="form-inputs i-page min-h-full white-bg">
     <div class="spacer" style="margin-top: 20px"></div>
-    <h3 class="setUpProfile-heading">
+    <h4 class="setUpProfile-heading" style="
+    margin-top: 10px;
+">
       How old is {{profileData && profileData.profileName}}?
-    </h3>
+    </h4>
     <div>
       <ion-toolbar>
         <ion-segment color="primary" [(ngModel)]="ageGroup" (ionChange)="onAgeChanged($event)">

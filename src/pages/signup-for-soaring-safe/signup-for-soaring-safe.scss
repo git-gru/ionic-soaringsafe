@@ -58,10 +58,12 @@ page-signup-for-soaring-safe {
   }
 
   i.prefix {
-    color: #999;
+
     left: 0px;
   }
-
+  i.prefix {
+    color: rgb(118, 131, 143);
+  }
   i.prefix:before {
     font-size: 28px;
   }
@@ -75,4 +77,18 @@ page-signup-for-soaring-safe {
     border-bottom: 1px solid #9e9e9e!important;
     padding-bottom: 10px!important;
   }
+
+  .font-smoothing-auto {
+    -webkit-font-smoothing: auto!important
+  }
+
+  ion-label.label-md {
+    font-family: 'Open Sans', sans-serif;
+    color: #9e9e9e!important;
+    font-size: 14px;
+    -webkit-font-smoothing: auto;
+    font-weight: normal;
+    padding-left: 10px;
+  }
+
 }

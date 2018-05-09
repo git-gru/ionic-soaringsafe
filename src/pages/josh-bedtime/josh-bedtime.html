@@ -6,15 +6,23 @@
 
   </h1>
 
+
 </header>
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full" style="padding-top: 50px">
-    <ion-item>
-      <ion-label>
-        Enable Bedtime
-      </ion-label>
-      <ion-toggle color="positive" [checked]="isEnabled" [(ngModel)]="isEnabled"></ion-toggle>
-    </ion-item>
+  <div class="form-inputs i-page min-h-full white-bg" style="padding-top: 50px">
+
+    <div class="list-box mt-6 mb-2">
+      <div class="list-item">
+        <span class="list-item-title i-text-color">       Enable Bedtime</span>
+        <div class="sweet-check" [ngClass]="{'checked' : isEnabled}" (tap)="toggleBedTime()"  >
+          <input type="checkbox"  value="true" [checked]="isEnabled" [(ngModel)]="isEnabled">
+          <div class="outline">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div *ngIf="isEnabled">
       <div class="form-divider m-0"></div>
@@ -454,7 +462,7 @@
           <ion-option value="19">4:45 AM</ion-option>
         </ion-select>
       </ion-item>
-      <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="updateBedtimes()">
+      <button class="waves-effect waves-light btn-large primary-color width-100 m-8" (tap)="updateBedtimes()">
         Save
       </button>
     </div>

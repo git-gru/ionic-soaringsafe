@@ -7,9 +7,10 @@
 
 
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full" style="padding-top: 60px"><h3 class="i-heading">
+  <div class="form-inputs i-page min-h-full white-bg" style="padding-top: 60px">
+    <h4 class="i-heading pt-6">
     Right now, are you using {{profileData?.profileName}}'s device or your own parent device?
-  </h3>
+    </h4>
     <button ion-button outline class="primary-border-color"  (tap)="goToReadyPairingOffDevice()">
       Parent Device
     </button>
@@ -17,7 +18,7 @@
       {{profileData?.profileName}}'s device
     </button>
     <div>
-      <p class="i-p font-bold">
+      <p class="i-p ">
         Either way works great. You can continue the pairing process from either {{profileData?.profileName}}'s device
         or your own device.
       </p>

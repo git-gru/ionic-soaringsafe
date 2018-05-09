@@ -7,16 +7,19 @@
 </header>
 
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full">
+  <div class="form-inputs i-page min-h-full white-bg">
 
     <div class="form-divider" style="margin-top: 30px"></div>
-    <div class="form-label-divider uppercase">
+    <h4 class="i-heading uppercase " style="
+    font-size: 15px;
+    margin-bottom: 0px;
+">
       <span>    Select bedtime for tonight:
           </span>
-    </div>
-    <div class="form-divider"></div>
+    </h4>
+    <div class="form-divider m-0"></div>
 
-    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)='deletBedTime()'>Delete Late Bedtime Tonight
+    <button ion-button outline block class="primary-border-color" (tap)='deletBedTime()'>Delete Late Bedtime Tonight
     </button>
     <div class="form-divider" style="
     margin: 0;

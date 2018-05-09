@@ -100,6 +100,15 @@ export class JoshBedtimePage {
       console.log('Josh-bedtimes: Error While Updating Bedtimes ', error);
     });
   }
+  toggleBedTime(){
+    if(this.isEnabled){
+      this.isEnabled=false;
+    }
+    else{
+      this.isEnabled=true;
+    }
 
+
+  }
 
 }

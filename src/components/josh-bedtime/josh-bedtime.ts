@@ -21,16 +21,16 @@ export class JoshBedtimeComponent {
 
   constructor(public profileService: ProfileProvider, public navCtrl: NavController, public loadingCtrl: LoadingController,
     public storage: Storage, public userService: UserProvider) {
-    console.log('Hello JoshBedtimeComponent Component');    
-      
+    console.log('Hello JoshBedtimeComponent Component');
+
     //set initial values of bedtime & aweake times
     this.weeknightBedtime = '84';
     this.weeknightAwaketime = '20';
     this.weekendBedtime = '86';
     this.weekendAwaketime = '20';
-  
+
   }
-   
+
   createProfile() {
     // console.log('value of WeeknightBed Time', this.weeknightBedtime);
     // console.log('value of WeeknightAwake Time', this.weeknightAwaketime);
@@ -43,18 +43,18 @@ export class JoshBedtimeComponent {
 
     this.offtimes = [
       {
-        offtime: 'Weeknights', 
-        bedtime: this.weeknightBedtime, 
+        offtime: 'Weeknights',
+        bedtime: this.weeknightBedtime,
         awake:  this.weeknightAwaketime,
         enabled: this.isEnabled
       },
       {
-        offtime: 'Weekends', 
-        bedtime: this.weekendBedtime, 
+        offtime: 'Weekends',
+        bedtime: this.weekendBedtime,
         awake:  this.weekendAwaketime,
         enabled: this.isEnabled
       }
-    ];  
+    ];
     console.log('Value of Josh page', this.offtimes);
 
     this.profileService.createProfile(this.offtimes).then(res=>{
@@ -70,6 +70,15 @@ export class JoshBedtimeComponent {
       console.log('Josh-bedtimes: Error While Creating Profile ', error);
     });
   }
-   
-  
+  toggleBedTime(){
+      if(this.isEnabled){
+        this.isEnabled=false;
+      }
+      else{
+        this.isEnabled=true;
+      }
+
+
+  }
+
 }

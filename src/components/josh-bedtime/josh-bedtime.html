@@ -1,20 +1,23 @@
-<ion-item>
-  <ion-label>
-    Enable Bedtime
-  </ion-label>
-  <ion-toggle color="positive" [checked]="isEnabled" [(ngModel)]="isEnabled"></ion-toggle>
-</ion-item>
+<div class="list-box mb-2">
+  <div class="list-item">
+    <span class="list-item-title i-text-color">       Enable Bedtime</span>
+    <div class="sweet-check" [ngClass]="{'checked' : isEnabled}" (tap)="toggleBedTime()"  >
+      <input type="checkbox"  value="true" [checked]="isEnabled" [(ngModel)]="isEnabled">
+      <div class="outline">
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isEnabled" class="i-page white-bg">
 
 
-<div *ngIf="isEnabled" class="i-page">
 
-
-  <div class="form-divider"></div>
-  <div class="form-label-divider uppercase">
+  <h4 class="setInitialBedtime-heading font-smoothing-auto pt-8">
         <span>Weeknights
           </span>
-  </div>
-  <div class="form-divider "></div>
+  </h4>
 
 
      <ion-item>
@@ -219,13 +222,11 @@
         <ion-option value="19">4:45 AM </ion-option>
       </ion-select>
     </ion-item>
-
-  <div class="form-divider"></div>
-  <div class="form-label-divider uppercase">
+  <h4 class="setInitialBedtime-heading font-smoothing-auto pt-4">
         <span>Weekends
           </span>
-  </div>
-  <div class="form-divider m-0"></div>
+  </h4>
+
       <ion-item>
       <ion-label>Bedtime</ion-label>
       <ion-select [(ngModel)]="weekendBedtime">
@@ -429,6 +430,7 @@
       </ion-select>
     </ion-item>
 </div>
-<button class="waves-effect waves-light btn-large primary-color width-100" (tap)="createProfile()">
+
+<button class="waves-effect waves-light btn-large primary-color width-100 mt-6 " (tap)="createProfile()">
   Next
 </button>

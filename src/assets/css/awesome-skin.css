@@ -47,6 +47,14 @@ page-set-up-profile .toolbar-background {
     padding: 0;
     background: transparent; }
   .i-page .icon-f {
+    font-size: 27px;
+    color: #C5CFD9;
+    float: none;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .i-page .icon-x {
     font-size: 36px;
     color: #C5CFD9;
     float: none; }
@@ -72,7 +80,10 @@ page-set-up-profile .toolbar-background {
     color: #667F97; }
   .i-page em.seperate {
     height: 36px !important;
-    margin-left: 10px; }
+    margin-left: 10px;
+    width: 2px; }
+  .i-page .flex em.seperate {
+    width: 2px !important; }
   .i-page i.i-size {
     font-size: 35px;
     display: flex;
@@ -103,7 +114,15 @@ page-set-up-profile .toolbar-background {
   .i-page button.super-right-menu * {
     font-size: 30px; }
   .i-page .family .form-label-divider {
-    color: #667F97; }
+    color: #667F97;
+    font-family: Nunito;
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 400;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
   .i-page .family .i-img {
     display: inline-block;
     line-height: 28px;
@@ -122,9 +141,34 @@ page-set-up-profile .toolbar-background {
 .profile-page {
   margin-top: 50px; }
   .profile-page h1.product-view-title.txt-green {
-    font-size: 1.6rem; }
+    font-family: Nunito;
+    font-size: 21px;
+    font-weight: 700; }
 
 ion-app.md ion-content.p-t-30 {
   top: 30px; }
+
+h1.page-title.i-title {
+  text-transform: uppercase !important; }
+
+.white-bg {
+  background: white !important; }
+
+.font-smoothing-auto {
+  -webkit-font-smoothing: initial !important; }
+
+ion-label.label-md {
+  font-size: 14px;
+  color: black;
+  padding-left: 10px;
+  padding-bottom: 8px;
+  color: #9e9e9e !important;
+  -webkit-font-smoothing: initial; }
+
+button.btn-large {
+  -webkit-font-smoothing: initial; }
+
+.form-inputs h4 {
+  margin-bottom: 20px; }
 
 /*# sourceMappingURL=awesome-skin.css.map */

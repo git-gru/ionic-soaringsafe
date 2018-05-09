@@ -7,6 +7,7 @@
 </header>
 
 <ion-content padding>
+
   <div class="form-inputs i-page profile-page">
     <img [src]="profileInfo?.ImageURL" class="josh-img"/>
     <div class="josh-spacer"></div>
@@ -38,14 +39,19 @@
 
 
       <div class="list-box" >
-        <a (tap)="pauseInternet(profileInfo?.profileId)" class="list-item pointer flex">
+        <a (tap)="pauseInternet(profileInfo?.profileId)" class="list-item pointer flex item-center">
           <ion-icon name="pause" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
           <span *ngIf="isPaused == false" [(ngModel)]="isPaused" ngDefaultControl>Pause the Internet</span>
           <span *ngIf="isPaused == true" [(ngModel)]="isPaused" ngDefaultControl>Unpause</span>
-          <ion-note class="center-right-align " item-right [(ngModel)]="profileStatus" ngDefaultControl>{{profileStatus}}</ion-note>
+          <ion-note class="center-right-align " style="
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 14px;
+    max-width: 100%;
+" item-right [(ngModel)]="profileStatus" ngDefaultControl>{{profileStatus}}</ion-note>
       </span>
 
 

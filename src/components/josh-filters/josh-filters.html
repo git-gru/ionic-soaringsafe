@@ -1,11 +1,22 @@
-<ion-item>
-  <ion-label>
-    Show Filters
-  </ion-label>
-  <ion-toggle color="positive" [checked]="customize" [(ngModel)]="customize"></ion-toggle>
-</ion-item>
 
-<div *ngIf="customize" class="i-page  ">
+<div class="list-box">
+  <div class="list-item">
+    <span class="list-item-title i-text-color">    Show Filters </span>
+    <div class="sweet-check" [ngClass]="{'checked' : customize}" (tap)="toggleFilters()"  >
+      <input type="checkbox"  value="true" [checked]="customize" [(ngModel)]="customize">
+      <div class="outline">
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="customize" class="i-page  " style="
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0px 20px;
+" >
 
 
   <section class="filters">

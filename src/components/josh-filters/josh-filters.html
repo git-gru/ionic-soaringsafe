@@ -1,13 +1,15 @@
 
+
+
+
 <div class="list-box">
   <div class="list-item">
     <span class="list-item-title i-text-color">    Show Filters </span>
-    <div class="sweet-check" [ngClass]="{'checked' : customize}" (tap)="toggleFilters()"  >
-      <input type="checkbox"  value="true" [checked]="customize" [(ngModel)]="customize">
-      <div class="outline">
-        <span></span>
-      </div>
-    </div>
+
+    <ion-toggle class="toggle-ios toggle-jq"  ios [checked]="customize" [(ngModel)]="customize"></ion-toggle>
+
+
+
   </div>
 </div>
 

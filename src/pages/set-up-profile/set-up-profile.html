@@ -6,14 +6,14 @@
 </header>
 <ion-content padding>
   <div class="form-inputs i-page min-h-full white-bg">
-    <div class="spacer" style="margin-top: 20px"></div>
+    <div class="spacer" style="margin-top: 10px"></div>
     <h4 class="setUpProfile-heading" style="
-    margin-top: 10px;
+    margin-top:5px;
 ">
       How old is {{profileData && profileData.profileName}}?
     </h4>
     <div>
-      <ion-toolbar>
+      <ion-toolbar class="font-smoothing-auto">
         <ion-segment color="primary" [(ngModel)]="ageGroup" (ionChange)="onAgeChanged($event)">
           <ion-segment-button value="KID">
             12 or under

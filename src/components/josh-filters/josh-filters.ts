@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { FiltersProvider } from '../../providers/filters/filters';
 import { Storage } from '@ionic/storage';
-
+// import $ from "jquery";
+//var $=window.jQuery;
 @Component({
   selector: 'josh-filters',
   templateUrl: 'josh-filters.html'

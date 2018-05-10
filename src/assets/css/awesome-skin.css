@@ -72,7 +72,7 @@ page-set-up-profile .toolbar-background {
     text-align: right;
     line-height: 1 !important; }
   .i-page .i-normal-width {
-    max-width: 50%;
+    max-width: 40%;
     line-height: 1;
     display: flex;
     line-height: 1 !important;
@@ -176,5 +176,13 @@ button.btn-large {
   margin-top: 15px !important;
   line-height: 1.5em;
   margin-bottom: 15px !important; }
+
+.toggle-ios.toggle-checked .toggle-icon {
+  background: #2196F3 !important; }
+
+body ion-app.ios [padding] .scroll-content {
+  padding: 0px !important; }
+  body ion-app.ios [padding] .scroll-content .family {
+    padding-top: 10px; }
 
 /*# sourceMappingURL=awesome-skin.css.map */

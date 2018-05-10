@@ -98,7 +98,7 @@ page-set-up-profile .toolbar-background {
   }
   .i-normal-width{
 
-    max-width: 50%;
+    max-width: 40%;
     line-height: 1;
     display: flex;
     line-height: 1!important;
@@ -236,6 +236,10 @@ button.btn-large {
 }
 .toggle-ios.toggle-checked .toggle-icon { background:#2196F3 !important}
 
-ion-app.ios [padding] .scroll-content{
-  padding:0px!important;
+body ion-app.ios [padding] .scroll-content{
+  padding: 0px!important;
+  .family {
+    padding-top: 10px;
+  }
 }
+

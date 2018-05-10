@@ -1,14 +1,7 @@
 
-<header> <!-- extra class no-background -->
-  <h1 class="page-title i-title">
-    Welcome to SoaringSafe
-  </h1>
-
-</header>
-
 <ion-content padding>
 
-  <div class="i-page min-h-full" style="padding-top: 50px;">
+  <div class="i-page min-h-full" style="padding-top: 0px;">
     <ion-slides pager="true" class="slider-sliced">
       <ion-slide>
 
@@ -16,10 +9,10 @@
                 width="157" height="280"></iframe>
 
         <div class="slider-bottom-right valign-wrapper">
-          <div class="valign center-align width-100 p-b-5em" style="    padding-bottom: 9em!important;">
+          <div class="valign center-align width-100 p-b-5em" style="    padding-bottom: 6em!important;">
             <h2 class="uppercase">Watch</h2>
-            <p>this 90 second introductory video</p>
-            <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="nextSlide()">Next</button>
+            <p class="i-p">this 90 second introductory video</p>
+            <button ion-button outline class="primary-border-color" block  (tap)="nextSlide()" style="    margin-bottom: 10px;">Next</button>
             <button ion-button clear color="calm" block (tap)="exitWizard(0)">Skip</button>
           </div>
 
@@ -30,12 +23,12 @@
       <ion-slide>
         <br>
         <h2 class="">If you have an Apple device: Install this app on your device first.</h2>
-        <p class="">Then you will pair with the child device.</p>
+        <p class="i-p">Then you will pair with the child device.</p>
 
 
         <div class="slider-bottom-left valign-wrapper">
           <div class="valign center-align width-100 p-b-5em">
-            <h2 class="uppercase">Don't have an Apple device?</h2>
+            <h3 class="uppercase">Don't have an Apple device?</h3>
             <p>No problem, install this app on the child device and you can use the web to change.</p>
             <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="nextSlide()">Next</button>
             <button ion-button clear color="calm" block (tap)="exitWizard(1)">Skip</button>

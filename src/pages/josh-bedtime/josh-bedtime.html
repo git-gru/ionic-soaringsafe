@@ -14,12 +14,9 @@
     <div class="list-box mt-6 mb-2">
       <div class="list-item">
         <span class="list-item-title i-text-color">       Enable Bedtime</span>
-        <div class="sweet-check" [ngClass]="{'checked' : isEnabled}" (tap)="toggleBedTime()"  >
-          <input type="checkbox"  value="true" [checked]="isEnabled" [(ngModel)]="isEnabled">
-          <div class="outline">
-            <span></span>
-          </div>
-        </div>
+        <ion-toggle class="toggle-ios toggle-jq hidden"  ios [checked]="isEnabled" [(ngModel)]="isEnabled"></ion-toggle>
+
+
       </div>
     </div>
 

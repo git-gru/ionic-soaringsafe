@@ -5,7 +5,7 @@ import 'rxjs/add/operator/take';
 import { FiltersProvider } from '../../providers/filters/filters';
 import { ProfileProvider } from '../../providers/profile/profile';
 
-
+declare let jQuery:any;
 
 @IonicPage()
 @Component({
@@ -44,7 +44,16 @@ export class JoshFiltersPage {
     this.profileInfo = navParams.get('profileInfo');
     console.log('profileInfo in JoshFiltersPage contructor', this.profileInfo);
     this.profileId = this.profileInfo.profileId;
+     console.log('Safety And Security Array', this.safetySecurity);
+    var vtoggle= setInterval(()=>{
+      (<any>jQuery)('.toggle-jq').removeClass('toggle-md').removeClass('hidden').css({float:'right'});
 
+     },500);
+     setTimeout(()=>{
+
+       clearInterval(vtoggle);
+
+     },10000);
     this.getFilters();
   }
 

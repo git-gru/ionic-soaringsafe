@@ -4,6 +4,7 @@ import { DataProvider } from '../../providers/data/data';
 import { ProfileProvider } from '../../providers/profile/profile';
 import { UserProvider } from '../../providers/user/user';
 import { Storage } from '@ionic/storage';
+declare let jQuery:any;
 
 
 @IonicPage()
@@ -34,7 +35,15 @@ export class JoshBedtimePage {
       });
 
     this.profileId = navParams.get('profileId');
+    var vtoggle= setInterval(()=>{
+      (<any>jQuery)('.toggle-jq').removeClass('toggle-md').removeClass('hidden').css({float:'right'});
 
+    },500);
+    setTimeout(()=>{
+
+      clearInterval(vtoggle);
+
+    },10000);
     this.dataService.getBedtimes(this.profileId).subscribe(res=>{
       // console.log('Bedtimes ', res);
       res.forEach(result=>{

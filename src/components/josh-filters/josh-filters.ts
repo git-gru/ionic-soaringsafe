@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { FiltersProvider } from '../../providers/filters/filters';
 import { Storage } from '@ionic/storage';
-// import $ from "jquery";
-//var $=window.jQuery;
+declare let jQuery:any;
+
 @Component({
   selector: 'josh-filters',
   templateUrl: 'josh-filters.html'
@@ -31,7 +31,15 @@ export class JoshFiltersComponent {
     // console.log('default filters', this.defaultFilters);
 
     console.log('Safety And Security Array', this.safetySecurity);
+    var vtoggle= setInterval(()=>{
+      (<any>jQuery)('.toggle-jq').removeClass('toggle-md').removeClass('hidden').css({float:'right'});
 
+    },500);
+    setTimeout(()=>{
+
+      clearInterval(vtoggle);
+
+    },10000);
     //Get all the filters Data
     this.getFilters();
   }

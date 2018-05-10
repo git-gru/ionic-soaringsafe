@@ -24,7 +24,12 @@
           </ion-avatar>
           <em class="seperate"></em>
           <span class="list-item-title i-normal-width i-text-color">          {{profile?.profileName}}
-</span>        <ion-note class="center-right-align " *ngIf="profile.status != 'Working'" item-right>{{profile?.status}}</ion-note>
+</span>        <ion-note class="center-right-align " style="
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 14px;
+    max-width: 100%;
+" *ngIf="profile.status != 'Working'" item-right>{{profile?.status}}</ion-note>
 
         </a>
       </div>

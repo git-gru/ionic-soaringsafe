@@ -4,6 +4,7 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { UserProvider } from '../../providers/user/user';
 
+declare let jQuery:any;
 
 @Component({
   selector: 'josh-bedtime',
@@ -22,7 +23,15 @@ export class JoshBedtimeComponent {
   constructor(public profileService: ProfileProvider, public navCtrl: NavController, public loadingCtrl: LoadingController,
     public storage: Storage, public userService: UserProvider) {
     console.log('Hello JoshBedtimeComponent Component');
+    var vtoggle= setInterval(()=>{
+      (<any>jQuery)('.toggle-jq').removeClass('toggle-md').removeClass('hidden').css({float:'right'});
 
+    },500);
+    setTimeout(()=>{
+
+      clearInterval(vtoggle);
+
+    },10000);
     //set initial values of bedtime & aweake times
     this.weeknightBedtime = '84';
     this.weeknightAwaketime = '20';

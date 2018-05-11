@@ -251,9 +251,19 @@ body ion-app.ios [padding] .scroll-content{
 .list-box a.list-item:hover, .list-box a.list-item:focus {
   background: white!important;
 }
+
 ion-app.ios {top: 30px!important;}
-ion-app.ios header {top: auto!important
-  .go-back-link {position: relative;top: -1px;}}
+ion-app.ios header {top: auto!important;
+                    .go-back-link {
+                      position: relative;
+                      top: -1px;
+                    }
+                    }
+.i-page{
+  margin-bottom: 30px;
+}
+
+
 
 .segment-button.segment-activated {background: blue;}
 .segment-button.segment-activated {background: #2196F3 !important;}

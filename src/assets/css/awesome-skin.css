@@ -196,8 +196,13 @@ ion-app.ios {
 
 ion-app.ios header {
   top: auto !important; }
+  ion-app.ios header .go-back-link {
+    position: relative;
+    top: -1px; }
 
-header
+.i-page {
+  margin-bottom: 30px; }
+
 .segment-button.segment-activated {
   background: blue; }
 
@@ -213,6 +218,28 @@ header
   left: -20px;
   padding: 9px;
   height: auto; }
+
+.toolbar-background-ios {
+  background: transparent !important; }
+
+.segment-button.segment-activated {
+  background: #2196F3 !important;
+  color: white !important; }
+
+.container.activity.p-l-r-20 {
+  padding-left: 0px !important;
+  margin-left: 0px !important; }
+
+.i-page button.super-right-menu {
+  right: -40px !important; }
+
+.contact p, .contact p + span {
+  margin-left: 20px !important;
+  min-width: 100px !important;
+  display: block !important; }
+
+.activity .contact {
+  margin-bottom: 0px !important; }
 
 @media screen and (orientation: landscape) {
   ion-app.ios {

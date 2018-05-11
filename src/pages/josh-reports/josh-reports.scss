@@ -7,7 +7,7 @@ page-josh-reports {
 
     .joshReports-spacer-17 {
         width: 300px;
-        height: 17px; 
+        height: 17px;
     }
 
     .joshReports-spacer-29 {
@@ -17,4 +17,22 @@ page-josh-reports {
     .itemtop {
       align-items: flex-start !important;
     }
+  .container.activity.p-l-r-20 {
+    //padding-left: 0px!important;;
+    margin-left: 0px!important;;
+  }
+
+  .i-page button.super-right-menu {
+    right: -40px!important;;
+  }
+
+  .contact p,.contact p+span {
+    margin-left: 20px!important;;
+    min-width: 100px!important;;
+    display: block!important;;
+  }
+
+  .activity .contact {
+    margin-bottom: 0px!important;;
+  }
 }

@@ -235,10 +235,10 @@ button.btn-large {
   margin-bottom: 15px!Important;
 }
 .toggle-ios.toggle-checked .toggle-icon { background:#2196F3 !important}
-.scroll-content {
+page-signup-for-soaring-safe .scroll-content,page-login-to-soaring-safe .scroll-content {
   -webkit-overflow-scrolling: auto!important;
 }
- 
+
 
 
 body ion-app.ios [padding] .scroll-content{
@@ -248,3 +248,47 @@ body ion-app.ios [padding] .scroll-content{
   }
 }
 
+.list-box a.list-item:hover, .list-box a.list-item:focus {
+  background: white!important;
+}
+ion-app.ios {top: 30px!important;}
+ion-app.ios header {top: auto!important
+  .go-back-link {position: relative;top: -1px;}}
+
+.segment-button.segment-activated {background: blue;}
+.segment-button.segment-activated {background: #2196F3 !important;}
+.segment-ios-primary .segment-button {height: 44px!important;padding: 8px 0px;}
+.button-ios.supereme {position: relative;left: -20px;padding: 9px;height: auto;}
+.toolbar-background-ios {
+
+  background: transparent!important;
+}
+
+.segment-button.segment-activated {
+  background: #2196F3 !important;    color: white!important;
+
+}
+.container.activity.p-l-r-20 {
+  padding-left: 0px!important;;
+  margin-left: 0px!important;;
+}
+
+.i-page button.super-right-menu {
+  right: -40px!important;;
+}
+
+.contact p,.contact p+span {
+  margin-left: 20px!important;;
+  min-width: 100px!important;;
+  display: block!important;;
+}
+
+.activity .contact {
+  margin-bottom: 0px!important;;
+}
+@media screen and (orientation: landscape) {
+
+  ion-app.ios {top: 0px!important;}
+  ion-app.ios header {top: 0px!important;}
+
+}

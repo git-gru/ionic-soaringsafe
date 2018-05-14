@@ -192,7 +192,7 @@ body ion-app.ios [padding] .scroll-content {
   background: white !important; }
 
 ion-app.ios {
-  top: 30px !important; }
+  top: 20px !important; }
 
 ion-app.ios header {
   top: auto !important; }

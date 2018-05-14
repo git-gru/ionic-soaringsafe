@@ -32,16 +32,16 @@
     <div class="form-divider"></div>
 
     <div *ngIf="isGroupShown('ssinfo')">
-      <p class="i-p ">For more information about each setting, click the info icon (i) next to each setting.</p>
+      <p>For more information about each setting, click the info icon (i) next to each setting.</p>
       <div class="form-divider"></div>
 
     </div>
 
     <div class="list-box" *ngFor="let sns of safetySecurity; let i = index" >
-      <a (click)="toggleGroup(i)" class="list-item pointer flex">
+      <a class="list-item pointer flex">
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
-       <span>{{sns.displayName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+       <span (click)="toggleGroup(i)">{{sns.displayName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
 </span>
           <div class="center-right-align " item-right  >
             <button ion-button item-right [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">
@@ -87,7 +87,7 @@
   <section class="apps-websites">
 
     <div class="form-divider"></div>
-    <div class="form-label-divider uppercase" (click)="toggleGroup('appinfo')"><span>                  Apps and Websites<ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+    <div class="form-label-divider uppercase" (click)="toggleGroup('appinfo')"><span>                  Apps and Websites <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
 
 
           </span>
@@ -103,7 +103,7 @@
     </div>
 
     <div class="list-box" *ngFor="let appf of appFilters; let i = index" >
-      <a (click)="toggleGroup(i)" class="list-item pointer flex">
+      <a class="list-item pointer flex">
         <ion-avatar item-left class="i-img">
           <img [src]="appf.squareIcon"/>
         </ion-avatar>
@@ -111,7 +111,7 @@
 
         <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
-       <span>{{appf.appName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+       <span (click)="toggleGroup(i + 'app')">{{appf.appName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
 </span>
           <div class="center-right-align " item-right  >
            <button ion-button item-right class="supereme" [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">
@@ -122,6 +122,9 @@
 
 
       </a>
+      <div class="p-2" *ngIf="isGroupShown(i + 'app')">
+          <p>{{appf.appInfo}} </p>
+        </div>
     </div>
 
 
@@ -151,12 +154,12 @@
     </div>
 
     <div class="list-box"  *ngFor="let cat of categoryFilters; let i = index" >
-      <a (click)="toggleGroup(i + 'cat')" class="list-item pointer flex">
+      <a class="list-item pointer flex">
 
 
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
-       <span> {{cat.CategoryName}}         <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+       <span (click)="toggleGroup(i + 'cat')"> {{cat.CategoryName}}         <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
 </span>
           <div class="center-right-align " item-right  >
               <button ion-button item-right class="supereme" [ngStyle]="{'background-color': cat.buttonColor}"

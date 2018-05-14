@@ -1,16 +1,16 @@
 page-set-initial-filters {
   $black: #37474f;
 
-    .setInitialFilters-heading {
-        color: $black;
-    }
 
     .setInitialFilters-p {
-        color: $black;
-      font-size: 14px;
+        color: #76838f;
+      font-size: 18px;
     }
 
-
+.spacer {
+  width:350px;
+  height:10px;
+}
 
 
   .setInitialFilters-heading {
@@ -33,10 +33,10 @@ page-set-initial-filters {
 
   .setInitialFilters-heading{
     color: #37474f;
-    padding: 0;
-    margin: 0;
+    padding-top: 0;
+    margin-top: 0;
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.11em;
 
   }

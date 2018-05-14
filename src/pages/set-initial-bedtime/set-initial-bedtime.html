@@ -8,21 +8,20 @@
 <ion-content padding>
   <div class="form-inputs i-page min-h-full white-bg">
     <div class="setInitialBedtime-spacer"  style="margin-top: 40px"></div>
-    <h4 class="i-heading font-smoothing-auto" style="
+    <h4 class="font-smoothing-auto setInitialBedtime-heading" style="
     padding-top: 10px;
 ">
       Would you like to set a bedtime for {{profileData?.profileName}}?
     </h4>
 
     <div>
-      <p class="i-p">
+      <p>
         The internet will shut off at bedtime. You can always do this later.
-      </p>
-      <div (click)="toggleGroup('bedtimeinfo')">
-        <p><u>More information</u>
+        <span (click)="toggleGroup('bedtimeinfo')">
+          <u>More information</u>
           <ion-icon name="information-circle"></ion-icon>
-        </p>
-      </div>
+        </span>
+      </p>
       <div *ngIf="isGroupShown('bedtimeinfo')">
         <p>At bedtime the internet connection to the device will be shut off.</p>
         <p>This means that the user can still use non internet connected apps such as games. The ability to block non

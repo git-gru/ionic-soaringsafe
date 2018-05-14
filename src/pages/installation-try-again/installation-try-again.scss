@@ -1,12 +1,27 @@
 page-installation-try-again {
-    $black: #000000;
+    $black: #37474f;
 
     .installation-heading {
         color: $black;
+        font-size:22px;
+        padding-top:60px;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.11em;
     }
 
     .installation-spacer {
         width: 300px;
         height: 35px;
     }
+
+    p, ol {
+        font-family: 'Open Sans', sans-serif;
+        color: #76838f;
+        font-size: 18px;
+      }
+
+    .primary-border-color
+      {
+        height:55px;
+      }
 }

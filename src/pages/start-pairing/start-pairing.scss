@@ -1,12 +1,25 @@
 page-start-pairing {
-    $black: #000000;
+    $black: #37474f;
 
     .startPairing-heading {
         color: $black;
+        font-size:22px;
+        padding-top:30px;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.11em;
     }
 
     .startPairing-spacer {
         width: 300px;
         height: 5px;
     }
+
+    p {
+        font-family: 'Open Sans', sans-serif;
+        color: #76838f;
+        font-size: 18px;
+    
+      }
+    
 }
+

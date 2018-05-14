@@ -6,13 +6,13 @@
 
 </header>
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full" style="padding-top: 60px">
-    <h3 class="i-heading">We're sorry, let's try again</h3>
+  <div class="form-inputs i-page min-h-full white-bg">
+    <h3 class="installation-heading">We're sorry, let's try again</h3>
     <div>
-      <p class="i-p">
+      <p>
         Usually this means a problem during the installation. Let&#39;s first check for these things:
       </p>
-      <ol class="i-p">
+      <ol>
         <li>
           Is Safari enabled on {{deviceName}}?
         </li>
@@ -26,7 +26,7 @@
     </div>
     <div class="form-divider"></div>
     <div>
-      <p class="i-p">
+      <p>
         After checking these things, try the installation again. If pairing is still not working, please contact
         support.
       </p>
@@ -36,7 +36,7 @@
     </button>
     <div class="form-divider m-0"></div>
 
-    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="goToHelpAndSupport()">
+    <button ion-button outline class="primary-border-color" block (tap)="goToHelpAndSupport()">
       Contact Support
     </button>
   </div>

@@ -9,19 +9,19 @@
   <div class="form-inputs i-page min-h-full white-bg">
     <div class="spacer" style="margin-top: 50px"></div>
     <div *ngIf="isGroupShown(i)">
-      <h4 class="startPairing-heading i-heading pt-8">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h4>
-      <h3 class="i-p">Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h3>
+      <h4 class="startPairing-heading">{{profileData?.profileName}}'s profile is now set up. Let's pair a device with this profile.</h4>
+      <p>Choose a nickname for {{profileData?.profileName}}'s first device</p>
 
     </div>
     <div *ngIf="!isGroupShown(i)">
-      <h3 class="startPairing-heading i-heading pt-6">Choose a nickname for {{profileData?.profileName}}'s <span *ngIf="isGroupShown(i)">first </span>device</h3>
+      <h4 class="startPairing-heading">Choose a nickname for {{profileData?.profileName}}'s device</h4>
 
     </div>
 
 
     <ion-item>
       <ion-label floating class="i-p">
-        Device Nickname
+        Device Nickname (e.g {{profileData?.profileName}}'s iPhone)
       </ion-label>
       <ion-input type="text"  [(ngModel)]="deviceName"></ion-input>
     </ion-item>

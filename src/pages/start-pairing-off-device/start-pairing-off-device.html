@@ -8,27 +8,28 @@
 </header>
 <ion-content padding>
 
-  <div class="form-inputs i-page min-h-full" style="padding-top: 60px"><h3 class="i-heading">
-    Let's pair this profile with {{deviceName}}
-  </h3>
+  <div class="form-inputs i-page min-h-full white-bg">
+    <h3 class="startPairingOffDevice-heading">
+      Let's pair this profile with {{deviceName}}
+    </h3>
 
-    <p class="i-p"><strong>Step 1.</strong> Open the Internet (Safari) on {{deviceName}}, enter this personalized URL:</p>
+    <p><strong>Step 1.</strong> Open the Internet (Safari) on {{deviceName}}, enter this personalized URL:</p>
     <div text-center>
-      <p class="i-p">
+      <p>
         <strong>
           {{url}}
         </strong>
       </p>
     </div>
     <div>
-      <p class="i-p"><strong>Step 2.</strong> Watch this 60 second video and follow along:</p>
+      <p><strong>Step 2.</strong> Watch this 60 second video and follow along:</p>
     </div>
     <div class="startPairingOffDevice-video">
       <iframe src="https://www.youtube.com/embed/rCDZinU3Ia0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen
               width="315" height="560" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
     </div>
     <div class="startPairingOffDevice-spacer"></div>
-    <p class="i-p"><strong>Step 3.</strong> When done on {{deviceName}}, click this button to check pairing</p>
+    <p><strong>Step 3.</strong> When done on {{deviceName}}, click this button to check pairing</p>
 
     <button class="waves-effect waves-light btn-large primary-color width-100"   (tap)="goToInstallationCheck()">Next: Check Pairing</button>
   </div>

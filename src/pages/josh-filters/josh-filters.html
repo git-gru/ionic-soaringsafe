@@ -1,6 +1,8 @@
-
-<header class=""> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
+<header class="">
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
 
   <h1 class="page-title i-title">
     Apps and Filters
@@ -14,9 +16,11 @@
     <section class="filters">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span (click)="toggleGroup('ssinfo')">          Safety and Security  <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+      <div class="form-label-divider uppercase">
+        <span (click)="toggleGroup('ssinfo')"> Safety and Security
+          <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
 
-          </span>
+        </span>
       </div>
 
       <div class="form-divider"></div>
@@ -27,18 +31,19 @@
 
       </div>
 
-      <div class="list-box" *ngFor="let sns of safetySecurity; let i = index" >
+      <div class="list-box" *ngFor="let sns of safetySecurity; let i = index">
         <a (click)="toggleGroup(i)" class="list-item pointer flex">
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
-       <span>{{sns.displayName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
-</span>
-          <div class="center-right-align " item-right  >
-            <button ion-button item-right class="supereme" [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">
-            {{sns.status}}
-          </button>
-        </div>
-      </span>
+            <span>{{sns.displayName}}
+              <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+            </span>
+            <div class="center-right-align " item-right>
+              <button ion-button item-right class="supereme" [ngStyle]="{'background-color': sns.buttonColor}" (tap)="toggleSSFilters(i)">
+                {{sns.status}}
+              </button>
+            </div>
+          </span>
 
 
         </a>
@@ -50,21 +55,21 @@
 
 
 
-      <div class="list-box" >
+      <div class="list-box">
         <a (click)="toggleGroup('virus')" class="list-item pointer flex">
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
       ">
-       <span>          Block Viruses & Scams
-        <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
-</span>
-        <ion-note item-right>Always On</ion-note>
-      </span>
+            <span> Block Viruses & Scams
+              <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+            </span>
+            <ion-note item-right>Always On</ion-note>
+          </span>
 
 
         </a>
         <div *ngIf="isGroupShown('virus')">
-          <p>Over 1 Million Virus, Scam, and Phishing websites are always and automatically blocked to keep your device
-            safe. </p>
+          <p>Over 1 Million Virus, Scam, and Phishing websites are always and automatically blocked to keep your device safe.
+            </p>
         </div>
       </div>
 
@@ -77,38 +82,42 @@
     <section class="apps-websites">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase" (click)="toggleGroup('appinfo')"><span>                  Apps and Websites<ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+      <div class="form-label-divider uppercase" (click)="toggleGroup('appinfo')">
+        <span> Apps and Websites
+          <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
 
 
-          </span>
+        </span>
       </div>
       <div class="form-divider"></div>
       <div *ngIf="isGroupShown('appinfo')" class="i-p">
         <p>You can allow or block the internet connection for the top 100+ apps for teens here.</p>
-        <p>This won't block the app from installing, but it will block the app from connecting to the internet. Blocking games and other non-internet connected apps will be possible in a future release.</p>
-        <p>As new apps become popular, they are automatically added and you will be notified. By default new apps are BLOCKED or ALLOWED based on the profile age settings.</p>
+        <p>This won't block the app from installing, but it will block the app from connecting to the internet. Blocking games
+          and other non-internet connected apps will be possible in a future release.</p>
+        <p>As new apps become popular, they are automatically added and you will be notified. By default new apps are BLOCKED
+          or ALLOWED based on the profile age settings.</p>
         <p>In addition, you can block entire categories of apps using the category filters below.</p>
         <div class="form-divider"></div>
 
       </div>
 
-      <div class="list-box" *ngFor="let appf of appFilters; let i = index" >
+      <div class="list-box" *ngFor="let appf of appFilters; let i = index">
         <a (click)="toggleGroup(i)" class="list-item pointer flex">
           <ion-avatar item-left class="i-img">
-            <img [src]="appf.squareIcon"/>
+            <img [src]="appf.squareIcon" />
           </ion-avatar>
           <em class="seperate"></em>
 
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-">
-       <span>{{appf.appName}}            <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
-</span>
-          <div class="center-right-align " item-right  >
-           <button ion-button item-right class="supereme" [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">
-            {{appf.status}}
-          </button>
-          </div>
-      </span>
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;">
+            <span>{{appf.appName}}
+              <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+            </span>
+            <div class="center-right-align " item-right>
+              <button ion-button item-right class="supereme" [ngStyle]="{'background-color': appf.buttonColor}" (tap)="toggleAppFilters(i)">
+                {{appf.status}}
+              </button>
+            </div>
+          </span>
 
 
         </a>
@@ -125,11 +134,12 @@
     <section class="web-categories">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase" (click)="toggleGroup('catinfo')"><span>                         Website Categories
-<ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+      <div class="form-label-divider uppercase" (click)="toggleGroup('catinfo')">
+        <span> Website Categories
+          <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
 
 
-          </span>
+        </span>
       </div>
       <div class="form-divider"></div>
       <div *ngIf="isGroupShown('catinfo')" class="i-p">
@@ -140,21 +150,21 @@
 
       </div>
 
-      <div class="list-box"  *ngFor="let cat of categoryFilters; let i = index" >
+      <div class="list-box" *ngFor="let cat of categoryFilters; let i = index">
         <a (click)="toggleGroup(i + 'cat')" class="list-item pointer flex">
 
 
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
-       <span> {{cat.CategoryName}}         <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
-</span>
-          <div class="center-right-align " item-right  >
-              <button ion-button item-right class="supereme" [ngStyle]="{'background-color': cat.buttonColor}"
-                      (tap)="toggleCategoryFilters(i)">{{cat.status}}
-          </button>
+            <span> {{cat.CategoryName}}
+              <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
+            </span>
+            <div class="center-right-align " item-right>
+              <button ion-button item-right class="supereme" [ngStyle]="{'background-color': cat.buttonColor}" (tap)="toggleCategoryFilters(i)">{{cat.status}}
+              </button>
 
-          </div>
-      </span>
+            </div>
+          </span>
 
         </a>
         <div class="p-2" *ngIf="isGroupShown(i + 'cat')">
@@ -173,7 +183,8 @@
     <section class="custom-filter">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>        Custom Filters</span>
+      <div class="form-label-divider uppercase">
+        <span> Custom Filters</span>
       </div>
       <div class="form-divider"></div>
 
@@ -181,24 +192,24 @@
         Allows you to block (or allow) any website. These settings override any of the above settings.
       </p>
 
-      <div class="list-box"  *ngFor="let cf of customFilters; let i = index" >
+      <div class="list-box" *ngFor="let cf of customFilters; let i = index">
         <a (tap)="editCustomFilter(i)" class="list-item pointer flex">
           <ion-icon name="create" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
 
 
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-">
+          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;">
 
-          <span>            {{cf.url}}
+            <span> {{cf.url}}</span>
+          
+          
 
+            <div class="center-right-align " item-right>
+              <button ion-button item-right class="supereme" [ngStyle]="{'background-color': cf.buttonColor}" (tap)="toggleCustomFilters(i)">
+                {{cf.status}}
+              </button>
+            </div>
           </span>
-          <div class="center-right-align " item-right  >
-             <button ion-button item-right class="supereme"  [ngStyle]="{'background-color': cf.buttonColor}"  (tap)="toggleCustomFilters(i)">
-            {{cf.status}}
-          </button>
-          </div>
-      </span>
 
         </a>
 

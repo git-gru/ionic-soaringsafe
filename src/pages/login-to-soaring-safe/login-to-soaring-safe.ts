@@ -12,9 +12,18 @@ import { UserProvider } from '../../providers/user/user';
 export class LoginToSoaringSafePage {
 
   userValid: FormGroup;
+  email = '';
+  password = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadCtrl: LoadingController, 
     public userService: UserProvider) {
+      const tempEmail = navParams.get('email');
+      const tempPass = navParams.get('password');
+
+      if(tempEmail != undefined && tempPass != undefined) {
+        this.email = tempEmail;
+        this.password = tempPass;
+      }
   }
 
   ngOnInit() {

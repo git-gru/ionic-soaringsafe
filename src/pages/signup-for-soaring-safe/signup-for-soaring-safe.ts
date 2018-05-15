@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FormControl, Validators, FormBuilder, EmailValidator, FormGroup } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
@@ -15,9 +15,10 @@ export class SignupForSoaringSafePage implements OnInit {
   userValid: FormGroup;
   user = {} as User;
   userTimestamp: number; 
+  alert: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, public formBuilder: FormBuilder,
-    public toast: ToastController, public loadCtrl: LoadingController, public userService: UserProvider) {
+    public toast: ToastController, public loadCtrl: LoadingController, public userService: UserProvider, public alertCtrl: AlertController) {
       this.userTimestamp = this.userService.getUserTimestamp();
   }
 
@@ -41,7 +42,8 @@ export class SignupForSoaringSafePage implements OnInit {
     }
     //create a loader
     const loader = this.loadCtrl.create({
-      content: "Please wait"
+      content: "Please wait",
+      dismissOnPageChange: true
     });
     loader.present();
 
@@ -56,7 +58,34 @@ export class SignupForSoaringSafePage implements OnInit {
       }
     }).catch(error=> {
       console.log('Error While SigningUp user', error);
+      loader.dismiss();
+      this.emailAlreadyExist(this.user, error);
     });
+  }
+
+  emailAlreadyExist(user, emailExist) {
+    const email = this.user.email;
+    const password = this.user.password;
+
+    let alert = this.alertCtrl.create({
+      title: emailExist.code, 
+      message: emailExist.message,
+      buttons: [
+        {
+          text: 'Try With Another Email',
+          handler: data => {
+            this.navCtrl.push(this.navCtrl.getActive().component);
+          }
+        },
+        {
+          text: 'Login',
+          handler: data => {
+            this.navCtrl.setRoot('LoginToSoaringSafePage',{email: email, password: password});
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   goToLoginToSoaringSafe() {
@@ -73,4 +102,5 @@ export class SignupForSoaringSafePage implements OnInit {
       console.log('Errors', error);
     });
   }
+  
 }

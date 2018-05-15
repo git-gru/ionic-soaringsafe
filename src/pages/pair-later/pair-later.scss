@@ -1,7 +1,17 @@
 page-pair-later {
-    $black: #000000;
+    $black: #37474f;
 
-    .pairLater-p {
+    .pairLater-heading {
         color: $black;
+        font-size:22px;
+        padding-top:90px;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.11em;
     }
+
+    p, ol {
+        font-family: 'Open Sans', sans-serif;
+        color: #76838f;
+        font-size: 18px;
+      }
 }

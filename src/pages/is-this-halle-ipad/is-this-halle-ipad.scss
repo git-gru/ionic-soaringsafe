@@ -1,7 +1,23 @@
 page-is-this-halle-ipad {
-    $black: #000000;
+    $black: #37474f;
 
     .isTheHalleIpad-heading {
         color: $black;
+        font-size:22px;
+        padding-top:65px;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.11em;
     }
+    
+    .lower-spacer {
+        width:350px;
+        height:20px;
+    }
+
+    p {
+        font-family: 'Open Sans', sans-serif;
+        color: #76838f;
+        font-size: 18px;
+    
+      }
 }

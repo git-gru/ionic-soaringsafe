@@ -85,6 +85,7 @@ export class JoshPage {
     }
     const toast = this.toastCtrl.create({
       duration: 2000,
+      position: "top",
       message: msg
     });
     toast.present();

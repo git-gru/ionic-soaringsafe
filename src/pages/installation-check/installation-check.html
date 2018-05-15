@@ -9,20 +9,20 @@
 
 <ion-content padding>
 
-  <div class="form-inputs i-page min-h-full white-bg" style="padding-top: 60px">
-    <h3 class="i-heading"></h3>
+  <div class="form-inputs i-page min-h-full white-bg">
+    <h3 class="installationCheck-heading">Let's check the installation</h3>
     <div>
-      <p class="i-p">
+      <p>
         Click the home button on {{deviceName}}. Then Look in the very upper left of {{deviceName}}.
       </p>
-      <p class="i-p">
+      <p>
         Does it look like this? Do you see the VPN Symbol?
       </p>
       <div (click)="toggleGroup('iphonex')" >
-        <p class="i-p">If {{deviceName}} is an iPhone X, <u>click here</u></p>
+        <p class="subpar">If {{deviceName}} is an iPhone X, <u>click here</u></p>
       </div>
       <div *ngIf="isGroupShown('iphonex')">
-        <p class="i-p"><strong>If you have an iPhone X you may not see the VPN Icon. Instead, open Settings and look for this
+        <p><strong>If you have an iPhone X you may not see the VPN Icon. Instead, open Settings and look for this
           image</strong></p>
         <img src="assets/img/Pasted_Image_5_1_18__12_53_PM.png" class="installationCheck-img">
       </div>
@@ -30,7 +30,7 @@
     <img src="assets/img/S4rqQRTsSjWETlavXSQm_IMG_E3D5BE9CBED2-1.jpg" class="installationCheck-img">
     <div class="installationCheck-spacer"></div>
     <div text-center>
-      <p class="i-p">
+      <p>
         <strong>
           Do you see the VPN Symbol?
         </strong>

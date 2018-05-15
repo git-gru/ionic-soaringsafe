@@ -1,6 +1,13 @@
 page-installation-successful {
+    $black: #37474f;
+
+
     .installationSuccessful-heading {
-        color: #000000;
+        color: $black;
+        font-size:22px;
+        padding-top:60px;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.11em;
     }
     .installationSuccessful-spacer {
         width: 300px;
@@ -12,4 +19,10 @@ page-installation-successful {
         padding-bottom: 56.25%;
         height: 0; 
     }
+
+    p, ol {
+        font-family: 'Open Sans', sans-serif;
+        color: #76838f;
+        font-size: 18px;
+      }
 }

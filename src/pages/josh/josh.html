@@ -2,7 +2,7 @@
 
 <header> <!-- extra class no-background -->
   <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title uppercase">   {{profileInfo?.profileName}}</h1>
+  <h1 class="page-title i-title">   {{profileInfo?.profileName}}</h1>
 
 </header>
 
@@ -124,7 +124,7 @@
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
       ">
       <span>       More reports coming soon</span>
-      <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+      <!-- <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon> -->
       </span>
 
 
@@ -219,17 +219,9 @@
         </a>
       </div>
 
-
-
     </section>
 
-
-
-
-
-
-    <h3></h3>
-
+    <div class="josh-spacer-17"></div>
 
     <!-- <div>
       <h3>Recently Blocked</h3>
@@ -263,6 +255,7 @@
     <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToStartPairing(profileInfo?.profileId)">
       Add Device for {{profileInfo?.profileName}}
     </button>
+    <div class="josh-spacer-100"></div>
     <button ion-button clear color="calm" block>
       Delete Profile
     </button>

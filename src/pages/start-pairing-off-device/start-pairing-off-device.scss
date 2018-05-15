@@ -1,8 +1,12 @@
 page-start-pairing-off-device {
-    $black: #000000;
+    $black: #37474f;
 
     .startPairingOffDevice-heading {
         color: $black;
+        font-size:22px;
+        padding-top:60px;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.11em;
     }
 
     .startPairingOffDevice-spacer {
@@ -16,4 +20,10 @@ page-start-pairing-off-device {
         padding-bottom: 56.25%;
         height: 0;
     }
+
+    p, ol {
+        font-family: 'Open Sans', sans-serif;
+        color: #76838f;
+        font-size: 17px;
+      }
 }

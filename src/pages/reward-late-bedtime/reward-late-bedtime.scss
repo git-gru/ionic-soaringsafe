@@ -1,7 +1,11 @@
 page-reward-late-bedtime {
-    $black: #000000;
+    $black: #37474f;
 
     .rewardLateBedtime-heading {
         color: $black;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 22px;
+        line-height: 1.11em;
+        padding-top:50px;
     }
 }

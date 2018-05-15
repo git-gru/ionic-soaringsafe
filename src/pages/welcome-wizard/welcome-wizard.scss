@@ -1,3 +1,46 @@
 page-welcome-wizard {
+    p.i-p {
+        font-size:25px;
+    }
+
+    p {
+        font-family: 'Open Sans', sans-serif;
+        color: #76838f;
+        font-size: 18px;
+    
+    }
+
+    .white-font {
+        color:white;
+    }
+
+    .jobs {
+        height:320px;
+        width:100%;
+        padding:0;
+        margin:0;
+    }
+
+    .overlay-container {
+        position: relative;
+        text-align: center;
+        color:white;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 20px;
+        right:16px;
+        width:80%;
+        color:white;
+    }
+
+    .overlay-2 {
+        position: absolute;
+        top: 40px;
+        left:10%;
+        width:80%;
+        color:white;
+    }
 
 }

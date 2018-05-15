@@ -29,7 +29,7 @@ export class AccountPage {
     goToLoginToSoaringSafe() {
         this.userService.logOut().then(res => {
             // Navigate to the LoginToSoaringSafePage
-            this.app.getRootNav().setRoot('LoginToSoaringSafePage');
+            this.app.getRootNav().setRoot('WelcomeWizardPage');
         });
     }
 }

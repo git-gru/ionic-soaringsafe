@@ -5,13 +5,13 @@
     <ion-slides pager="true" class="slider-sliced">
       <ion-slide>
 
-        <iframe  class="mobile-video" src="https://www.youtube.com/embed/e8jN4bZF5Zs?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen
+        <iframe  class="mobile-video" src="https://www.youtube.com/embed/hYMm93062KY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen
                 width="157" height="280"></iframe>
 
         <div class="slider-bottom-right valign-wrapper">
           <div class="valign center-align width-100 p-b-5em" style="    padding-bottom: 6em!important;">
-            <h2 class="uppercase">Watch</h2>
-            <p class="i-p">this 90 second introductory video</p>
+            <h2 class="uppercase">Press Play</h2>
+            <p>for a 90 second introductory video</p>
             <button ion-button outline class="primary-border-color" block  (tap)="nextSlide()" style="    margin-bottom: 10px;">Next</button>
             <button ion-button clear color="calm" block (tap)="exitWizard(0)">Skip</button>
           </div>
@@ -21,15 +21,15 @@
 
       </ion-slide>
       <ion-slide>
-        <br>
-        <h2 class="">If you have an Apple device: Install this app on your device first.</h2>
-        <p class="i-p">Then you will pair with the child device.</p>
-
+        <div class="overlay-container">
+          <img class="jobs" src="/assets/img/s-jobs.jpg"/>
+          <p class="overlay">"We limit how much technology our kids use at home"<br/>- Steve Jobs</p>
+        </div>
 
         <div class="slider-bottom-left valign-wrapper">
           <div class="valign center-align width-100 p-b-5em">
-            <h3 class="uppercase">Don't have an Apple device?</h3>
-            <p>No problem, install this app on the child device and you can use the web to change.</p>
+            <h3 class="uppercase">Love and Protect</h3>
+            <p>Turn on and off apps, block 25 Million violent and porn websites, set a bedtime. Works on Wifi and cell.</p>
             <button ion-button outline class="primary-border-color" block  style="margin-bottom: 10px"  (tap)="nextSlide()">Next</button>
             <button ion-button clear color="calm" block (tap)="exitWizard(1)">Skip</button>
           </div>
@@ -39,16 +39,19 @@
 
       </ion-slide>
       <ion-slide>
-
-        <br>
-
+        <div class="overlay-container">
+          <img class="jobs" src="/assets/img/caleb-woods-275754-unsplash.jpg"/>
+          <p class="overlay-2">95% of young adults are glad their parents loved them enough to set limits</p>
+        </div>
+      
+        
 
         <div class="slider-bottom-right valign-wrapper">
           <div class="valign center-align width-100 p-b-5em" style="
-    padding-bottom: 10.2em!important;
+    padding-bottom: 9.2em!important;
 ">
-            <h2 class="uppercase">Slide 3</h2>
-            <p>If you have an Apple device: Install this app on your device first.</p>
+            <h2 class="uppercase">You are doing a good thing</h2>
+            <p>If you have an Apple device, install this app on your device first.</p>
             <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="nextSlide()">Get Started</button>
 
           </div>

@@ -28,7 +28,7 @@ export class MyApp {
           //this.rootPage = 'TabsControllerPage';
           this.rootPage = 'FamilyPage';
         } else {
-          this.rootPage = 'LoginToSoaringSafePage'
+          this.rootPage = 'WelcomeWizardPage'
         }
       });
     });

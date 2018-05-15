@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -9,6 +9,8 @@ import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angul
 })
 export class AddCustomFilterPage {
   // state: string = '';
+  urlValidate: FormGroup;
+
   customFilter = {
     status: 'BLOCKED',  //Make Blocked the default for a new custom filter
     url: ''
@@ -25,12 +27,21 @@ export class AddCustomFilterPage {
       this.customFilter.url = JSON.parse(JSON.stringify(temp)).url;
     }
   }
+
+  ngOnInit() {
+    let urlPattern = '(?:(?:(?:ht|f)tp)s?://)?[\\w_-]+(?:\\.[\\w_-]+)+([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?';
+    this.urlValidate = new FormGroup({
+      url: new FormControl('', [Validators.required, Validators.pattern(urlPattern)])      
+    });
+  }
+
   addCustomFilter() {
+        
     console.log('Selected Acess Value ', this.customFilter);
     this.viewCtrl.dismiss(this.customFilter);
   }
 
   cancelFilter() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss(this.customFilter);
   }
 }

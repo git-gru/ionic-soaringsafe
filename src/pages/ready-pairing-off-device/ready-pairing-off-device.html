@@ -1,19 +1,17 @@
 <header>
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">          Ready Pairing - Off Device
-
-  </h1>
-
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title">Ready Pairing - Off Device</h1>
 </header>
+
 <ion-content padding>
   <div class="form-inputs i-page min-h-full white-bg">
     <h3 class="readyPairingOffDevice-heading">
-    Let's pair this profile with {{profileData?.profileName}}'s device ({{deviceName}})
-  </h3>
+      Let's pair this profile with {{profileData?.profileName}}'s device ({{deviceName}})
+    </h3>
     <div>
-      <p>
-        Things you will need:
-      </p>
+      <p>Things you will need:</p>
       <ol>
         <li>
           {{profileData?.profileName}}'s device ({{deviceName}}), unlocked
@@ -23,7 +21,9 @@
         </li>
       </ol>
     </div>
+
     <div class="form-divider"></div>
+
     <div>
       <p>
         <strong>
@@ -31,9 +31,11 @@
         </strong>
       </p>
     </div>
+
     <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToStartPairingOffDevice()">
       Yes, start pairing
     </button>
+
     <div class="form-divider m-0"></div>
 
     <button ion-button outline class="primary-border-color" block (tap)="goToPairLater()">

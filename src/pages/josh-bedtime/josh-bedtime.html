@@ -1,42 +1,33 @@
-
-
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">             {{profileName}}'s Bedtime
-
-  </h1>
-
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title">{{profileName}}'s Bedtime</h1>
 </header>
 <ion-content padding>
   <div class="form-inputs i-page min-h-full white-bg" style="padding-top: 50px">
 
     <div class="list-box mt-6 mb-2">
       <div class="list-item">
-        <span class="list-item-title i-text-color">       Enable Bedtime</span>
-        <ion-toggle class="toggle-ios toggle-jq hidden"  ios [checked]="isEnabled" [(ngModel)]="isEnabled"></ion-toggle>
-
-
+        <span class="list-item-title i-text-color">Enable Bedtime</span>
+        <ion-toggle class="toggle-ios toggle-jq hidden" ios [checked]="isEnabled" [(ngModel)]="isEnabled"></ion-toggle>
       </div>
     </div>
-
 
     <div *ngIf="isEnabled">
       <div class="form-divider m-0"></div>
 
       <div text-center>
         <p class="i-p">
-          <strong>
-            Bedtime
-          </strong>
+          <strong>Bedtime</strong>
           shuts off all Internet access at bedtime
         </p>
       </div>
       <h4 class="i-heading uppercase">
-        <span>Weeknights
-          </span>
+        <span>Weeknights</span>
       </h4>
-        <div text-center>
+      <div text-center>
         <p class=" i-p ">
           Awake time applies to the day following the bedtime.
         </p>
@@ -245,8 +236,7 @@
       </ion-item>
 
       <h4 class="i-heading uppercase">
-        <span>Weekends
-          </span>
+        <span>Weekends</span>
       </h4>
       <div text-center>
         <p class="i-p">

@@ -79,7 +79,10 @@ page-signup-for-soaring-safe {
   }
 
   .font-smoothing-auto {
-    -webkit-font-smoothing: auto!important
+    -webkit-font-smoothing: auto!important;
+    color:#76838f;
+    display: block;
+    padding-bottom: 3px;
   }
 
   ion-label.label-md {
@@ -92,6 +95,9 @@ page-signup-for-soaring-safe {
     padding-bottom: 0px;
     margin-bottom: -1px;
 
+  }
+  .sf-login-button {
+    padding-bottom: 3px;
   }
 
 }

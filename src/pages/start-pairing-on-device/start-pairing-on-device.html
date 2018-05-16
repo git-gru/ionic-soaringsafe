@@ -1,41 +1,47 @@
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">           Start Pairing - On Device
-
-  </h1>
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title">Start Pairing - On Device</h1>
 </header>
+
 <ion-content padding>
   <div class="form-inputs i-page min-h-full white-bg">
-
-  <h3 class="startPairingOnDevice-heading">
+    <h3 class="startPairingOnDevice-heading">
       Watch this 60 second walkthrough of the simple pairing process
-  </h3>
-  <!-- <div>
+    </h3>
+    <!-- <div>
     <p>
         The process will open the device settings to confirm that you want to have internet traffic filtered
     </p>
   </div> -->
-  <div class="startPairingOnDevice-video">
-    <iframe src="https://www.youtube.com/embed/rCDZinU3Ia0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560" height="315" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-  </div>
+    <div class="startPairingOnDevice-video">
+      <iframe src="https://www.youtube.com/embed/rCDZinU3Ia0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560"
+        height="315" class="spod-iframe"></iframe>
+    </div>
+
     <div class="form-divider"></div>
-  <div>
-    <p>
-      After watching the video, click start pairing below.
-      <strong>
-        If you have Safari disabled on this device, you will need to first temporarily enable safari.
-      </strong>
-    </p>
-  </div>
-  <button class="waves-effect waves-light btn-large  width-100"  [ngStyle]="{'background-color': pairColor}"  (tap)='startPairing()'>
-    <ion-icon name="navigate"></ion-icon>
-    {{buttonTxt}}
-  </button>
+
+    <div>
+      <p>
+        After watching the video, click start pairing below.
+        <strong>
+          If you have Safari disabled on this device, you will need to first temporarily enable safari.
+        </strong>
+      </p>
+    </div>
+
+    <button class="waves-effect waves-light btn-large  width-100" [ngStyle]="{'background-color': pairColor}" (tap)='startPairing()'>
+      <ion-icon name="navigate"></ion-icon>
+      {{buttonTxt}}
+    </button>
+
     <div class="form-divider m-0"></div>
 
-    <button class="waves-effect waves-light btn-large  width-100"  [ngStyle]="{'background-color': nextColor}"  (tap)="goToInstallationCheck()">
-    Next: Check if Pairing Successful
-  </button>
+    <button class="waves-effect waves-light btn-large  width-100" [ngStyle]="{'background-color': nextColor}" (tap)="goToInstallationCheck()">
+      Next: Check if Pairing Successful
+    </button>
   </div>
+
 </ion-content>

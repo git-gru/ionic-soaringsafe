@@ -1,9 +1,7 @@
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" style="white-space: nowrap;width: auto;padding-left: 10px" (tap)="cancelFilter()" >Cancel</a>
-  <h1 class="page-title i-title">                {{title}} Custom Filter
-
-  </h1>
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link acf-cancel-btn" (tap)="cancelFilter()">Cancel</a>
+  <h1 class="page-title i-title">{{title}} Custom Filter</h1>
 </header>
 
 
@@ -23,7 +21,7 @@
       </ion-toolbar>
     </div>
     <div class="custom-filter-spacer-11"></div>
-    
+
     <form novalidate [formGroup]="urlValidate">
       <ion-item>
         <ion-label stacked>
@@ -31,24 +29,24 @@
         </ion-label>
         <ion-input type="text" placeholder="eg google.com" formControlName="url" [(ngModel)]="customFilter.url"></ion-input>
       </ion-item>
-      
+
       <!-- Start of URL Validation -->
       <div class="urlForSoaringSafe-error" no-lines *ngIf="( urlValidate.get('url').hasError('minlength') || urlValidate.get('url').hasError('pattern') ||urlValidate.get('url').hasError('required') ) && urlValidate.get('url').touched">
-          Enter Correct URL  
+        Enter Correct URL
       </div>
       <!-- End of URL Validation -->
-      
+
       <div class="form-divider"></div>
 
       <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="addCustomFilter()" *ngIf="urlValidate.valid">Save</button>
       <button class="waves-effect waves-light btn-large primary-color width-100" *ngIf="urlValidate.invalid">Save</button>
-      
+
       <div class="form-divider"></div>
     </form>
 
     <button ion-button outline class="primary-border-color" block (tap)="cancelFilter()">
       {{cancelOrDelete}}
     </button>
-    
+
   </div>
 </ion-content>

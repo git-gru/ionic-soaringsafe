@@ -1,8 +1,6 @@
 page-set-up-profile {
   $black: #37474f;
 
-
-
     .setUpProfile-heading{
         color: #37474f;
       padding-top: 20px;
@@ -30,8 +28,6 @@ page-set-up-profile {
     .toolbar-background {
         background: white;
     }
-
-
 
   .pickChildAvatar-heading {
     color: $black;
@@ -84,6 +80,12 @@ page-set-up-profile {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16); font-family: Nunito;
   }
 
+  .sup-m {
+    margin-top: 10px
+  }
 
+  .sup-heading-m {
+    margin-top:5px;
+  }
 
 }

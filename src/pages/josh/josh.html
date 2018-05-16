@@ -1,133 +1,107 @@
-
-
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">   {{profileInfo?.profileName}}</h1>
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title"> {{profileInfo?.profileName}}</h1>
 </header>
 
 <ion-content padding>
-
   <div class="form-inputs i-page profile-page">
-    <img [src]="profileInfo?.ImageURL" class="josh-img"/>
+    <img [src]="profileInfo?.ImageURL" class="josh-img" />
+
     <div class="josh-spacer"></div>
 
-    <h1 class="product-view-title txt-green"> {{profileInfo?.profileName}}</h1>
+    <h1 class="product-view-title txt-green">
+      {{profileInfo?.profileName}}
+    </h1>
+
     <div text-center>
       <p class="josh-p i-p">
-        <strong>
-          2821
-        </strong>
+        <strong>2821</strong>
         sites scanned today
       </p>
       <p *ngIf="noDevicePaired" class="josh-p i-p">
-        <ion-icon name="warning" style="color:red"></ion-icon>
+        <ion-icon name="warning" class="josh-color"></ion-icon>
         <strong>
-          You must first pair a device to this profile so your settings can take effect and you can see reports. Click
-          the "Devices" menu below.
+          You must first pair a device to this profile so your settings can take effect and you can see reports. Click the "Devices"
+          menu below.
         </strong>
-
       </p>
     </div>
+
     <section class="profile-action">
-
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>    Actions
-          </span>
+
+      <div class="form-label-divider uppercase">
+        <span>Actions</span>
       </div>
+
       <div class="form-divider"></div>
 
-
-      <div class="list-box" >
+      <div class="list-box">
         <a (tap)="pauseInternet(profileInfo?.profileId)" class="list-item pointer flex item-center">
           <ion-icon name="pause" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-">
-          <span *ngIf="isPaused == false" [(ngModel)]="isPaused" ngDefaultControl>Pause the Internet</span>
-          <span *ngIf="isPaused == true" [(ngModel)]="isPaused" ngDefaultControl>Unpause</span>
-          <ion-note class="center-right-align " style="
-    font-weight: bold;
-    white-space: nowrap;
-    font-size: 14px;
-    max-width: 100%;
-" item-right [(ngModel)]="profileStatus" ngDefaultControl>{{profileStatus}}</ion-note>
-      </span>
-
-
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span *ngIf="isPaused == false" [(ngModel)]="isPaused" ngDefaultControl>Pause the Internet</span>
+            <span *ngIf="isPaused == true" [(ngModel)]="isPaused" ngDefaultControl>Unpause</span>
+            <ion-note class="center-right-align josh-note" item-right [(ngModel)]="profileStatus" ngDefaultControl>{{profileStatus}}</ion-note>
+          </span>
         </a>
       </div>
 
-
-      <div class="list-box" >
-      <a (tap)="goToLateBedtime()" class="list-item pointer flex">
-      <ion-icon name="flag" class="icon-f" item-left></ion-icon>
-      <em class="seperate"></em>
-      <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>        Extend Bedtime Tonight</span>
-      <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
-      </a>
+      <div class="list-box">
+        <a (tap)="goToLateBedtime()" class="list-item pointer flex">
+          <ion-icon name="flag" class="icon-f" item-left></ion-icon>
+          <em class="seperate"></em>
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>Extend Bedtime Tonight</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
+        </a>
       </div>
 
-      <div class="list-box" >
+      <div class="list-box">
         <a (tap)="goToJoshOfftime()" class="list-item pointer flex">
           <ion-icon name="eye-off" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>       No offtime today</span>
-      <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>No offtime today</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
         </a>
       </div>
-
-
-
     </section>
-
 
     <!-- REPORTS-->
     <section class="profile-reports">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>    Reports
-          </span>
+      <div class="form-label-divider uppercase">
+        <span>Reports</span>
       </div>
       <div class="form-divider"></div>
 
-      <div class="list-box" >
+      <div class="list-box">
         <a (tap)="goToJoshReports(profileInfo?.profileId)" class="list-item pointer flex">
           <ion-icon name="speedometer" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-">
-         <span>
-            Recently Visited / Blocked
-         </span>
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>Recently Visited / Blocked</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
         </a>
       </div>
 
-      <div class="list-box" >
-        <a  class="list-item pointer flex">
+      <div class="list-box">
+        <a class="list-item pointer flex">
           <ion-icon name="add" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>       More reports coming soon</span>
-      <!-- <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon> -->
-      </span>
-
-
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>More reports coming soon</span>
+            <!-- <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon> -->
+          </span>
         </a>
       </div>
     </section>
@@ -136,89 +110,67 @@
     <section class="profile-settings">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>    Settings
-          </span>
+
+      <div class="form-label-divider uppercase">
+        <span>Settings</span>
       </div>
+
       <div class="form-divider"></div>
 
-      <div class="list-box" >
+      <div class="list-box">
         <a (tap)="goToJoshDevices(profileInfo?.profileId)" class="list-item pointer flex">
           <ion-icon name="phone-portrait" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-">
-         <span>
-          Devices
-         </span>
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>Devices</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
         </a>
       </div>
-      <div class="list-box" >
+
+      <div class="list-box">
         <a (tap)="goToJoshFilters(profileInfo?.profileId)" class="list-item pointer flex">
           <ion-icon name="cog" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-">
-         <span>
-                  Apps and Filters
-
-         </span>
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
-        </a>
-      </div>
-      <div class="list-box" >
-      <a (tap)="goToJoshBedtime(profileInfo?.profileId)" class="list-item pointer flex">
-      <ion-icon name="flag" class="icon-f" item-left></ion-icon>
-      <em class="seperate"></em>
-      <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>
-      Bedtime
-      </span>
-      <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
-        </a>
-      </div>
-      <div class="list-box" >
-      <a (tap)="goToJoshOfftime(profileInfo?.profileId)" class="list-item pointer flex">
-      <ion-icon name="eye-off" class="icon-f" item-left></ion-icon>
-      <em class="seperate"></em>
-      <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>
-      Offtime
-      </span>
-      <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
-        </a>
-      </div>
-      <div class="list-box" >
-      <a (tap)="goToJoshTimeLimits(profileInfo?.profileId)" class="list-item pointer flex">
-      <ion-icon name="clock" class="icon-f" item-left></ion-icon>
-      <em class="seperate"></em>
-      <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>
-              Time Limits
-
-      </span>
-      <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>Apps and Filters</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
         </a>
       </div>
 
+      <div class="list-box">
+        <a (tap)="goToJoshBedtime(profileInfo?.profileId)" class="list-item pointer flex">
+          <ion-icon name="flag" class="icon-f" item-left></ion-icon>
+          <em class="seperate"></em>
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>Bedtime</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
+        </a>
+      </div>
+
+      <div class="list-box">
+        <a (tap)="goToJoshOfftime(profileInfo?.profileId)" class="list-item pointer flex">
+          <ion-icon name="eye-off" class="icon-f" item-left></ion-icon>
+          <em class="seperate"></em>
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>Offtime</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
+        </a>
+      </div>
+
+      <div class="list-box">
+        <a (tap)="goToJoshTimeLimits(profileInfo?.profileId)" class="list-item pointer flex">
+          <ion-icon name="clock" class="icon-f" item-left></ion-icon>
+          <em class="seperate"></em>
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-width">
+            <span>Time Limits</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
+        </a>
+      </div>
     </section>
 
     <div class="josh-spacer-17"></div>
@@ -255,15 +207,19 @@
     <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToStartPairing(profileInfo?.profileId)">
       Add Device for {{profileInfo?.profileName}}
     </button>
+
     <div class="josh-spacer-100"></div>
+
     <button ion-button clear color="calm" block>
       Delete Profile
     </button>
     <br/>
     <br/>
-    <div style="color:grey" text-center (click)="toggleGroup('debug')">
+
+    <div class="josh-color-gray" text-center (click)="toggleGroup('debug')">
       &lt;.&gt;
     </div>
+
     <div *ngIf="isGroupShown('debug')">
       <ul>
         <li ng-repeat="(key, value) in profileInfo">
@@ -272,4 +228,5 @@
       </ul>
     </div>
   </div>
+
 </ion-content>

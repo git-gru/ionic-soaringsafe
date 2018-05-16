@@ -25,4 +25,20 @@ page-josh {
     .josh-p {
         color: $black;
     }
+    .josh-color {
+        color:red;
+    }
+    .josh-width {
+        width:100% !important;    
+        max-width: 100% !important;
+    }
+    .josh-note {
+        font-weight: bold;
+        white-space: nowrap;
+        font-size: 14px;
+        max-width: 100%;
+    }
+    .josh-color-gray {
+        color:grey;
+    }
 }

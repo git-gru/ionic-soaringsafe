@@ -1,147 +1,129 @@
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">             {{profileName}}'s Offtimes
-  </h1>
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title">{{profileName}}'s Offtimes</h1>
 </header>
+
 <ion-content padding>
   <div class="form-inputs i-page min-h-full">
-    <div text-center style="margin-top:50px">
+    <div text-center class="jo-m">
       <p class="i-p font-bold">
-        Lets you set additional times when the internet is shut off. For example, during school classes or homework
-        time.
+        Lets you set additional times when the internet is shut off. For example, during school classes or homework time.
       </p>
     </div>
-    <button class="waves-effect waves-light btn-large primary-color width-100"  (tap)="goToAddOfftime()">
+
+    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToAddOfftime()">
       Add Offtime
     </button>
 
     <div class="form-divider"></div>
     <div class="form-label-divider uppercase">
-      <span>   Offtimes
-          </span>
+      <span>Offtimes</span>
     </div>
+
     <div class="form-divider"></div>
 
-
-
-    <section class="offtimes-section" style="margin-top: 0px">
-
-
-      <div class="list-box" >
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Name</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-        </span>
-        </span>
-        </a>
-
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Enabled</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-           <ion-toggle color="calm" checked="true"></ion-toggle>
-
-        </span>
-        </span>
-        </a>
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Days</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-        </span>
-        </span>
-        </a>
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Offtime</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-        </span>
-        </span>
-        </a>
-        <a class="list-item pointer flex" (tap)="goToAddOfftime()" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>         Edit This Offtime</span>
-        <span class="center-right-align">
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-        </span>
-        </span>
-        </a>
-
-
-
-      </div>
-      <div class="form-divider"></div>
-      <div class="form-label-divider uppercase">
-      <span>
+    <section class="offtimes-section josh-offtime-m">
+      <div class="list-box">
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Name</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+            </span>
           </span>
+        </a>
+
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Enabled</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+              <ion-toggle color="calm" checked="true"></ion-toggle>
+            </span>
+          </span>
+        </a>
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Days</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+            </span>
+          </span>
+        </a>
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Offtime</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+            </span>
+          </span>
+        </a>
+        <a class="list-item pointer flex" (tap)="goToAddOfftime()">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Edit This Offtime</span>
+            <span class="center-right-align">
+              <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+            </span>
+          </span>
+        </a>
       </div>
+
       <div class="form-divider"></div>
 
-      <div class="list-box" >
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Name</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-        </span>
-        </span>
-        </a>
-
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Enabled</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-           <ion-toggle color="calm" checked="true"></ion-toggle>
-
-        </span>
-        </span>
-        </a>
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Days</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-        </span>
-        </span>
-        </a>
-        <a class="list-item pointer flex" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        Offtime</span>
-        <span class="center-right-align">
-           <ion-note item-right></ion-note>
-        </span>
-        </span>
-        </a>
-        <a class="list-item pointer flex" (tap)="goToAddOfftime()" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>         Edit This Offtime</span>
-        <span class="center-right-align">
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-        </span>
-        </span>
-        </a>
-
-
-
+      <div class="form-label-divider uppercase">
       </div>
 
+      <div class="form-divider"></div>
 
+      <div class="list-box">
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Name</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+            </span>
+          </span>
+        </a>
 
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Enabled</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+              <ion-toggle color="calm" checked="true"></ion-toggle>
 
+            </span>
+          </span>
+        </a>
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Days</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+            </span>
+          </span>
+        </a>
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Offtime</span>
+            <span class="center-right-align">
+              <ion-note item-right></ion-note>
+            </span>
+          </span>
+        </a>
+        <a class="list-item pointer flex" (tap)="goToAddOfftime()">
+          <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
+            <span>Edit This Offtime</span>
+            <span class="center-right-align">
+              <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+            </span>
+          </span>
+        </a>
+      </div>
     </section>
-
-
-
-
-
-
-
-
   </div>
+
 </ion-content>

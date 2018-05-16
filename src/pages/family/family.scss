@@ -2,4 +2,16 @@ page-family {
     .family {
         margin-top:15px;
     }
+    .family-note {
+        font-weight: bold !important;
+        white-space: nowrap !important;
+        font-size: 14px !important;
+        max-width: 100% !important;
+    }
+    .family-add-member {
+        max-width:100% !important;
+    }
+    .family-help-support {
+        white-space: nowrap;
+    }
 }

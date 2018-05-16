@@ -1,51 +1,41 @@
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">            {{profileName}} Devices
-
-  </h1>
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title">{{profileName}} Devices</h1>
 </header>
+
 <ion-content padding>
   <div class="form-inputs i-page min-h-full">
-    <section class="help-section-support" style="margin-top: 50px">
-
-
+    <section class="help-section-support jd-m">
       <div class="list-box" *ngFor="let device of devices" (tap)="goToJoshIPhone6(device)">
-        <a class="list-item pointer flex" >
+        <a class="list-item pointer flex">
           <ion-icon name="phone-portrait" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>
-
-
-        <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-        "><span>        {{device?.deviceName}}
-        </span>
-
-        <span class="center-right-align">
-           <ion-note item-right>{{device?.deviceStatus}}</ion-note>
-        <ion-icon name="checkmark-circle-outline" class="icon-f" style="font-size:20px;margin-left: 10px" item-right></ion-icon>
-        </span>
-
-        </span>
+          <span class="list-item-title i-normal-width i-text-color justify-between jd-width">
+            <span>
+              {{device?.deviceName}}
+            </span>
+            <span class="center-right-align">
+              <ion-note item-right>{{device?.deviceStatus}}</ion-note>
+              <ion-icon name="checkmark-circle-outline" class="icon-f jd-icon" item-right></ion-icon>
+            </span>
+          </span>
         </a>
       </div>
-
-
-
-
     </section>
 
-
     <div class="form-divider"></div>
-    <div class="form-label-divider uppercase"><span>
-          </span>
+
+    <div class="form-label-divider uppercase">
     </div>
+
     <div class="form-divider"></div>
 
     <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToStartPairing()">
       Add Device for {{profileName}}
     </button>
-
-
-
   </div>
+
 </ion-content>

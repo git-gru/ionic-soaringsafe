@@ -1,91 +1,78 @@
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">      Account
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title"> Account
   </h1>
 
 </header>
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full"><!-- REPORTS-->
-    <section class="account-section" style="margin-top: 30px">
+  <div class="form-inputs i-page min-h-full">
+    <!-- REPORTS-->
+    <section class="account-section ac-account-section">
+      <div class="form-divider"></div>
+
+      <div class="form-label-divider uppercase">
+        <span> Plan </span>
+      </div>
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>    Plan
+
+      <div class="list-box">
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between account-list-item">
+            <span> SoaringSafe Premium </span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
           </span>
+        </a>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <div class="form-label-divider uppercase">
+        <span>
+        </span>
       </div>
       <div class="form-divider"></div>
 
       <div class="list-box">
         <a class="list-item pointer flex">
-
-        <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-">
-         <span>
-           SoaringSafe Premium
-         </span>
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-
-
-        </a>
-      </div>
-      <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>
+          <span class="list-item-title i-normal-width i-text-color justify-between account-list-item">
+            <span> Account Owner </span>
+            <ion-note item-right>{{user.userName}}</ion-note>
+            <i class="fa fa-pencil i-size account-i-size" item-right></i>
           </span>
-      </div>
-      <div class="form-divider"></div>
-
-      <div class="list-box">
-        <a class="list-item pointer flex">
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>            Account Owner
-      </span>
-      <ion-note item-right>{{user.userName}}</ion-note>
-      <i class="fa fa-pencil i-size " style="font-size:20px;" item-right></i>
-
-
-      </span>
-
-
-        </a>
-      </div>
-      <div class="list-box">
-        <a class="list-item pointer flex">
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>            Email
-      </span>
-      <ion-note item-right>{{user.email}}</ion-note>
-      <i class="fa fa-pencil i-size " style="font-size:20px;" item-right></i>
-
-
-      </span>
-
-
-        </a>
-      </div>
-      <div class="list-box">
-        <a class="list-item pointer flex">
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>            Password
-      </span>
-      <ion-note item-right>change password</ion-note>
-      <i class="fa fa-pencil i-size " style="font-size:20px;" item-right></i>
-
-
-      </span>
-
-
         </a>
       </div>
 
+      <div class="list-box">
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between account-list-item">
+            <span> Email
+            </span>
+            <ion-note item-right>{{user.email}}</ion-note>
+            <i class="fa fa-pencil i-size account-i-size" item-right></i>
+          </span>
+        </a>
+      </div>
 
+      <div class="list-box">
+        <a class="list-item pointer flex">
+          <span class="list-item-title i-normal-width i-text-color justify-between account-list-item">
+            <span> Password
+            </span>
+            <ion-note item-right>change password</ion-note>
+            <i class="fa fa-pencil i-size account-i-size" item-right></i>
+          </span>
+        </a>
+      </div>
     </section>
 
     <div class="form-divider"></div>
-    <div class="form-label-divider uppercase"><span>
-          </span>
+    <div class="form-label-divider uppercase">
+      <span>
+      </span>
     </div>
     <div class="form-divider"></div>
 

@@ -4,13 +4,9 @@ page-set-initial-bedtime {
 
     .setInitialBedtime-heading {
       color: $black;
-
       font-family: 'Open Sans', sans-serif;
-
-
       font-size: 22px;
       line-height: 1.11em;
-
     }
 
     .setInitialBedtime-spacer {
@@ -32,5 +28,10 @@ page-set-initial-bedtime {
     color: #667F97;
   }
 
-
+  .sib-spacer-m {
+    margin-top: 40px;
+  }
+  .sib-heading-p {
+    padding-top: 10px;
+  }
 }

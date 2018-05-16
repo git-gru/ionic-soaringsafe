@@ -1,100 +1,80 @@
-
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">
-    {{profileInfo?.profileName}}'s Reports
-
-  </h1>
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title"> {{profileInfo?.profileName}}'s Reports</h1>
 </header>
+
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full" style="padding: 0px; padding-top: 60px">
+  <div class="form-inputs i-page min-h-full report-container">
     <div class="p-6">
-    <div text-center class="i-p">
-      <p class="i-p">
-        Scanned
-        <strong>
-          18283428
-        </strong> requests all time
-      </p>
-      <p class="i-p">
-        Blocked
-        <strong>
-          128832
-        </strong> requests all time
-      </p>
-      <p class="i-p">
-        Scanned
-        <strong>
-          238250
-        </strong> requests this week
-      </p>
-      <p class="i-p">
-        Blocked
-        <strong>
-          813
-        </strong> requests this week
-      </p>
-      <p class="i-p">
-        Scanned
-        <strong>
-          2323
-        </strong> requests today
-      </p>
-      <p class="i-p">
-        Blocked
-        <strong>
-          22
-        </strong> requests today
-      </p>
-    </div>
-
-    <p class="i-p">Block or Unblock any website by clicking the action button (...) next to the URL </p>
-    <p class="i-p">Get more information by clicking the (i) icon next to the URL</p>
-    </div>
-    <div class="p-2 animated bg-white fadeinup delay-1 min-h-full">
-
-      <div >
-      <ion-segment  class="tabs" (ionChange)="changeType()" [(ngModel)]="profilelog">
-        <ion-segment-button class="tab" value="allowed">
-          Visited
-        </ion-segment-button>
-        <ion-segment-button class="tab" value="blocked">
+      <div text-center class="i-p">
+        <p class="i-p">
+          Scanned
+          <strong>18283428 </strong>
+          requests all time
+        </p>
+        <p class="i-p">
           Blocked
-        </ion-segment-button>
-      </ion-segment>
+          <strong>128832</strong>
+          requests all time
+        </p>
+        <p class="i-p">
+          Scanned
+          <strong>238250</strong>
+          requests this week
+        </p>
+        <p class="i-p">
+          Blocked
+          <strong>813 </strong>
+          requests this week
+        </p>
+        <p class="i-p">
+          Scanned
+          <strong>2323</strong>
+          requests today
+        </p>
+        <p class="i-p">
+          Blocked
+          <strong>22</strong>
+          requests today
+        </p>
       </div>
 
-
-
-
-
+      <p class="i-p">Block or Unblock any website by clicking the action button (...) next to the URL </p>
+      <p class="i-p">Get more information by clicking the (i) icon next to the URL</p>
+    </div>
+    <div class="p-2 animated bg-white fadeinup delay-1 min-h-full">
+      <div>
+        <ion-segment class="tabs" (ionChange)="changeType()" [(ngModel)]="profilelog">
+          <ion-segment-button class="tab" value="allowed">
+            Visited
+          </ion-segment-button>
+          <ion-segment-button class="tab" value="blocked">
+            Blocked
+          </ion-segment-button>
+        </ion-segment>
+      </div>
       <div [ngSwitch]="profilelog">
         <ion-list *ngSwitchCase="'allowed'">
-
-
-
           <div class="container activity p-l-r-20">
             <div class="row m-l-0">
               <div class="col">
-
-                <div  *ngFor="let log of logReport;let i=index" class="contact"
-                      (click)="toggleGroup(i)">
+                <div *ngFor="let log of logReport;let i=index" class="contact" (click)="toggleGroup(i)">
                   <span class="date">{{log.time}}</span>
-                  <div class="dot z-depth-1">
-                  </div>
+                  <div class="dot z-depth-1"> </div>
                   <p class="text-black">
-                    {{log.domain}} <i class="ion-android-attach"></i>
+                    {{log.domain}}
+                    <i class="ion-android-attach"></i>
                   </p>
-                  <span >
-              Full URL: {{log.fqdn}}
-              </span>
+                  <span>
+                    Full URL: {{log.fqdn}}
+                  </span>
                   <button class="super-right-menu" (click)="openBlockedSheet(log)">
                     <ion-icon name="more"></ion-icon>
                   </button>
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -102,37 +82,29 @@
         </ion-list>
 
         <ion-list *ngSwitchCase="'blocked'">
-
-
           <div class="container activity p-l-r-20">
             <div class="row m-l-0">
               <div class="col">
-
-                <div  *ngFor="let log of logReport;let i=index" class="contact"
-                      (click)="toggleGroup(i)">
+                <div *ngFor="let log of logReport;let i=index" class="contact" (click)="toggleGroup(i)">
                   <span class="date">{{log.time}}</span>
-                  <div class="dot z-depth-1">
-                  </div>
+                  <div class="dot z-depth-1"> </div>
                   <p class="text-black">
-                    {{log.domain}} <i class="ion-android-attach"></i>
+                    {{log.domain}}
+                    <i class="ion-android-attach"></i>
                   </p>
-                  <span >
-              Full URL: {{log.fqdn}}
-              </span>
+                  <span>
+                    Full URL: {{log.fqdn}}
+                  </span>
                   <button class="super-right-menu" (click)="openBlockedSheet(log)">
                     <ion-icon name="more"></ion-icon>
                   </button>
                 </div>
-
-
               </div>
             </div>
           </div>
           <p ng-hide="logReport.length">Nothing here!</p>
         </ion-list>
       </div>
-
-
     </div>
   </div>
 

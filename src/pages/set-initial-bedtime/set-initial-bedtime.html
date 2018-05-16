@@ -1,16 +1,17 @@
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title uppercase">      Set Initial Bedtime
-  </h1>
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title uppercase">Set Initial Bedtime</h1>
 </header>
 
 <ion-content padding>
   <div class="form-inputs i-page min-h-full white-bg">
-    <div class="setInitialBedtime-spacer"  style="margin-top: 40px"></div>
-    <h4 class="font-smoothing-auto setInitialBedtime-heading" style="
-    padding-top: 10px;
-">
+
+    <div class="setInitialBedtime-spacer sib-spacer-m"></div>
+
+    <h4 class="font-smoothing-auto setInitialBedtime-heading sib-heading-p">
       Would you like to set a bedtime for {{profileData?.profileName}}?
     </h4>
 
@@ -22,15 +23,19 @@
           <ion-icon name="information-circle"></ion-icon>
         </span>
       </p>
+
       <div *ngIf="isGroupShown('bedtimeinfo')">
         <p>At bedtime the internet connection to the device will be shut off.</p>
-        <p>This means that the user can still use non internet connected apps such as games. The ability to block non
-          internet apps and games is coming in a future release.</p>
-        <p>Note that for safety & emergency reasons, calls and texting cannot be blocked. If texting late at night is a
-          problem we recommend taking the device at night or placing it in a safe areay.</p>
+        <p>This means that the user can still use non internet connected apps such as games. The ability to block non internet
+          apps and games is coming in a future release.</p>
+        <p>Note that for safety & emergency reasons, calls and texting cannot be blocked. If texting late at night is a problem
+          we recommend taking the device at night or placing it in a safe areay.</p>
       </div>
     </div>
+
     <josh-bedtime></josh-bedtime>
+
     <div class="setInitialBedtime-spacer-15"></div>
   </div>
+
 </ion-content>

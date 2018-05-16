@@ -1,7 +1,6 @@
 page-set-initial-filters {
   $black: #37474f;
 
-
     .setInitialFilters-p {
         color: #76838f;
       font-size: 18px;
@@ -11,7 +10,6 @@ page-set-initial-filters {
   width:350px;
   height:10px;
 }
-
 
   .setInitialFilters-heading {
     color: $black;
@@ -49,5 +47,10 @@ page-set-initial-filters {
   }
 
 
-
+  .sif-m {
+    margin-top: 40px;
+  }
+  .sif-heading-p {
+    padding-top: 5px;
+  }
 }

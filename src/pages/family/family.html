@@ -1,78 +1,65 @@
-
-<header class=""> <!-- extra class no-background -->
-  <h1 class="page-title i-title">
-    SoaringSafe
-  </h1>
-
+<header class="">
+  <!-- extra class no-background -->
+  <h1 class="page-title i-title">SoaringSafe</h1>
 </header>
 
 <ion-content padding class="p-t-30 ">
   <div class="form-inputs i-page min-h-full">
-
     <section class="family">
-
       <div class="form-divider"></div>
-      <div class="form-label-divider"><span>    Family
-          </span>
+      <div class="form-label-divider">
+        <span>Family</span>
       </div>
+
       <div class="form-divider"></div>
 
       <div class="list-box" *ngFor="let profile of profiles">
         <a (tap)="goToJosh(profile)" class="list-item pointer">
           <ion-avatar item-left class="i-img">
-            <img [src]="profile?.ImageURL"/>
+            <img [src]="profile?.ImageURL" />
           </ion-avatar>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color">          {{profile?.profileName}}
-</span>        <ion-note class="center-right-align " style="
-    font-weight: bold;
-    white-space: nowrap;
-    font-size: 14px;
-    max-width: 100%;
-" *ngIf="profile.status != 'Working'" item-right>{{profile?.status}}</ion-note>
+          <span class="list-item-title i-normal-width i-text-color">{{profile?.profileName}}</span>
 
+          <ion-note class="center-right-align family-note" *ngIf="profile.status != 'Working'" item-right>
+            {{profile?.status}}
+          </ion-note>
         </a>
       </div>
-      <div class="list-box" >
+
+      <div class="list-box">
         <a (tap)="goToCreateChildProfile()" class="list-item pointer">
           <i class="fa fa-plus i-size"></i>
           <em class="seperate"></em>
-          <span class="list-item-title i-normal-width i-text-color" style="max-width:100%;">             Add family member...
+          <span class="list-item-title i-normal-width i-text-color family-add-member">
+            Add family member...
+          </span>
+        </a>
+      </div>
+    </section>
 
-</span>
+    <div class="form-divider"></div>
 
+    <div class="form-label-divider"></div>
+
+    <div class="form-divider"></div>
+
+    <section class="family row">
+
+      <div class="list-box half-box" (tap)="goToAccount()">
+        <a class="list-item">
+          <ion-icon name="paper" class="icon-x" item-left></ion-icon>
+          <span class="list-item-title i-text-color">Account</span>
         </a>
       </div>
 
-
-
+      <div class="list-box half-box" (tap)="goToHelp()">
+        <a class="list-item i-text-color">
+          <ion-icon name="help-buoy" class="icon-x" item-left></ion-icon>
+          <span class="list-item-title family-help-support">Help and Support</span>
+        </a>
+      </div>
     </section>
-    <div class="form-divider"></div>
-    <div class="form-label-divider"><span>
-          </span>
-    </div>
-    <div class="form-divider"></div>
-
-
-
-  <section class="family row">
-
-    <div class="list-box half-box" (tap)="goToAccount()">
-      <a  class="list-item">
-        <ion-icon name="paper" class="icon-x" item-left></ion-icon>
-        <span class="list-item-title i-text-color">Account</span>
-      </a>
-    </div>
-    <div class="list-box half-box" (tap)="goToHelp()">
-      <a  class="list-item i-text-color">
-        <ion-icon name="help-buoy" class="icon-x"  item-left></ion-icon>
-        <span class="list-item-title" style="    white-space: nowrap;
-">Help and Support</span>
-      </a>
-    </div>
-
-
-  </section>
-
   </div>
+  
 </ion-content>

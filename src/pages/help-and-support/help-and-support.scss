@@ -2,4 +2,18 @@ page-help-and-support {
     .helpAndSupport-heading {
         color: #000000;
     }
+    .hs-feedback {
+        display: block;
+        margin-top: 10px;
+    }
+    .hs-divider {
+        margin: 0;
+    }
+    .hs-width {
+        width:100% !important;    
+        max-width: 100% !important;
+    }
+    .hs-m {
+        margin-top: 0px;
+    }
 }

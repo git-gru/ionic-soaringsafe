@@ -1,118 +1,83 @@
-<header> <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();"><i class="fa fa-arrow-left color-white"></i></a>
-  <h1 class="page-title i-title">            Help and Support
-
-  </h1>
-
+<header>
+  <!-- extra class no-background -->
+  <a class="go-back-link" href="javascript:history.back();">
+    <i class="fa fa-arrow-left color-white"></i>
+  </a>
+  <h1 class="page-title i-title">Help and Support</h1>
 </header>
+
 <ion-content padding>
-  <div class="form-inputs i-page min-h-full"><!-- REPORTS-->
+  <div class="form-inputs i-page min-h-full">
+    <!-- REPORTS-->
     <section class="help-section-support" style="margin-top: 30px">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>        Contact Support
 
-          </span>
+      <div class="form-label-divider uppercase">
+        <span>Contact Support</span>
       </div>
-      <small class="i-p text-center" style="
-    display: block;
-    margin-top: 10px;
-">   We love feedback!</small>
-      <div class="form-divider" style="
-    margin: 0;
-"></div>
+
+      <small class="i-p text-center hs-feedback">We love feedback!</small>
+
+      <div class="form-divider hs-divider"></div>
 
       <div class="list-box">
         <a class="list-item pointer flex" href-inappbrowser="http://messenger.com">
-
-
-
-        <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-"><span>Open Chat</span>
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
+          <span class="list-item-title i-normal-width i-text-color justify-between hs-width">
+            <span>Open Chat</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
         </a>
       </div>
 
       <div class="list-box">
-        <a class="list-item pointer flex" href="mailto:rusty.banks+soaringsupport@gmail.com" >
-          <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-      ">
-      <span>                 Send Email
-
-      </span>
-      <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-
-
-      </span>
-
-
+        <a class="list-item pointer flex" href="mailto:rusty.banks+soaringsupport@gmail.com">
+          <span class="list-item-title i-normal-width i-text-color justify-between hs-width">
+            <span>Send Email</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
         </a>
       </div>
-
-
     </section>
 
-
-      <section class="help-section-videos" style="margin-top: 0px">
-
+    <section class="help-section-videos hs-m">
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>       Videos
 
-          </span>
+      <div class="form-label-divider uppercase">
+        <span>Videos</span>
       </div>
+
       <div class="form-divider"></div>
 
       <div class="list-box">
         <a class="list-item pointer flex" *ngFor="let video of videoList" (tap)="goToURL(video)">
-        <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-"><span>      {{video.Title}}
-</span>
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
+          <span class="list-item-title i-normal-width i-text-color justify-between hs-width">
+            <span>{{video.Title}}</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
+          </span>
         </a>
       </div>
-
-
-
-
-
     </section>
-    <section class="help-section-faqs" style="margin-top: 0px">
+
+    <section class="help-section-faqs hs-m">
 
       <div class="form-divider"></div>
-      <div class="form-label-divider uppercase"><span>       FAQs
 
+      <div class="form-label-divider uppercase">
+        <span>FAQs</span>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <div class="list-box">
+        <button ion button class="list-item pointer flex" *ngFor="let faq of faqList" (tap)="goToURL(faq)">
+          <span class="list-item-title i-normal-width i-text-color justify-between hs-width">
+            <span>{{faq.Title}}</span>
+            <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
           </span>
+        </button>
       </div>
-      <div class="form-divider"></div>
-
-      <div class="list-box"> 
-        <button ion button class="list-item pointer flex" *ngFor="let faq of faqList" (tap)="goToURL(faq)"> 
-        <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
-"><span>      {{faq.Title}}
-</span>
-        <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
-      </span>
-    </button>
-      </div>
-
-
-
-
-
     </section>
-
-
-
-
-
-
   </div>
+
 </ion-content>
-
-
-
-
-
-

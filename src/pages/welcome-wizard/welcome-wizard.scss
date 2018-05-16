@@ -19,20 +19,23 @@ page-welcome-wizard {
         width:100%;
         padding:0;
         margin:0;
+        opacity: .5;
     }
 
     .overlay-container {
         position: relative;
         text-align: center;
         color:white;
+        background-color:black;
     }
 
     .overlay {
         position: absolute;
-        top: 20px;
-        right:16px;
+        top: 50px;
+        right:10%;
         width:80%;
         color:white;
+        font-size:20px;
     }
 
     .overlay-2 {
@@ -41,6 +44,7 @@ page-welcome-wizard {
         left:10%;
         width:80%;
         color:white;
+        font-size:20px;
     }
 
 }

@@ -236,11 +236,11 @@ export class JoshFiltersPage {
           }
           if (res.name === "youtubeRestricted") {
             res.displayName = "Filter YouTube Videos";
-            res.helpInfo = "This enables Google's YouTube restricted mode which will filter out innappropriate videos on YouTube. It may occasionally filter out videos needed for school, so you may have to experiment with this setting";
+            res.helpInfo = "This enables Google's YouTube restricted mode which will filter out innappropriate videos on YouTube. Note that if you have blocked the YouTube App, this setting does not apply.";
           }
           if (res.name === "safeSearch") {
             res.displayName = "Filter Search Results";
-            res.helpInfo = "This setting forces SafeSearch when searching with Google and Bing. This means that innapropriate search results and image searches will always be blocked. We recommend always having this on.";
+            res.helpInfo = "This setting enables Google's SafeSearch mode which will filter out inappropriate image and web search results on Google and Bing. This means that innapropriate search results and image searches (according to Google) will be blocked. We recommend always having this on.";
           }
 
         });

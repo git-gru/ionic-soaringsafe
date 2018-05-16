@@ -27,7 +27,7 @@ export class JoshPage {
         console.log('profileInfo inside of Josh', this.profileInfo);
         const pName = this.profileInfo.profileName;
         
-        if(this.profileInfo.status != 'SoaringSafe Enabled') {
+        if(this.profileInfo.status != 'Working') {
           this.profileStatus = 'Internet Paused';
           this.status = 'Internet Paused';
           this.isPaused = true;

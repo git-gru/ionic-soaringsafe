@@ -33,9 +33,9 @@ export class JoshBedtimeComponent {
 
     },10000);
     //set initial values of bedtime & aweake times
-    this.weeknightBedtime = '84';
+    this.weeknightBedtime = '86';
     this.weeknightAwaketime = '20';
-    this.weekendBedtime = '86';
+    this.weekendBedtime = '88';
     this.weekendAwaketime = '20';
 
   }

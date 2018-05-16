@@ -1,6 +1,6 @@
 <header class="">
   <!-- extra class no-background -->
-  <a class="go-back-link" href="javascript:history.back();">
+  <a class="go-back-link" (click)="goToProfile()">
     <i class="fa fa-arrow-left color-white"></i>
   </a>
 
@@ -25,17 +25,17 @@
 
       <div class="form-divider"></div>
 
-      <div *ngIf="isGroupShown('ssinfo')">
-        <p class="i-p ">For more information about each setting, click the info icon (i) next to each setting.</p>
+      <div *ngIf="isGroupShown('ssinfo')" class="i-p">
+        <p>For more information about each setting, click the info icon (i) next to each setting.</p>
         <div class="form-divider"></div>
 
       </div>
 
       <div class="list-box" *ngFor="let sns of safetySecurity; let i = index">
-        <a (click)="toggleGroup(i)" class="list-item pointer flex">
+        <a class="list-item pointer flex">
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
-            <span>{{sns.displayName}}
+            <span (click)="toggleGroup(i)" >{{sns.displayName}}
               <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
             </span>
             <div class="center-right-align " item-right>
@@ -47,7 +47,7 @@
 
 
         </a>
-        <div class="p-2" *ngIf="isGroupShown(i)">
+        <div class="i-p" *ngIf="isGroupShown(i)">
           <p>{{sns.helpInfo}} </p>
         </div>
       </div>
@@ -67,8 +67,8 @@
 
 
         </a>
-        <div *ngIf="isGroupShown('virus')">
-          <p>Over 1 Million Virus, Scam, and Phishing websites are always and automatically blocked to keep your device safe.
+        <div *ngIf="isGroupShown('virus')" class="i-p">
+          <p>Over 1 Million Virus, Scam, and Phishing websites are automatically blocked to keep your device safe.
             </p>
         </div>
       </div>
@@ -102,14 +102,14 @@
       </div>
 
       <div class="list-box" *ngFor="let appf of appFilters; let i = index">
-        <a (click)="toggleGroup(i)" class="list-item pointer flex">
+        <a class="list-item pointer flex">
           <ion-avatar item-left class="i-img">
             <img [src]="appf.squareIcon" />
           </ion-avatar>
           <em class="seperate"></em>
 
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;">
-            <span>{{appf.appName}}
+            <span (click)="toggleGroup(i + 'app')">{{appf.appName}}
               <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
             </span>
             <div class="center-right-align " item-right>
@@ -121,6 +121,9 @@
 
 
         </a>
+        <div class="i-p" *ngIf="isGroupShown(i + 'app')">
+            <p>{{appf.appInfo}} </p>
+          </div>
       </div>
 
 
@@ -151,12 +154,12 @@
       </div>
 
       <div class="list-box" *ngFor="let cat of categoryFilters; let i = index">
-        <a (click)="toggleGroup(i + 'cat')" class="list-item pointer flex">
+        <a class="list-item pointer flex">
 
 
           <span class="list-item-title i-normal-width i-text-color justify-between" style="width:100%;    max-width: 100%;
 ">
-            <span> {{cat.CategoryName}}
+            <span (click)="toggleGroup(i + 'cat')" > {{cat.CategoryName}}
               <ion-icon name="information-circle" class="blue-accent-color"></ion-icon>
             </span>
             <div class="center-right-align " item-right>
@@ -167,7 +170,7 @@
           </span>
 
         </a>
-        <div class="p-2" *ngIf="isGroupShown(i + 'cat')">
+        <div class="i-p" *ngIf="isGroupShown(i + 'cat')">
           <p>{{cat.CategoryDescription}} </p>
         </div>
 

@@ -41,7 +41,7 @@
 
             <ion-label floating>
               Email</ion-label>
-            <ion-input class="with-icons" type="text" value="" formControlName="email"></ion-input>
+            <ion-input class="with-icons" type="email" value="" formControlName="email"></ion-input>
           </ion-item>
 
           <small class="block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">
@@ -83,8 +83,8 @@
 
 
       <button class="waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4" (tap)="goToCreateChildProfile(user)" [disabled]="userValid.invalid">Signup</button>
-      <span class="font-smoothing-auto" style="color:#76838f;display: block;padding-bottom: 3px;">Have an account? <button class="primary-text"  (tap)="goToLoginToSoaringSafe()" style="padding-bottom: 3px;
-">Login</button></span>
+      <span class="font-smoothing-auto" style="color:#76838f;display: block;padding-bottom: 3px;">Have an account? <a class="primary-text"  (tap)="goToLoginToSoaringSafe()" style="padding-bottom: 3px;
+">Login</a></span>
     </div><!-- End of Main Contents -->
     </form>
 

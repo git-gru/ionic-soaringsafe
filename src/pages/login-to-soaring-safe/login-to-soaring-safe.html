@@ -26,7 +26,7 @@
 
             <ion-label floating>
               Email</ion-label>
-            <ion-input class="with-icons" type="text" [value]="email" formControlName="email"></ion-input>
+            <ion-input class="with-icons" type="email" [value]="email" formControlName="email"></ion-input>
             </ion-item>
 
             <small class="block" no-lines *ngIf="( userValid.get('email').hasError('required') || userValid.get('email').hasError('email') ) && userValid.get('email').touched">

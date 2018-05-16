@@ -1992,12 +1992,12 @@ ul.faq {
     margin-bottom: 20px;
 }
 .activity .dot {
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
+    width: 15px;
+    height: 15px;
+    background-color: #2196F3;
     position: absolute;
-    top: 17px;
-    left: -42px;
+    top: 21px;
+    left: -45px;
     border-radius: 50%;
 }
 .activity .date {

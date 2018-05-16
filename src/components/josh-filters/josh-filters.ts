@@ -20,8 +20,8 @@ export class JoshFiltersComponent {
   blockedAppFilters = [];
   customFilters = [];
   safetySecurity = [
-    { name: "safeSearch", displayName: 'Filter Search Results', status: 'ON', buttonColor: '#2196F3', helpInfo: "This setting enables Google's SafeSearch mode which will filter out innappropriate image and web search results on Google and Bing. This means that innapropriate search results and image searches (according to Google) will be blocked. We recommend always having this on." },
-    { name: "youtubeRestricted", displayName: 'Filter YouTube Videos', status: 'OFF', buttonColor: '#FF4081', helpInfo: "This enables Google's YouTube restricted mode which will filter out innappropriate videos on YouTube. Note that if you have blocked the YouTube App, this setting does not apply." }
+    { name: "safeSearch", displayName: 'Filter Search Results', status: 'ON', buttonColor: '#2196F3', helpInfo: "This setting enables Google's SafeSearch mode which will filter out inappropriate image and web search results on Google and Bing. This means that innapropriate search results and image searches (according to Google) will be blocked. We recommend always having this on." },
+    { name: "youtubeRestricted", displayName: 'Filter YouTube Videos', status: 'OFF', buttonColor: '#FF4081', helpInfo: "This enables Google's YouTube restricted mode which will filter out inappropriate videos on YouTube. Note that if you have blocked the YouTube App, this setting does not apply." }
   ];
   // buttonColor: string = '#2196F3';
 

@@ -18,6 +18,7 @@ export class JoshPage {
   status: string = '';
   shownGroup = null;
   noDevicePaired:boolean;
+  offtimesEnabled: boolean = false; //TODO - TEST FOR THIS AND MAKE TRUE IF CURRENTLY OFFTIMES ARE ENABLED, like we test if current status is paused
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage, public toastCtrl: ToastController, public profileService: ProfileProvider) {

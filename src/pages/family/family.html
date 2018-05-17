@@ -20,10 +20,10 @@
           </ion-avatar>
           <em class="seperate"></em>
           <span class="list-item-title i-normal-width i-text-color">{{profile?.profileName}}</span>
-
           <ion-note class="center-right-align family-note" *ngIf="profile.status != 'Working'" item-right>
             {{profile?.status}}
           </ion-note>
+          <ion-icon *ngIf="profile.status == 'Working'" name="arrow-forward" class="icon-f"></ion-icon>
         </a>
       </div>
 

@@ -62,7 +62,7 @@
         </a>
       </div>
 
-      <div class="list-box">
+      <div class="list-box" *ngIf="offtimesEnabled">
         <a (tap)="goToJoshOfftime()" class="list-item pointer flex">
           <ion-icon name="eye-off" class="icon-f" item-left></ion-icon>
           <em class="seperate"></em>

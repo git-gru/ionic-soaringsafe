@@ -12,7 +12,7 @@ import { User } from '../../models/user';
 })
 export class SignupForSoaringSafePage implements OnInit {
 
-  userValid: FormGroup;
+  userValid: FormGroup; 
   user = {} as User;
   userTimestamp: number; 
   alert: any;

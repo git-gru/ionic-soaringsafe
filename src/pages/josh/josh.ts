@@ -27,12 +27,12 @@ export class JoshPage {
         console.log('profileInfo inside of Josh', this.profileInfo);
         const pName = this.profileInfo.profileName;
         
-        if(this.profileInfo.status != 'Working') {
+        if(this.profileInfo.status != 'SoaringSafe Enabled') {
           this.profileStatus = 'Internet Paused';
           this.status = 'Internet Paused';
           this.isPaused = true;
         } else {
-          this.status = 'Working';
+          this.status = 'SoaringSafe Enabled';
           this.isPaused = false;
         }
         
@@ -91,7 +91,6 @@ export class JoshPage {
     toast.present();
     this.profileService.updateInternetStatus(profileId, this.status).then(res=>{
       console.log(msg);
-      alert('msg');
     }).catch(error=>{
       console.log('Errors While Updating Internet Status', Error);
     });

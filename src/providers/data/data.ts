@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AlertController } from 'ionic-angular';
 
 
 
 @Injectable()
 export class DataProvider {
 
-  constructor(public afs: AngularFirestore, public aAuth: AngularFireAuth) {
+  constructor(public afs: AngularFirestore, public aAuth: AngularFireAuth, public alertCtrl: AlertController) {
     console.log('Hello DataProvider Provider');
   }
   getAvatars() {
@@ -26,5 +27,22 @@ export class DataProvider {
   }
   getBedtimes(profileId) {
     return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').valueChanges();
+  }
+
+  //Create Alert controller
+
+  showAlert(title, msg) {
+    this.alertCtrl.create({
+      title: title,
+      message: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: data => {
+            console.log('clicked Ok');
+          }
+        }
+      ]
+    }).present();
   }
 }

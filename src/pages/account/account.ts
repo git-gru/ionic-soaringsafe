@@ -32,4 +32,9 @@ export class AccountPage {
             this.app.getRootNav().setRoot('WelcomeWizardPage');
         });
     }
+    openPasswordChange() {
+        let temp = JSON.parse(JSON.stringify(this.user));
+        console.log('Email: ', temp.email);
+        this.navCtrl.push('ChangePasswordPage', {email: temp.email});
+    }
 }

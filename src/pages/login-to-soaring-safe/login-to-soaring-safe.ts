@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
 
@@ -16,12 +16,14 @@ export class LoginToSoaringSafePage {
   password = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadCtrl: LoadingController, 
-    public userService: UserProvider) {
+    public userService: UserProvider, public alertCtrl: AlertController) {
       const tempEmail = navParams.get('email');
       const tempPass = navParams.get('password');
 
-      if(tempEmail != undefined && tempPass != undefined) {
+      if(tempEmail != undefined) {
         this.email = tempEmail;
+      }
+      if(tempPass != undefined) {
         this.password = tempPass;
       }
   }
@@ -57,8 +59,34 @@ export class LoginToSoaringSafePage {
         alert("Error" + res);
       }
     }).catch(error=> {
-      console.log('Error While SigningUp user', error);
+      loader.dismiss();
+      console.log('Errors While Logging In User', error);
+      this.wrongCrendential(email);
     });
     
   }
+
+  wrongCrendential(email) {
+    
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Credentials', 
+      message: 'Email & Password combination is wrong. Try with Different Credential or Recover your Password',
+      buttons: [
+        {
+          text: 'Try Again',
+          handler: data => {
+            this.navCtrl.push(this.navCtrl.getActive().component);
+          }
+        },
+        {
+          text: 'Recover Password',
+          handler: data => {
+            this.navCtrl.setRoot('ResetPasswordPage',{email});
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
 }

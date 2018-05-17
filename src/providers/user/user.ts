@@ -13,16 +13,16 @@ export class UserProvider {
     timezone: any;
     utc_offset: any;
 
-    constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore, public googlePlus: GooglePlus, 
+    constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore, public googlePlus: GooglePlus,
         public globalization: Globalization) {
         console.log('Hello UserProvider Provider');
-        this.getTimeZoneAndOffset().then(res=>{
+        this.getTimeZoneAndOffset().then(res => {
             this.timezone = res.timezone;
             this.utc_offset = res.utc_offset;
-        }).catch(error=> {
+        }).catch(error => {
             console.warn('Could not get timezone and offset from Ionic Globalization. Running in browser? Setting timezone to defaults (mountain) for debug', error);
             this.timezone = "MDT";
-            this.utc_offset = -6*60*60; //OFFSET is returned from globilzation in seconds! 
+            this.utc_offset = -6 * 60 * 60; //OFFSET is returned from globilzation in seconds! 
         });
     }
     //Getting timestamp with current time zone
@@ -31,10 +31,10 @@ export class UserProvider {
         const currentTimeStamp = currentDate.getTime();
         return currentTimeStamp;
     }
-    getTimeZoneAndOffset(){
+    getTimeZoneAndOffset() {
         let options = {
-            formatLength:'short', 
-            selector:'date and time'
+            formatLength: 'short',
+            selector: 'date and time'
         }
         return this.globalization.getDatePattern(options);
     }
@@ -55,7 +55,6 @@ export class UserProvider {
                     resolve({ success: true });
                 }
             }).catch(error => {
-                console.log('Errors While Logging In User', error);
                 reject(error);
             });
         });
@@ -73,7 +72,7 @@ export class UserProvider {
                     email: user.email,
                     userTimeStamp: user.timestamp,
                     timezone: this.timezone,
-                    utc_offset : this.utc_offset
+                    utc_offset: this.utc_offset
                 }).then(() => {
                     this.currentUserEmail = user.email
                     resolve({ success: true });
@@ -120,6 +119,37 @@ export class UserProvider {
         });
         return promise;
     }
+
+    //Send Password Recovery Email to the user
+    passwordReset(email) {
+        return this.afAuth.auth.sendPasswordResetEmail(email);
+    }
+
+    changePassword(email, oldPassword, newPassword) {
+        let a = firebase.auth.EmailAuthProvider.credential(email, oldPassword);
+        let user = this.afAuth.auth.currentUser;
+
+         const promise = new Promise((resolve, reject) => {
+
+            user.reauthenticateWithCredential(a).then(res => {
+                console.log('Re-Authentication');
+                user.updatePassword(newPassword).then(resp => {
+                    console.log('Password Updated Successfully');
+                    return resolve(true);
+                }).catch(error => {
+                    reject(error);
+                });
+    
+            }).catch(error => {
+                console.log('Error while Re-Authenticating: ', error);
+                reject(error);
+            });
+
+         });
+
+         return promise;
+    }
+
     logOut() {
         return this.afAuth.auth.signOut();
     }

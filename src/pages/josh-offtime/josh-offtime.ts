@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ProfileProvider } from '../../providers/profile/profile';
 
 @IonicPage()
 @Component({
@@ -9,20 +10,44 @@ import { Storage } from '@ionic/storage';
 })
 export class JoshOfftimePage {
   
-  profileName: any;
+  profileName: string = '';
+  profileId: string = '';
+  offtimes = [];
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
+    public profileService: ProfileProvider) {
   
-    this.storage.get('pName').then(res => {
-      this.profileName = res;
-    }).catch(error => { 
-      console.log('JoshOfftime: Error while getting profileName', error);
-    });
-  
+     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoshOfftimePage'); 
+    this.storage.get('profileData').then(res => {
+      this.profileName = res.profileName;
+      this.profileId = res.profileId;
+      //Get Offtimes Data    
+      this.getOfftimeData();
+    }).catch(error => { 
+      console.log('JoshOfftime: Error while getting profileName', error);
+    });
+  }
+
+  getOfftimeData() {
+    this.profileService.getOfftimes(this.profileId).subscribe(off => {
+      off.forEach(res=> {
+        console.log('Offtime Data');
+        console.log(res);
+        
+        if(JSON.parse(JSON.stringify(res)).type == 'OFFTIME') {
+          this.offtimes.push(res);
+          return;
+        }
+        
+      });
+    }, error => {
+      console.log('JoshOfftimesPage: Error While getting Offtime Data');
+      console.log(error);
+    });
   }
 
   goToAddOfftime() {

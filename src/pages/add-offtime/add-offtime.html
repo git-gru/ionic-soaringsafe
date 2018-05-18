@@ -5,47 +5,48 @@
 
 <ion-content padding>
   <div class="form-inputs i-page min-h-full add-off-p">
-    <form>
       <ion-item>
         <ion-label stacked>
           Name this offtime:
         </ion-label>
-        <ion-input type="text" placeholder="eg School Time"></ion-input>
+        <ion-input type="text" [(ngModel)] = 'offtimeName' placeholder="eg School Time"></ion-input>
       </ion-item>
-    </form>
     <h4 class="add-offtime-heading">
       Offtime Days and Time:
     </h4>
+
     <div>
-      <button ion-button class="primary-color" small>
-        Su
-      </button>
-      <button ion-button class="primary-color" small>
+        <ion-row>
+            <ion-col *ngFor="let day of days; let i = index" >
+                <button ion-button icon-only class="addOfftime-button-padding"  [ngStyle]="{'background-color': day.buttonColor}" (tap) = 'selectDay(day, i)'>
+                    {{ day.dayName }}
+                </button>
+            </ion-col>
+        </ion-row>
+
+      <!-- <button (tap) = 'selectMonday()' ion-button class="primary-color" small>
         M
       </button>
-      <button ion-button class="primary-color" small>
+      <button (tap) = 'selectTuesday()' ion-button class="primary-color" small>
         T
       </button>
-      <button ion-button class="primary-color" small>
+      <button (tap) = 'selectWednesday()' ion-button class="primary-color" small>
         W
       </button>
-      <button ion-button class="primary-color" small>
+      <button (tap) = 'selectThursday()' ion-button class="primary-color" small>
         Th
       </button>
-      <button ion-button outline class="primary-border-color" small>
+      <button (tap) = 'selectFriday()' ion-button outline class="primary-border-color" small>
         F
       </button>
-      <button ion-button outline class="primary-border-color" small>
+      <button (tap) = 'selectSaturday()' ion-button outline class="primary-border-color" small>
         Sa
-      </button>
+      </button> -->
     </div>
 
-    <form>
       <ion-item>
-        <ion-label floating>
-          Start
-        </ion-label>
-        <ion-select name="">
+        <ion-label floating>Start </ion-label>
+        <ion-select [(ngModel)]="startOfftime">
           <ion-option value="24">6:00 AM</ion-option>
           <ion-option value="25">6:15 AM</ion-option>
           <ion-option value="26">6:30 AM</ion-option>
@@ -145,10 +146,8 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label floating>
-          Stop
-        </ion-label>
-        <ion-select name="">
+        <ion-label floating>Stop</ion-label>
+        <ion-select [(ngModel)]="stopOfftime">
           <ion-option value="24">6:00 AM</ion-option>
           <ion-option value="25">6:15 AM</ion-option>
           <ion-option value="26">6:30 AM</ion-option>
@@ -247,13 +246,13 @@
           <ion-option value="23">5:45 AM</ion-option>
         </ion-select>
       </ion-item>
-    </form>
-    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="goToJoshOfftime()">
+    
+    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="saveOfftimes()">
       Save
     </button>
     <div class="form-divider m-0"></div>
 
-    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="goToJoshOfftime()">
+    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="deleteOfftime()">
       Delete Offtime
     </button>
   </div>

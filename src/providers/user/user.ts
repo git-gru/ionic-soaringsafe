@@ -45,7 +45,7 @@ export class UserProvider {
     getUser(email) {
         return this.afs.collection('user', ref => ref.where('email', '==', email)).valueChanges();
     }
-
+    
     loginUser(email, password) {
         var promise = new Promise((resolve, reject) => {
             this.afAuth.auth.signInWithEmailAndPassword(email, password).then(res => {

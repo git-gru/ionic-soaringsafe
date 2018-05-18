@@ -26,11 +26,13 @@
     <div class="form-divider"></div>
 
     <section class="offtimes-section josh-offtime-m">
-      <div class="list-box">
+
+      <div class="list-box" *ngFor='let ot of offtimes'>
         <a class="list-item pointer flex">
           <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
             <span>Name</span>
             <span class="center-right-align">
+              {{ot.offtime}}
               <ion-note item-right></ion-note>
             </span>
           </span>
@@ -69,16 +71,17 @@
             </span>
           </span>
         </a>
+        <div class="form-divider"></div>
+
+        <div class="form-label-divider uppercase">
+        </div>
+
+        <div class="form-divider"></div>
       </div>
 
-      <div class="form-divider"></div>
 
-      <div class="form-label-divider uppercase">
-      </div>
 
-      <div class="form-divider"></div>
-
-      <div class="list-box">
+      <!-- <div class="list-box">
         <a class="list-item pointer flex">
           <span class="list-item-title i-normal-width i-text-color justify-between josh-offtime-width">
             <span>Name</span>
@@ -122,7 +125,7 @@
             </span>
           </span>
         </a>
-      </div>
+      </div> -->
     </section>
   </div>
 

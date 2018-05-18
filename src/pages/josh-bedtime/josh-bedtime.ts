@@ -58,7 +58,7 @@ export class JoshBedtimePage {
           this.weeknightBedtime = bt.bedtime;
           this.weeknightAwaketime = bt.awake;
           this.isEnabled = bt.enabled;
-        } else {
+        } else if (bt.offtime == 'Weekends') {
           this.weekendBedtime = bt.bedtime;
           this.weekendAwaketime = bt.awake;
           this.isEnabled = bt.enabled;

@@ -27,6 +27,7 @@ export class MyApp {
           //UPDATE 5/1/2018: Instead of tabs, opting for a single home screen for family page
           //this.rootPage = 'TabsControllerPage';
           this.rootPage = 'FamilyPage';
+          // this.rootPage = 'AddOfftimePage';
         } else {
           this.rootPage = 'WelcomeWizardPage'
         }

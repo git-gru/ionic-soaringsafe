@@ -510,4 +510,15 @@ export class ProfileProvider {
       console.log('Errors While querying for the custom filter', error);
     })
   }
+
+  //create New Offtime
+  createNewOfftime(profileId, offtimeData) {
+    offtimeData["profileId"] = profileId;
+    return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').add(offtimeData);
+  }
+
+  //Fetch offtimes From Firestore Database
+  getOfftimes(profileId) {
+    return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').valueChanges();
+  }
 }

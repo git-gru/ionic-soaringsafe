@@ -25,8 +25,15 @@ export class DataProvider {
   async getDevices(profileId) {
     return await this.afs.collection('profileSettings').doc(profileId).collection('devices').valueChanges();
   }
+
   getBedtimes(profileId) {
     return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').valueChanges();
+  }
+
+  //Get Current User Information
+
+  getCurrentUserData() {
+    return this.afs.collection('user').doc(this.aAuth.auth.currentUser.uid).valueChanges();
   }
 
   //Create Alert controller
@@ -44,5 +51,48 @@ export class DataProvider {
         }
       ]
     }).present();
+  }
+
+  // Days Data for Add Offtime
+  daysData() {
+   const days = [
+      {
+        dayName: 'Su',
+        isSelected: false,
+        buttonColor: '#f4f4f4'
+      },
+      {
+        dayName: 'M',
+        isSelected: false,
+        buttonColor: '#f4f4f4'
+      },
+      {
+        dayName: 'T',
+        isSelected: false,
+        buttonColor: '#f4f4f4'
+      },
+      {
+        dayName: 'W',
+        isSelected: false,
+        buttonColor: '#f4f4f4'
+      },
+      {
+        dayName: 'Th',
+        isSelected: false,
+        buttonColor: '#f4f4f4'
+      },
+      {
+        dayName: 'F',
+        isSelected: false,
+        buttonColor: '#f4f4f4'
+      },
+      {
+        dayName: 'Sa',
+        isSelected: false,
+        buttonColor: '#f4f4f4'
+      }
+      ];
+
+      return days;
   }
 }

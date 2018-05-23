@@ -521,4 +521,12 @@ export class ProfileProvider {
   getOfftimes(profileId) {
     return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').valueChanges();
   }
+
+  updateOfftimeInFirestore(offtimeUid, profileId, offtimeData) {
+    return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').doc(offtimeUid).update(offtimeData);
+  } 
+  
+  deleteOfftimeFromDB(offtimeUid, profileId) {
+    return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').doc(offtimeUid).delete();
+  }
 }

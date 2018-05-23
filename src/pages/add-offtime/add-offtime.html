@@ -23,25 +23,6 @@
                 </button>
             </ion-col>
         </ion-row>
-
-      <!-- <button (tap) = 'selectMonday()' ion-button class="primary-color" small>
-        M
-      </button>
-      <button (tap) = 'selectTuesday()' ion-button class="primary-color" small>
-        T
-      </button>
-      <button (tap) = 'selectWednesday()' ion-button class="primary-color" small>
-        W
-      </button>
-      <button (tap) = 'selectThursday()' ion-button class="primary-color" small>
-        Th
-      </button>
-      <button (tap) = 'selectFriday()' ion-button outline class="primary-border-color" small>
-        F
-      </button>
-      <button (tap) = 'selectSaturday()' ion-button outline class="primary-border-color" small>
-        Sa
-      </button> -->
     </div>
 
       <ion-item>
@@ -247,12 +228,18 @@
         </ion-select>
       </ion-item>
     
-    <button class="waves-effect waves-light btn-large primary-color width-100" (tap)="saveOfftimes()">
+    <button *ngIf='isSave' class="waves-effect waves-light btn-large primary-color width-100" (tap)="saveOfftimes()">
       Save
+    </button>
+    <button *ngIf='!isSave' class="waves-effect waves-light btn-large primary-color width-100" (tap)="updateOfftime()">
+      Update
     </button>
     <div class="form-divider m-0"></div>
 
-    <button class="waves-effect waves-light btn-large accent-color width-100" (tap)="deleteOfftime()">
+    <button  *ngIf='isCancel' class="waves-effect waves-light btn-large accent-color width-100" (tap)="cancelOfftime()">
+      Cancel
+    </button>
+    <button *ngIf='!isCancel' class="waves-effect waves-light btn-large accent-color width-100" (tap)="deleteOfftime()">
       Delete Offtime
     </button>
   </div>

@@ -75,7 +75,8 @@ export class LoginToSoaringSafePage {
         {
           text: 'Try Again',
           handler: data => {
-            this.navCtrl.push(this.navCtrl.getActive().component);
+            // this.navCtrl.push(this.navCtrl.getActive().component);
+            alert.emit();
           }
         },
         {
@@ -86,6 +87,9 @@ export class LoginToSoaringSafePage {
         }
       ]
     });
+    // alert.onDidDismiss(() =>{
+    //   this.userValid.setValue({password : '', email: email});
+    // });
     alert.present();
   }
 

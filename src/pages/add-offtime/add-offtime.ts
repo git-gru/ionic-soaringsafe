@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { JoshOfftimePage } from '../josh-offtime/josh-offtime';
 import { Storage } from '@ionic/storage';
@@ -17,17 +17,34 @@ export class AddOfftimePage {
   startOfftime: string = '';
   stopOfftime: string = '';
   profileId: string;
+  offtimeUid: string;
   days = [];
+  isCancel:boolean = true;
+  isSave: boolean = true;
+  status:boolean =  true;
   
   selectedDays: number[] = [];
+  offtimes = {
+    offtime: '',
+    awake: '',
+    bedtime: '',
+    enabled: true,
+    type: 'OFFTIME',
+    days: [],
+    offtimeUID: ''
+  }
     
-  constructor(public navCtrl: NavController, public storage: Storage,
+  constructor(public navCtrl: NavController, public navParams:NavParams, public storage: Storage,
     public profileService: ProfileProvider, public dataService: DataProvider) {
-
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { 
+    const temp = this.navParams.get('offtime');
     this.days = this.dataService.daysData();
+
+    if(temp !=undefined && temp != null) {
+      this.initializeOfftimes(temp);
+    }
     
     this.storage.get('profileData').then(res=>{
       this.profileId = res.profileId;
@@ -37,34 +54,97 @@ export class AddOfftimePage {
       console.log(error);
     });
   }
+  initializeOfftimes(selectedOfftime) {
+      this.isCancel = false;
+      this.isSave = false;
+
+      this.startOfftime = selectedOfftime.bedtime;
+      this.stopOfftime = selectedOfftime.awake;
+      this.offtimeName = selectedOfftime.offtime;
+      this.selectedDays = selectedOfftime.days;
+      this.offtimeUid = selectedOfftime.offtimeUID;
+      this.status = selectedOfftime.enabled;
+
+      // console.log('Selected days');
+      // console.log(this.selectedDays);
+
+      this.days.filter(res=> {
+      
+        for(let i = 0; i<this.selectedDays.length; i++) {
+          if(res.dayName == this.getDaysName(this.selectedDays[i])) {
+            console.log('matched', res);
+            res.isSelected = true;
+            res.buttonColor = '#488aff';
+          }
+        }
+      });
+  }
 
   saveOfftimes() {
-    let offtimes = {
-      offtime: '',
-      awake: '',
-      bedtime: '',
-      type: 'OFFTIME',
-      days: []
-    }
-    offtimes.offtime = this.offtimeName;
-    offtimes.awake = this.stopOfftime;
-    offtimes.bedtime = this.startOfftime;
-    offtimes.days = this.selectedDays
+    // let offtimes = {
+    //   offtime: '',
+    //   awake: '',
+    //   bedtime: '',
+    //   enabled: true,
+    //   type: 'OFFTIME',
+    //   days: []
+    // }
+    this.offtimes.offtime = this.offtimeName;
+    this.offtimes.awake = this.stopOfftime;
+    this.offtimes.bedtime = this.startOfftime;
+    this.offtimes.days = this.selectedDays
 
-    console.log('Offtime Name: ', offtimes.offtime);
-    console.log('startOfftime', offtimes.bedtime);
-    console.log('Stop Offtimes', offtimes.awake);
-    console.log('Selected Days', offtimes.days);
+    console.log('Offtime Name: ', this.offtimes.offtime);
+    console.log('startOfftime', this.offtimes.bedtime);
+    console.log('Stop Offtimes', this.offtimes.awake);
+    console.log('Selected Days', this.offtimes.days);
 
     console.log('Offtimes Data: ');
-    console.log(offtimes);
+    console.log(this.offtimes);
 
-    this.profileService.createNewOfftime(this.profileId, offtimes).then(res=>{
+    this.profileService.createNewOfftime(this.profileId, this.offtimes).then(res=>{
+      console.log(res);
       console.log('Offtimes are added successfully');
+      
+      const offtimeUid = res.id;
+
+      const offtimeData = {
+        offtimeUID: offtimeUid
+      };
+
+      this.profileService.updateOfftimeInFirestore(offtimeUid, this.profileId, offtimeData).then(() => {
+        console.log('offtimeUID updated successfully');
+      }).catch(error=> {
+        console.log('Error While updating the offtimeUid in firestore', error);
+      });
+
       this.navCtrl.pop();
+
     }).catch(error => {
       console.log('AddOfftimePage: Error While updating the Offtimes in the firestore Collection');
       console.log(error);
+    });
+  }
+  
+  updateOfftime() {
+
+    this.offtimes.offtime = this.offtimeName;
+    this.offtimes.awake = this.stopOfftime;
+    this.offtimes.bedtime = this.startOfftime;
+    this.offtimes.days = this.selectedDays
+    this.offtimes.offtimeUID = this.offtimeUid;
+    this.offtimes.enabled = this.status;
+
+    console.log('Offtimes Data: ');
+    console.log(this.offtimes);
+
+    this.profileService.updateOfftimeInFirestore(this.offtimeUid, this.profileId, this.offtimes).then(res => {
+      console.log('Offtimes are updated Successfully');
+      console.log(res);
+
+      this.navCtrl.pop();
+    }).catch(error => {
+      console.log('AddOfftimes: Error while updating offtimes in Firestore', error);
     });
   }
 
@@ -160,8 +240,58 @@ export class AddOfftimePage {
         console.log('value', index);
         this.selectedDays.splice(index, 1);
       }
-    })
+    });
   }
 
+  deleteOfftime() {
+    this.profileService.deleteOfftimeFromDB(this.offtimeUid, this.profileId).then(() => {
+      console.log('Offtime Deleted Successfully');
+      this.navCtrl.pop();
+    }).catch(error => {
+      console.log('AddOfftime: Error while deleting offtime', error);
+    });
+  }
+  cancelOfftime() {
+    this.navCtrl.pop();
+  }
+  getDaysName(dayNumber) {
+    
+    let selectedDayName = '';
+      switch(dayNumber) {
+        case 1 : {
+          selectedDayName = 'M';
+          break;
+        }
+        case 2 : {
+          selectedDayName = 'T';
+          break;
+        }
+        case 3 : {
+  
+          selectedDayName = 'W';
+  
+          break;
+        }
+        case 4 : {
+          selectedDayName = 'Th';
+
+          break;
+        }
+        case 5 : {
+          selectedDayName = 'F';
+          break;
+        }
+        case 6 : {
+          selectedDayName = 'Sa';
+          
+          break;
+        }
+        case 7 : {
+          selectedDayName = 'Su';
+          break;
+        }
+      }
+      return selectedDayName;
+  }
 }
 

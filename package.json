@@ -64,7 +64,12 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-globalization": {}
+      "cordova-plugin-globalization": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "b0892999",
+        "CHANNEL_NAME": "Production",
+        "UPDATE_METHOD": "background"
+      }
     },
     "platforms": [
       "android",

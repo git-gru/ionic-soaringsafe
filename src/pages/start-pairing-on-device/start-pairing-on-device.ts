@@ -16,6 +16,7 @@ export class StartPairingOnDevicePage {
     throw new Error("Method not implemented.");
   }
   profileId: any;
+  deviceId: any;
   profileData: any;
   urlPrefix = 'http://pair.soaringsafe.com/';
   buttonTxt = 'Start 1-click Pairing';
@@ -29,6 +30,12 @@ export class StartPairingOnDevicePage {
       this.profileId = res;
     }).catch(error => {              
       console.log('Start-paring-on-device: Error Occured While fetching ProfileId from local Storage', error);
+    });
+
+    this.storage.get('deviceId').then(res => {
+      this.deviceId = res;
+    }).catch(error => {              
+      console.log('Start-paring-on-device: Error Occured While fetching deviceId from local Storage', error);
     });
 
     this.storage.get('profileData').then(res => {
@@ -61,11 +68,14 @@ export class StartPairingOnDevicePage {
   }
   startPairing() {
       console.log("startPairing: gettingprofilenumber for profile", this.profileId)
-    this.profileService.getProfileNumber(this.profileId).subscribe(res=>{
-      const profileNumber = JSON.parse(JSON.stringify(res)).profileNumber;
-      
-      if(profileNumber != 0) {
-        const url = this.urlPrefix + profileNumber;
+    //this.profileService.getProfileNumber(this.profileId).subscribe(res=>{
+      //We are now using DEVICE NUMBERS - not profileNumbers
+      this.profileService.getDeviceNumber(this.profileId, this.deviceId).subscribe(res=> {
+      const deviceNumber = JSON.parse(JSON.stringify(res)).deviceNumber;
+      console.log('Device number', deviceNumber);
+
+      if(deviceNumber != 0) {
+        const url = this.urlPrefix + deviceNumber;
         console.log('Dynamic URL ', url);
 
         const options: InAppBrowserOptions = {
@@ -104,7 +114,7 @@ export class StartPairingOnDevicePage {
         });
         
       }
-      console.log('Profile Number ', profileNumber);    
+      console.log('Device Number ', deviceNumber);    
     });
   }
 }

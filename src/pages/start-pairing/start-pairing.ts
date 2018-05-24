@@ -76,6 +76,8 @@ export class StartPairingPage {
     this.profileService.storeDevice(deviceInfo, this.profileId).then(res => {
       console.log('successfully updated Devices', this.deviceName);
       if(res) {
+        this.storage.set('deviceId', res.id);
+        console.log('device stored, id is: ', res.id);
         // Navigate to the IsThisHalleIpadPage
         // this.navCtrl.push('IsThisHalleIpadPage', {deviceName: this.deviceName});
         this.loader.dismiss();

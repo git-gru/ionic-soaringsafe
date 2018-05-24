@@ -12,6 +12,7 @@ import { ProfileProvider } from '../../providers/profile/profile';
 export class StartPairingOffDevicePage {
 
   deviceName: any;
+  deviceId: any;
   profileData: any;
   profileId: any;
   url = '';
@@ -19,8 +20,9 @@ export class StartPairingOffDevicePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, 
     public profileService: ProfileProvider) {
     
-     this.storage.get('profileId').then(res => {
-      this.profileId = res;
+     Promise.all([this.storage.get('profileId'), this.storage.get('deviceId')]).then(([resProf, resDev]) => {
+      this.profileId = resProf;
+      this.deviceId = resDev;
       this.startPairing();
     }).catch(error => {
       console.log('Start-paring-off-device: Error Occured While fetching ProfileId from local Storage', error);
@@ -57,13 +59,14 @@ export class StartPairingOffDevicePage {
   }
 
   startPairing() {
-    this.profileService.getProfileNumber(this.profileId).subscribe(res=>{
-      const profileNumber = JSON.parse(JSON.stringify(res)).profileNumber;
+    //this.profileService.getProfileNumber(this.profileId).subscribe(res=>{
+    this.profileService.getDeviceNumber(this.profileId, this.deviceId).subscribe(res=> {  
+      const deviceNumber = JSON.parse(JSON.stringify(res)).deviceNumber;
       
-      if(profileNumber != 0) {
-        this.url = 'pair.soaringsafe.com/' + profileNumber; 
+      if(deviceNumber != 0) {
+        this.url = 'pair.soaringsafe.com/' + deviceNumber; 
       }
-      console.log('Profile Number ', profileNumber);    
+      console.log('Profile Number ', deviceNumber);    
     });
   }
 }

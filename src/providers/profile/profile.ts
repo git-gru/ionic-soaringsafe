@@ -317,6 +317,10 @@ export class ProfileProvider {
     return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).valueChanges();
   }
 
+  getDeviceNumber(profileId, deviceId) {
+    return this.afs.collection('profileSettings').doc(profileId).collection('devices').doc(deviceId).valueChanges();
+  }
+
   // Update Device Status
   updateDeviceStatus(profileId, status, deviceName) {
     console.log('deviceName Inside update Device Status', deviceName);

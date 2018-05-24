@@ -89,12 +89,12 @@
     <allow-navigation href="http://192.168.88.253:8100" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="cordova-plugin-globalization" spec="^1.0.9" />
-    <engine name="android" spec="~6.4.0" />
     <allow-navigation href="http://192.168.8.100:8100" />
-    <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-ionic" spec="~4.1.3">
         <variable name="APP_ID" value="b0892999" />
         <variable name="CHANNEL_NAME" value="Production" />
         <variable name="UPDATE_METHOD" value="background" />
     </plugin>
+    <engine name="android" spec="6.4.0" />
+    <engine name="ios" spec="4.5.4" />
 </widget>

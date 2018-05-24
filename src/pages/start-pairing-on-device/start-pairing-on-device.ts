@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { ProfileProvider } from '../../providers/profile/profile';
@@ -23,7 +23,7 @@ export class StartPairingOnDevicePage {
   nextColor = '#8a8282';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, 
-    public inAppBrowser: InAppBrowser, public profileService: ProfileProvider) {
+    public inAppBrowser: InAppBrowser, public profileService: ProfileProvider, public platform: Platform) {
 
     this.storage.get('profileId').then(res => {
       this.profileId = res;
@@ -70,18 +70,39 @@ export class StartPairingOnDevicePage {
 
         const options: InAppBrowserOptions = {
           zoom: 'no',
-          suppressesIncrementalRendering: 'yes'
+          // suppressesIncrementalRendering: 'yes'
         }
-        // Set the Target Browser
-        //const target = '_self';
-         const target = '_system';
-         const browser = this.inAppBrowser.create(url, target, options);
-        this.buttonTxt = 'Retry 1-click pairing';
-        this.pairColor = '#8a8282';
-        this.nextColor = '#488aff';
 
-        let status = 'Check Pairing';
-        this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);
+        this.platform.ready().then(() => {
+
+          // Set the Target Browser
+        // const target = '_self';
+        // const target = '_blank';        
+         const target = '_system';
+         
+          const browser = this.inAppBrowser.create(url, target);
+                // const browser = this.inAppBrowser.create(url, target, "location = no");
+         
+         this.buttonTxt = 'Retry 1-click pairing';
+         this.pairColor = '#8a8282';
+         this.nextColor = '#488aff';
+ 
+         
+         browser.on('exit').subscribe(res => {
+           console.log(res);
+           console.log('browswer is closed');
+           browser.close();
+         }, error => {
+           console.log('Error in InAppBrowser: ', error);
+         });
+ 
+         let status = 'Check Pairing';
+         this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);
+
+        }).catch(error => {
+          console.log('Error While getting ready platform: ', error);
+        });
+        
       }
       console.log('Profile Number ', profileNumber);    
     });

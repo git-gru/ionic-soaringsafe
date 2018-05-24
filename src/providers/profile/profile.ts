@@ -304,37 +304,7 @@ export class ProfileProvider {
      });
   }
 
-  // Update Profile Status
-  updateProfileStatus(profileId, status) {
-    console.log('status Inside update Profile Status', status);
-    
-    return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).update({
-      status: status
-    }).then(res => {
-      console.log('Device Status Updated Successfully');
-      return status;
-    }).catch(error => {
-      console.log('Error while updating profile status', error);
-      return status;
-    });
-  }
-
-   // Update A Profile Field
-   updateProfileField(profileId, field, value) {
-    console.log('Inside update Profile Field', profileId, field, value);
-    
-    return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).set({
-      [field]: value 
-    },{merge:true}
-    ).then(res => {
-      console.log('Profile Field Updated Successfully', field, value, res);
-      return status;
-    }).catch(error => {
-      console.log('Error while updating profile status', error);
-      return status;
-    });
-  }
-
+  
   //Store devices in profileSettings collection in firestore.
   storeDevice(deviceInfo, profileId) {
     console.log('Device Info inside Profile Provider - should be object ', deviceInfo);
@@ -529,4 +499,12 @@ export class ProfileProvider {
   deleteOfftimeFromDB(offtimeUid, profileId) {
     return this.afs.collection('profileSettings').doc(profileId).collection('offtimes').doc(offtimeUid).delete();
   }
+
+  //Update ProfileField
+
+  updateProfileField(profileId, fieldData) {
+    return this.afs.collection('Profiles').doc(this.aAuth.auth.currentUser.uid).collection('my-profiles').doc(profileId).update(fieldData);
+  }
+
+
 }

@@ -46,12 +46,13 @@ export class InstallationCheckPage {
   }
 
   goToInstallationSuccessful() {
+    console.log('Inside Installation Success');
      let status = 'Pairing Successful';
+               
     this.profileService.updateDeviceStatus(this.profileId, status, this.deviceName);
-    this.profileService.updateProfileStatus(this.profileId, "Working");
-    this.profileService.updateProfileField(this.profileId, "devicePaired", true);
-    // Navigate to the InstallationSuccessfulPage
-    this.navCtrl.setRoot('InstallationSuccessfulPage');
+
+    // // Navigate to the InstallationSuccessfulPage
+    this.navCtrl.setRoot('InstallationSuccessfulPage', {profileId: this.profileId});
   }
 
   goToInstallationTryAgain() {

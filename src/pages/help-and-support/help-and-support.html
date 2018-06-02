@@ -70,12 +70,12 @@
       <div class="form-divider"></div>
 
       <div class="list-box">
-        <button ion button class="list-item pointer flex" *ngFor="let faq of faqList" (tap)="goToURL(faq)">
+        <a class="list-item pointer flex" *ngFor="let faq of faqList" (tap)="goToURL(faq)">
           <span class="list-item-title i-normal-width i-text-color justify-between hs-width">
             <span>{{faq.Title}}</span>
             <ion-icon name="arrow-forward" class="icon-f" item-right></ion-icon>
           </span>
-        </button>
+        </a>
       </div>
     </section>
   </div>

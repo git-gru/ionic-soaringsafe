@@ -98,13 +98,13 @@ export class JoshReportsPage {
             this.visitWebsite(log.domain);
           }
         },
-        {
-          text: 'Temporarily Allow',
-          handler: () => {
-            console.log('Temporarily Clicked');
-            this.temporarilyAllow(log);
-          }
-        },
+        // {
+        //   text: 'Temporarily Allow',
+        //   handler: () => {
+        //     console.log('Temporarily Clicked');
+        //     this.temporarilyAllow(log);
+        //   }
+        // },
         {
           text: 'Always Allow',
           handler: () => {

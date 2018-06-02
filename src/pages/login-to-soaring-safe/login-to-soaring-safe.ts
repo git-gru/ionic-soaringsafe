@@ -69,8 +69,8 @@ export class LoginToSoaringSafePage {
   wrongCrendential(email) {
     
     let alert = this.alertCtrl.create({
-      title: 'Wrong Credentials', 
-      message: 'Email & Password combination is wrong. Try with Different Credential or Recover your Password',
+      title: 'Invalid Password', 
+      message: 'Password is not correct. Would you like to try again or recover your password?',
       buttons: [
         {
           text: 'Try Again',
